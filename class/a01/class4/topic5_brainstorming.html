@@ -610,7 +610,7 @@
 <li style="margin-bottom: 8px;">  <strong>標竿對齊分析</strong>：當產品經理或研發人員輸入特定產業或業務場景（如：製造業排程、零售業客服）時，系統自動比對並推薦市場上最成熟的 AI 工具與轉型方案，分析其核心功能、導入路徑與應用成效，作為自身產品升級的標竿。</li>
 <li style="margin-bottom: 8px;">  <strong>技術架構與落地方案</strong>：</li>
 <li style="margin-bottom: 8px;">  <strong>輕量化本地檢索</strong>：將雙平台共 244 款 AI 工具與方案資料庫以靜態 JSON 形式直接內嵌於前端，並引入輕量化 JavaScript 全文檢索程式庫（MiniSearch）於瀏覽器記憶體內建立索引，提供即時的模糊搜尋與條件過濾，完全無需部署後端向量資料庫（如 Qdrant 或 Milvus）。</li>
-<li style="margin-bottom: 8px;">  <strong>無伺服器瀏覽器端 RAG</strong>：採用 Serverless / Client-side RAG（檢索增強生成）架構。系統採取 <span style="background: var(--badge-bg); color: var(--badge-color); border: 1px solid var(--badge-border); padding: 2px 8px; border-radius: 6px; font-weight: bold; white-space: nowrap;">「先篩選、後分析」</span> 的優化工作流：在用戶發起 AI 對話時，瀏覽器並不發送全量資料，而是僅將經由檢索與過濾篩選後的精確工具子集作為 Context，搭配用戶本地設定的 Gemini API Key（呼叫 `gemini-3.1-flash-lite` 雲端模型，亦支援地端 Ollama 模型）傳送給大模型。此設計能 <span style="color: var(--accent); font-weight: bold;">極大化降低 Token 消耗量、成倍節省 API 運作成本，並大幅提升回答的精準度與響應效益</span>，達成零後端架構的極致節費落地。</li>
+<li style="margin-bottom: 8px;">  <strong>無伺服器瀏覽器端 RAG</strong>：採用 Serverless / Client-side RAG（檢索增強生成）架構。系統採取 <span style="background: var(--badge-bg); color: var(--badge-color); border: 1px solid var(--badge-border); padding: 2px 8px; border-radius: 6px; font-weight: bold; white-space: nowrap;">「先篩選、後分析」</span> 的優化工作流：在用戶發起 AI 對話時，瀏覽器並不發送全量資料，而是僅將經由檢索與過濾篩選後的精確工具子集作為 Context，搭配用戶本地設定的 Gemini API Key（呼叫 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">gemini-3.1-flash-lite</code> 雲端模型，亦支援地端 Ollama 模型）傳送給大模型。此設計能 <span style="color: var(--accent); font-weight: bold;">極大化降低 Token 消耗量、成倍節省 API 運作成本，並大幅提升回答的精準度與響應效益</span>，達成零後端架構的極致節費落地。</li>
 <li style="margin-bottom: 8px;">  <strong>應用場景</strong>：</li>
 <li style="margin-bottom: 8px;">  產品經理在設計 ERP 的「智慧預測」功能時，一鍵查詢產發署 AI 工具專區及 SMEBiz 中，所有已上架的製造業或零售業預測型 AI 解決方案，分析其功能規格與導入模式，精準進行產品定位與升級規劃。</li>
 </ul>
@@ -626,7 +626,7 @@
 <li style="margin-bottom: 8px;">  <strong>生成式創新提案</strong>：基於發現的市場盲點，結合 LLM 自動進行腦力激盪，產出具有獨特競爭壁壘的全新 AI 轉型工具規格書與商業模式設計。</li>
 <li style="margin-bottom: 8px;">  <strong>技術架構與落地方案</strong>：</li>
 <li style="margin-bottom: 8px;">  <strong>四維複合式檢索定位</strong>：利用系統內建的<strong>四種搜尋檢索模式（關鍵字檢索、語意條件解析、同義詞關聯、模糊相關度排序）</strong>，讓產品經理能夠多維度、無死角地檢索與審計 244 款現有工具資料庫。透過分析低匹配度或「零結果」的高頻查詢，精準鎖定市場上的功能缺口與未滿足痛點。</li>
-<li style="margin-bottom: 8px;">  <strong>生成式 AI 創新提案</strong>：針對偵測到的市場空白區，調用內置的 Gemini 智慧轉型顧問（基於 `gemini-3.1-flash-lite` 雲端模型或地端 Ollama 模型），進行多角色腦力激盪與概念組合，為未解決的痛點自動生成產品規格書與 PRD（產品需求文件）草案。</li>
+<li style="margin-bottom: 8px;">  <strong>生成式 AI 創新提案</strong>：針對偵測到的市場空白區，調用內置的 Gemini 智慧轉型顧問（基於 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">gemini-3.1-flash-lite</code> 雲端模型或地端 Ollama 模型），進行多角色腦力激盪與概念組合，為未解決的痛點自動生成產品規格書與 PRD（產品需求文件）草案。</li>
 <li style="margin-bottom: 8px;">  <strong>應用場景</strong>：</li>
 <li style="margin-bottom: 8px;">  分析發現雙平台中針對中小企業的「低門檻、免設定 AI 財務分析工具」仍屬空白，系統立即偵測到此轉型缺口，並自動生成「自動化生成式財務報表與對帳模組」的產品開發案，作為銀河 ERP SaaS 智慧增強的獨家研發方向。</li>
 <li style="margin-bottom: 8px;">  <strong>實作與視覺展示</strong>：</li>

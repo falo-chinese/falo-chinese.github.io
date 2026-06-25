@@ -571,7 +571,7 @@
 <li style="margin-bottom: 8px;">  <strong>突破「搜尋高牆」</strong>：傳統網站僅支援精確關鍵字字串比對，無法理解「手搖店預算 5 萬求 POS 與客服工具」等自然語言痛點。</li>
 <li style="margin-bottom: 8px;">  <strong>商業應用場景（秒級轉型提案）</strong>：</li>
 </ul>
-<p>    數位轉型顧問在訪談中小企業後，只需在我們開發的「AI 智慧診斷顧問平台」中輸入痛點，系統會秒級檢索整合後的 224 筆補助資料，自動在 10 秒內撰寫出結構嚴密、包含價格期程、政府補助申請連結（`source_url`）且排版美觀的<strong>「數位轉型工具導入建議書」</strong>，將原本長達數週的提案週期壓縮至秒級，大幅提升商業轉化率。</p>
+<p>    數位轉型顧問在訪談中小企業後，只需在我們開發的「AI 智慧診斷顧問平台」中輸入痛點，系統會秒級檢索整合後的 224 筆補助資料，自動在 10 秒內撰寫出結構嚴密、包含價格期程、政府補助申請連結（<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">source_url</code>）且排版美觀的<strong>「數位轉型工具導入建議書」</strong>，將原本長達數週的提案週期壓縮至秒級，大幅提升商業轉化率。</p>
 <br>
 <p>---</p>
 <br>
@@ -723,8 +723,8 @@
 <li style="margin-bottom: 8px;">  <strong>背景</strong>：主網頁使用的是暗色系 (Dark Theme) 科技美學，但使用者匯出的轉型建議書 (HTML) 必須是適合列印的亮色系 (Light Theme) Notion 風格。</li>
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
-<p>    1. 在程式碼設計中，如果我們直接將網頁渲染出的 HTML 區塊（帶有 `color: white;` 等 inline style）打包匯出，會造成什麼問題？</p>
-<p>    2. 我們如何透過「解析器分離 (Separating Parsers)」的設計，來解決這個問題？（提示：`parseMarkdown` 與 `parseMarkdownToCleanHtml` 的職責劃分）。</p>
+<p>    1. 在程式碼設計中，如果我們直接將網頁渲染出的 HTML 區塊（帶有 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">color: white;</code> 等 inline style）打包匯出，會造成什麼問題？</p>
+<p>    2. 我們如何透過「解析器分離 (Separating Parsers)」的設計，來解決這個問題？（提示：<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">parseMarkdown</code> 與 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">parseMarkdownToCleanHtml</code> 的職責劃分）。</p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  *分析與設計架構回答*：</li>
 </ul>
@@ -734,7 +734,7 @@
 <li style="margin-bottom: 8px;">  <strong>背景</strong>：由於「不設限回答（自訂指令）」解除了所有角色扮演與格式約束，AI 的 Token 使用與回覆彈性達到 100%。然而，這也意味著 AI 容易產生「幻覺」，例如虛構不存在的補助方案、混淆廠商與價格、或將金額單位「萬元」誤植（例如將 10 萬元誤判為 10 元，或漏掉美元與台幣的換算）。</li>
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
-<p>    1. 當學員使用「不設限回答」讓 AI 生成自訂轉型計劃或比較表時，應採取哪些步驟對 AI 輸出的「方案名稱」、「廠商名稱」、「價格金額」與「期程」進行真實性檢核（Grounding Audit）？（請參考我們對 `unified_ai_tools_db` 金額正規化修正前後的差異）。</p>
+<p>    1. 當學員使用「不設限回答」讓 AI 生成自訂轉型計劃或比較表時，應採取哪些步驟對 AI 輸出的「方案名稱」、「廠商名稱」、「價格金額」與「期程」進行真實性檢核（Grounding Audit）？（請參考我們對 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">unified_ai_tools_db</code> 金額正規化修正前後的差異）。</p>
 <p>    2. 在提示詞工程（Prompt Engineering）中，我們可以在自訂指令中加入哪些額外的「真實性約束限制（如要求輸出官方申請連結、比對真實 CSV 欄位）」，以降低無約束 AI 的幻覺風險？</p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  *真實性檢核步驟回答*：</li>
@@ -746,16 +746,16 @@
 <h2>【工作紙 6】本地 LLM 部署與前端連線偵錯（Ollama CORS & 混合內容安全防線）</h2>
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>填寫指引</strong>：在實作前端網頁直連地端或區網的 Ollama API（如 `http://127.0.0.1:11434` 或 `http://192.168.31.202:11434`）時，學員常會遭遇 `Failed to fetch` 的連線阻礙。本工作紙引導學員動手分析並解決瀏覽器的安全防線問題。</li>
+<li style="margin-bottom: 8px;">  <strong>填寫指引</strong>：在實作前端網頁直連地端或區網的 Ollama API（如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">http://127.0.0.1:11434</code> 或 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">http://192.168.31.202:11434</code>）時，學員常會遭遇 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Failed to fetch</code> 的連線阻礙。本工作紙引導學員動手分析並解決瀏覽器的安全防線問題。</li>
 </ul>
 <br>
 <h3>1. 偵錯分析：終端機成功 vs. 瀏覽器失敗</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>情境</strong>：在終端機中執行 `curl http://192.168.31.202:11434/api/tags` 可以順利拿到模型清單，但在網頁上輸入相同的 IP 與 Port 點擊診斷時，卻噴出 `Failed to fetch` 錯誤。</li>
+<li style="margin-bottom: 8px;">  <strong>情境</strong>：在終端機中執行 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">curl http://192.168.31.202:11434/api/tags</code> 可以順利拿到模型清單，但在網頁上輸入相同的 IP 與 Port 點擊診斷時，卻噴出 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Failed to fetch</code> 錯誤。</li>
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
 <p>    1. 既然網路是通的（curl 成功），為什麼瀏覽器裡的 JavaScript 會連線失敗？請解釋瀏覽器<strong>跨來源資源共用 (CORS)</strong> 機制在此處扮演的角色。</p>
-<p>    2. 要如何在 Ollama 伺服器端（`192.168.31.202` 這台電腦上）設定環境變數，以放行跨域連線？請寫出對應的設定指令。</p>
+<p>    2. 要如何在 Ollama 伺服器端（<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">192.168.31.202</code> 這台電腦上）設定環境變數，以放行跨域連線？請寫出對應的設定指令。</p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  *CORS 機制分析回答*：</li>
 <li style="margin-bottom: 8px;">  *伺服器端跨域放行設定指令*：</li>
@@ -763,10 +763,10 @@
 <br>
 <h3>2. 安全壁壘：混合內容阻擋 (Mixed Content Block)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>情境</strong>：當您將專案上傳並發布至 GitHub Pages 後（網址為 `https://xxxx.github.io/tw-ai-grant/`），嘗試連線區網的 Ollama 服務（`http://192.168.31.202:11434`），瀏覽器會在控制台直接封鎖此請求。</li>
+<li style="margin-bottom: 8px;">  <strong>情境</strong>：當您將專案上傳並發布至 GitHub Pages 後（網址為 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">https://xxxx.github.io/tw-ai-grant/</code>），嘗試連線區網的 Ollama 服務（<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">http://192.168.31.202:11434</code>），瀏覽器會在控制台直接封鎖此請求。</li>
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
-<p>    1. 請說明何謂瀏覽器的「混合內容（Mixed Content）」安全保護政策？為什麼安全網址 (`https`) 無法直接向非安全網址 (`http`) 發送請求？</p>
+<p>    1. 請說明何謂瀏覽器的「混合內容（Mixed Content）」安全保護政策？為什麼安全網址 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">https</code>) 無法直接向非安全網址 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">http</code>) 發送請求？</p>
 <p>    2. 針對此安全壁壘，除了手動關閉個人瀏覽器安全檢查之外，還有哪些更安全且標準的「繞過或解決連線方案」？（提示：本地 file 協議開啟、本地 http 伺服器、以及 ngrok 隧道技術的原理）。</p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  *混合內容政策分析回答*：</li>
@@ -779,7 +779,7 @@
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
 <p>    1. <strong>來源一（Google Sheet 暴露）</strong>：來源一直接將資料庫存放在公開的 Google Sheet 中，並在前端 JS 中暴露了 Sheet ID。請分析這種設計在「伺服器流量感知」與「IP 封鎖防禦」上會帶給政府網站什麼重大資安隱患？</p>
-<p>    2. <strong>來源二（自增 ID 與掃庫）</strong>：來源二採用了傳統的自增整數 ID（如 `no=35`），且未設置任何請求速率限制（Rate Limiting）。這會如何協助爬蟲進行「暴力遍歷掃庫（ID Enumeration）」？若後台權限控管不當，可能會引發什麼嚴重的漏洞（提示：BOLA 漏洞）？</p>
+<p>    2. <strong>來源二（自增 ID 與掃庫）</strong>：來源二採用了傳統的自增整數 ID（如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">no=35</code>），且未設置任何請求速率限制（Rate Limiting）。這會如何協助爬蟲進行「暴力遍歷掃庫（ID Enumeration）」？若後台權限控管不當，可能會引發什麼嚴重的漏洞（提示：BOLA 漏洞）？</p>
 <p>    3. <strong>防禦性架構設計</strong>：如果您是這兩個政府網站的資安架構師，您會採取哪四道防線（如 WAF、動態簽章、UUID、敏感個資遮蔽與驗證）來重新設計其 API 與資料庫，以兼顧資料展示與安全防護？</p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  *來源一 Google Sheet 漏洞分析回答*：</li>
@@ -819,15 +819,15 @@
 </ul>
 <p>    1. 請完成下表，對比不同降噪技術對「Token 佔用空間」與「模型推論速度/品質」的影響：</p>
 <br>
-<table class="comparison-table"><thead><tr><th>降噪技術</th><th>Token 壓縮比例 (估算值)</th><th>主要優點 (對地端 Ollama 而言)</th><th>潛在缺點或限制</th></tr></thead><tbody><tr><td><strong>無過濾 (全量資料)</strong></td><td>`0%` (約 20k+ tokens)</td><td>能考慮到資料庫所有的方案</td><td>極易引發 4096 溢出卡死</td></tr><tr><td><strong>欄位投影 (Token 壓縮)</strong></td><td></td><td></td><td>方案多時 Token 總量依然偏大</td></tr><tr><td><strong>TF-IDF 相關性排序</strong></td><td></td><td></td><td>當輸入詞彙無直接交集時無法配對</td></tr><tr><td><strong>語意同義詞擴展</strong></td><td></td><td></td><td>依賴同義詞字典的完整度</td></tr><tr><td><strong>UI 條件聯動過濾</strong></td><td></td><td>依據使用者明確意圖精準收斂</td><td>仰賴使用者手動勾選，非自動化</td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>降噪技術</th><th>Token 壓縮比例 (估算值)</th><th>主要優點 (對地端 Ollama 而言)</th><th>潛在缺點或限制</th></tr></thead><tbody><tr><td><strong>無過濾 (全量資料)</strong></td><td><code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">0%</code> (約 20k+ tokens)</td><td>能考慮到資料庫所有的方案</td><td>極易引發 4096 溢出卡死</td></tr><tr><td><strong>欄位投影 (Token 壓縮)</strong></td><td></td><td></td><td>方案多時 Token 總量依然偏大</td></tr><tr><td><strong>TF-IDF 相關性排序</strong></td><td></td><td></td><td>當輸入詞彙無直接交集時無法配對</td></tr><tr><td><strong>語意同義詞擴展</strong></td><td></td><td></td><td>依賴同義詞字典的完整度</td></tr><tr><td><strong>UI 條件聯動過濾</strong></td><td></td><td>依據使用者明確意圖精準收斂</td><td>仰賴使用者手動勾選，非自動化</td></tr></tbody></table>
 <br>
 <h3>3. 字元級 N-gram TF-IDF 與語意擴展的 JS 實作</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>背景</strong>：在沒有引入任何 heavy NPM 套件或第三方向量資料庫的前提下，我們用純 JavaScript 實作了中英文雙向 TF-IDF 得分排序與同義詞關聯引擎。</li>
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
-<p>    1. 為什麼我們不能直接在 JS 中使用英文的 `split(' ')` 空格分詞來處理中文 RAG？我們在程式碼中使用的 <strong>Unigram（單字）與 Bigram（雙字）切分法</strong> 是如何解決中文分詞挑戰的？</p>
-<p>    2. 請閱讀並分析 `SYNONYM_DICTIONARY` 的同義詞字典結構，當使用者輸入「我想開一家手搖飲料店，需要收銀系統」，這段輸入經過「同義詞擴充」與「TF-IDF 排序」後，是如何精準對位到資料庫中「POS 點餐收銀系統」方案的？</p>
+<p>    1. 為什麼我們不能直接在 JS 中使用英文的 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">split(' ')</code> 空格分詞來處理中文 RAG？我們在程式碼中使用的 <strong>Unigram（單字）與 Bigram（雙字）切分法</strong> 是如何解決中文分詞挑戰的？</p>
+<p>    2. 請閱讀並分析 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">SYNONYM_DICTIONARY</code> 的同義詞字典結構，當使用者輸入「我想開一家手搖飲料店，需要收銀系統」，這段輸入經過「同義詞擴充」與「TF-IDF 排序」後，是如何精準對位到資料庫中「POS 點餐收銀系統」方案的？</p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  *中文分詞與 N-gram 實作原理回答*：</li>
 <li style="margin-bottom: 8px;">  *同義詞擴充與檢索流程回答*：</li>
@@ -835,7 +835,7 @@
 <br>
 <h3>4. 資料安全與可追溯性：中繼數據足跡 (Metadata Footprint)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>背景</strong>：在 V2.00 系統中，我們將該次使用的 RAG 降噪引擎名稱（如 `TF-IDF 相關性排序`）寫入了歷程紀錄資料庫，並同步整合在 HTML 與 Markdown 匯出檔案中。</li>
+<li style="margin-bottom: 8px;">  <strong>背景</strong>：在 V2.00 系統中，我們將該次使用的 RAG 降噪引擎名稱（如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">TF-IDF 相關性排序</code>）寫入了歷程紀錄資料庫，並同步整合在 HTML 與 Markdown 匯出檔案中。</li>
 <li style="margin-bottom: 8px;">  <strong>探討問題</strong>：</li>
 </ul>
 <p>    1. 在企業級的 AI 應用開發中，為什麼「記錄該次生成所使用的 RAG 降噪引擎與檢索樣本數」如此重要？這對<strong>診斷報告的可重複性（Reproducibility）</strong>與<strong>商業審計（Auditing）</strong>有何幫助？</p>

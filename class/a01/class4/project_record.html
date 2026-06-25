@@ -567,8 +567,8 @@
 <li style="margin-bottom: 8px;">  <strong>來源一：<a href="https://eii.nat.gov.tw/moeai-plus/ai-tools" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">經濟部產發署 AI 工具專區</a></strong>（經濟部產業發展署主導，聚焦製造業、智慧工廠與中大型核心演算法技術） -> <strong>79 筆</strong></li>
 <li style="margin-bottom: 8px;">  <strong>來源二：<a href="https://www.smebiz.org.tw/service-ai.php" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">中小企業數位轉型入口網 (SMEBiz)</a></strong>（經濟部中小及新創企業署主導，聚焦零售、餐飲、商務推廣與輕量化辦公協作軟體） -> <strong>145 筆</strong></li>
 <li style="margin-bottom: 8px;">  <strong>輸出格式</strong>：</li>
-<li style="margin-bottom: 8px;">  JSON Database: `unified_ai_tools_db.json` (最適合作為向量資料庫與 LLM RAG 的檢索背景知識庫)</li>
-<li style="margin-bottom: 8px;">  CSV Database: `unified_ai_tools_db.csv` (適合企業導入傳統關聯式資料庫或使用試算表編輯分析)</li>
+<li style="margin-bottom: 8px;">  JSON Database: <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">unified_ai_tools_db.json</code> (最適合作為向量資料庫與 LLM RAG 的檢索背景知識庫)</li>
+<li style="margin-bottom: 8px;">  CSV Database: <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">unified_ai_tools_db.csv</code> (適合企業導入傳統關聯式資料庫或使用試算表編輯分析)</li>
 </ul>
 <br>
 <h3>1.2 專案整合動機 (Motivation)</h3>
@@ -581,7 +581,7 @@
 <li style="margin-bottom: 8px;">  <strong>轉型顧問的「秒級自動化提案」</strong>：</li>
 </ul>
 <p>    本專案成功消除政策壁壘，將兩大部會共 224 筆方案進行深度整合與欄位正規化對齊（價格數值化、期程標準化、分類對齊、聯絡資料洗淨）。</p>
-<p>    數位轉型顧問在輔導中小企業時，只需在「AI 智慧診斷顧問平台」中輸入企業訪談到的原始痛點，系統便會在毫秒內透過前端 TF-IDF/語意擴充引擎在 224 筆資料庫中完成精準粗篩，並由大語言模型（LLM）在 10 秒內生成一份結構嚴謹、分析透徹、包含真實價格及<strong>直接點擊官方補助申請連結（`source_url`）</strong>且排版精美的「數位轉型工具導入建議書」，將原本長達數週的顧問提案與審查週期直接壓縮至秒級，大幅降低中小企業獲取政策補助的門檻，創造極高的商業增值與社會效益。</p>
+<p>    數位轉型顧問在輔導中小企業時，只需在「AI 智慧診斷顧問平台」中輸入企業訪談到的原始痛點，系統便會在毫秒內透過前端 TF-IDF/語意擴充引擎在 224 筆資料庫中完成精準粗篩，並由大語言模型（LLM）在 10 秒內生成一份結構嚴謹、分析透徹、包含真實價格及<strong>直接點擊官方補助申請連結（<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">source_url</code>）</strong>且排版精美的「數位轉型工具導入建議書」，將原本長達數週的顧問提案與審查週期直接壓縮至秒級，大幅降低中小企業獲取政策補助的門檻，創造極高的商業增值與社會效益。</p>
 <br>
 <p>---</p>
 <br>
@@ -613,14 +613,14 @@
 <br>
 <h3>2.1 來源一的逆向工程策略</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>發現</strong>：分析前端 JavaScript 資源包（`useAITools.js`），發現底層資料並非來自專屬 API，而是公開的 Google Sheet (ID: `18Hq6sUrweHmm_08AcFPBnQ8XypXJ7CM6`)。</li>
+<li style="margin-bottom: 8px;">  <strong>發現</strong>：分析前端 JavaScript 資源包（<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">useAITools.js</code>），發現底層資料並非來自專屬 API，而是公開的 Google Sheet (ID: <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">18Hq6sUrweHmm_08AcFPBnQ8XypXJ7CM6</code>)。</li>
 <li style="margin-bottom: 8px;">  <strong>優化</strong>：繞過網頁 DOM 解析，利用 Google Sheet Visualization 接口直接匯出 CSV 格式。此舉規避了動態網頁加載延遲，並解決了 CSV 儲存格內含有換行符號（導致傳統按行讀取噴錯）的解析難題，確保 100% 原始資料完整度。</li>
 </ul>
 <br>
 <h3>2.2 來源二的雙層爬蟲策略</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>分頁爬取</strong>：設定 `mindusty=-1` 排除行業篩選，在 9 個分頁中精確遍歷所有 145 個方案，提取基本卡片資料。</li>
-<li style="margin-bottom: 8px;">  <strong>深度爬取</strong>：針對 145 個詳細頁網址（如 `service-content.php?no=...`）進行遍歷請求，解析出「方案規格說明」、「成功案例效益」等非結構化長文本。</li>
+<li style="margin-bottom: 8px;">  <strong>分頁爬取</strong>：設定 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">mindusty=-1</code> 排除行業篩選，在 9 個分頁中精確遍歷所有 145 個方案，提取基本卡片資料。</li>
+<li style="margin-bottom: 8px;">  <strong>深度爬取</strong>：針對 145 個詳細頁網址（如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">service-content.php?no=...</code>）進行遍歷請求，解析出「方案規格說明」、「成功案例效益」等非結構化長文本。</li>
 <li style="margin-bottom: 8px;">  <strong>防錯機制</strong>：在 HTTP 請求間設置 0.5 秒延遲（Politeness delay），保護政府伺服器，並防止 IP 被封鎖。</li>
 </ul>
 <br>
@@ -632,26 +632,26 @@
 <br>
 <h3>3.1 數值化轉換 (Normalization)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>價格數值化 (`price_amount`)</strong>：利用正規表示式 (Regex) 移除千分位逗號，提取出純數字金額（如 `方案金額 : 102,375 (新台幣/含稅)` -> `102375`）。這使得知識庫系統可以執行「預算小於 5 萬元」的精確資料庫篩選。</li>
-<li style="margin-bottom: 8px;">  <strong>授權期程數值化 (`duration_months`)</strong>：將 `12個月`、`6 (月)`、`使用月數 : 4` 等不同寫法，標準化為純數字月數（如 `12`、`6`、`4`）。</li>
+<li style="margin-bottom: 8px;">  <strong>價格數值化 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">price_amount</code>)</strong>：利用正規表示式 (Regex) 移除千分位逗號，提取出純數字金額（如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">方案金額 : 102,375 (新台幣/含稅)</code> -> <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">102375</code>）。這使得知識庫系統可以執行「預算小於 5 萬元」的精確資料庫篩選。</li>
+<li style="margin-bottom: 8px;">  <strong>授權期程數值化 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">duration_months</code>)</strong>：將 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">12個月</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">6 (月)</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">使用月數 : 4</code> 等不同寫法，標準化為純數字月數（如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">12</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">6</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">4</code>）。</li>
 </ul>
 <br>
 <h3>3.2 聯繫資訊與識別碼提取</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>統一編號 (`provider_tax_id`)</strong>：從詳細頁的企業資料區塊中提取出台灣 8 碼公司統一編號，方便後續與企業內部的 ERP/CRM 系統進行資料對接。</li>
-<li style="margin-bottom: 8px;">  <strong>聯絡信箱 (`contact_email`)</strong>：從 `mailto:` 連結或純文本中利用 Regex 精確提取出乾淨的 Email 地址。</li>
+<li style="margin-bottom: 8px;">  <strong>統一編號 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">provider_tax_id</code>)</strong>：從詳細頁的企業資料區塊中提取出台灣 8 碼公司統一編號，方便後續與企業內部的 ERP/CRM 系統進行資料對接。</li>
+<li style="margin-bottom: 8px;">  <strong>聯絡信箱 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">contact_email</code>)</strong>：從 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">mailto:</code> 連結或純文本中利用 Regex 精確提取出乾淨的 Email 地址。</li>
 </ul>
 <br>
-<h3>3.3 跨資料源分類標準化 (`category_standardized`)</h3>
+<h3>3.3 跨資料源分類標準化 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">category_standardized</code>)</h3>
 <p>將兩邊不一致的原始分類，統一對齊為 8 大 AI-Ready 類別：</p>
-<p>1.  `人資與知識管理`</p>
-<p>2.  `環境與設備管理`</p>
-<p>3.  `物料與供應鏈管理`</p>
-<p>4.  `生產與品質管理`</p>
-<p>5.  `行銷與商務推廣`</p>
-<p>6.  `能源與碳排管理`</p>
-<p>7.  `客戶服務與CRM`</p>
-<p>8.  `企業運營與辦公協作`</p>
+<p>1.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">人資與知識管理</code></p>
+<p>2.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">環境與設備管理</code></p>
+<p>3.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">物料與供應鏈管理</code></p>
+<p>4.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">生產與品質管理</code></p>
+<p>5.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">行銷與商務推廣</code></p>
+<p>6.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">能源與碳排管理</code></p>
+<p>7.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">客戶服務與CRM</code></p>
+<p>8.  <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">企業運營與辦公協作</code></p>
 <br>
 <p>---</p>
 <br>
@@ -688,10 +688,10 @@
 <p>所有專案成果均已安全儲存：</p>
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>爬蟲腳本</strong>：`/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/scratch/scrape_ai_tools.py`</li>
-<li style="margin-bottom: 8px;">  <strong>JSON 資料庫</strong>：`/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/unified_ai_tools_db.json`</li>
-<li style="margin-bottom: 8px;">  <strong>CSV 資料庫</strong>：`/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/unified_ai_tools_db.csv`</li>
-<li style="margin-bottom: 8px;">  <strong>Markdown 實戰教案</strong>：`/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/ai_km_scraping_lesson_plan.md`</li>
+<li style="margin-bottom: 8px;">  <strong>爬蟲腳本</strong>：<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/scratch/scrape_ai_tools.py</code></li>
+<li style="margin-bottom: 8px;">  <strong>JSON 資料庫</strong>：<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/unified_ai_tools_db.json</code></li>
+<li style="margin-bottom: 8px;">  <strong>CSV 資料庫</strong>：<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/unified_ai_tools_db.csv</code></li>
+<li style="margin-bottom: 8px;">  <strong>Markdown 實戰教案</strong>：<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">/Users/force/.gemini/antigravity/brain/20039396-f77b-4297-9410-8d56143ae67f/ai_km_scraping_lesson_plan.md</code></li>
 </ul>
 <br>
 <br>
@@ -702,16 +702,16 @@
 <h3>v1.00 (2026-06-24)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">完成雙軌資料採集管線開發與執行，成功抓取並標準化 224 筆政府核定 AI 補助工具資料。</li>
-<li style="margin-bottom: 8px;">產出 `unified_ai_tools_db.json` 與 `unified_ai_tools_db.csv`。</li>
-<li style="margin-bottom: 8px;">完成智慧搜尋與對話診斷首發版本網頁 (`index.html`)。</li>
+<li style="margin-bottom: 8px;">產出 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">unified_ai_tools_db.json</code> 與 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">unified_ai_tools_db.csv</code>。</li>
+<li style="margin-bottom: 8px;">完成智慧搜尋與對話診斷首發版本網頁 (<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">index.html</code>)。</li>
 </ul>
 <br>
 <h3>v2.00 (2026-06-24) - 當前版本</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>防干擾智慧搜尋</strong>：重構側邊欄搜尋邏輯。當使用者點擊側邊欄的任一智慧搜尋模式（關鍵字、語意、同義詞、模糊）時，系統會自動先清空其他篩選器（類別、來源、適用行業，並重設價格為全部），以確保搜尋不受干擾。搜尋完成後，人工仍可二次勾選或調整，列表與計數即時呈現。</li>
-<li style="margin-bottom: 8px;"><strong>雙模式 AI 診斷</strong>：設計並排的 `推薦回答 (精選診斷)` 與 `不設限回答 (自訂指令)` 按鈕。推薦模式依據 RAG 模板精選 3~5 款（最多至 10 款）核心方案輸出結構化建議書；自訂指令模式不限格式，完全依據使用者自訂問題對篩選出的背景方案進行問答。</li>
-<li style="margin-bottom: 8px;"><strong>動態模型選擇器</strong>：在對話診斷區新增動態下拉選單，支援 `Gemini 3.1 Flash-Lite`（預設）、`Gemini 2.5 Flash`、`Gemini 3.1 Flash`、`Gemini 3.5 Flash`。系統直接讀取該 value 組裝 API 請求網址，且此選擇每次整理頁面皆會重置為預設，不寫入 localStorage。</li>
-<li style="margin-bottom: 8px;"><strong>Notion 風格 HTML 匯出</strong>：解決暗色主題下導出 HTML 文件導致文字看不見的問題。實作獨立的無 inline 顏色樣式解析器 `parseMarkdownToCleanHtml`，並在導出的 HTML 檔案頂部嵌入 Notion 風格亮色 CSS 樣式表。</li>
+<li style="margin-bottom: 8px;"><strong>雙模式 AI 診斷</strong>：設計並排的 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">推薦回答 (精選診斷)</code> 與 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">不設限回答 (自訂指令)</code> 按鈕。推薦模式依據 RAG 模板精選 3~5 款（最多至 10 款）核心方案輸出結構化建議書；自訂指令模式不限格式，完全依據使用者自訂問題對篩選出的背景方案進行問答。</li>
+<li style="margin-bottom: 8px;"><strong>動態模型選擇器</strong>：在對話診斷區新增動態下拉選單，支援 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Gemini 3.1 Flash-Lite</code>（預設）、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Gemini 2.5 Flash</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Gemini 3.1 Flash</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Gemini 3.5 Flash</code>。系統直接讀取該 value 組裝 API 請求網址，且此選擇每次整理頁面皆會重置為預設，不寫入 localStorage。</li>
+<li style="margin-bottom: 8px;"><strong>Notion 風格 HTML 匯出</strong>：解決暗色主題下導出 HTML 文件導致文字看不見的問題。實作獨立的無 inline 顏色樣式解析器 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">parseMarkdownToCleanHtml</code>，並在導出的 HTML 檔案頂部嵌入 Notion 風格亮色 CSS 樣式表。</li>
 <li style="margin-bottom: 8px;"><strong>4 款工具橫向對比與商務亮色匯出</strong>：將對比上限提升至 4，在底部對比小視窗中新增紅色的「清空對比」按鈕，並將對比結果 HTML 匯出改為極具商務質感的亮色排版。</li>
 </ul>
 <br>
@@ -720,7 +720,7 @@
 <li style="margin-bottom: 8px;"><strong>前端 RAG 降噪引擎選單</strong>：在本地 Ollama 配置區整合 5 大前端 RAG 技術選單（無過濾、欄位投影與精簡、TF-IDF 相關性排序、語意特徵與同義詞擴展、UI 條件聯動過濾），提供學員高階 RAG 調優沙盒。</li>
 <li style="margin-bottom: 8px;"><strong>純 JS 字元級 TF-IDF 引擎與同義詞關聯</strong>：針對中文採用 Unigram/Bigram 切分法，結合數位轉型同義詞字典進行語意擴展，實現超輕量化、極速（<5ms）的瀏覽器端檢索排序，將 Token 數控制在安全且相關的 ~800 tokens，效能提升數十倍。</li>
 <li style="margin-bottom: 8px;"><strong>發送前預檢與 4096 超載攔截 (Pre-flight Safeguard)</strong>：發送 API 前高精度預估 Prompt Token。若超載則強力攔截，彈出精緻的「地端 Token 超載預警玻璃對話框」，提供套用 TF-IDF 自動優化、堅持發送全文（對照組）與取消等 HCI 互動選擇。</li>
-<li style="margin-bottom: 8px;"><strong>全端數據中繼足跡 (Metadata Footprint & Audit)</strong>：將該次採用的 RAG 引擎名稱寫入 `currentReportTokenData.ragFilterEngine`，使 <strong>UI 審計面板</strong>、<strong>本地歷程紀錄</strong> 以及 <strong>匯出之 HTML、Markdown 報表</strong> 同步整合併永久保留其數據軌跡，以利商業安全審計與結果追溯。</li>
+<li style="margin-bottom: 8px;"><strong>全端數據中繼足跡 (Metadata Footprint & Audit)</strong>：將該次採用的 RAG 引擎名稱寫入 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">currentReportTokenData.ragFilterEngine</code>，使 <strong>UI 審計面板</strong>、<strong>本地歷程紀錄</strong> 以及 <strong>匯出之 HTML、Markdown 報表</strong> 同步整合併永久保留其數據軌跡，以利商業安全審計與結果追溯。</li>
 </ul>
 <br>
 <br>
