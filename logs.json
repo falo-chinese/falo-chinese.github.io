@@ -1,10 +1,12 @@
 [
   {
-    "timestamp": "2026-06-25T19:09:57+08:00",
+    "timestamp": "2026-06-25T19:12:24+08:00",
     "action_type": "synced",
-    "description": "依據老師最新指示，將 FALO 企業導入部署與閘道相容性評估工具（FALO Assessment Tool / Firewall Test，支援去中心化 no-cors 探針檢測與離線狀態匯出）正式整合至 Class 04 主題四（KM 建置與應用思維）中。以『企業部署實戰』獨立章節向學員解構在嚴格內網資安審查下的實務部署痛點與技術原理。同步更新 Class 04 首頁描述、重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），並將所有變更同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "description": "依據老師最新指示，將 FALO 企業導入部署與閘道相容性評估工具（FALO Assessment Tool / Firewall Test，支援去中心化 no-cors 探針檢測與離線狀態匯出）正式整合至 Class 04 主題五（AI App 專案腦力激盪）中。以『企業部署實戰』獨立章節向學員解構在進行 AI App 的 MVP/PoC 規劃與專案探索時的網絡相容性評估痛點與技術原理。同時還原主題四內容、更新 Class 04 首頁描述、重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），並將所有變更同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
     "operator": "AI (Antigravity)",
     "files_affected": [
+      "falo-taiwan/class/a01/class4/topic5_brainstorming.md",
+      "falo-taiwan/class/a01/class4/topic5_brainstorming.html",
       "falo-taiwan/class/a01/class4/topic4_km_rag.md",
       "falo-taiwan/class/a01/class4/topic4_km_rag.html",
       "falo-taiwan/class/a01/class4/index.md",
