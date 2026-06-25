@@ -4,7 +4,7 @@
 
 ![ETL 實務整合架構](images/chatgpt_etl_architecture_intro.png)
 
-![FORCE 架構圖 (ETL x KM x Agent)](images/force_etl_km_agent.png)
+![FORCE 架構圖 (ETL x KM x Agent)](images/falo_etl_km_agent.png)
 
 ---
 
