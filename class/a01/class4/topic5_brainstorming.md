@@ -226,11 +226,10 @@
 
 ## 🛡️ 企業部署實戰：FORCE 閘道相容性與防火牆檢測工具 (Firewall Test) {#firewall-test}
 
-在進行 AI App 的專案腦力激盪、MVP（最小可行性產品）與 PoC（概念驗證）規劃時，團隊往往會面臨一個極具殺傷力的現實問題：**「這款 AI App 在企業內部高度安全的網絡環境下到底能不能通？」**
+在進行 AI App 的專案腦力激盪、MVP（最小可行性產品）與 PoC（概念驗證）規劃時，團隊往往會面臨一個極具殺傷力的現實問題：「這款 AI App 在企業內部高度安全的網絡環境下到底能不能通？」
 
-為了在 PoC 規劃初期就進行評估，避免 AI App 創意在部署階段面臨阻礙，我們將 **FORCE Assessment Tool (Firewall Test)** 閘道與平台相容性評估工具納入本主題，作為 AI App 專案可行性評估的即戰力武器。
-* 🌐 **[線上即時檢測工具入口 ➔ FORCE Firewall Test](https://force-taiwan.github.io/firewall-test/)**
-* 📖 **[企業導入部署說明手冊 ➔ Firewall Test Readme](https://force-taiwan.github.io/firewall-test/readme.html)**
-* 💻 **本地運行版入口 ➔ [deployment-assessment.html](deployment-assessment.html)**
+為了在 PoC 規劃初期就進行評估，避免 AI App 創意在部署階段面臨阻礙，我們將 FORCE Assessment Tool (Firewall Test) 閘道與平台相容性評估工具納入本主題，作為 AI App 專案可行性評估的即戰力武器。
+
+🌐 線上即時檢測工具入口 ➔   [https://falo-taiwan.github.io/firewall-test/](https://falo-taiwan.github.io/firewall-test/)
 
 
