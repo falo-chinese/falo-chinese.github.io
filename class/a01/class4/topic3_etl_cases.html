@@ -515,7 +515,7 @@
                     <li><a class="toc-link" href="topic3_etl_cases.html#etl-e">📥 E (Extract) - 取得資料</a></li>
                     <li><a class="toc-link" href="topic3_etl_cases.html#etl-t">⚡ T (Transform) - 整理 / 轉換</a></li>
                     <li><a class="toc-link" href="topic3_etl_cases.html#etl-l">📤 L (Load) - 輸出 / 應用</a></li>
-                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-agent">🤖 Agent (AI Agent) - 智慧協作</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#featured-cases">🚀 核心實戰案例展示</a></li>
                 </ul>
 
                 <!-- 主題四：KM 建置與應用思維 -->
@@ -554,95 +554,32 @@
 <br>
 <p><img src="images/falo_etl_km_agent.png" alt="FORCE 架構圖 (ETL x KM x Agent)" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
-<h2>🛠️ FORCE × Agent 核心四大階段深度解析 (Core Phases)</h2>
 <br>
-<p>以下針對 FORCE 智慧協作平台之 <strong>E、T、L、Agent</strong> 四大階段進行深度技術解析，引導學員掌握數據從「異質採集」到「自主決策」的完整演進路徑。</p>
+<h2>🛠️ FORCE × ETL 核心階段深度解析 (Core Phases)</h2>
+<br>
+<p>以下針對 FORCE 智慧協作平台之 <strong>E、T、L</strong> 三大核心階段進行深度技術解析，引導學員掌握數據從「異質採集」到「加載應用」的完整演進路徑。</p>
 <br>
 <p>---</p>
 <br>
 <h3 id="etl-e">📥 E (Extract) - 取得資料</h3>
 <br>
-<p><img src="images/etl_e_extract.svg" alt="E (Extract) 取得資料" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
-<br>
-<p>這是數據管線（Data Pipeline）的起點，專注於從多元、異質的源頭中採集原始資訊。在企業級應用中，數據源通常包含：</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>結構化數據</strong>：ERP 資料庫、關聯式資料庫（SQL）交易紀錄、標準 FORCE API 接口。</li>
-<li style="margin-bottom: 8px;"><strong>半結構化數據</strong>：Email 通訊、CSV 報表、JSON 數據流。</li>
-<li style="margin-bottom: 8px;"><strong>非結構化數據</strong>：紙本憑證掃描件（PDF/圖片）、會議錄音（語音）、教學影片（影格）。</li>
-</ul>
-<br>
-<p>在 AI 時代，E 階段更被賦予了「多模態感知起點」的使命。透過電腦視覺與 OCR Agent，系統能像人類的眼睛一樣，主動辨識實體世界與非結構化文件中的視覺元素，將其轉化為可供處理的原始文本流（Raw Stream），為後續的 FORCE 知識轉置提供源源不絕的素材。</p>
-<br>
-<div class="card" style="border-left: 4px solid var(--accent); background: rgba(192, 132, 252, 0.03); padding: 1.5rem; margin: 1.5rem 0;">
-<strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">💡 NOTE / 說明</strong>
-<p style="margin: 0; font-size: 0.95rem;"></p></div>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">🔗 <strong>相關展示與範例網站</strong>：*(後續將在此插入具體範例網站與相關連結)*</blockquote>
+<p>這是數據管線（Data Pipeline）的起點，專注於從多元、異質的源頭中採集原始資訊。在企業級應用中，數據源通常包含結構化資料（ERP、資料庫）、半結構化資料（Email、CSV、JSON）與非結構化資料（紙本憑證、會議錄音、教學影片等）。</p>
 <br>
 <p>---</p>
 <br>
 <h3 id="etl-t">⚡ T (Transform) - 整理 / 轉換</h3>
 <br>
-<p><img src="images/etl_t_transform.svg" alt="T (Transform) 整理 / 轉換" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
-<br>
-<p>這是整條數據管線的「核心靈魂」，負責將前階段採集到的無序 Raw 數據，進行極致的降噪、清洗、校正與結構化封裝。核心處理邏輯包括：</p>
-<p>1. <strong>資料清洗與去重</strong>：排除重複行、去除頁首頁尾、過濾空白字符與多餘雜訊。</p>
-<p>2. <strong>OCR 校正與補件</strong>：針對圖片辨識出的斷字、錯字進行語意校正，並補齊遺漏欄位。</p>
-<p>3. <strong>AI 萃取與分類</strong>：調用大語言模型（LLM）的推理能力，從段落中精確辨識並分類出實體（如金額、日期、品項、統編）。</p>
-<p>4. <strong>建立 Metadata / 標籤</strong>：自動生成檔案的版本、分類標籤、權限屬性，並將資料轉置為標準的結構化 JSON 格式。</p>
-<br>
-<p>經過 T 階段的處理，原本雜亂無章的非結構化數據將轉化為「高價值、高清晰度、機器與 AI 皆可讀」的黃金數據（Clean JSON），並生成對應的向量嵌入（Embedding），為中央 FORCE 知識庫做好準備。</p>
-<br>
-<div class="card" style="border-left: 4px solid var(--accent); background: rgba(192, 132, 252, 0.03); padding: 1.5rem; margin: 1.5rem 0;">
-<strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">💡 NOTE / 說明</strong>
-<p style="margin: 0; font-size: 0.95rem;"></p></div>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">🔗 <strong>相關展示與範例網站</strong>：*(後續將在此插入具體範例網站與相關連結)*</blockquote>
+<p>這是整條數據管線的「核心靈魂」，負責將前階段採集到的無序原始數據，進行降噪、清洗、校正、AI 語意萃取與結構化封裝（例如轉換為標準的 Clean JSON 格式），為後續的知識庫檢索與決策應用做好準備。</p>
 <br>
 <p>---</p>
 <br>
 <h3 id="etl-l">📤 L (Load) - 輸出 / 應用</h3>
 <br>
-<p><img src="images/etl_l_load.svg" alt="L (Load) 輸出 / 應用" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
-<br>
-<p>這是管線價值落地的「最後一公里」，負責將清洗乾淨且結構化後的黃金數據，精準加載至目標系統中，進而轉化為企業的決策價值。主要的載入目標與應用場景 include：</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>知識沉澱（Vector DB）</strong>：加載至向量資料庫（如 Milvus、Pinecone 或本地向量索引），作為 RAG（檢索增強生成）系統的核心知識源。</li>
-<li style="margin-bottom: 8px;"><strong>業務整合（ERP / SQL）</strong>：與 FORCE 平台或現有的 ERP、CRM 或 MIS 系統對接，自動完成單據入帳、主數據更新。</li>
-<li style="margin-bottom: 8px;"><strong>運維監控（Dashboard）</strong>：加載至戰情中心，實時呈現數據流狀態、Token 流量花費、以及 API 性能遙測數據（Telemetry）。</li>
-<li style="margin-bottom: 8px;"><strong>主動通知（Notifications）</strong>：加載完成後自動觸發下游通知，如 LINE 訊息推播、Email 自動派送或 Webhook 觸發。</li>
-</ul>
-<br>
-<p>L 階段將結構化知識加載到正確的位置，使靜態的數據重新「活」了起來，成為驅動企業運營的即戰力。</p>
-<br>
-<div class="card" style="border-left: 4px solid var(--accent); background: rgba(192, 132, 252, 0.03); padding: 1.5rem; margin: 1.5rem 0;">
-<strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">💡 NOTE / 說明</strong>
-<p style="margin: 0; font-size: 0.95rem;"></p></div>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">🔗 <strong>相關展示與範例網站</strong>：*(後續將在此插入具體範例網站與相關連結)*</blockquote>
+<p>這是管線價值落地的「最後一公里」，負責將清洗乾淨且結構化後的黃金數據，精準加載至目標系統中（如向量資料庫、ERP 系統、戰情監控面板或自動通知 Webhook），進而轉化為企業的實質決策與業務價值。</p>
 <br>
 <p>---</p>
 <br>
-<h3 id="etl-agent">🤖 Agent (AI Agent) - 智慧協作</h3>
-<br>
-<p><img src="images/etl_agent.svg" alt="Agent (AI Agent) 智慧協作" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
-<br>
-<p>這是整條 ETL 管線的「大腦指揮官」，對應 FORCE 架縱最底層的 <strong>AI Agent 智慧協作平台</strong>。它改變了傳統自動化程式的僵化思維，引入了具備推理與規劃能力的自治 Agent 佇列：</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>Workflow Agent</strong>：主動規劃多步驟工作流，串聯不同的微服務。</li>
-<li style="margin-bottom: 8px;"><strong>OCR / ETL Agent</strong>：自主判斷最適合的辨識引擎，並在辨識失敗時進行自我反思與重試。</li>
-<li style="margin-bottom: 8px;"><strong>Audit Agent</strong>：全量審查入帳數據，主動識別異常交易、重複報支或合規漏洞。</li>
-<li style="margin-bottom: 8px;"><strong>人機協作（HITL, Human-in-the-Loop）</strong>：當系統遇到低置信度數據或高風險操作時，Agent 會主動暫停並將任務派送給人類主管進行審批，兼顧效率與安全。</li>
-</ul>
-<br>
-<p>AI Agent 貫穿了 E-T-L 的全生命週期，讓整個數據管線具備了自我優化、主動防禦與自主決策的智慧能力。</p>
-<br>
-<div class="card" style="border-left: 4px solid var(--accent); background: rgba(192, 132, 252, 0.03); padding: 1.5rem; margin: 1.5rem 0;">
-<strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">💡 NOTE / 說明</strong>
-<p style="margin: 0; font-size: 0.95rem;"></p></div>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">🔗 <strong>相關展示與範例網站</strong>：</blockquote>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">* <a href="https://falo-taiwan.github.io/ipas-aiap/practice-swiper.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 iPAS 智慧輔導 AI Agent 模擬器</a> - 結合大模型視覺與高精度 OCR 技術，將紙本/圖片題庫進行即時結構化轉換、清洗與自動答題之完整 ETL 實踐，並搭載即時 Token 消耗與台幣花費監控面板。</blockquote>
-<br>
-<p>---</p>
-<br>
-<h2>🚀 核心實戰案例展示 (Featured Case Studies)</h2>
+<h2 id="featured-cases">🚀 核心實戰案例展示 (Featured Case Studies)</h2>
 <br>
 <p>以下為 Class 04 重點示範專案，著重於將電腦視覺、OCR 辨識與企業工作流/智慧稽核整合運作的實際落地設計。</p>
 <br>
