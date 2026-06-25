@@ -37,7 +37,150 @@
 
 ### 1. 一般 AI Coding 普通版 (v1) 的限制
 普通版 v1 的核心目標是 **「快速交付 Demo，驗證想法 (PoC)」**。
-* **技術特點**：採用純前端 SPA 架構，資料儲存於靜態 JSON 中，使用簡易的 MiniSearch (TF-IDF) 進行關鍵字搜尋。這在開發初期非常高效，能在幾小時到一天內快速實現。
+* **技術特點**：採用純前端 SPA架構，資料儲存於靜態 JSON 中，使用簡易的 MiniSearch (TF-IDF) 進行關鍵字搜尋。這在開發初期非常高效，能在幾小時到一天內快速實現。
+
+<style>
+/* 隱藏 HTML5 details 預設箭頭 */
+details.prompt-details summary::-webkit-details-marker { display: none; }
+details.prompt-details summary { list-style: none; }
+/* 展開時旋轉自訂箭頭 */
+details.prompt-details[open] summary span.arrow { transform: rotate(90deg); }
+/* 懸停與點擊自訂過渡 */
+details.prompt-details summary:hover { 
+    background: rgba(56, 189, 248, 0.12) !important; 
+    border-color: rgba(56, 189, 248, 0.4) !important; 
+    color: #38bdf8 !important;
+}
+</style>
+
+<div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
+    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <h4 style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
+            🖥️ 數據工程第一步：多源官網 AI 資料採集提示詞 {#data-ingestion-prompts}
+        </h4>
+        <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
+            在開發 AI KM 知識庫時，高質量的原始數據是 RAG 的基石。學員可以直接一鍵複製下方任一提示詞並發送給 AI 助理（如 Antigravity / Codex），引導 AI 自動分析目標網頁結構，並以最聰明、高效的手段將兩個官方網站的 AI 工具資料完整採集並落地成乾淨的 CSV 實體資料庫。
+        </p>
+    </div>
+
+    <!-- 簡單版 Prompt 區塊 -->
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <h5 style="margin: 0; color: #10b981; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
+                🟢 1. 簡易版：快速網頁採集 CSV 提示詞
+            </h5>
+            <button id="btn-scrape-simple" onclick="copyPrompt('scrape-simple')" style="background: #059669; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
+                複製「簡單版」提示詞
+            </button>
+        </div>
+        <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+            結果導向，不限定技術。引導 AI 助理以最直接、簡單的方式爬取兩個網站的核心欄位，快速合併並輸出為乾淨的 CSV 檔案。
+        </p>
+        <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
+            <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
+            </summary>
+            <pre id="scrape-simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🕸️ 快速網頁 AI 工具資料採集助手 (不限技術/直接落地 CSV)
+
+你現在是一位高效的資料採集助理。我想從以下兩個台灣官方網站中，完整抓取所有 AI 工具與服務的專案內容，並直接儲存為一份 CSV 檔案：
+
+1. 經濟部產發署 AI 工具專區：
+   https://eii.nat.gov.tw/moeai-plus/ai-tools
+2. 中小企業數位轉型入口網（SMEBiz）：
+   https://www.smebiz.org.tw/service-ai.php
+
+## 📋 採集要求：
+1. **技術不限**：請根據這兩個網站的實際網頁結構，自主選擇最快、最簡單且最有效率的方法（無論是編寫指令、分析 API 直接請求、撰寫腳本，或使用任何工具）。
+2. **抓取欄位**：至少包含「來源網站」、「工具/服務名稱」、「廠商名稱」、「工具介紹」、「原始連結」。
+3. **資料輸出**：將這兩個網站抓到的資料整合，輸出為一個名為 `raw_ai_tools_list.csv` 的檔案，編碼請使用 `utf-8-sig`（確保以 Excel 開啟時中文不會呈現亂碼）。
+
+請直接為我提供達成此目標的最優解決方案、完整的執行程式碼/指令，並附上詳細的中文步驟說明。</pre>
+        </details>
+    </div>
+
+    <!-- 專家版 Prompt 區塊 -->
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <h5 style="margin: 0; color: #38bdf8; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
+                🛡️ 2. 專家版：高效網頁數據採集與 CSV 資料庫建立提示詞
+            </h5>
+            <button id="btn-scrape-expert" onclick="copyPrompt('scrape-expert')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
+                複製「專家版」提示詞
+            </button>
+        </div>
+        <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+            結果導向，不限技術。引導 AI 助理自主分析載入機制（XHR/API 嗅探 vs DOM 解析），處理分頁與抗干擾，清洗 HTML 雜訊，產出結構高度對齊的 CSV 資料庫。
+        </p>
+        <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
+            <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
+            </summary>
+            <pre id="scrape-expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 高效多源網頁採集與 CSV 實體資料庫建立專家
+
+你是一位頂尖的資料採集與網頁爬蟲專家。請針對以下兩個台灣政府的 AI 補助與服務專區網站，進行深入分析並執行資料採集，目標是將所有 AI 工具的完整專案內容抓取下來，匯出為一份乾淨、無雜訊的統一 CSV 實體資料庫：
+
+- 目標網站 A：經濟部產發署 AI 工具專區
+  URL: https://eii.nat.gov.tw/moeai-plus/ai-tools
+- 目標網站 B：中小企業數位轉型入口網（SMEBiz）
+  URL: https://www.smebiz.org.tw/service-ai.php
+
+---
+
+## ⚙️ 第一階段：架構分析與最優採集路徑選擇
+1. **自主技術選型**：請先分析這兩個網站的資料載入機制（例如：是否背後有直接提供 JSON 的非同步 API 通道？還是必須解析 HTML DOM？是否有分頁限制？）。請主動選擇 最省時、最穩健且最高效 的方法與工具鏈（如直接 API 提取、瀏覽器自動化、編寫輕量腳本等）。
+2. **完整性與翻頁**：腳本或方法必須能夠完整採集到「所有頁面」的專案，而非僅有第一頁，需具備自動處理分頁或循環請求的能力。
+3. **採集禮貌**：在批次請求之間加入適當的延遲，確保不對官方伺服器造成連線壓力。
+
+---
+
+## 🧼 第二階段：資料去噪與 CSV 欄位規範
+採集到的資料在寫入 CSV 之前，必須完成以下清洗流程，確保資料庫品質：
+1. **文字純淨化**：清除所有 HTML 殘留標籤、逸出字元（如 `&amp;nbsp;`）、以及描述文字中多餘的換行符與前後空白，確保 CSV 欄位不會錯位。
+2. **對齊標準 CSV 欄位**：將兩站的資料統一對齊至以下 CSV 欄位結構：
+   - `來源網站` (如：經濟部產發署 / 中小企業數位轉型網)
+   - `AI工具名稱`
+   - `服務廠商` (提供該工具的廠商名稱)
+   - `分類標籤` (原始網頁上的分類名稱)
+   - `詳細介紹` (該 AI 工具的功能描述、適用場景等)
+   - `補助或費用資訊` (若網頁有記載則抓取，若無則留空)
+   - `原始網頁連結`
+
+---
+
+## 💾 第三階段：CSV 資料落地與報告
+1. **資料去重**：根據 `AI工具名稱` 與 `服務廠商` 進行重複值篩除，避免重複採集。
+2. **格式與編碼**：將合併後的資料輸出為 `unified_raw_ai_tools.csv` 檔案，且必須強制使用 `utf-8-sig` 編碼儲存（確保在 Windows/Mac 等不同系統的 Excel 中直接雙擊開啟時中文完美顯示，不出現亂碼）。
+3. **執行統計**：採集完成後，輸出簡單的採集統計摘要（如成功抓取總筆數、各網站筆數分布等）。
+
+請為我輸出最優的實作方案與完整的代碼/指令，並附上詳細的安裝、執行與調試中文說明。</pre>
+        </details>
+    </div>
+</div>
+
+<script>
+function copyPrompt(type) {
+    const textToCopy = document.getElementById(type + '-prompt-text').textContent;
+    const buttonId = 'btn-' + type;
+    const originalText = type === 'scrape-simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';
+    const successColor = '#059669';
+    const originalColor = type === 'scrape-simple' ? '#059669' : '#0284c7';
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const btn = document.getElementById(buttonId);
+        btn.style.background = successColor;
+        btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg> ✓ 已複製到剪貼簿`;
+        
+        setTimeout(() => {
+            btn.style.background = originalColor;
+            btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg> ` + originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('複製失敗: ', err);
+    });
+}
+</script>
 
 ## 🗺️ 企業級 AI App 落地藍圖：全面合規與長期維運
 
