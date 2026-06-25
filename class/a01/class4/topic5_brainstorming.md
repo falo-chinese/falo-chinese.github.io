@@ -148,66 +148,65 @@
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別一：行政與文宣效率增強 (Administrative & Marketing Efficiency)</b></summary>
 
-1.  **文宣海報 AI 生成器**：輸入產品特徵與目標受眾，自動生成多規格社群媒體文宣文案、吸睛標題與視覺設計排版草圖。
-2.  **多國語系企業官網翻譯與 SEO 優化器**：自動將官網內容翻譯為多國語言，並根據當地搜尋引擎習慣，自動生成高排名的 Meta 標籤與關鍵字佈局。
-3.  **生成式電子郵件回信助理**：分析客戶來信的語意與情緒，自動草擬專業、委婉或積極等多種語氣的商務回信供人員選擇。
-4.  **企業公告與通知自動發佈器**：一鍵將複雜的政府政策或公司公文精簡為易讀的公告，並自動排程發送至 Slack、Teams 或 Line 官方帳號。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">1. 文宣海報 AI 生成器：輸入產品特徵與目標受眾，自動生成多規格社群媒體文宣文案、吸睛標題與視覺設計排版草圖。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">2. 多國語系企業官網翻譯與 SEO 優化器：自動將官網內容翻譯為多國語言，並根據當地搜尋引擎習慣，自動生成高排名的 Meta 標籤與關鍵字佈局。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">3. 生成式電子郵件回信助理：分析客戶來信的語意與情緒，自動草擬專業、委婉或積極等多種語氣的商務回信供人員選擇。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">4. 企業公告與通知自動發佈器：一鍵將複雜的政府政策或公司公文精簡為易讀的公告，並自動排程發送至 Slack、Teams 或 Line 官方帳號。</p>
 </details>
 
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別二：智慧會議與協作精練 (Smart Meetings & Collaboration)</b></summary>
 
-5.  **多語言語意逐字稿萃取器**：支援中、英、台語等多語混雜的會議錄音，自動過濾口頭禪與贅字，生成極高精確度的發言人對照逐字稿。
-6.  **Action Item 自動追蹤與看板同步器**：從會議逐字稿中自動提煉出決策事項與待辦任務，自動在 Jira/Trello 上建立卡片並指派給對應同仁。
-7.  **智慧行事曆協調與最佳時段推薦器**：自動分析跨部門團隊成員的行事曆忙閒狀態與個人專注時間偏好，自動推薦最不易被打擾的最佳會議時段。
-8.  **會議亮點短影音/摘要生成器**：自動偵測會議中的熱烈討論或關鍵簡報段落，自動剪輯成 1 分鐘的重點精華視訊片段並附帶文字摘要。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">5. 多語言語意逐字稿萃取器：支援中、英、台語等多語混雜的會議錄音，自動過濾口頭禪與贅字，生成極高精確度的發言人對照逐字稿。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">6. Action Item 自動追蹤與看板同步器：從會議逐字稿中自動提煉出決策事項與待辦任務，自動在 Jira/Trello 上建立卡片並指派給對應同仁。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">7. 智慧行事曆協調與最佳時段推薦器：自動分析跨部門團隊成員的行事曆忙閒狀態與個人專注時間偏好，自動推薦最不易被打擾的最佳會議時段。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">8. 會議亮點短影音/摘要生成器：自動偵測會議中的熱烈討論或關鍵簡報段落，自動剪輯成 1 分鐘的重點精華視訊片段並附帶文字摘要。</p>
 </details>
 
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別三：合規與安全防護助理 (Compliance & Security Assistant)</b></summary>
 
-9.  **敏感資訊 (PII) 自動遮蔽與去識別化工具**：在將文件上傳至公有雲 LLM 或外發給第三方前，自動偵測並遮蔽身分證字號、信用卡號、手機號碼等敏感個資。
-10. **本地離線法規與合約合規審查助理**：基於本地邊緣端模型，在 100% 物理隔離與隱私安全的前提下，快速審查並標註商業合約中的潛在法務與合規風險。
-11. **企業員工安全行為與異常存取監控器**：智慧監控與分析異常的檔案下載、系統登入行為，在發生資料外洩或帳號劫持前主動發出預警。
-12. **智慧商標與專利查核助手**：自動檢索海量商標與專利公開資料庫，評估新產品命名、外觀設計或技術專利的潛在侵權風險。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">9. 敏感資訊 (PII) 自動遮蔽與去識別化工具：在將文件上傳至公有雲 LLM 或外發給第三方前，自動偵測並遮蔽身分證字號、信用卡號、手機號碼等敏感個資。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">10. 本地離線法規與合約合規審查助理：基於本地邊緣端模型，在 100% 物理隔離與隱私安全的前提下，快速審查並標註商業合約中的潛在法務與合規風險。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">11. 企業員工安全行為與異常存取監控器：智慧監控與分析異常的檔案下載、系統登入行為，在發生資料外洩或帳號劫持前主動發出預警。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">12. 智慧商標與專利查核助手：自動檢索海量商標與專利公開資料庫，評估新產品命名、外觀設計或技術專利的潛在侵權風險。</p>
 </details>
 
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別四：財務與報支自動化 (Financial & Expense Automation)</b></summary>
 
-13. **智慧收據與發票 OCR 報支機器人**：員工僅需用手機拍攝收據，系統即刻自動辨識消費金額、統一編號、品名與交易日期，並自動填妥報支單。
-14. **差旅費用自動合規稽核器**：對照企業內部差旅管理辦法，自動審查報銷單中是否存在超支、重複報銷、非工作日消費等異常行為。
-15. **零用金動態預警與智慧補足預測器**：分析部門歷史零用金支出的速率與週期，預測水位低於安全線的時間點，並自動觸發補款流程。
-16. **智慧供應商付款計畫優化器**：綜合考量企業自身資金成本、銀行利率與供應商提供的早期付款折扣，自動計算出最優的付款排程。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">13. 智慧收據與發票 OCR 報支機器人：員工僅需用手機拍攝收據，系統即刻自動辨識消費金額、統一編號、品名與交易日期，並自動填妥報支單。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">14. 差旅費用自動合規稽核器：對照企業內部差旅管理辦法，自動審查報銷單中是否存在超支、重複報銷、非工作日消費等異常行為。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">15. 零用金動態預警與智慧補足預測器：分析部門歷史零用金支出的速率與週期，預測水位低於安全線的時間點，並自動觸發補款流程。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">16. 智慧供應商付款計畫優化器：綜合考量企業自身資金成本、銀行利率與供應商提供的早期付款折扣，自動計算出最優的付款排程。</p>
 </details>
 
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別五：客戶服務與自動化銷售 (Customer Service & Automated Sales)</b></summary>
 
-17. **多模態智慧客服 Chatbot**：結合 RAG 技術與視覺辨識，不僅能回答文字問題，還能看懂用戶上傳的產品故障照片，給出精準的維修故障排除步驟。
-18. **銷售漏斗機會智慧預測與評分器**：深度分析銷售日誌、客戶郵件往來與互動頻率，自動為潛在機會進行贏率評分，並推薦下一步最佳行動。
-19. **智慧合約續約與到期主動提醒器**：自動偵測即將到期的客戶合約，結合客戶滿意度與使用頻率分析，自動草擬客製化的續約方案與邀請信。
-20. **社群聆聽與輿情警報系統**：即時監控論壇、社群媒體與新聞，當出現針對公司產品或品牌的負面輿情時，即時發送警報並自動生成公關回應草稿。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">17. 多模態智慧客服 Chatbot：結合 RAG 技術與視覺辨識，不僅能回答文字問題，還能看懂用戶上傳的產品故障照片，給出精準的維修故障排除步驟。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">18. 銷售漏斗機會智慧預測與評分器：深度分析銷售日誌、客戶郵件往來與互動頻率，自動為潛在機會進行贏率評分，並推薦下一步最佳行動。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">19. 智慧合約續約與到期主動提醒器：自動偵測即將到期的客戶合約，結合客戶滿意度與使用頻率分析，自動草擬客製化的續約方案與邀請信。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">20. 社群聆聽與輿情警報系統：即時監控論壇、社群媒體與新聞，當出現針對公司產品或品牌的負面輿情時，即時發送警報並自動生成公關回應草稿。</p>
 </details>
 
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別六：技術研發與代碼協作 (R&D and Code Collaboration)</b></summary>
 
-21. **舊系統代碼 (Legacy Code) 智慧重構與註解生成器**：自動為老舊的 Legacy Code (如 COBOL, 舊版 SQL) 補上清晰的語意註解，並重構為高效、安全的現代程式語言。
-22. **自動化單元測試 (Unit Test) 生成助理**：自動分析程式碼的邊界條件與邏輯分支，一鍵生成覆蓋率達 90% 以上的單元測試程式碼，提升軟體品質。
-23. **智慧 API 文件生成與 Mock Server 搭建器**：根據程式碼結構與註解，自動產出標準的 OpenAPI (Swagger) 文件，並一鍵建立 Mock API 供前端團隊併行開發。
-24. **軟體漏洞與安全隱患靜態掃描器**：在程式碼 Commit 時，自動進行靜態程式碼分析 (SAST)，檢測 OWASP Top 10 漏洞與硬編碼金鑰，防範安全威脅。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">21. 舊系統代碼 (Legacy Code) 智慧重構與註解生成器：自動為老舊的 Legacy Code (如 COBOL, 舊版 SQL) 補上清晰的語意註解，並重構為高效、安全的現代程式語言。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">22. 自動化單元測試 (Unit Test) 生成助理：自動分析程式碼的邊界條件與邏輯分支，一鍵生成覆蓋率達 90% 以上的單元測試程式碼，提升軟體品質。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">23. 智慧 API 文件生成與 Mock Server 搭建器：根據程式碼結構與註解，自動產出標準的 OpenAPI (Swagger) 文件，並一鍵建立 Mock API 供前端團隊併行開發。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">24. 軟體漏洞與安全隱患靜態掃描器：在程式碼 Commit 時，自動進行靜態程式碼分析 (SAST)，檢測 OWASP Top 10 漏洞與硬編碼金鑰，防範安全威脅。</p>
 </details>
 
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別七：數據分析與決策支援 (Data Analysis & Decision Support)</b></summary>
 
-25. **對話式資料庫查詢 (Text-to-SQL) 助手**：非技術主管只需用口語提問，系統即可自動轉換為精準的 SQL 查詢，並在前端自動繪製成直觀的數據圖表。
-26. **智慧 KPI 看板與異常指標警報器**：自動監控營運數據，當發現關鍵 KPI 異常偏離歷史區間時，主動進行根本原因分析 (RCA) 並發送警報報告。
-27. **市場競品定價策略動態分析器**：自動爬取並分析競爭對手官網的價格波動、折扣方案與套裝組合，為公司業務團隊提供動態定價建議。
-28. **企業知識庫 (RAG) 精準問答調優助理**：自動評估知識庫問答的檢索準確度與回答質量，主動指出並修正資訊衝突、缺失或過期的文檔。
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">25. 對話式資料庫查詢 (Text-to-SQL) 助手：非技術主管只需用口語提問，系統即可自動轉換為精準的 SQL 查詢，並在前端自動繪製成直觀的數據圖表。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">26. 智慧 KPI 看板與異常指標警報器：自動監控營運數據，當發現關鍵 KPI 異常偏離歷史區間時，主動進行根本原因分析 (RCA) 並發送警報報告。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">27. 市場競品定價策略動態分析器：自動爬取並分析競爭對手官網的價格波動、折扣方案與套裝組合，為公司業務團隊提供動態定價建議。</p>
+<p style="margin: 0.8rem 0; line-height: 1.75; color: var(--text-muted);">28. 企業知識庫 (RAG) 精準問答調優助理：自動評估知識庫問答的檢索準確度與回答質量，主動指出並修正資訊衝突、缺失或過期的文檔。</p>
 </details>
-
 </details>
 
 ---
