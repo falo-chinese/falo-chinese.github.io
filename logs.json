@@ -1,5 +1,20 @@
 [
   {
+    "timestamp": "2026-06-25T19:20:40+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示，於 Class 04 主題一（前三堂課程交流與補充）最前方增設『呼叫 AI 的三大運用模式：雲端、地端與瀏覽器原生 (Cloud vs Local vs Edge)』之實戰啟蒙教學。提供學員可直接於瀏覽器 Console 執行之精美 JavaScript 程式碼範例（包含雲端 Gemini API 呼叫、地端 Ollama 本地 API 呼叫與免 CORS 避坑指引、以及 Chrome 內建 Gemini Nano 端側邊緣運算 API 呼叫與生命週期管理）。同步更新首頁大綱描述、重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有變更同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/topic1_retrospective.md",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/index.md",
+      "falo-taiwan/class/a01/class4/index.html",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T19:12:24+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示，將 FALO 企業導入部署與閘道相容性評估工具（FALO Assessment Tool / Firewall Test，支援去中心化 no-cors 探針檢測與離線狀態匯出）正式整合至 Class 04 主題五（AI App 專案腦力激盪）中。以『企業部署實戰』獨立章節向學員解構在進行 AI App 的 MVP/PoC 規劃與專案探索時的網絡相容性評估痛點與技術原理。同時還原主題四內容、更新 Class 04 首頁描述、重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），並將所有變更同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",

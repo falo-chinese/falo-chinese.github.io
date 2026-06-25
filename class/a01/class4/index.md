@@ -18,7 +18,7 @@
 
 1. ### [💬 主題一：前三堂課程交流與補充](topic1_retrospective.html)
    深度沉澱前三週學習精髓，針對開發盲點進行診斷、補充說明，並提供課前與即時 QA 問答互動。
-   *包含：常見提醒與交付規範、重點補充與問題解答、個別專案診斷與 FAQ。*
+   *包含：呼叫 AI 三大模式實戰（雲端 Gemini / 地端 Ollama / 瀏覽器 Chrome Nano）、常見提醒與交付規範、人機協作模式與 FAQ。*
 
 2. ### [🛠️ 主題二：Agent 工具應用交流](topic2_agent_tools.html)
    橫向評估與選擇主流開發環境（如 Gemini Canvas、Cursor、Antigravity），學習將軟體工程思維導入 AI 專案。
