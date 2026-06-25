@@ -551,18 +551,18 @@
             <article class="card">
                 <h1>主題六：AI API 呼叫三大模式實戰</h1>
 <br>
-<p>本主題旨在引導學員掌握當前主流的雲端、地端與瀏覽器原生三大 AI 呼叫技術<style></p>
-<p>/* 隱藏 HTML5 details 預設箭頭 */</p>
-<p>details.prompt-details summary::-webkit-details-marker { display: none; }</p>
-<p>details.prompt-details summary { list-style: none; }</p>
-<p>/* 展開時旋轉自訂箭頭 */</p>
-<p>details.prompt-details[open] summary span.arrow { transform: rotate(90deg); }</p>
-<p>/* 懸停與點擊自訂過渡 */</p>
-<p>details.prompt-details summary:hover { </p>
-<p>    background: rgba(56, 189, 248, 0.12) !important; </p>
-<p>    border-color: rgba(56, 189, 248, 0.4) !important; </p>
-<p>    color: #38bdf8 !important;</p>
-<p>}</p>
+本主題旨在引導學員掌握當前主流的雲端、地端與瀏覽器原生三大 AI 呼叫技術<style>
+/* 隱藏 HTML5 details 預設箭頭 */
+details.prompt-details summary::-webkit-details-marker { display: none; }
+details.prompt-details summary { list-style: none; }
+/* 展開時旋轉自訂箭頭 */
+details.prompt-details[open] summary span.arrow { transform: rotate(90deg); }
+/* 懸停與點擊自訂過渡 */
+details.prompt-details summary:hover { 
+    background: rgba(56, 189, 248, 0.12) !important; 
+    border-color: rgba(56, 189, 248, 0.4) !important; 
+    color: #38bdf8 !important;
+}
 </style>
 <br>
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
@@ -695,26 +695,26 @@
 </div>
 <br>
 <script>
-<p>function copyPrompt(type) {</p>
-<p>    const textToCopy = document.getElementById(type + '-prompt-text').textContent;</p>
-<p>    const buttonId = type === 'simple' ? 'btn-simple-prompt' : 'btn-expert-prompt';</p>
-<p>    const originalText = type === 'simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';</p>
-<p>    const successColor = '#059669';</p>
-<p>    const originalColor = type === 'simple' ? '#059669' : '#0284c7';</p>
-<br>
-<p>    navigator.clipboard.writeText(textToCopy).then(() => {</p>
-<p>        const btn = document.getElementById(buttonId);</p>
-<p>        btn.style.background = successColor;</p>
-<p>        btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg> ✓ 已複製到剪貼簿`;</p>
-<br>
-<p>        setTimeout(() => {</p>
-<p>            btn.style.background = originalColor;</p>
-<p>            btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg> ` + originalText;</p>
-<p>        }, 2000);</p>
-<p>    }).catch(err => {</p>
-<p>        console.error('複製失敗: ', err);</p>
-<p>    });</p>
-<p>}</p>
+function copyPrompt(type) {
+    const textToCopy = document.getElementById(type + '-prompt-text').textContent;
+    const buttonId = type === 'simple' ? 'btn-simple-prompt' : 'btn-expert-prompt';
+    const originalText = type === 'simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';
+    const successColor = '#059669';
+    const originalColor = type === 'simple' ? '#059669' : '#0284c7';
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const btn = document.getElementById(buttonId);
+        btn.style.background = successColor;
+        btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg> ✓ 已複製到剪貼簿`;
+        
+        setTimeout(() => {
+            btn.style.background = originalColor;
+            btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg> ` + originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('複製失敗: ', err);
+    });
+}
 </script>
 <br>
 <p>---</p>
