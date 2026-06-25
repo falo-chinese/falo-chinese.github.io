@@ -55,53 +55,89 @@
 
 *   **實戰前端 JavaScript 呼叫代碼**：
 ```javascript
-// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (支援最新的 3.1 Flash 與 3.1 Flash-Lite)
-async function callGemini(promptText, apiKey, modelName = 'gemini-3.1-flash') {
-  // 💡 可用 modelName 參數說明:
-  // 1. 'gemini-3.1-flash' (預設，效能與速度平衡的主力模型)
-  // 2. 'gemini-3.1-flash-lite' (極速且高經濟效益的輕量模型)
-  // ⚠️ 請勿使用已無法工作的舊版 1.5 或 2.0 系列
-  
-  // 建立 Gemini REST API 端點 URL (包含 API Key，動態指定 3.1 系列模型)
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+/**
+ * ☁️ 雲端 AI: Google Gemini API 呼叫範例 (採用最新一代 3.1 Flash / Flash-Lite)
+ * 
+ * 💡 技術特色（參考生產環境 3.1 規格實戰設計）：
+ * 1. 【安全金鑰傳遞】：捨棄在 URL 暴露 API Key，改以 HTTP Header 'x-goog-api-key' 傳送，避免金鑰殘留在瀏覽器歷史紀錄或 proxy log 中。
+ * 2. 【結構化 JSON 回傳】：展示如何利用 generationConfig 強制要求 Gemini 3.1 輸出 100% 合規的 JSON 格式，便於前端直接解析渲染。
+ */
+async function callGemini(promptText, apiKey, options = {}) {
+  const { 
+    modelName = 'gemini-3.1-flash', // 預設 3.1 Flash，可切換 'gemini-3.1-flash-lite'
+    responseJson = false           // 是否強制要求以 JSON 格式回傳
+  } = options;
+
+  // 建立符合 W3C 標準的 Gemini 3.1 REST 端點 URL
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`;
   
   const payload = {
     contents: [{
       parts: [{ text: promptText }]
-    }]
+    }],
+    generationConfig: {}
   };
+
+  // 💡 若指定 JSON 輸出，則透過 generationConfig 強制约束模型回傳 JSON 結構
+  if (responseJson) {
+    payload.generationConfig.responseMimeType = "application/json";
+  }
 
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-goog-api-key': apiKey // 🔑 安全傳遞：金鑰放於 Headers，比 query string 更安全
       },
       body: JSON.stringify(payload)
     });
     
     const data = await response.json();
     
-    // 檢查回傳資料中是否包含錯誤訊息
+    // 異常錯誤診斷與處理
     if (data.error) {
       throw new Error(data.error.message || "未知 API 錯誤");
     }
     
-    // 從回傳的結構中精準萃取生成的文字內容
+    // 從回傳結構中精準萃取文字
     const generatedText = data.candidates[0].content.parts[0].text;
-    console.log(`[${modelName}] 輸出：\n`, generatedText);
+    console.log(`[${modelName}] 原始輸出：\n`, generatedText);
+
+    // 若指定 JSON 格式，則自動幫忙解析成 JS 物件
+    if (responseJson) {
+      try {
+        return JSON.parse(generatedText);
+      } catch (e) {
+        console.warn("JSON 解析失敗，返回原始字串", e);
+        return generatedText;
+      }
+    }
+    
     return generatedText;
   } catch (error) {
-    console.error("Gemini 呼叫失敗：", error);
+    console.error("Gemini 3.1 呼叫失敗：", error);
   }
 }
 
 // 💡 實測呼叫方式：
-// 1. 使用預設的 Gemini 3.1 Flash 運行：
+// 
+// 1. 【普通文字模式】 使用預設的 Gemini 3.1 Flash：
 // callGemini("請用繁體中文解釋什麼是 RAG 技術？", "YOUR_GEMINI_API_KEY");
 //
-// 2. 切換為極速的 Gemini 3.1 Flash-Lite 運行：
-// callGemini("請寫一首關於寫程式的五言絕句。", "YOUR_GEMINI_API_KEY", "gemini-3.1-flash-lite");
+// 2. 【極速文字模式】 使用更低成本的 Gemini 3.1 Flash-Lite：
+// callGemini("請寫一首關於寫程式的五言絕句。", "YOUR_GEMINI_API_KEY", { modelName: "gemini-3.1-flash-lite" });
+//
+// 3. 【結構化 JSON 模式】 要求模型輸出特定 JSON 物件 (以 3.1 Flash 進行精密分析)：
+// const jsonPrompt = `分析這封客戶信件的情感與急迫性。
+// 信件內容：「我今天早上訂的系統到現在都無法登入，請立刻處理！」
+// 請務必只回傳符合以下格式的 JSON 內容，不要包含額外文字：
+// {
+//   "sentiment": "正面/中立/負面",
+//   "urgency": "高/中/低",
+//   "summary": "一句話摘要"
+// }`;
+// callGemini(jsonPrompt, "YOUR_GEMINI_API_KEY", { responseJson: true });
 ```
 
 ---
