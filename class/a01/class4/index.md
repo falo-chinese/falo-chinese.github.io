@@ -16,23 +16,23 @@
 
 本課程已精確重構為以下五大獨立主題，點擊下方連結即可進入各主題專屬的主頁進行編修與瀏覽：
 
-1. ### [💬 主題一：前三堂課程交流與補充](topic1_retrospective.html)
+### 1. [💬 主題一：前三堂課程交流與補充](topic1_retrospective.html)
    深度沉澱前三週學習精髓，針對開發盲點進行診斷、補充說明，並提供課前與即時 QA 問答互動。
    *包含：常見提醒與交付規範、重點補充與問題解答、個別專案診斷與 FAQ。*
 
-2. ### [🎯 主題二：AI App 專案腦力激盪](topic5_brainstorming.html)
-   運用痛點轉化矩陣與三階段設計，共創銀河 ERP AI App Store 產品藍圖與 10 大實作套件，並整合企業部署與防火牆相容性評估工具。
-   *包含：產品思維方法論、50+ App 創意 Backlog、100+ 創意靈感庫、MVP & PoC 規劃指南、企業部署與防火牆相容性評估工具與工作坊全套套件。*
+### 2. [🎯 主題二：AI App 專案腦力激盪](topic5_brainstorming.html)
+   引導同仁從業務痛點出發，共創銀河 ERP × FORCE AI App Store 三大核心方向之產品藍圖與 11 大 ERP SaaS 智慧增強模組，並整合企業網路防火牆與閘道相容性評估工具。
+   *包含：[📂 AI App Studio 工作坊套件總覽](ai_app_readme.html)（含 [產品思維方法論](methodology_blueprint.html)、[50+ App 創意 Backlog](backlog_template.html)、[100+ 創意靈感庫](idea_library.html)、[MVP & PoC 規劃指南](mvp_poc_guide.html)）與 [🛡️ FORCE 閘道與防火牆檢測工具](https://falo-taiwan.github.io/firewall-test/)。*
 
-3. ### [⚡ 主題三：ETL 實務案例分享](topic3_etl_cases.html)
+### 3. [⚡ 主題三：ETL 實務案例分享](topic3_etl_cases.html)
    分享九大高保真（High-Fidelity）的 ETL 與 OCR 整合實戰案例，引導同仁理解如何進行結構化資料轉置、AI 語意清洗與自動化處理。
-   *包含：FALO Prompt Manager、FALO OCR Workbench、口語化政府資料 AI 爬蟲外掛、影片分析對抗、LINE 防封鎖變體生成器、銀河 ERP 憑證下載助手、LINE 資訊過載助手、從故障到能力包實踐、FALO NotebookLM Runtime Lab 等九大實戰案例。*
+   *包含：銀河 ERP 憑證下載助手、影片分析對抗、口語化政府資料 AI 爬蟲外掛、LINE 防封鎖變體生成器、FALO NotebookLM Runtime Lab、FALO OCR Workbench、FALO Prompt Manager、從故障到能力包實踐、LINE 資訊過載助手 等九大實戰案例。*
 
-4. ### [📂 主題四：KM 建置與應用思維](topic4_km_rag.html)
+### 4. [📂 主題四：KM 建置與應用思維](topic4_km_rag.html)
    解構企業知識庫與 RAG 系統，以政府補助案作為載體剖析落地經濟學與結構化交付核心。
    *包含：AI KM 政府 RAG 智慧檢索、法規文本採集與清洗、系統架構設計。*
 
-5. ### [🛠️ 主題五：AI API 呼叫三大模式實戰](topic6_ai_api.html)
+### 5. [🛠️ 主題五：AI API 呼叫三大模式實戰](topic6_ai_api.html)
    手把手引導學員掌握當前主流的雲端、地端與瀏覽器原生三大 AI 呼叫技術，並提供完整的實戰 Fetch 程式碼與 API 金鑰用量監控指引。
    *包含：雲端 Gemini API 申請與呼叫（7大步驟圖文指引）、地端 Ollama 本地服務呼叫（免 CORS 避坑指南）、Chrome built-in AI 瀏覽器原生調用。*
 

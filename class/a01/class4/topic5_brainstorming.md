@@ -2,6 +2,8 @@
 
 本主題收錄完整的「AI APP Studio 工作坊」實戰框架，引導同仁從痛點出發，共創銀河 ERP × FORCE AI App Store 的產品藍圖。本專案將 AI App 創意與需求池物理性地劃分為三大核心業務方向，並以折疊面板形式呈現極具深度與前瞻性的技術細節，供同仁進行腦力激盪與系統設計。
 
+> [!NOTE] 📦 **AI App Studio 工作坊全套套件與實作資源**<br>本主題與工作坊套件深度整合。點擊下方連結可瀏覽完整的實作框架與工具文檔：<br>• **套件導覽總覽**：[📂 AI App Studio 總覽與導覽手冊](ai_app_readme.html)<br>• **思維與方法論**：[📘 產品思維與方法論藍圖](methodology_blueprint.html) | [📙 需求發現與驗證手冊](discovery_validation_playbook.html) | [📗 MVP & PoC 規劃指南](mvp_poc_guide.html)<br>• **創意與評估工具**：[📊 50+ App 創意 Backlog](backlog_template.html) | [💡 100+ 創意靈感庫](idea_library.html) | [⚖️ 100分制決策評估卡](scorecard.html)<br>• **工作坊教學資源**：[👨‍🏫 講師引導與授課指南](workshop_facilitator_guide.html) | [📝 學員現場實作工作紙](student_worksheets.html)
+
 ---
 
 ## 🎯 銀河 ERP × FORCE AI App Store 三大業務方向產品藍圖

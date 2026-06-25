@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-26 00:25:00 | 本機與線上同步 | 精確修正 Class 04 主導覽頁（index.html）主題二之產品藍圖與實作套件描述，增設工作坊全套實作資源之直接下載與瀏覽連結；完成主題三 ETL 實務案例分享九大高保真專案之順序重整（調整為 6, 4, 3, 5, 9, 2, 1, 8, 7）與重新編號；於主題二主頁（topic5_brainstorming.html）頂部加設工作坊全套套件與實作文檔之快速連結導覽卡片；全套 HTML 頁面重新編譯與 QA 校驗均無誤，已成功同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:22:00 | 本機與線上同步 | 更新了 Class 04 主導覽頁（index.html）：將課程簡報下載連結引導至主題一的動態密碼驗證存取頁面，並同步將主題三的案例清單大綱更新為最新的九大高階 AI 實戰專案；全套教材已重新編譯並成功同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:19:00 | 本機與線上同步 | 更新了主題一回顧（Topic 1 Retrospective）頂部的前三堂課 PDF 簡報下載連結：隱藏了畫面上的明文密碼，改為點擊連結時透過 JavaScript 彈出 Prompt 動態提示輸入密碼（提示為公司英文縮寫，實際加密密碼為 attn，不分大小寫），驗證通過後方可開啟下載分頁；全套教材已重新編譯並成功同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `topic1_retrospective.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:17:00 | 本機與線上同步 | 在主題一回顧（Topic 1 Retrospective）頁面頂部，新增了前三堂課程（Class 1, 2, 3）的 PDF 簡報下載連結與密碼存取提示（以公司英文縮寫為提示，實際加密密碼為 attn，不分大小寫）；全套教材重新編譯無誤後，已同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `topic1_retrospective.md` (及 html), `logs.md`, `logs.json` |
