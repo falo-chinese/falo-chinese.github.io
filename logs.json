@@ -1,5 +1,22 @@
 [
   {
+    "timestamp": "2026-06-25T19:31:10+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示，將整個呼叫 AI API 的教學模組物理拆分，於 Class 04 側邊欄與大綱中獨立建立一個全新專題：『🛠️ 主題六：AI API 呼叫三大模式實戰 (topic6_ai_api.html)』。收錄了雲端 Gemini API 申請與監控（7大步驟圖文與用量統計圖）、地端 Ollama 本地服務呼叫（免 CORS 避坑指南）、Chrome built-in AI 瀏覽器原生端側調用等完整 JS 實戰程式碼與避坑指引。同時還原主題一內容、更新 Class 04 首頁描述、重新編譯全套 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有新圖片與代碼同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/topic6_ai_api.md",
+      "falo-taiwan/class/a01/class4/topic6_ai_api.html",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.md",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/index.md",
+      "falo-taiwan/class/a01/class4/index.html",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T19:27:13+08:00",
     "action_type": "synced",
     "description": "依據老師最新上傳的用量統計截圖，進一步於 Class 04 主題一（前三堂課程交流與補充）最前方的 Gemini 申請流程中，正式追加『步驟七：觀測與監控 API 使用量與 Token 消耗』之實務圖文指引。手把手引導學員如何點選用量統計圖表，進入 Gemini API Usage 頁面即時觀測請求次數、錯誤率與 Token 吞吐消耗，使 Token 監控觀念與本課程的『落地經濟學 (Economics)』完美扣合。同步重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有新圖片與代碼同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",

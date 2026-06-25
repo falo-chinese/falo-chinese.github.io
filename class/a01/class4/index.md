@@ -18,7 +18,7 @@
 
 1. ### [💬 主題一：前三堂課程交流與補充](topic1_retrospective.html)
    深度沉澱前三週學習精髓，針對開發盲點進行診斷、補充說明，並提供課前與即時 QA 問答互動。
-   *包含：呼叫 AI 三大模式實戰（雲端 Gemini / 地端 Ollama / 瀏覽器 Chrome Nano）、常見提醒與交付規範、人機協作模式與 FAQ。*
+   *包含：常見提醒與交付規範、重點補充與問題解答、個別專案診斷與 FAQ。*
 
 2. ### [🛠️ 主題二：Agent 工具應用交流](topic2_agent_tools.html)
    橫向評估與選擇主流開發環境（如 Gemini Canvas、Cursor、Antigravity），學習將軟體工程思維導入 AI 專案。
@@ -35,3 +35,7 @@
 5. ### [🎯 主題五：AI App 專案腦力激盪](topic5_brainstorming.html)
    運用痛點轉化矩陣與三階段設計，共創天心 ERP AI App Store 產品藍圖與 10 大實作套件，並整合企業部署與防火牆相容性評估工具。
    *包含：產品思維方法論、50+ App 創意 Backlog、100+ 創意靈感庫、MVP & PoC 規劃指南、企業部署與防火牆相容性評估工具與工作坊全套套件。*
+
+6. ### [🛠️ 主題六：AI API 呼叫三大模式實戰](topic6_ai_api.html)
+   手把手引導學員掌握當前主流的雲端、地端與瀏覽器原生三大 AI 呼叫技術，並提供完整的實戰 Fetch 程式碼與 API 金鑰用量監控指引。
+   *包含：雲端 Gemini API 申請與呼叫（7大步驟圖文指引）、地端 Ollama 本地服務呼叫（免 CORS 避坑指南）、Chrome built-in AI 瀏覽器原生調用。*
