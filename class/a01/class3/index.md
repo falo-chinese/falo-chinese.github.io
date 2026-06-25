@@ -29,6 +29,7 @@
 * 🔗 **實戰 Prompt**：[WWDC 26 Deep Research 實戰 Prompt 示範 (class03_wwdc_prompt.html)](class03_wwdc_prompt.html)
 * 🔗 **OCR 協作**：[OCR 辨識策略與 HITL 人機協作實務 (class03_ocr_hitl.html)](class03_ocr_hitl.html)
 * 🔗 **Chrome Gemini**：[Chrome 內建 Gemini 解鎖與 FALO 六層模型實戰](https://falo-taiwan.github.io/gemini_chrome/)
+* 🔗 **LINE Bot 專業**：[LINE Bot 專業開發專區 (ai-line-help)](https://falo-taiwan.github.io/ai-line-help/) — 專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧
 
 
 

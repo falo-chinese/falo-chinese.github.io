@@ -1,5 +1,28 @@
 [
   {
+    "timestamp": "2026-06-25T15:00:00+08:00",
+    "action_type": "sync_updated",
+    "description": "依據老師指示重構 Class 04 左側側邊欄（TOC）導覽結構，精確劃分為「前三堂課程的交流、補充」、「Agent工具的心得交流」、「ETL」與「KM」四大主題區塊；同步更新 Class 04 主頁、政府 RAG 介紹頁與 9 個工作坊編譯模板，重新編譯全套網頁，並同步推送到 falo-taiwan 與 falo-chinese 兩個 GitHub Pages 儲存庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/tw-ai-grant-intro.html",
+      "falo-taiwan/class/a01/class4/ai_app_readme.html",
+      "falo-taiwan/class/a01/class4/methodology_blueprint.html",
+      "falo-taiwan/class/a01/class4/discovery_validation_playbook.html",
+      "falo-taiwan/class/a01/class4/mvp_poc_guide.html",
+      "falo-taiwan/class/a01/class4/backlog_template.html",
+      "falo-taiwan/class/a01/class4/scorecard.html",
+      "falo-taiwan/class/a01/class4/idea_library.html",
+      "falo-taiwan/class/a01/class4/workshop_facilitator_guide.html",
+      "falo-taiwan/class/a01/class4/student_worksheets.html",
+      "falo-taiwan/class/a01/class4/project_record.html",
+      "compile_workshop.py",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T14:35:00+08:00",
     "action_type": "local_updated",
     "description": "與老師討論後進行架構調整，將 iPAS 智慧刷題模擬器 (Swiper) 主題完全定位於 Class 04 (而非 Class 03)。還原了 Class 03 ETL 頁面側邊欄至原始純淨狀態；同時在 Class 04 目錄下本地重建 Swiper 專案（practice-swiper.html 與 questions.csv），並在 Class 04 首頁正式將其增設為「案例三：iPAS 智慧刷題模擬器 (OCR + ETL 實戰)」卡片，並同步更新了 Class 04 主頁、RAG 介紹頁及 9 個工作坊 HTML 網頁的左側導覽列選單與中央歷史課程彙整。",

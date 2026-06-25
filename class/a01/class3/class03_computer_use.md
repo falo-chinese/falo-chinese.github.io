@@ -62,3 +62,5 @@
 ## 5. 其他參考資源
 * **學習平台推薦**：[電腦王阿達 - Anthropic Academy：Claude 官方 13 門線上課程免費上、可領官方證書](https://www.koc.com.tw/archives/645273)
   - *簡介*：詳細介紹 Anthropic 推出的官方線上學習平台 **Anthropic Academy**，涵蓋 Claude 101、Claude Cowork 協同操作，以及進階的 Claude API 整合、Claude Code 終端編碼代理與 MCP (Model Context Protocol) 伺服器建置等官方免費課程與結業證書說明。
+* **LINE Bot 專業開發**：[LINE Bot 專業開發專區 (ai-line-help)](https://falo-taiwan.github.io/ai-line-help/)
+  - *簡介*：提供專家級 LINE 聊天機器人整合實務、防封鎖技巧、與 AI 自動對答整合開發案例。
