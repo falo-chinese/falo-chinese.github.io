@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-26 00:19:00 | 本機與線上同步 | 更新了主題一回顧（Topic 1 Retrospective）頂部的前三堂課 PDF 簡報下載連結：隱藏了畫面上的明文密碼，改為點擊連結時透過 JavaScript 彈出 Prompt 動態提示輸入密碼（提示為公司英文縮寫，實際加密密碼為 attn，不分大小寫），驗證通過後方可開啟下載分頁；全套教材已重新編譯並成功同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `topic1_retrospective.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:17:00 | 本機與線上同步 | 在主題一回顧（Topic 1 Retrospective）頁面頂部，新增了前三堂課程（Class 1, 2, 3）的 PDF 簡報下載連結與密碼存取提示（以公司英文縮寫為提示，實際加密密碼為 attn，不分大小寫）；全套教材重新編譯無誤後，已同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `topic1_retrospective.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:14:00 | 本機與線上同步 | 對 Class 04 進行了全方位收尾與品質驗收：升級了 Markdown 編譯器以支援行內程式碼（Backticks）語意解析與特殊字元轉義，徹底修復了導師指南中的 HTML 標籤結構問題；同時開發並運行了全量 QA 自動化校驗腳本，確認全套 17 份編譯教材 HTML 之標籤結構與本機連結均 100% 完整無損；專案已重新打包並成功推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `topic3_etl_cases.md` (及 html), `logs.md`, `logs.json`, `compile_workshop.py` |
 | 2026-06-26 00:09:00 | 本機與線上同步 | 更新並重構了主題三（Topic 3）的「核心實戰案例展示（Featured Case Studies）」板塊：依最新課程大綱調整九大高階 AI 實戰專案（包括 FALO Prompt Manager、FALO OCR Workbench、口語化政府資料 AI 爬蟲外掛、影片分析對抗、LINE 防封鎖變體生成器、銀河 ERP 憑證下載助手、LINE 資訊過載助手、從故障到能力包實踐、FALO NotebookLM Runtime Lab）的展示順序並完成重新編號；全套教材重新編譯無誤後，已同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `topic3_etl_cases.md` (及 html), `logs.md`, `logs.json` |
