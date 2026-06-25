@@ -1,9 +1,18 @@
 # 主題六：AI API 呼叫三大模式實戰
 
-本主題旨在引導學員掌握當前主流的雲端、地端與瀏覽器原生三大 AI 呼叫技術，並提供最乾淨、符合企業實戰的前端 JavaScript/Fetch 程式碼範例與技術解構，讓學員可以直接在瀏覽器控制台 (Console) 或靜態網頁中貼上實測。
-
-
----
+本主題旨在引導學員掌握當前主流的雲端、地端與瀏覽器原生三大 AI 呼叫技術<style>
+/* 隱藏 HTML5 details 預設箭頭 */
+details.prompt-details summary::-webkit-details-marker { display: none; }
+details.prompt-details summary { list-style: none; }
+/* 展開時旋轉自訂箭頭 */
+details.prompt-details[open] summary span.arrow { transform: rotate(90deg); }
+/* 懸停與點擊自訂過渡 */
+details.prompt-details summary:hover { 
+    background: rgba(56, 189, 248, 0.12) !important; 
+    border-color: rgba(56, 189, 248, 0.4) !important; 
+    color: #38bdf8 !important;
+}
+</style>
 
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
@@ -29,7 +38,11 @@
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
             適合快速體驗。自動掃描硬體後，給出入門/中階/高階評級，並推薦最合適的 3B 及 7B 級別流暢模型與 Ollama 運行指令。
         </p>
-        <pre id="simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; max-height: 250px; overflow-y: auto; text-align: left;"># 🤖 簡易本地 AI 算力檢測與 Ollama 選型
+        <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
+            <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
+            </summary>
+            <pre id="simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🤖 簡易本地 AI 算力檢測與 Ollama 選型
 
 你現在是本地 AI 部署助手。請針對我提供的電腦規格，執行系統檢測命令（如果你具備執行權限）來自動獲取我的 CPU、GPU/VRAM、RAM、OS 和硬碟空間，或者請我手動提供。
 
@@ -40,6 +53,7 @@
    - 🟡 黃色流暢（10-20 tps）：勉強可跑的模型。
    - 🔴 紅色警告（&lt;5 tps）：千萬別下的模型。
 3. **一鍵部署指令**：對應的 `ollama run` 指令。</pre>
+        </details>
     </div>
 
     <!-- 專家版 Prompt 區塊 -->
@@ -56,7 +70,11 @@
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
             適合企業部署評估。自動計算 VRAM 預算、系統記憶體頻寬瓶頸，並產出多模型選型矩陣、Context 增長壓力評估與 Ollama 性能極限調優腳本。
         </p>
-        <pre id="expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; max-height: 350px; overflow-y: auto; text-align: left;"># 🛡️ 本地 AI 算力診斷與 Ollama 部署極限選型專家
+        <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
+            <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
+            </summary>
+            <pre id="expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 本地 AI 算力診斷與 Ollama 部署極限選型專家
 
 你是一位頂尖的 AI 基礎架構架構師與本地 LLM 效能調優專家。請在我的本地開發環境中，依據以下工作流（Workflow）對我的電腦進行深度算力診斷，並產出一份企業級的本地 LLM 部署規劃書。
 
@@ -102,7 +120,8 @@
 - [提供所推薦模型的安裝與運行指令，包括如何指定特定量化版本的 Tag（如 `qwen2.5:7b-instruct-q4_K_M`）。]
 
 ### 4. ⚡ 本地性能極限調優建議 (Performance Tuning)
-- [提供 2-3 點針對該 OS 與硬體的系統級優化參數。例如：環境變數 `OLLAMA_NUM_PARALLEL`（多用戶併發）、`OLLAMA_MAX_LOADED_MODELS`、以及如何透過限制執行緒數 `num_thread` 來優化 CPU 推理效能。]</pre>
+- [提供 2-3 點針對該 OS 與硬體系統級優化參數。例如：環境變數 `OLLAMA_NUM_PARALLEL`（多用戶併發）、`OLLAMA_MAX_LOADED_MODELS`、以及如何透過限制執行緒數 `num_thread` 來優化 CPU 推理效能。]</pre>
+        </details>
     </div>
 </div>
 
