@@ -55,9 +55,7 @@ details.prompt-details summary:hover {
 
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-        <h4 style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
-            🖥️ 數據工程第一步：多源官網 AI 資料採集提示詞 {#data-ingestion-prompts}
-        </h4>
+        <h4 id="data-ingestion-prompts" style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">🖥️ 數據工程第一步：多源官網 AI 資料採集提示詞</h4>
         <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
             在開發 AI KM 知識庫時，高質量的原始數據是 RAG 的基石。學員可以直接一鍵複製下方任一提示詞並發送給 AI 助理（如 Antigravity / Codex），引導 AI 自動分析目標網頁結構，並以最聰明、高效的手段將兩個官方網站的 AI 工具資料完整採集並落地成乾淨的 CSV 實體資料庫。
         </p>
@@ -161,9 +159,7 @@ details.prompt-details summary:hover {
 
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-        <h4 style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
-            🖥️ 系統建置第二步：RAG 智慧檢索與診斷系統建置提示詞對照 {#system-building-prompts}
-        </h4>
+        <h4 id="system-building-prompts" style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">🖥️ 系統建置第二步：RAG 智慧檢索與診斷系統建置提示詞對照</h4>
         <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
             當數據準備妥當後，建置 RAG 系統的提示詞設計將決定最終產出是「勉強能用的 PoC」還是「安全合規的企業級應用」。學員可以複製下方兩組提示詞發送給 AI 助理，親身體驗 Vibe Coding 簡易版（v1）與軟體工程規格版（v2）提示詞所帶來的架構與代碼品質差距。
         </p>
@@ -328,7 +324,7 @@ function copyPrompt(type) {
             <p style="margin: 0; color: #94a3b8; font-size: 0.8rem;">內含 unified_ai_tools_db.json 與 tw-ai-grant-skeleton.html 骨架網頁</p>
         </div>
     </div>
-    <a href="https://falo-taiwan.github.io/class/a01/class4/tw_ai_grant_student_resource_pack_20260625_232807.zip" style="background: #0284c7; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s ease;" onmouseover="this.style.background='#0369a1'" onmouseout="this.style.background='#0284c7'">
+    <a href="https://falo-chinese.github.io/class/a01/class4/tw_ai_grant_student_resource_pack_20260625_232807.zip" style="background: #0284c7; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s ease;" onmouseover="this.style.background='#0369a1'" onmouseout="this.style.background='#0284c7'">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
         下載實戰資源包
     </a>

@@ -531,9 +531,9 @@
                 <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. AI API 呼叫三大模式實戰</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic6_ai_api.html#hardware-detection">🖥️ 互動式硬體檢測選型</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">☁️ 雲端 Gemini API 申請與呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#cloud-gemini">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#local-ollama">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#chrome-nano">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
                 </ul>
 
 
@@ -596,7 +596,7 @@
 <br>
 <h3>【AI APP 規格定義書】</h3>
 <br>
-<table class="comparison-table"><thead><tr><th>欄位項目</th><th>詳細說明與填寫指引</th></tr></thead><tbody>tr<tr><td><strong>1. 產品名稱 (Name)</strong></td><td>為你的 AI APP 取一個直觀、好記、具有功能隱喻的名稱（例如：合約之眼、小商小編）。</td></tr>tr<tr><td><strong>2. 目標使用者 (User)</strong></td><td>誰是這個產品的第一批核心用戶？（請具體描述，如：個人甜點工作室老闆、跨國專案經理）。</td></tr>tr<tr><td><strong>3. 使用者痛點 (Pain)</strong></td><td>使用者在沒有這款產品前，面臨最痛苦、最花時間、最容易出錯的具體場景是什麼？</td></tr>tr<tr><td><strong>4. 核心功能 (Core Feature)</strong></td><td>產品的首發版本只做<strong>「哪一件最核心的事」</strong>？（請勿寫超過 3 個功能）。</td></tr>tr<tr><td><strong>5. 產品輸入 (Input)</strong></td><td>使用者需要提供什麼資料給 AI？（例如：一張照片加上一句大白話、一個 PDF 報告檔）。</td></tr>tr<tr><td><strong>6. 產品輸出 (Output)</strong></td><td>AI 處理後，呈現給使用者的具體結果是什麼？（例如：三份不同風格的社群文案、一份結構化的中文摘要與任務清單）。</td></tr>tr<tr><td><strong>7. 成功指標 (Metrics)</strong></td><td>如何衡量這個 MVP 是成功的？（例如：處理時間從 2 小時降至 2 分鐘、產出的文案修改率小於 20%）。</td></tr>tr<tr><td><strong>8. MVP 實作方案 (MVP Scope)</strong></td><td>我們將用哪些無程式碼工具（如 Dify + LINE Bot）在 3 天內搭建出來？核心流程如何運作？</td></tr>tr<tr><td><strong>9. 未來版本規劃 (Roadmap)</strong></td><td>如果 MVP 驗證成功，未來的 V1.0、V2.0 版本會加入哪些功能？（如：串接 ERP、多帳號權限管理、付費訂閱系統）。</td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>欄位項目</th><th>詳細說明與填寫指引</th></tr></thead><tbody><tr><td><strong>1. 產品名稱 (Name)</strong></td><td>為你的 AI APP 取一個直觀、好記、具有功能隱喻的名稱（例如：合約之眼、小商小編）。</td></tr><tr><td><strong>2. 目標使用者 (User)</strong></td><td>誰是這個產品的第一批核心用戶？（請具體描述，如：個人甜點工作室老闆、跨國專案經理）。</td></tr><tr><td><strong>3. 使用者痛點 (Pain)</strong></td><td>使用者在沒有這款產品前，面臨最痛苦、最花時間、最容易出錯的具體場景是什麼？</td></tr><tr><td><strong>4. 核心功能 (Core Feature)</strong></td><td>產品的首發版本只做<strong>「哪一件最核心的事」</strong>？（請勿寫超過 3 個功能）。</td></tr><tr><td><strong>5. 產品輸入 (Input)</strong></td><td>使用者需要提供什麼資料給 AI？（例如：一張照片加上一句大白話、一個 PDF 報告檔）。</td></tr><tr><td><strong>6. 產品輸出 (Output)</strong></td><td>AI 處理後，呈現給使用者的具體結果是什麼？（例如：三份不同風格的社群文案、一份結構化的中文摘要與任務清單）。</td></tr><tr><td><strong>7. 成功指標 (Metrics)</strong></td><td>如何衡量這個 MVP 是成功的？（例如：處理時間從 2 小時降至 2 分鐘、產出的文案修改率小於 20%）。</td></tr><tr><td><strong>8. MVP 實作方案 (MVP Scope)</strong></td><td>我們將用哪些無程式碼工具（如 Dify + LINE Bot）在 3 天內搭建出來？核心流程如何運作？</td></tr><tr><td><strong>9. 未來版本規劃 (Roadmap)</strong></td><td>如果 MVP 驗證成功，未來的 V1.0、V2.0 版本會加入哪些功能？（如：串接 ERP、多帳號權限管理、付費訂閱系統）。</td></tr></tbody></table>
 <br>
 <p>---</p>
 <br>

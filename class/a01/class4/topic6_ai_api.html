@@ -531,9 +531,9 @@
                 <div class="toc-title"><a class="toc-link active" href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. AI API 呼叫三大模式實戰</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic6_ai_api.html#hardware-detection">🖥️ 互動式硬體檢測選型</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">☁️ 雲端 Gemini API 申請與呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#cloud-gemini">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#local-ollama">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#chrome-nano">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
                 </ul>
 
 
@@ -568,129 +568,109 @@ details.prompt-details summary:hover {
 <br>
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-        <h3 style="margin: 0; color: #38bdf8; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
-<p>            🖥️ 互動式硬體檢測與 Ollama 選型（AI 助理專屬體驗） {#hardware-detection}</p>
-        </h3>
+        <h3 id="hardware-detection" style="margin: 0; color: #38bdf8; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">🖥️ 互動式硬體檢測與 Ollama 選型（AI 助理專屬體驗）</h3>
         <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
-<p>            如果您正在使用支持環境感知與終端機執行權限的 AI 助理（如 Antigravity / Codex），可以直接一鍵複製下方任一提示詞並發送給 AI 助理。AI 助理將會自動在您的開發環境中執行系統安全檢測命令，掃描您當前的電腦硬體配置，為您量身打造最精準的 Ollama 本地模型選型與部署優化報告！</p>
+            如果您正在使用支持環境感知與終端機執行權限的 AI 助理（如 Antigravity / Codex），可以直接一鍵複製下方任一提示詞並發送給 AI 助理。AI 助理將會自動在您的開發環境中執行系統安全檢測命令，掃描您當前的電腦硬體配置，為您量身打造最精準的 Ollama 本地模型選型與部署優化報告！
         </p>
     </div>
-<br>
+
     <!-- 簡單版 Prompt 區塊 -->
     <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
             <h4 style="margin: 0; color: #10b981; font-size: 1.05rem; font-weight: 600; border: none; padding: 0;">
-<p>                🟢 1. 簡易檢測版 Prompt</p>
+                🟢 1. 簡易檢測版 Prompt
             </h4>
             <button id="btn-simple-prompt" onclick="copyPrompt('simple')" style="background: #059669; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>                複製「簡單版」提示詞</p>
+                複製「簡單版」提示詞
             </button>
         </div>
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>            適合快速體驗。自動掃描硬體後，給出入門/中階/高階評級，並推薦最合適的 3B 及 7B 級別流暢模型與 Ollama 運行指令。</p>
+            適合快速體驗。自動掃描硬體後，給出入門/中階/高階評級，並推薦最合適的 3B 及 7B 級別流暢模型與 Ollama 運行指令。
         </p>
         <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
             <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
             </summary>
-<p>            <pre id="simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🤖 簡易本地 AI 算力檢測與 Ollama 選型</p>
-<br>
-<p>你現在是本地 AI 部署助手。請針對我提供的電腦規格，執行系統檢測命令（如果你具備執行權限）來自動獲取我的 CPU、GPU/VRAM、RAM、OS 和硬碟空間，或者請我手動提供。</p>
-<br>
-<p>獲取硬體規格後，請為我輸出：</p>
-<p>1. <strong>算力簡評</strong>：我的電腦屬於入門體驗、中階實用還是高階流暢級？</p>
-<p>2. <strong>Ollama 模型選型推薦</strong>：</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">🟢 綠色流暢（&gt;30 tps）：最推薦運行的模型（如 llama3.2:3b）。</li>
-<li style="margin-bottom: 8px;">🟡 黃色流暢（10-20 tps）：勉強可跑的模型。</li>
-<li style="margin-bottom: 8px;">🔴 紅色警告（&lt;5 tps）：千萬別下的模型。</li>
-</ul>
-<p>3. <strong>一鍵部署指令</strong>：對應的 `ollama run` 指令。</pre></p>
+            <pre id="simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🤖 簡易本地 AI 算力檢測與 Ollama 選型
+
+你現在是本地 AI 部署助手。請針對我提供的電腦規格，執行系統檢測命令（如果你具備執行權限）來自動獲取我的 CPU、GPU/VRAM、RAM、OS 和硬碟空間，或者請我手動提供。
+
+獲取硬體規格後，請為我輸出：
+1. <strong>算力簡評</strong>：我的電腦屬於入門體驗、中階實用還是高階流暢級？
+2. <strong>Ollama 模型選型推薦</strong>：
+   - 🟢 綠色流暢（&gt;30 tps）：最推薦運行的模型（如 llama3.2:3b）。
+   - 🟡 黃色流暢（10-20 tps）：勉強可跑的模型。
+   - 🔴 紅色警告（&lt;5 tps）：千萬別下的模型。
+3. <strong>一鍵部署指令</strong>：對應的 `ollama run` 指令。</pre>
         </details>
     </div>
-<br>
+
     <!-- 專家版 Prompt 區塊 -->
     <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
             <h4 style="margin: 0; color: #38bdf8; font-size: 1.05rem; font-weight: 600; border: none; padding: 0;">
-<p>                🛡️ 2. 深度診斷專家版 Prompt</p>
+                🛡️ 2. 深度診斷專家版 Prompt
             </h4>
             <button id="btn-expert-prompt" onclick="copyPrompt('expert')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>                複製「專家版」提示詞</p>
+                複製「專家版」提示詞
             </button>
         </div>
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>            適合企業部署評估。自動計算 VRAM 預算、系統記憶體頻寬瓶頸，並產出多模型選型矩陣、Context 增長壓力評估與 Ollama 性能極限調優腳本。</p>
+            適合企業部署評估。自動計算 VRAM 預算、系統記憶體頻寬瓶頸，並產出多模型選型矩陣、Context 增長壓力評估與 Ollama 性能極限調優腳本。
         </p>
         <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
             <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
             </summary>
-<p>            <pre id="expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 本地 AI 算力診斷與 Ollama 部署極限選型專家</p>
-<br>
-<p>你是一位頂尖的 AI 基礎架構架構師與本地 LLM 效能調優專家。請在我的本地開發環境中，依據以下工作流（Workflow）對我的電腦進行深度算力診斷，並產出一份企業級的本地 LLM 部署規劃書。</p>
-<br>
-<p>---</p>
-<br>
-<h2>⚙️ 第一階段：環境感知與硬體掃描 (System Profiling)</h2>
-<p>請主動判斷我當前的作業系統環境（macOS / Windows / Linux），並執行或引導我執行對應的安全檢測指令，以獲取以下完整硬體數據。如果你具備終端機執行權限，請自主執行以下指令獲取數據：</p>
-<br>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>macOS (Apple Silicon/Intel)</strong>:</li>
-</ul>
-<p>  `sysctl -n machdep.cpu.brand_string; echo "RAM:"; sysctl -n hw.memsize; echo "OS:"; sw_vers; echo "Disk:"; df -h /; echo "GPU/VRAM:"; system_profiler SPDisplaysDataType`</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>Windows (PowerShell)</strong>:</li>
-</ul>
-<p>  `Get-CimInstance Win32_Processor | Select-Object Name; Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum | Select-Object Sum; Get-CimInstance Win32_VideoController | Select-Object Name, AdapterRAM; Get-Volume`</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>Linux</strong>:</li>
-</ul>
-<p>  `lscpu; free -h; df -h; lspci | grep -i vga`</p>
-<br>
-<p>---</p>
-<br>
-<h2>📊 第二階段：多維度算力與限制評估 (Bottleneck Analysis)</h2>
-<p>獲取數據後，請進行以下精確計算與物理限制分析：</p>
-<p>1. <strong>可用顯存/統一記憶體預算 (VRAM Budget)</strong>：計算扣除 OS 運作（Windows 預設扣 1.5GB，macOS 預設扣 3GB）後的「LLM 安全載入顯存上限」。</p>
-<p>2. <strong>記憶體頻寬與代償評估 (Memory Bandwidth & Offloading)</strong>：評估若模型超出顯存，CPU 代償（Offloading）時的效能降幅。</p>
-<p>3. <strong>儲存介面評估</strong>：確認剩餘空間是否足以容納目標模型，並說明磁碟剩餘空間的安全水位線（建議保留至少 10GB 空閒空間以防虛擬記憶體鎖死）。</p>
-<br>
-<p>---</p>
-<br>
-<h2>🎯 第三階段：精準模型選型矩陣 (Model Selection Matrix)</h2>
-<p>請提供一個結構化的 Markdown 表格，針對以下主流開源模型，計算並推薦在我的硬體上運行的「最優量化精度 (Quantization)」與「預估推理速度 (tps)」：</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>模型對象</strong>：Llama 3.2 (1B/3B), Qwen 2.5 (1.5B/3B/7B/14B), Gemma 2 (2B/9B), Llama 3 (8B)。</li>
-<li style="margin-bottom: 8px;"><strong>評估維度</strong>：磁碟佔用(GB)、運行位置（VRAM/System RAM）、最優量化（如 Q4_K_M、Q8_0、FP16）、預估 Token 生成速度 (tokens/sec)、Context Window 安全上限（2K / 4K / 8K / 32K）。</li>
-</ul>
-<br>
-<p>---</p>
-<br>
-<h2>💻 第四階段：輸出本地部署與優化藍圖 (Deployment Blueprint)</h2>
-<p>請依據上述評估，產出以下四個部分的專業報告：</p>
-<br>
-<h3>1. 🎚️ 設備本地 AI 算力綜合評級</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">[評級分類：入門體驗 / 中階實用 / 高階流暢 / 專業工作站，並指出核心硬體瓶頸。]</li>
-</ul>
-<br>
-<h3>2. 🟢 推薦部署首選模型 (Highly Recommended)</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">[列出 2 款在此設備上能達到 100% 顯存載入且推理速度 > 30 tps 的最優模型，附帶技術理由。]</li>
-</ul>
-<br>
-<h3>3. 🛠️ 一鍵部署指令集 (Ollama Commands)</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">[提供所推薦模型的安裝與運行指令，包括如何指定特定量化版本的 Tag（如 `qwen2.5:7b-instruct-q4_K_M`）。]</li>
-</ul>
-<br>
-<h3>4. ⚡ 本地性能極限調優建議 (Performance Tuning)</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">[提供 2-3 點針對該 OS 與硬體系統級優化參數。例如：環境變數 `OLLAMA_NUM_PARALLEL`（多用戶併發）、`OLLAMA_MAX_LOADED_MODELS`、以及如何透過限制執行緒數 `num_thread` 來優化 CPU 推理效能。]</pre></li>
-</ul>
+            <pre id="expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 本地 AI 算力診斷與 Ollama 部署極限選型專家
+
+你是一位頂尖的 AI 基礎架構架構師與本地 LLM 效能調優專家。請在我的本地開發環境中，依據以下工作流（Workflow）對我的電腦進行深度算力診斷，並產出一份企業級的本地 LLM 部署規劃書。
+
+---
+
+## ⚙️ 第一階段：環境感知與硬體掃描 (System Profiling)
+請主動判斷我當前的作業系統環境（macOS / Windows / Linux），並執行或引導我執行對應的安全檢測指令，以獲取以下完整硬體數據。如果你具備終端機執行權限，請自主執行以下指令獲取數據：
+
+- <strong>macOS (Apple Silicon/Intel)</strong>:
+  `sysctl -n machdep.cpu.brand_string; echo "RAM:"; sysctl -n hw.memsize; echo "OS:"; sw_vers; echo "Disk:"; df -h /; echo "GPU/VRAM:"; system_profiler SPDisplaysDataType`
+- <strong>Windows (PowerShell)</strong>:
+  `Get-CimInstance Win32_Processor | Select-Object Name; Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum | Select-Object Sum; Get-CimInstance Win32_VideoController | Select-Object Name, AdapterRAM; Get-Volume`
+- <strong>Linux</strong>:
+  `lscpu; free -h; df -h; lspci | grep -i vga`
+
+---
+
+## 📊 第二階段：多維度算力與限制評估 (Bottleneck Analysis)
+獲取數據後，請進行以下精確計算與物理限制分析：
+1. <strong>可用顯存/統一記憶體預算 (VRAM Budget)</strong>：計算扣除 OS 運作（Windows 預設扣 1.5GB，macOS 預設扣 3GB）後的「LLM 安全載入顯存上限」。
+2. <strong>記憶體頻寬與代償評估 (Memory Bandwidth & Offloading)</strong>：評估若模型超出顯存，CPU 代償（Offloading）時的效能降幅。
+3. <strong>儲存介面評估</strong>：確認剩餘空間是否足以容納目標模型，並說明磁碟剩餘空間的安全水位線（建議保留至少 10GB 空閒空間以防虛擬記憶體鎖死）。
+
+---
+
+## 🎯 第三階段：精準模型選型矩陣 (Model Selection Matrix)
+請提供一個結構化的 Markdown 表格，針對以下主流開源模型，計算並推薦在我的硬體上運行的「最優量化精度 (Quantization)」與「預估推理速度 (tps)」：
+- <strong>模型對象</strong>：Llama 3.2 (1B/3B), Qwen 2.5 (1.5B/3B/7B/14B), Gemma 2 (2B/9B), Llama 3 (8B)。
+- <strong>評估維度</strong>：磁碟佔用(GB)、運行位置（VRAM/System RAM）、最優量化（如 Q4_K_M、Q8_0、FP16）、預估 Token 生成速度 (tokens/sec)、Context Window 安全上限（2K / 4K / 8K / 32K）。
+
+---
+
+## 💻 第四階段：輸出本地部署與優化藍圖 (Deployment Blueprint)
+請依據上述評估，產出以下四個部分的專業報告：
+
+### 1. 🎚️ 設備本地 AI 算力綜合評級
+- [評級分類：入門體驗 / 中階實用 / 高階流暢 / 專業工作站，並指出核心硬體瓶頸。]
+
+### 2. 🟢 推薦部署首選模型 (Highly Recommended)
+- [列出 2 款在此設備上能達到 100% 顯存載入且推理速度 > 30 tps 的最優模型，附帶技術理由。]
+
+### 3. 🛠️ 一鍵部署指令集 (Ollama Commands)
+- [提供所推薦模型的安裝與運行指令，包括如何指定特定量化版本的 Tag（如 `qwen2.5:7b-instruct-q4_K_M`）。]
+
+### 4. ⚡ 本地性能極限調優建議 (Performance Tuning)
+- [提供 2-3 點針對該 OS 與硬體系統級優化參數。例如：環境變數 `OLLAMA_NUM_PARALLEL`（多用戶併發）、`OLLAMA_MAX_LOADED_MODELS`、以及如何透過限制執行緒數 `num_thread` 來優化 CPU 推理效能。]</pre>
         </details>
     </div>
 </div>
@@ -724,7 +704,7 @@ function copyPrompt(type) {
 <br>
 <p>在進行 AI App 的實戰開發前，我們必須先掌握「如何呼叫 AI」的底層技術路徑。根據系統架構、資安防護、成本預算與運算延遲的不同， AI 呼叫主要分為以下三大經典模式。</p>
 <br>
-<h3>1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)</h3>
+<h3 id="cloud-gemini">1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>技術定位</strong>：商業級雲端大模型 API。</li>
 <li style="margin-bottom: 8px;">  <strong>優勢</strong>：模型推理解析力最強，支援超長上下文 (Context Window)，具備強大的多模態理解力，且完全免去本地硬體配置負擔。本範例推薦並採用 Google 最新一代主力模型 <strong>Gemini 3.1 Flash-Lite</strong> 與 <strong>Gemini 3.5 Flash</strong>。</li>
@@ -747,7 +727,7 @@ function copyPrompt(type) {
 <br>
 <h4>1. 新世代 Gemini 家族成員技術定位對比</h4>
 <br>
-<table class="comparison-table"><thead><tr><th>模型名稱</th><th>API 識別代碼</th><th>建議角色定位</th><th>適用場景與特色</th></tr></thead><tbody>tr<tr><td><span style="color: #0ea5e9; font-weight: bold;">⭐ Gemini 3.5 Flash (高階推薦)</span></td><td><span style="color: #0ea5e9; font-weight: bold;">`gemini-3.5-flash`</span></td><td><span style="color: #0ea5e9; font-weight: bold;">🛡️ 高階深度審查 (Stronger Review)</span></td><td><span style="color: #0ea5e9; font-weight: bold;">小字辨識、複雜表格、手寫辨識、或第一輪結果衝突時的終極裁決者。具備最強推理與 Agent 行為。</span></td></tr>tr<tr><td><strong>Gemini 3.1 Flash</strong></td><td>`gemini-3.1-flash`</td><td>⚡ <strong>主流主力模型 (Main Engine)</strong></td><td>預設主力，具備極佳的代碼生成、邏輯推理與多模態表現，效能與速度最為平衡。</td></tr>tr<tr><td><span style="color: #10b981; font-weight: bold;">⭐ Gemini 3.1 Flash-Lite (最省推薦)</span></td><td><span style="color: #10b981; font-weight: bold;">`gemini-3.1-flash-lite`</span></td><td><span style="color: #10b981; font-weight: bold;">💸 低成本快速草稿 (Low-cost Draft)</span></td><td><span style="color: #10b981; font-weight: bold;">高頻率調用、PoC 概念驗證、第一版文字或 JSON 結構草稿提取。速度極快，成本極低。</span></td></tr>tr<tr><td><strong>Gemini 2.5 Flash</strong></td><td>`gemini-2.5-flash`</td><td>📊 <strong>基準教學比較 (Baseline Comparison)</strong></td><td>用於歷史基準對照、一般教學或簡單問答，作為效能升級前後的對比點。</td></tr>tr<tr><td><strong>Gemini 2.5 Flash-Lite</strong></td><td>`gemini-2.5-flash-lite`</td><td>⏳ <strong>歷史低成本基準 (Older Lite Baseline)</strong></td><td>用於歷史版本的低成本基準對照。</td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>模型名稱</th><th>API 識別代碼</th><th>建議角色定位</th><th>適用場景與特色</th></tr></thead><tbody><tr><td><span style="color: #0ea5e9; font-weight: bold;">⭐ Gemini 3.5 Flash (高階推薦)</span></td><td><span style="color: #0ea5e9; font-weight: bold;">`gemini-3.5-flash`</span></td><td><span style="color: #0ea5e9; font-weight: bold;">🛡️ 高階深度審查 (Stronger Review)</span></td><td><span style="color: #0ea5e9; font-weight: bold;">小字辨識、複雜表格、手寫辨識、或第一輪結果衝突時的終極裁決者。具備最強推理與 Agent 行為。</span></td></tr><tr><td><strong>Gemini 3.1 Flash</strong></td><td>`gemini-3.1-flash`</td><td>⚡ <strong>主流主力模型 (Main Engine)</strong></td><td>預設主力，具備極佳的代碼生成、邏輯推理與多模態表現，效能與速度最為平衡。</td></tr><tr><td><span style="color: #10b981; font-weight: bold;">⭐ Gemini 3.1 Flash-Lite (最省推薦)</span></td><td><span style="color: #10b981; font-weight: bold;">`gemini-3.1-flash-lite`</span></td><td><span style="color: #10b981; font-weight: bold;">💸 低成本快速草稿 (Low-cost Draft)</span></td><td><span style="color: #10b981; font-weight: bold;">高頻率調用、PoC 概念驗證、第一版文字或 JSON 結構草稿提取。速度極快，成本極低。</span></td></tr><tr><td><strong>Gemini 2.5 Flash</strong></td><td>`gemini-2.5-flash`</td><td>📊 <strong>基準教學比較 (Baseline Comparison)</strong></td><td>用於歷史基準對照、一般教學或簡單問答，作為效能升級前後的對比點。</td></tr><tr><td><strong>Gemini 2.5 Flash-Lite</strong></td><td>`gemini-2.5-flash-lite`</td><td>⏳ <strong>歷史低成本基準 (Older Lite Baseline)</strong></td><td>用於歷史版本的低成本基準對照。</td></tr></tbody></table>
 <br>
 <h4>2. 企業級多模型雙通道路由 (Cascade Router) 設計實戰</h4>
 <br>
@@ -902,7 +882,7 @@ async function callGemini(promptText, apiKey, options = {}) {
 <br>
 <p>---</p>
 <br>
-<h3>2. 地端 AI 呼叫：Ollama 服務 (Local-based LLM)</h3>
+<h3 id="local-ollama">2. 地端 AI 呼叫：Ollama 服務 (Local-based LLM)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>技術定位</strong>：地端部署之開源模型伺服器。</li>
 <li style="margin-bottom: 8px;">  <strong>優勢</strong>：100% 數據隱私安全（敏感商業資料完全不出企業內網）、零 Token 調用費用、可在無外網連線的物理隔離環境下穩定運作。</li>
@@ -921,7 +901,7 @@ async function callGemini(promptText, apiKey, options = {}) {
 <br>
 <p>    以下為我們針對 Mac M4 mini 16G 推薦的最佳 Ollama 模型組合：</p>
 <br>
-<table class="comparison-table"><thead><tr><th>模型名稱</th><th>Ollama 運行指令</th><th>模型類型與規模</th><th>記憶體佔用與效能評估 (16G 基準)</th><th>適用企業場景</th></tr></thead><tbody>tr<tr><td><strong>Gemma 4 (Effective 2B)</strong></td><td>`ollama run gemma4:e2b`</td><td>文本 (Dense 2B)</td><td>💾 極小 (約 1.6 GB)<br>⚡ 極速：~80+ tps</td><td>本地極速文本分類、關鍵字提取、意圖偵測。完美留出系統開發空間。</td></tr>tr<tr><td><strong>Gemma 4 (Effective 4B)</strong></td><td>`ollama run gemma4:e4b`</td><td>文本 (Dense 4B)</td><td>💾 較小 (約 2.8 GB)<br>⚡ 快速：~55+ tps</td><td>中文語意理解極佳。適合本地離線對話、簡易合約分析、會議記錄摘要。</td></tr>tr<tr><td><strong>Qwen 3 Vision-Language (2B)</strong></td><td>`ollama run qwen3-vl:2b`</td><td>視覺多模態 (2B)</td><td>💾 很小 (約 2.0 GB)<br>⚡ 快速：~60+ tps</td><td><strong>本地多模態/OCR 首選！</strong> 支持直接傳入圖片進行發票辨識、考題解析，記憶體無負擔。</td></tr>tr<tr><td><strong>Qwen 3 Vision-Language (8B)</strong></td><td>`ollama run qwen3-vl:8b`</td><td>視覺多模態 (8B)</td><td>💾 中等 (約 5.5 GB)<br>🚀 流暢：~35+ tps</td><td>複雜表格與小字辨識。16G 記憶體的效能上限，建議運行時關閉其他重度程式。</td></tr>tr<tr><td><strong>Qwen 3 (7B)</strong></td><td>`ollama run qwen3:7b`</td><td>文本/代碼 (7B)</td><td>💾 中等 (約 4.8 GB)<br>🚀 流暢：~40+ tps</td><td>本地代碼輔助生成、複雜中文推理與 SQL 語法轉換。</td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>模型名稱</th><th>Ollama 運行指令</th><th>模型類型與規模</th><th>記憶體佔用與效能評估 (16G 基準)</th><th>適用企業場景</th></tr></thead><tbody><tr><td><strong>Gemma 4 (Effective 2B)</strong></td><td>`ollama run gemma4:e2b`</td><td>文本 (Dense 2B)</td><td>💾 極小 (約 1.6 GB)<br>⚡ 極速：~80+ tps</td><td>本地極速文本分類、關鍵字提取、意圖偵測。完美留出系統開發空間。</td></tr><tr><td><strong>Gemma 4 (Effective 4B)</strong></td><td>`ollama run gemma4:e4b`</td><td>文本 (Dense 4B)</td><td>💾 較小 (約 2.8 GB)<br>⚡ 快速：~55+ tps</td><td>中文語意理解極佳。適合本地離線對話、簡易合約分析、會議記錄摘要。</td></tr><tr><td><strong>Qwen 3 Vision-Language (2B)</strong></td><td>`ollama run qwen3-vl:2b`</td><td>視覺多模態 (2B)</td><td>💾 很小 (約 2.0 GB)<br>⚡ 快速：~60+ tps</td><td><strong>本地多模態/OCR 首選！</strong> 支持直接傳入圖片進行發票辨識、考題解析，記憶體無負擔。</td></tr><tr><td><strong>Qwen 3 Vision-Language (8B)</strong></td><td>`ollama run qwen3-vl:8b`</td><td>視覺多模態 (8B)</td><td>💾 中等 (約 5.5 GB)<br>🚀 流暢：~35+ tps</td><td>複雜表格與小字辨識。16G 記憶體的效能上限，建議運行時關閉其他重度程式。</td></tr><tr><td><strong>Qwen 3 (7B)</strong></td><td>`ollama run qwen3:7b`</td><td>文本/代碼 (7B)</td><td>💾 中等 (約 4.8 GB)<br>🚀 流暢：~40+ tps</td><td>本地代碼輔助生成、複雜中文推理與 SQL 語法轉換。</td></tr></tbody></table>
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>實戰前端 JavaScript 呼叫代碼</strong>：</li>
@@ -979,7 +959,7 @@ async function callOllama(promptText, modelName = 'gemma4:e4b', options = {}) {
 <br>
 <p>---</p>
 <br>
-<h3>3. 瀏覽器原生 AI 呼叫：Chrome built-in AI (Edge-based LLM)</h3>
+<h3 id="chrome-nano">3. 瀏覽器原生 AI 呼叫：Chrome built-in AI (Edge-based LLM)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>技術定位</strong>：端側邊緣運算 (Edge AI)，大模型直接內嵌並運行於使用者的瀏覽器沙盒中。</li>
 <li style="margin-bottom: 8px;">  <strong>優勢</strong>：真正的零伺服器運維成本、零網絡頻寬依賴（完全在使用者本地設備 CPU/NPU 運行）、極高隱私度，能大幅度減輕企業伺服器的算力負載。</li>

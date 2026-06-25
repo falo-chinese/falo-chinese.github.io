@@ -16,9 +16,7 @@ details.prompt-details summary:hover {
 
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-        <h3 style="margin: 0; color: #38bdf8; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
-            🖥️ 互動式硬體檢測與 Ollama 選型（AI 助理專屬體驗） {#hardware-detection}
-        </h3>
+        <h3 id="hardware-detection" style="margin: 0; color: #38bdf8; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">🖥️ 互動式硬體檢測與 Ollama 選型（AI 助理專屬體驗）</h3>
         <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
             如果您正在使用支持環境感知與終端機執行權限的 AI 助理（如 Antigravity / Codex），可以直接一鍵複製下方任一提示詞並發送給 AI 助理。AI 助理將會自動在您的開發環境中執行系統安全檢測命令，掃描您當前的電腦硬體配置，為您量身打造最精準的 Ollama 本地模型選型與部署優化報告！
         </p>
@@ -154,7 +152,7 @@ function copyPrompt(type) {
 
 在進行 AI App 的實戰開發前，我們必須先掌握「如何呼叫 AI」的底層技術路徑。根據系統架構、資安防護、成本預算與運算延遲的不同， AI 呼叫主要分為以下三大經典模式。
 
-### 1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)
+### 1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM) {#cloud-gemini}
 *   **技術定位**：商業級雲端大模型 API。
 *   **優勢**：模型推理解析力最強，支援超長上下文 (Context Window)，具備強大的多模態理解力，且完全免去本地硬體配置負擔。本範例推薦並採用 Google 最新一代主力模型 **Gemini 3.1 Flash-Lite** 與 **Gemini 3.5 Flash**。
 *   **劣勢**：必須連接網際網路、有 API 調用成本 (按 Token 計費)、敏感數據直接送往雲端需注意隱私合規。
@@ -330,7 +328,7 @@ async function callGemini(promptText, apiKey, options = {}) {
 
 ---
 
-### 2. 地端 AI 呼叫：Ollama 服務 (Local-based LLM)
+### 2. 地端 AI 呼叫：Ollama 服務 (Local-based LLM) {#local-ollama}
 *   **技術定位**：地端部署之開源模型伺服器。
 *   **優勢**：100% 數據隱私安全（敏感商業資料完全不出企業內網）、零 Token 調用費用、可在無外網連線的物理隔離環境下穩定運作。
 *   **劣勢**：極度依賴本地硬體算力（需要足夠的 GPU 顯示卡與視訊記憶體），且本地部署的模型參數規模其推理能力與雲端超大型模型相比仍有差距。
@@ -407,7 +405,7 @@ async function callOllama(promptText, modelName = 'gemma4:e4b', options = {}) {
 
 ---
 
-### 3. 瀏覽器原生 AI 呼叫：Chrome built-in AI (Edge-based LLM)
+### 3. 瀏覽器原生 AI 呼叫：Chrome built-in AI (Edge-based LLM) {#chrome-nano}
 *   **技術定位**：端側邊緣運算 (Edge AI)，大模型直接內嵌並運行於使用者的瀏覽器沙盒中。
 *   **優勢**：真正的零伺服器運維成本、零網絡頻寬依賴（完全在使用者本地設備 CPU/NPU 運行）、極高隱私度，能大幅度減輕企業伺服器的算力負載。
 *   **劣勢**：屬於極限輕量化模型（Gemini Nano 約 1.8B–3.2B 參數），僅適合進行簡易的文本摘要、翻譯、改寫、情感分析或意圖分類任務；目前僅限特定版本 Chrome 瀏覽器，且使用者需手動啟用實驗性 Flag。

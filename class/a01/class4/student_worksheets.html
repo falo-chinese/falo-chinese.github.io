@@ -531,9 +531,9 @@
                 <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. AI API 呼叫三大模式實戰</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic6_ai_api.html#hardware-detection">🖥️ 互動式硬體檢測選型</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">☁️ 雲端 Gemini API 申請與呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#cloud-gemini">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#local-ollama">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#chrome-nano">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
                 </ul>
 
 
@@ -581,7 +581,7 @@
 <li style="margin-bottom: 8px;">  <strong>填寫指引</strong>：請回顧您每日的日常工作與生活，在以下 6 個維度中，各寫出 1-2 個最令您困擾的具體事件。寫得越具體越好（包含人、事、時、地、物），並與組員共同討論，評估其<strong>「痛苦指數 (1-5分)」</strong>與<strong>「發生頻率」</strong>。</li>
 </ul>
 <br>
-<table class="comparison-table"><thead><tr><th>掃描維度</th><th>具體痛點事件描述 (請寫出具體場景)</th><th>痛苦指數 (1-5分)</th><th>發生頻率 (每日/每週/每月)</th></tr></thead><tbody>tr<tr><td><strong>1. 每天最花時間</strong><br>*(奪走你最多時間的低價值瑣事)*</td><td></td><td></td><td></td></tr>tr<tr><td><strong>2. 最重複</strong><br>*(讓你像個複製貼上機器人的機械工作)*</td><td></td><td></td><td></td></tr>tr<tr><td><strong>3. 最煩</strong><br>*(只要行程出現就想嘆氣、消耗能量的事)*</td><td></td><td></td><td></td></tr>tr<tr><td><strong>4. 最容易忘記</strong><br>*(頻率低或細節雜，漏掉會有嚴重後果)*</td><td></td><td></td><td></td></tr>tr<tr><td><strong>5. 最容易出錯</strong><br>*(細節多、邏輯雜，每次都要反覆檢查)*</td><td></td><td></td><td></td></tr>tr<tr><td><strong>6. 最不想做</strong><br>*(明知重要但因為痛苦高而一直拖延的事)*</td><td></td><td></td><td></td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>掃描維度</th><th>具體痛點事件描述 (請寫出具體場景)</th><th>痛苦指數 (1-5分)</th><th>發生頻率 (每日/每週/每月)</th></tr></thead><tbody><tr><td><strong>1. 每天最花時間</strong><br>*(奪走你最多時間的低價值瑣事)*</td><td></td><td></td><td></td></tr><tr><td><strong>2. 最重複</strong><br>*(讓你像個複製貼上機器人的機械工作)*</td><td></td><td></td><td></td></tr><tr><td><strong>3. 最煩</strong><br>*(只要行程出現就想嘆氣、消耗能量的事)*</td><td></td><td></td><td></td></tr><tr><td><strong>4. 最容易忘記</strong><br>*(頻率低或細節雜，漏掉會有嚴重後果)*</td><td></td><td></td><td></td></tr><tr><td><strong>5. 最容易出錯</strong><br>*(細節多、邏輯雜，每次都要反覆檢查)*</td><td></td><td></td><td></td></tr><tr><td><strong>6. 最不想做</strong><br>*(明知重要但因為痛苦高而一直拖延的事)*</td><td></td><td></td><td></td></tr></tbody></table>
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>【小組決策】本組最終選定的「黃金痛點」是：</strong></li>
@@ -683,7 +683,7 @@
 <li style="margin-bottom: 8px;">  <strong>填寫指引</strong>：請根據【工作紙 3】的推導結果，為小組的 AI APP 撰寫首發版本的規格定義書。請務必保持「MVP 的極簡思維」，只做最核心的功能。</li>
 </ul>
 <br>
-<table class="comparison-table"><thead><tr><th>規格項目</th><th>填寫內容 (小組討論共識)</th></tr></thead><tbody>tr<tr><td><strong>1. 產品名稱 (Name)</strong></td><td></td></tr>tr<tr><td><strong>2. 目標使用者 (Target User)</strong></td><td></td></tr>tr<tr><td><strong>3. 使用者痛點 (User Pain)</strong></td><td></td></tr>tr<tr><td><strong>4. 核心功能 (Core Feature)</strong><br>*(首發版本只做哪一件最核心的事？)*</td><td></td></tr>tr<tr><td><strong>5. 產品輸入 (Product Input)</strong><br>*(使用者需要提供什麼資料給 AI？)*</td><td></td></tr>tr<tr><td><strong>6. 產品輸出 (Product Output)</strong><br>*(AI 處理後呈現給用戶的具體結果？)*</td><td></td></tr>tr<tr><td><strong>7. 成功指標 (Metrics)</strong><br>*(如何用數據證明這個 MVP 是成功的？)*</td><td></td></tr>tr<tr><td><strong>8. MVP 實作方案 (MVP Scope)</strong><br>*(預計用哪些無程式碼工具在3天內做出？)*</td><td></td></tr>tr<tr><td><strong>9. 未來版本規劃 (Roadmap)</strong><br>*(若驗證成功，V1.0/V2.0 會增加什麼功能？)*</td><td></td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>規格項目</th><th>填寫內容 (小組討論共識)</th></tr></thead><tbody><tr><td><strong>1. 產品名稱 (Name)</strong></td><td></td></tr><tr><td><strong>2. 目標使用者 (Target User)</strong></td><td></td></tr><tr><td><strong>3. 使用者痛點 (User Pain)</strong></td><td></td></tr><tr><td><strong>4. 核心功能 (Core Feature)</strong><br>*(首發版本只做哪一件最核心的事？)*</td><td></td></tr><tr><td><strong>5. 產品輸入 (Product Input)</strong><br>*(使用者需要提供什麼資料給 AI？)*</td><td></td></tr><tr><td><strong>6. 產品輸出 (Product Output)</strong><br>*(AI 處理後呈現給用戶的具體結果？)*</td><td></td></tr><tr><td><strong>7. 成功指標 (Metrics)</strong><br>*(如何用數據證明這個 MVP 是成功的？)*</td><td></td></tr><tr><td><strong>8. MVP 實作方案 (MVP Scope)</strong><br>*(預計用哪些無程式碼工具在3天內做出？)*</td><td></td></tr><tr><td><strong>9. 未來版本規劃 (Roadmap)</strong><br>*(若驗證成功，V1.0/V2.0 會增加什麼功能？)*</td><td></td></tr></tbody></table>
 <br>
 <br>
 <p>---</p>
@@ -819,7 +819,7 @@
 </ul>
 <p>    1. 請完成下表，對比不同降噪技術對「Token 佔用空間」與「模型推論速度/品質」的影響：</p>
 <br>
-<table class="comparison-table"><thead><tr><th>降噪技術</th><th>Token 壓縮比例 (估算值)</th><th>主要優點 (對地端 Ollama 而言)</th><th>潛在缺點或限制</th></tr></thead><tbody>tr<tr><td><strong>無過濾 (全量資料)</strong></td><td>`0%` (約 20k+ tokens)</td><td>能考慮到資料庫所有的方案</td><td>極易引發 4096 溢出卡死</td></tr>tr<tr><td><strong>欄位投影 (Token 壓縮)</strong></td><td></td><td></td><td>方案多時 Token 總量依然偏大</td></tr>tr<tr><td><strong>TF-IDF 相關性排序</strong></td><td></td><td></td><td>當輸入詞彙無直接交集時無法配對</td></tr>tr<tr><td><strong>語意同義詞擴展</strong></td><td></td><td></td><td>依賴同義詞字典的完整度</td></tr>tr<tr><td><strong>UI 條件聯動過濾</strong></td><td></td><td>依據使用者明確意圖精準收斂</td><td>仰賴使用者手動勾選，非自動化</td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>降噪技術</th><th>Token 壓縮比例 (估算值)</th><th>主要優點 (對地端 Ollama 而言)</th><th>潛在缺點或限制</th></tr></thead><tbody><tr><td><strong>無過濾 (全量資料)</strong></td><td>`0%` (約 20k+ tokens)</td><td>能考慮到資料庫所有的方案</td><td>極易引發 4096 溢出卡死</td></tr><tr><td><strong>欄位投影 (Token 壓縮)</strong></td><td></td><td></td><td>方案多時 Token 總量依然偏大</td></tr><tr><td><strong>TF-IDF 相關性排序</strong></td><td></td><td></td><td>當輸入詞彙無直接交集時無法配對</td></tr><tr><td><strong>語意同義詞擴展</strong></td><td></td><td></td><td>依賴同義詞字典的完整度</td></tr><tr><td><strong>UI 條件聯動過濾</strong></td><td></td><td>依據使用者明確意圖精準收斂</td><td>仰賴使用者手動勾選，非自動化</td></tr></tbody></table>
 <br>
 <h3>3. 字元級 N-gram TF-IDF 與語意擴展的 JS 實作</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">

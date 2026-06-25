@@ -531,9 +531,9 @@
                 <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. AI API 呼叫三大模式實戰</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic6_ai_api.html#hardware-detection">🖥️ 互動式硬體檢測選型</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">☁️ 雲端 Gemini API 申請與呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#cloud-gemini">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#local-ollama">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#chrome-nano">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
                 </ul>
 
 
@@ -609,245 +609,227 @@ details.prompt-details summary:hover {
 <br>
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-        <h4 style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
-<p>            🖥️ 數據工程第一步：多源官網 AI 資料採集提示詞 {#data-ingestion-prompts}</p>
-        </h4>
+        <h4 id="data-ingestion-prompts" style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">🖥️ 數據工程第一步：多源官網 AI 資料採集提示詞</h4>
         <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
-<p>            在開發 AI KM 知識庫時，高質量的原始數據是 RAG 的基石。學員可以直接一鍵複製下方任一提示詞並發送給 AI 助理（如 Antigravity / Codex），引導 AI 自動分析目標網頁結構，並以最聰明、高效的手段將兩個官方網站的 AI 工具資料完整採集並落地成乾淨的 CSV 實體資料庫。</p>
+            在開發 AI KM 知識庫時，高質量的原始數據是 RAG 的基石。學員可以直接一鍵複製下方任一提示詞並發送給 AI 助理（如 Antigravity / Codex），引導 AI 自動分析目標網頁結構，並以最聰明、高效的手段將兩個官方網站的 AI 工具資料完整採集並落地成乾淨的 CSV 實體資料庫。
         </p>
     </div>
-<br>
+
     <!-- 簡單版 Prompt 區塊 -->
     <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
             <h5 style="margin: 0; color: #10b981; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
-<p>                🟢 1. 簡易版：快速網頁採集 CSV 提示詞</p>
+                🟢 1. 簡易版：快速網頁採集 CSV 提示詞
             </h5>
             <button id="btn-scrape-simple" data-original-text="複製「簡單版」提示詞" data-original-color="#059669" onclick="copyPrompt('scrape-simple')" style="background: #059669; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>                複製「簡單版」提示詞</p>
+                複製「簡單版」提示詞
             </button>
         </div>
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>            結果導向，不限定技術。引導 AI 助理以最直接、簡單的方式爬取兩個網站的核心欄位，快速合併並輸出為乾淨的 CSV 檔案。</p>
+            結果導向，不限定技術。引導 AI 助理以最直接、簡單的方式爬取兩個網站的核心欄位，快速合併並輸出為乾淨的 CSV 檔案。
         </p>
         <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
             <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
             </summary>
-<p>            <pre id="scrape-simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🕸️ 快速網頁 AI 工具資料採集助手 (不限技術/直接落地 CSV)</p>
-<br>
-<p>你現在是一位高效的資料採集助理。我想從以下兩個台灣官方網站中，完整抓取所有 AI 工具與服務的專案內容，並直接儲存為一份 CSV 檔案：</p>
-<br>
-<p>1. 經濟部產發署 AI 工具專區：</p>
-<p>   https://eii.nat.gov.tw/moeai-plus/ai-tools</p>
-<p>2. 中小企業數位轉型入口網（SMEBiz）：</p>
-<p>   https://www.smebiz.org.tw/service-ai.php</p>
-<br>
-<h2>📋 採集要求：</h2>
-<p>1. <strong>技術不限</strong>：請根據這兩個網站的實際網頁結構，自主選擇最快、最簡單且最有效率的方法（無論是編寫指令、分析 API 直接請求、撰寫腳本，或使用任何工具）。</p>
-<p>2. <strong>抓取欄位</strong>：至少包含「來源網站」、「工具/服務名稱」、「廠商名稱」、「工具介紹」、「原始連結」。</p>
-<p>3. <strong>資料輸出</strong>：將這兩個網站抓到的資料整合，輸出為一個名為 `raw_ai_tools_list.csv` 的檔案，編碼請使用 `utf-8-sig`（確保以 Excel 開氣時中文不會呈現亂碼）。</p>
-<br>
-<p>請直接為我提供達成此目標的最優解決方案、完整的執行程式碼/指令，並附上詳細的中文步驟說明。</pre></p>
+            <pre id="scrape-simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🕸️ 快速網頁 AI 工具資料採集助手 (不限技術/直接落地 CSV)
+
+你現在是一位高效的資料採集助理。我想從以下兩個台灣官方網站中，完整抓取所有 AI 工具與服務的專案內容，並直接儲存為一份 CSV 檔案：
+
+1. 經濟部產發署 AI 工具專區：
+   https://eii.nat.gov.tw/moeai-plus/ai-tools
+2. 中小企業數位轉型入口網（SMEBiz）：
+   https://www.smebiz.org.tw/service-ai.php
+
+## 📋 採集要求：
+1. <strong>技術不限</strong>：請根據這兩個網站的實際網頁結構，自主選擇最快、最簡單且最有效率的方法（無論是編寫指令、分析 API 直接請求、撰寫腳本，或使用任何工具）。
+2. <strong>抓取欄位</strong>：至少包含「來源網站」、「工具/服務名稱」、「廠商名稱」、「工具介紹」、「原始連結」。
+3. <strong>資料輸出</strong>：將這兩個網站抓到的資料整合，輸出為一個名為 `raw_ai_tools_list.csv` 的檔案，編碼請使用 `utf-8-sig`（確保以 Excel 開氣時中文不會呈現亂碼）。
+
+請直接為我提供達成此目標的最優解決方案、完整的執行程式碼/指令，並附上詳細的中文步驟說明。</pre>
         </details>
     </div>
-<br>
+
     <!-- 專家版 Prompt 區塊 -->
     <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
             <h5 style="margin: 0; color: #38bdf8; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
-<p>                🛡️ 2. 專家版：高效網頁數據採集與 CSV 資料庫建立提示詞</p>
+                🛡️ 2. 專家版：高效網頁數據採集與 CSV 資料庫建立提示詞
             </h5>
             <button id="btn-scrape-expert" data-original-text="複製「專家版」提示詞" data-original-color="#0284c7" onclick="copyPrompt('scrape-expert')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>                複製「專家版」提示詞</p>
+                複製「專家版」提示詞
             </button>
         </div>
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>            結果導向，不限技術。引導 AI 助理自主分析載入機制（XHR/API 嗅探 vs DOM 解析），處理分頁與抗干擾，清洗 HTML 雜訊，產出結構高度對齊的 CSV 資料庫。</p>
+            結果導向，不限技術。引導 AI 助理自主分析載入機制（XHR/API 嗅探 vs DOM 解析），處理分頁與抗干擾，清洗 HTML 雜訊，產出結構高度對齊的 CSV 資料庫。
         </p>
         <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
             <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
             </summary>
-<p>            <pre id="scrape-expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 高效多源網頁採集與 CSV 實體資料庫建立專家</p>
-<br>
-<p>你是一位頂尖的資料採集與網頁爬蟲專家。請針對以下兩個台灣政府的 AI 補助與服務專區網站，進行深入分析並執行資料採集，目標是將所有 AI 工具的完整專案內容抓取下來，匯出為一份乾淨、無雜訊的統一 CSV 實體資料庫：</p>
-<br>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">目標網站 A：經濟部產發署 AI 工具專區</li>
-</ul>
-<p>  URL: https://eii.nat.gov.tw/moeai-plus/ai-tools</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">目標網站 B：中小企業數位轉型入口網（SMEBiz）</li>
-</ul>
-<p>  URL: https://www.smebiz.org.tw/service-ai.php</p>
-<br>
-<p>---</p>
-<br>
-<h2>⚙️ 第一階段：架構分析與最優採集路徑選擇</h2>
-<p>1. <strong>自主技術選型</strong>：請先分析這兩個網站的資料載入機制（例如：是否背後有直接提供 JSON 的非同步 API 通道？還是必須解析 HTML DOM？是否有分頁限制？）。請主動選擇 最省時、最穩健且最高效 的方法與工具鏈（如直接 API 提取、瀏覽器自動化、編寫輕量腳本等）。</p>
-<p>2. <strong>完整性與翻頁</strong>：腳本或方法必須能夠完整採集到「所有頁面」的專案，而非僅有第一頁，需具備自動處理分頁或循環請求的能力。</p>
-<p>3. <strong>採集禮貌</strong>：在批次請求之間加入適當的延遲，確保不對官方伺服器造成連線壓力。</p>
-<br>
-<p>---</p>
-<br>
-<h2>🧼 第二階段：資料去噪與 CSV 欄位規範</h2>
-<p>採集到的資料在寫入 CSV 之前，必須完成以下清洗流程，確保資料庫品質：</p>
-<p>1. <strong>文字純淨化</strong>：清除所有 HTML 殘留標籤、逸出字元（如 `&amp;nbsp;`）、以及描述文字中多餘的換行符與前後空白，確保 CSV 欄位不會錯位。</p>
-<p>2. <strong>對齊標準 CSV 欄位</strong>：將兩站的資料統一對齊至以下 CSV 欄位結構：</p>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">`來源網站` (如：經濟部產發署 / 中小企業數位轉型網)</li>
-<li style="margin-bottom: 8px;">`AI工具名稱`</li>
-<li style="margin-bottom: 8px;">`服務廠商` (提供該工具的廠商名稱)</li>
-<li style="margin-bottom: 8px;">`分類標籤` (原始網頁上的分類名稱)</li>
-<li style="margin-bottom: 8px;">`詳細介紹` (該 AI 工具的功能描述、適用場景等)</li>
-<li style="margin-bottom: 8px;">`補助或費用資訊` (若網頁有記載則抓取，若無則留空)</li>
-<li style="margin-bottom: 8px;">`原始網頁連結`</li>
-</ul>
-<br>
-<p>---</p>
-<br>
-<h2>💾 第三階段：CSV 資料落地與報告</h2>
-<p>1. <strong>資料去重</strong>：根據 `AI工具名稱` 與 `服務廠商` 進行重複值篩除，避免重複採集。</p>
-<p>2. <strong>格式與編碼</strong>：將合併後的資料輸出為 `unified_raw_ai_tools.csv` 檔案，且必須強制使用 `utf-8-sig` 編碼儲存（確保在 Windows/Mac 等不同系統的 Excel 中直接雙擊開啟時中文完美顯示，不出現亂碼）。</p>
-<p>3. <strong>執行統計</strong>：採集完成後，輸出簡單的採集統計摘要（如成功抓取總筆數、各網站筆數分布等）。</p>
-<br>
-<p>請為我輸出最優的實作方案與完整的代碼/指令，並附上詳細的中文步驟說明。</pre></p>
+            <pre id="scrape-expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 高效多源網頁採集與 CSV 實體資料庫建立專家
+
+你是一位頂尖的資料採集與網頁爬蟲專家。請針對以下兩個台灣政府的 AI 補助與服務專區網站，進行深入分析並執行資料採集，目標是將所有 AI 工具的完整專案內容抓取下來，匯出為一份乾淨、無雜訊的統一 CSV 實體資料庫：
+
+- 目標網站 A：經濟部產發署 AI 工具專區
+  URL: https://eii.nat.gov.tw/moeai-plus/ai-tools
+- 目標網站 B：中小企業數位轉型入口網（SMEBiz）
+  URL: https://www.smebiz.org.tw/service-ai.php
+
+---
+
+## ⚙️ 第一階段：架構分析與最優採集路徑選擇
+1. <strong>自主技術選型</strong>：請先分析這兩個網站的資料載入機制（例如：是否背後有直接提供 JSON 的非同步 API 通道？還是必須解析 HTML DOM？是否有分頁限制？）。請主動選擇 最省時、最穩健且最高效 的方法與工具鏈（如直接 API 提取、瀏覽器自動化、編寫輕量腳本等）。
+2. <strong>完整性與翻頁</strong>：腳本或方法必須能夠完整採集到「所有頁面」的專案，而非僅有第一頁，需具備自動處理分頁或循環請求的能力。
+3. <strong>採集禮貌</strong>：在批次請求之間加入適當的延遲，確保不對官方伺服器造成連線壓力。
+
+---
+
+## 🧼 第二階段：資料去噪與 CSV 欄位規範
+採集到的資料在寫入 CSV 之前，必須完成以下清洗流程，確保資料庫品質：
+1. <strong>文字純淨化</strong>：清除所有 HTML 殘留標籤、逸出字元（如 `&amp;nbsp;`）、以及描述文字中多餘的換行符與前後空白，確保 CSV 欄位不會錯位。
+2. <strong>對齊標準 CSV 欄位</strong>：將兩站的資料統一對齊至以下 CSV 欄位結構：
+   - `來源網站` (如：經濟部產發署 / 中小企業數位轉型網)
+   - `AI工具名稱`
+   - `服務廠商` (提供該工具的廠商名稱)
+   - `分類標籤` (原始網頁上的分類名稱)
+   - `詳細介紹` (該 AI 工具的功能描述、適用場景等)
+   - `補助或費用資訊` (若網頁有記載則抓取，若無則留空)
+   - `原始網頁連結`
+
+---
+
+## 💾 第三階段：CSV 資料落地與報告
+1. <strong>資料去重</strong>：根據 `AI工具名稱` 與 `服務廠商` 進行重複值篩除，避免重複採集。
+2. <strong>格式與編碼</strong>：將合併後的資料輸出為 `unified_raw_ai_tools.csv` 檔案，且必須強制使用 `utf-8-sig` 編碼儲存（確保在 Windows/Mac 等不同系統的 Excel 中直接雙擊開啟時中文完美顯示，不出現亂碼）。
+3. <strong>執行統計</strong>：採集完成後，輸出簡單的採集統計摘要（如成功抓取總筆數、各網站筆數分布等）。
+
+請為我輸出最優的實作方案與完整的代碼/指令，並附上詳細的中文步驟說明。</pre>
         </details>
     </div>
 </div>
 <br>
 <div class="prompt-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin: 1.5rem 0; padding: 1.5rem; background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; backdrop-filter: blur(10px);">
     <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-        <h4 style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">
-<p>            🖥️ 系統建置第二步：RAG 智慧檢索與診斷系統建置提示詞對照 {#system-building-prompts}</p>
-        </h4>
+        <h4 id="system-building-prompts" style="margin: 0; color: #38bdf8; font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: none; padding: 0;">🖥️ 系統建置第二步：RAG 智慧檢索與診斷系統建置提示詞對照</h4>
         <p style="margin: 0; font-size: 0.9rem; color: #94a3b8; line-height: 1.5;">
-<p>            當數據準備妥當後，建置 RAG 系統的提示詞設計將決定最終產出是「勉強能用的 PoC」還是「安全合規的企業級應用」。學員可以複製下方兩組提示詞發送給 AI 助理，親身體驗 Vibe Coding 簡易版（v1）與軟體工程規格版（v2）提示詞所帶來的架構與代碼品質差距。</p>
+            當數據準備妥當後，建置 RAG 系統的提示詞設計將決定最終產出是「勉強能用的 PoC」還是「安全合規的企業級應用」。學員可以複製下方兩組提示詞發送給 AI 助理，親身體驗 Vibe Coding 簡易版（v1）與軟體工程規格版（v2）提示詞所帶來的架構與代碼品質差距。
         </p>
     </div>
-<br>
+
     <!-- 系統建置 v1 Prompt 區塊 -->
     <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
             <h5 style="margin: 0; color: #10b981; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
-<p>                🟢 1. 簡易版：快速生成 v1.html RAG 網頁提示詞</p>
+                🟢 1. 簡易版：快速生成 v1.html RAG 網頁提示詞
             </h5>
             <button id="btn-build-v1" data-original-text="複製「v1 簡單版」提示詞" data-original-color="#059669" onclick="copyPrompt('build-v1')" style="background: #059669; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>                複製「v1 簡單版」提示詞</p>
+                複製「v1 簡單版」提示詞
             </button>
         </div>
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>            以快速交付 Demo 為目標。撰寫簡單直覺的一句話需求，讓 AI 自行發揮，快速開發出基本的靜態搜尋與 AI 對話頁面。</p>
+            以快速交付 Demo 為目標。撰寫簡單直覺的一句話需求，讓 AI 自行發揮，快速開發出基本的靜態搜尋與 AI 對話頁面。
         </p>
         <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
             <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
             </summary>
-<p>            <pre id="build-v1-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助工具智慧檢索庫建置提示詞 (v1 - 快速 PoC 版)</p>
-<br>
-<p>你現在是一位網頁開發人員。我想為台灣企業建立一個「政府 AI 補助工具智慧檢索庫」的網頁 (v1.html)。</p>
-<p>這個系統將會載入從以下兩個官方網站採集到的專案資料庫：</p>
-<br>
-<p>1️⃣ 經濟部產發署 AI 工具專區</p>
-<p>https://eii.nat.gov.tw/moeai-plus/ai-tools</p>
-<p>2️⃣ 中小企業數位轉型入口網（SMEBiz）</p>
-<p>https://www.smebiz.org.tw/service-ai.php</p>
-<br>
-<h2>🔗 參考範例網頁：</h2>
-<p>在介面設計、功能排版與互動邏輯上，請直接參考此網頁的實作範本：</p>
-<p>https://falo-taiwan.github.io/class/a01/class4/tw-ai-grant-v1.html</p>
-<br>
-<h2>📋 系統基本需求：</h2>
-<p>1. <strong>單一網頁架構 (SPA)</strong>：請將所有 HTML、CSS 和 JavaScript 寫在同一個 `tw-ai-grant-v1.html` 檔案中，方便直接點開執行，不需部署任何後端與資料庫。</p>
-<p>2. <strong>數據加載與檢索</strong>：將採集到的專案資料（已整合為 JSON 格式）直接嵌入在 JavaScript 代碼中。設計一個搜尋框，讓使用者輸入關鍵字後，能快速篩選並呈現符合的補助專案。</p>
-<p>3. <strong>視覺設計</strong>：使用現代感的深色科技風（Dark Mode），提供乾淨的卡片式佈局來展示專案，並加上簡單的分類篩選按鈕（如人資、客服、生產、行銷等）。</p>
-<p>4. <strong>AI 顧問功能</strong>：在網頁側邊或底部提供一個簡易的「AI 轉型顧問」對話框，預設一些常見的轉型問題，使用者點選後能顯示預設的解答。</p>
-<br>
-<p>請直接為我生成這份網頁的完整程式碼，並使用繁體中文。</pre></p>
+            <pre id="build-v1-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助工具智慧檢索庫建置提示詞 (v1 - 快速 PoC 版)
+
+你現在是一位網頁開發人員。我想為台灣企業建立一個「政府 AI 補助工具智慧檢索庫」的網頁 (v1.html)。
+這個系統將會載入從以下兩個官方網站採集到的專案資料庫：
+
+1️⃣ 經濟部產發署 AI 工具專區
+https://eii.nat.gov.tw/moeai-plus/ai-tools
+2️⃣ 中小企業數位轉型入口網（SMEBiz）
+https://www.smebiz.org.tw/service-ai.php
+
+## 🔗 參考範例網頁：
+在介面設計、功能排版與互動邏輯上，請直接參考此網頁的實作範本：
+https://falo-taiwan.github.io/class/a01/class4/tw-ai-grant-v1.html
+
+## 📋 系統基本需求：
+1. <strong>單一網頁架構 (SPA)</strong>：請將所有 HTML、CSS 和 JavaScript 寫在同一個 `tw-ai-grant-v1.html` 檔案中，方便直接點開執行，不需部署任何後端與資料庫。
+2. <strong>數據加載與檢索</strong>：將採集到的專案資料（已整合為 JSON 格式）直接嵌入在 JavaScript 代碼中。設計一個搜尋框，讓使用者輸入關鍵字後，能快速篩選並呈現符合的補助專案。
+3. <strong>視覺設計</strong>：使用現代感的深色科技風（Dark Mode），提供乾淨的卡片式佈局來展示專案，並加上簡單的分類篩選按鈕（如人資、客服、生產、行銷等）。
+4. <strong>AI 顧問功能</strong>：在網頁側邊或底部提供一個簡易的「AI 轉型顧問」對話框，預設一些常見的轉型問題，使用者點選後能顯示預設的解答。
+
+請直接為我生成這份網頁的完整程式碼，並使用繁體中文。</pre>
         </details>
     </div>
-<br>
+
     <!-- 系統建置 v2 Prompt 區塊 -->
     <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
             <h5 style="margin: 0; color: #38bdf8; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
-<p>                🛡️ 2. 專家版：高品質架構 v2.html RAG 系統與規畫確認提示詞</p>
+                🛡️ 2. 專家版：高品質架構 v2.html RAG 系統與規畫確認提示詞
             </h5>
             <button id="btn-build-v2" data-original-text="複製「v2 專家版」提示詞" data-original-color="#0284c7" onclick="copyPrompt('build-v2')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>                複製「v2 專家版」提示詞</p>
+                複製「v2 專家版」提示詞
             </button>
         </div>
         <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>            以企業級落地為目標。撰寫結構化的概念性規格，強調核心技術指標與防禦架構，並強制 AI 進入規劃與對齊模式，先與使用者確認設計後才准動手寫代碼。</p>
+            以企業級落地為目標。撰寫結構化的概念性規格，強調核心技術指標與防禦架構，並強制 AI 進入規劃與對齊模式，先與使用者確認設計後才准動手寫代碼。
         </p>
         <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
             <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+                <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
             </summary>
-<p>            <pre id="build-v2-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助與對話診斷系統建置提示詞 (v2 - 軟體工程概念規格版)</p>
-<br>
-<p>你是一位頂尖的資深 AI 軟體架構師與前端專家。我需要建置一個企業級的「台灣政府 AI 補助工具智慧檢索與對話診斷系統」(v2.html)，該系統需處理從以下兩個官方網站採集整合的 244 筆 AI 工具專案資料：</p>
-<br>
-<p>1️⃣ 經濟部產發署 AI 工具專區</p>
-<p>https://eii.nat.gov.tw/moeai-plus/ai-tools</p>
-<p>2️⃣ 中小企業數位轉型入口網（SMEBiz）</p>
-<p>https://www.smebiz.org.tw/service-ai.php</p>
-<br>
-<h2>🔗 參考範例網頁：</h2>
-<p>在整體介面美學、高階互動邏輯與雙軌戰情大屏的設計上，請直接參考此範例網頁：</p>
-<p>https://falo-taiwan.github.io/class/a01/class4/tw-ai-grant-v2.html</p>
-<br>
-<p>我希望這個系統具備極高的工程嚴謹度、資安防護力、性能優化與落地經濟學思維。以下是系統的核心架構與概念規格：</p>
-<br>
-<h2>📐 核心架構與概念規格</h2>
-<br>
-<h3>1. 模組化技術選型與前端檢索引擎</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>無伺服器靜態架構 (Serverless SPA)</strong>：100% 靜態網頁，零維運成本。將資料嵌入於前端進行高性能處理。</li>
-<li style="margin-bottom: 8px;"><strong>四軌聯動檢索系統</strong>：引入本地端全文檢索庫 (如 MiniSearch)，實現：</li>
-<li style="margin-bottom: 8px;">傳統精準關鍵字檢索</li>
-<li style="margin-bottom: 8px;">語意條件解析 (模擬 NLP 關鍵特徵提取)</li>
-<li style="margin-bottom: 8px;">同義詞關聯對照表 (如搜尋「知識管理」能自動聯想「KM」)</li>
-<li style="margin-bottom: 8px;">模糊拼音容錯與英文對照</li>
-</ul>
-<br>
-<h3>2. 落地經濟學與 Token 防禦機制</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>本地快取 (LocalStorage Cache)</strong>：在發起 AI 對話前，先比對本地快取，避免重複查詢。</li>
-<li style="margin-bottom: 8px;"><strong>本地端 Token 計數器</strong>：整合輕量級 Token 估算算法，在前端即時計算並顯示預估 Token 消耗與台幣花費。</li>
-<li style="margin-bottom: 8px;"><strong>流量限制器 (Rate Limiter)</strong>：前端限流防刷，避免 API 被惡意濫用。</li>
-</ul>
-<br>
-<h3>3. 安全防禦與極端環境降級 (Defensive Architecture)</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>安全 Gatekeeper</strong>：在用戶輸入送往 LLM 前，先進行前端防禦檢核（過濾 Prompt Injection 攻擊與敏感詞）。</li>
-<li style="margin-bottom: 8px;"><strong>離線降級 (CORS Fallback)</strong>：當 API Key 無效、網絡中斷或處於嚴格內網（CORS 限制）時，系統能自動降級為「離線預置專家規則庫」，確保 100% 可用性。</li>
-</ul>
-<br>
-<h3>4. 數據可視化與雙軌戰情中心</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>多維度戰情儀表板</strong>：使用純 SVG（不依賴第三方重型圖表庫）繪製高質感發光科技風圖表：</li>
-<li style="margin-bottom: 8px;">環狀比例圓環圖、熱力矩陣、四象限性價比散佈圖。</li>
-<li style="margin-bottom: 8px;">Token 消耗對比折線圖（直觀呈現啟用快取後的省錢對比）。</li>
-<li style="margin-bottom: 8px;">實時安全告警與 Agent 自治佇列狀態面板。</li>
-</ul>
-<br>
-<p>---</p>
-<br>
-<h2>⚠️ 重要執行指令：先理解，別動手！</h2>
-<br>
-<p><strong>請注意：此系統非常複雜，在寫下任何一行程式碼或 HTML 之前，你必須先進入「規劃與對齊模式 (Planning & Alignment Mode)」：</strong></p>
-<br>
-<p>1. <strong>架構剖析</strong>：請先分析上述規格的架構可行性，並規劃出模組化的程式碼組織結構。</p>
-<p>2. <strong>設計決策與提問</strong>：針對數據加載方式、Token 估算精準度、CORS 防禦機制以及 SVG 戰情圖表的響應式佈局，提出你的設計思路與可能需要我確認的 3-4 個關鍵決策。</p>
-<p>3. <strong>獲得授權後再行動</strong>：你的首輪回答<strong>絕對不能</strong>包含任何具體的 HTML/JavaScript 代碼。你必須先與我確認這份系統的實作計畫。當我閱讀並核准你的架構規劃與解答你的提問後，你才能在下一輪開始編寫程式碼。</p>
-<br>
-<p>請以繁體中文（台灣）輸出你的首輪分析與規劃報告。</pre></p>
+            <pre id="build-v2-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助與對話診斷系統建置提示詞 (v2 - 軟體工程概念規格版)
+
+你是一位頂尖的資深 AI 軟體架構師與前端專家。我需要建置一個企業級的「台灣政府 AI 補助工具智慧檢索與對話診斷系統」(v2.html)，該系統需處理從以下兩個官方網站採集整合的 244 筆 AI 工具專案資料：
+
+1️⃣ 經濟部產發署 AI 工具專區
+https://eii.nat.gov.tw/moeai-plus/ai-tools
+2️⃣ 中小企業數位轉型入口網（SMEBiz）
+https://www.smebiz.org.tw/service-ai.php
+
+## 🔗 參考範例網頁：
+在整體介面美學、高階互動邏輯與雙軌戰情大屏的設計上，請直接參考此範例網頁：
+https://falo-taiwan.github.io/class/a01/class4/tw-ai-grant-v2.html
+
+我希望這個系統具備極高的工程嚴謹度、資安防護力、性能優化與落地經濟學思維。以下是系統的核心架構與概念規格：
+
+## 📐 核心架構與概念規格
+
+### 1. 模組化技術選型與前端檢索引擎
+- <strong>無伺服器靜態架構 (Serverless SPA)</strong>：100% 靜態網頁，零維運成本。將資料嵌入於前端進行高性能處理。
+- <strong>四軌聯動檢索系統</strong>：引入本地端全文檢索庫 (如 MiniSearch)，實現：
+  - 傳統精準關鍵字檢索
+  - 語意條件解析 (模擬 NLP 關鍵特徵提取)
+  - 同義詞關聯對照表 (如搜尋「知識管理」能自動聯想「KM」)
+  - 模糊拼音容錯與英文對照
+
+### 2. 落地經濟學與 Token 防禦機制
+- <strong>本地快取 (LocalStorage Cache)</strong>：在發起 AI 對話前，先比對本地快取，避免重複查詢。
+- <strong>本地端 Token 計數器</strong>：整合輕量級 Token 估算算法，在前端即時計算並顯示預估 Token 消耗與台幣花費。
+- <strong>流量限制器 (Rate Limiter)</strong>：前端限流防刷，避免 API 被惡意濫用。
+
+### 3. 安全防禦與極端環境降級 (Defensive Architecture)
+- <strong>安全 Gatekeeper</strong>：在用戶輸入送往 LLM 前，先進行前端防禦檢核（過濾 Prompt Injection 攻擊與敏感詞）。
+- <strong>離線降級 (CORS Fallback)</strong>：當 API Key 無效、網絡中斷或處於嚴格內網（CORS 限制）時，系統能自動降級為「離線預置專家規則庫」，確保 100% 可用性。
+
+### 4. 數據可視化與雙軌戰情中心
+- <strong>多維度戰情儀表板</strong>：使用純 SVG（不依賴第三方重型圖表庫）繪製高質感發光科技風圖表：
+  - 環狀比例圓環圖、熱力矩陣、四象限性價比散佈圖。
+  - Token 消耗對比折線圖（直觀呈現啟用快取後的省錢對比）。
+  - 實時安全告警與 Agent 自治佇列狀態面板。
+
+---
+
+## ⚠️ 重要執行指令：先理解，別動手！
+
+<strong>請注意：此系統非常複雜，在寫下任何一行程式碼或 HTML 之前，你必須先進入「規劃與對齊模式 (Planning & Alignment Mode)」：</strong>
+
+1. <strong>架構剖析</strong>：請先分析上述規格的架構可行性，並規劃出模組化的程式碼組織結構。
+2. <strong>設計決策與提問</strong>：針對數據加載方式、Token 估算精準度、CORS 防禦機制以及 SVG 戰情圖表的響應式佈局，提出你的設計思路與可能需要我確認的 3-4 個關鍵決策。
+3. <strong>獲得授權後再行動</strong>：你的首輪回答<strong>絕對不能</strong>包含任何具體的 HTML/JavaScript 代碼。你必須先與我確認這份系統的實作計畫。當我閱讀並核准你的架構規劃與解答你的提問後，你才能在下一輪開始編寫程式碼。
+
+請以繁體中文（台灣）輸出你的首輪分析與規劃報告。</pre>
         </details>
     </div>
 </div>
@@ -896,9 +878,9 @@ function copyPrompt(type) {
             <p style="margin: 0; color: #94a3b8; font-size: 0.8rem;">內含 unified_ai_tools_db.json 與 tw-ai-grant-skeleton.html 骨架網頁</p>
         </div>
     </div>
-    <a href="https://falo-taiwan.github.io/class/a01/class4/tw_ai_grant_student_resource_pack_20260625_232807.zip" style="background: #0284c7; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s ease;" onmouseover="this.style.background='#0369a1'" onmouseout="this.style.background='#0284c7'">
+    <a href="https://falo-chinese.github.io/class/a01/class4/tw_ai_grant_student_resource_pack_20260625_232807.zip" style="background: #0284c7; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s ease;" onmouseover="this.style.background='#0369a1'" onmouseout="this.style.background='#0284c7'">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-<p>        下載實戰資源包</p>
+        下載實戰資源包
     </a>
 </div>
 <br>
@@ -911,34 +893,34 @@ function copyPrompt(type) {
 <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem; margin-top: 1rem;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
         <h5 style="margin: 0; color: #38bdf8; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
-<p>            🧭 實戰模仿與客製開發互動提示詞</p>
+            🧭 實戰模仿與客製開發互動提示詞
         </h5>
         <button id="btn-build-tutor" data-original-text="複製「AI 導師」提示詞" data-original-color="#0284c7" onclick="copyPrompt('build-tutor')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
-<p>            複製「AI 導師」提示詞</p>
+            複製「AI 導師」提示詞
         </button>
     </div>
     <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-<p>        將此提示詞發送給您的 AI 助理，它會主動詢問您想開發的版本（原版或客製化版本），並一次只提供一個 TODO 區塊的代碼，一步步引導您完成部署。</p>
+        將此提示詞發送給您的 AI 助理，它會主動詢問您想開發的版本（原版或客製化版本），並一次只提供一個 TODO 區塊的代碼，一步步引導您完成部署。
     </p>
     <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
         <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
-<p>            <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容</p>
+            <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
         </summary>
-<p>        <pre id="build-tutor-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助系統：模仿與客製開發助手</p>
-<br>
-<p>你現在是一位專業的前端開發導師。我手邊有一份「台灣政府 AI 補助系統實戰資源包」，裡面包含：</p>
-<p>1. `unified_ai_tools_db.json`：244 筆 AI 補助工具的資料庫。</p>
-<p>2. `tw-ai-grant-skeleton.html`：已寫好高質感深色 CSS 樣式與 HTML 結構的半成品骨架網頁。</p>
-<br>
-<p>我想要利用這份資源包，實作出我想要的系統版本（可以是原版的檢索系統，或是根據我的需求做修改/客製化的版本）。</p>
-<br>
-<h2>⚠️ 請遵循以下步驟引導我：</h2>
-<p>1. <strong>先別寫代碼</strong>：請先問我想要做出什麼樣的版本（例如：是要完整還原原版的功能，還是想要加入哪些客製化功能或修改？）。</p>
-<p>2. <strong>一步步指導</strong>：等我回答後，請根據我的需求，一步步指導我如何修改骨架網頁中的 JavaScript 區塊，並教我如何在本機打開與測試它。</p>
-<p>3. <strong>區塊式提供</strong>：每次只指導一個功能，不要一次丟出整頁程式碼，確保我能跟上並完全理解。</p>
-<br>
-<p>請用親切的繁體中文，開始我們的第一步互動，詢問我的開發需求。</pre></p>
+        <pre id="build-tutor-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助系統：模仿與客製開發助手
+
+你現在是一位專業的前端開發導師。我手邊有一份「台灣政府 AI 補助系統實戰資源包」，裡面包含：
+1. `unified_ai_tools_db.json`：244 筆 AI 補助工具的資料庫。
+2. `tw-ai-grant-skeleton.html`：已寫好高質感深色 CSS 樣式與 HTML 結構的半成品骨架網頁。
+
+我想要利用這份資源包，實作出我想要的系統版本（可以是原版的檢索系統，或是根據我的需求做修改/客製化的版本）。
+
+## ⚠️ 請遵循以下步驟引導我：
+1. <strong>先別寫代碼</strong>：請先問我想要做出什麼樣的版本（例如：是要完整還原原版的功能，還是想要加入哪些客製化功能或修改？）。
+2. <strong>一步步指導</strong>：等我回答後，請根據我的需求，一步步指導我如何修改骨架網頁中的 JavaScript 區塊，並教我如何在本機打開與測試它。
+3. <strong>區塊式提供</strong>：每次只指導一個功能，不要一次丟出整頁程式碼，確保我能跟上並完全理解。
+
+請用親切的繁體中文，開始我們的第一步互動，詢問我的開發需求。</pre>
     </details>
 </div>
 <br>

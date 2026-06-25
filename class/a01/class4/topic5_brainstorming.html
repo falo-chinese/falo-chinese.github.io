@@ -531,9 +531,9 @@
                 <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. AI API 呼叫三大模式實戰</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic6_ai_api.html#hardware-detection">🖥️ 互動式硬體檢測選型</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">☁️ 雲端 Gemini API 申請與呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
-                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#cloud-gemini">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#local-ollama">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#chrome-nano">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
                 </ul>
 
 
@@ -602,7 +602,7 @@
 <br>
 <details>
 <summary><b>展開檢視方向 A：1. 雙平台 244 款 AI 工具與轉型解決方案標竿檢索器</b></summary>
-<br>
+
 <h4>1. 雙平台 244 款 AI 工具與轉型解決方案標竿檢索器 (AI Tools & Digital Transformation Retriever)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>核心功能</strong>：</li>
@@ -618,7 +618,7 @@
 <br>
 <details>
 <summary><b>展開檢視方向 A：2. 藍海市場功能缺口與創新商機探測器</b></summary>
-<br>
+
 <h4>2. 藍海市場功能缺口與創新商機探測器 (Blue Ocean Gap & Innovation Detector)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>核心功能</strong>：</li>
@@ -644,55 +644,55 @@
 <br>
 <details>
 <summary><b>展開檢視方向 B：9 大黃金核心模組詳細規格</b></summary>
-<br>
+
 <h4>1. 智慧供應鏈需求預測與採購調配模組 (Demand Forecasting & Purchasing)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：整合歷史銷售、外部市場趨勢與地緣政治數據，預測未來 3 至 6 個月的物料需求，自動產出最佳採購建議，最大化降低庫存積壓資金。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：結合時間序列模型 (如 PatchTST/TimesNet) 與大語言模型，處理結構化庫存報表與非結構化的市場新聞分析，實現高精度的混合預測。</li>
 </ul>
-<br>
+
 <h4>2. 多模態視覺智慧入庫與庫存盤點模組 (Multimodal Vision Warehousing)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：倉管人員僅需使用行動裝置拍照或透過廠區監控攝影機，系統即可自動識別入庫物料的種類、數量與外觀缺陷，並自動將數據填入 ERP 庫存系統。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：採用邊緣端 Vision-Language Model (VLM) 進行物料特徵萃取與物件偵測 (Object Detection)，並透過 RESTful API 與 ERP 進銷存模組即時同步。</li>
 </ul>
-<br>
+
 <h4>3. 自動化生成式財務報表與異常對帳模組 (Generative Financial Reconciliation)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：自動串接多間銀行的對帳單、發票與銷貨單，智慧比對會計科目，自動完成月結與沖帳，並生成符合審計標準的異常對帳分析報告。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：運用 OCR 與多代理人 (Multi-Agent) 架構，一邊由財務代理人解析對帳單，另一邊由合規代理人進行三方對照，校正大模型輸出的噪聲數據。</li>
 </ul>
-<br>
+
 <h4>4. 智慧合約審查與採購履約風控模組 (Smart Contract & Compliance Risk Control)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：自動審查上下游廠商合約，精準標註出遲延交付、罰則、排他條款等潛在法律風險，並在履約階段自動監控各個里程碑，主動警示潛在違約風險。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：使用專門微調的 Legal-LLM，搭配合約範本的知識庫，進行條款層級 (Clause-level) 的風險評級與合規性分析。</li>
 </ul>
-<br>
+
 <h4>5. 全球跨境貿易合規與自動關稅稅則計算模組 (Cross-border Trade & HS Code Classifier)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：針對進出口企業，自動根據產品描述判定精準的國際 HS Code，即時試算各國關稅與進口稅費，並預警地緣政治引發的貿易禁令或制裁風險。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：構建動態關稅法規知識庫，利用 RAG 技術檢索世界海關組織 (WCO) 最新規範，結合語意分類器進行稅則編號智慧推薦。</li>
 </ul>
-<br>
+
 <h4>6. 生成式生產排程調整與動態瓶頸診斷模組 (Generative Production Scheduling / APS)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：在產線遭遇急單插單、機台故障或原料遲延時， AI 自動在數秒內重新計算最佳生產順序，並以視覺化甘特圖呈現，同時主動指出產線的瓶頸工作站。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：結合傳統啟發式演算法 (Heuristics) 與 LLM Agent，由 LLM 理解突發狀況的語意脈絡，調用後端排程求解器 (Solver) 進行多目標優化計算。</li>
 </ul>
-<br>
+
 <h4>7. 主動式客戶全生命週期價值與流失率預測模組 (Customer LTV & Churn Predictive Engine)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：分析客戶在 ERP 系統中的採購頻率變化、退貨率、應收帳款延遲天數與客服工單，主動預警流失風險，並自動生成量身定制的挽留方案。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：利用機器學習分類演算法進行特徵工程，結合 LLM 自動撰寫客製化的關懷郵件與折扣券提案。</li>
 </ul>
-<br>
+
 <h4>8. HR 智慧履歷萃取與適崗度媒合模組 (Smart HR Resume Matching)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：一鍵解析多種格式 (PDF/Word/圖片) 的求職履歷，自動萃取工作經歷與專業技能，對齊 ERP 中的職缺需求，進行高精度的適崗度評分，並自動生成面試提問大綱。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：採用 JSON Mode 或 Pydantic 強制 LLM 輸出結構化 Resume Schema，並透過向量智慧相似度計算履歷與 Job Description (JD) 的語意契合度。</li>
 </ul>
-<br>
+
 <h4>9. 智慧節能減碳與 ESG 雙軸轉型申報助理 (Smart Carbon & ESG Reporting Assistant)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：自動採集 ERP 中與碳排放相關的活動數據（如電費單、範疇一與範疇二的能源消耗、物流碳足跡），自動換算碳當量，並撰寫符合 GRI 與 SASB 國際標準的 ESG 永續報告書草稿。</li>
@@ -702,13 +702,13 @@
 <br>
 <details>
 <summary><b>展開檢視方向 B：2 大增值選配組件詳細規格</b></summary>
-<br>
+
 <h4>1. FORCE ERP Form Helper (智慧填單助手)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：運用 Chrome 瀏覽器外掛，將使用者的非結構化對話、通訊軟體訊息或電子郵件內容，自動解析並填入 ERP 系統的複雜表單中，實現「對話即填單」，大幅降低基層員工打字輸入的負擔。</li>
 <li style="margin-bottom: 8px;">  <strong>技術實現</strong>：利用 Chrome Extension 注入腳本，將選取的文字傳送給後端 LLM，利用 Few-shot Prompting 將非結構化文本映射到 ERP 表單的 DOM 欄位上，並進行自動填寫與校對。</li>
 </ul>
-<br>
+
 <h4>2. 離線安全語音 ERP 操作助理 (Local Voice-to-ERP Copilot)</h4>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>用途與價值</strong>：專為產線作業員、倉管人員設計。在雙手不便操作電腦的環境下，作業員可直接透過語音命令（如：「將 A 料架的 10 個螺絲移至 B 料架」）控制 ERP 系統，全程在廠區本地執行，保障商業機密。</li>
@@ -726,70 +726,70 @@
 <br>
 <details>
 <summary><b>展開檢視方向 C：7 大項目、28 大產品組件全景圖譜</b></summary>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別一：行政與文宣效率增強 (Administrative & Marketing Efficiency)</b></summary>
-<br>
-<p>1.  <strong>文宣海報 AI 生成器</strong>：輸入產品特徵與目標受眾，自動生成多規格社群媒體文宣文案、吸睛標題與視覺設計排版草圖。</p>
-<p>2.  <strong>多國語系企業官網翻譯與 SEO 優化器</strong>：自動將官網內容翻譯為多國語言，並根據當地搜尋引擎習慣，自動生成高排名的 Meta 標籤與關鍵字佈局。</p>
-<p>3.  <strong>生成式電子郵件回信助理</strong>：分析客戶來信的語意與情緒，自動草擬專業、委婉或積極等多種語氣的商務回信供人員選擇。</p>
-<p>4.  <strong>企業公告與通知自動發佈器</strong>：一鍵將複雜的政府政策或公司公文精簡為易讀的公告，並自動排程發送至 Slack、Teams 或 Line 官方帳號。</p>
+
+1.  <strong>文宣海報 AI 生成器</strong>：輸入產品特徵與目標受眾，自動生成多規格社群媒體文宣文案、吸睛標題與視覺設計排版草圖。
+2.  <strong>多國語系企業官網翻譯與 SEO 優化器</strong>：自動將官網內容翻譯為多國語言，並根據當地搜尋引擎習慣，自動生成高排名的 Meta 標籤與關鍵字佈局。
+3.  <strong>生成式電子郵件回信助理</strong>：分析客戶來信的語意與情緒，自動草擬專業、委婉或積極等多種語氣的商務回信供人員選擇。
+4.  <strong>企業公告與通知自動發佈器</strong>：一鍵將複雜的政府政策或公司公文精簡為易讀的公告，並自動排程發送至 Slack、Teams 或 Line 官方帳號。
 </details>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別二：智慧會議與協作精練 (Smart Meetings & Collaboration)</b></summary>
-<br>
-<p>5.  <strong>多語言語意逐字稿萃取器</strong>：支援中、英、台語等多語混雜的會議錄音，自動過濾口頭禪與贅字，生成極高精確度的發言人對照逐字稿。</p>
-<p>6.  <strong>Action Item 自動追蹤與看板同步器</strong>：從會議逐字稿中自動提煉出決策事項與待辦任務，自動在 Jira/Trello 上建立卡片並指派給對應同仁。</p>
-<p>7.  <strong>智慧行事曆協調與最佳時段推薦器</strong>：自動分析跨部門團隊成員的行事曆忙閒狀態與個人專注時間偏好，自動推薦最不易被打擾的最佳會議時段。</p>
-<p>8.  <strong>會議亮點短影音/摘要生成器</strong>：自動偵測會議中的熱烈討論或關鍵簡報段落，自動剪輯成 1 分鐘的重點精華視訊片段並附帶文字摘要。</p>
+
+5.  <strong>多語言語意逐字稿萃取器</strong>：支援中、英、台語等多語混雜的會議錄音，自動過濾口頭禪與贅字，生成極高精確度的發言人對照逐字稿。
+6.  <strong>Action Item 自動追蹤與看板同步器</strong>：從會議逐字稿中自動提煉出決策事項與待辦任務，自動在 Jira/Trello 上建立卡片並指派給對應同仁。
+7.  <strong>智慧行事曆協調與最佳時段推薦器</strong>：自動分析跨部門團隊成員的行事曆忙閒狀態與個人專注時間偏好，自動推薦最不易被打擾的最佳會議時段。
+8.  <strong>會議亮點短影音/摘要生成器</strong>：自動偵測會議中的熱烈討論或關鍵簡報段落，自動剪輯成 1 分鐘的重點精華視訊片段並附帶文字摘要。
 </details>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別三：合規與安全防護助理 (Compliance & Security Assistant)</b></summary>
-<br>
-<p>9.  <strong>敏感資訊 (PII) 自動遮蔽與去識別化工具</strong>：在將文件上傳至公有雲 LLM 或外發給第三方前，自動偵測並遮蔽身分證字號、信用卡號、手機號碼等敏感個資。</p>
-<p>10. <strong>本地離線法規與合約合規審查助理</strong>：基於本地邊緣端模型，在 100% 物理隔離與隱私安全的前提下，快速審查並標註商業合約中的潛在法務與合規風險。</p>
-<p>11. <strong>企業員工安全行為與異常存取監控器</strong>：智慧監控與分析異常的檔案下載、系統登入行為，在發生資料外洩或帳號劫持前主動發出預警。</p>
-<p>12. <strong>智慧商標與專利查核助手</strong>：自動檢索海量商標與專利公開資料庫，評估新產品命名、外觀設計或技術專利的潛在侵權風險。</p>
+
+9.  <strong>敏感資訊 (PII) 自動遮蔽與去識別化工具</strong>：在將文件上傳至公有雲 LLM 或外發給第三方前，自動偵測並遮蔽身分證字號、信用卡號、手機號碼等敏感個資。
+10. <strong>本地離線法規與合約合規審查助理</strong>：基於本地邊緣端模型，在 100% 物理隔離與隱私安全的前提下，快速審查並標註商業合約中的潛在法務與合規風險。
+11. <strong>企業員工安全行為與異常存取監控器</strong>：智慧監控與分析異常的檔案下載、系統登入行為，在發生資料外洩或帳號劫持前主動發出預警。
+12. <strong>智慧商標與專利查核助手</strong>：自動檢索海量商標與專利公開資料庫，評估新產品命名、外觀設計或技術專利的潛在侵權風險。
 </details>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別四：財務與報支自動化 (Financial & Expense Automation)</b></summary>
-<br>
-<p>13. <strong>智慧收據與發票 OCR 報支機器人</strong>：員工僅需用手機拍攝收據，系統即刻自動辨識消費金額、統一編號、品名與交易日期，並自動填妥報支單。</p>
-<p>14. <strong>差旅費用自動合規稽核器</strong>：對照企業內部差旅管理辦法，自動審查報銷單中是否存在超支、重複報銷、非工作日消費等異常行為。</p>
-<p>15. <strong>零用金動態預警與智慧補足預測器</strong>：分析部門歷史零用金支出的速率與週期，預測水位低於安全線的時間點，並自動觸發補款流程。</p>
-<p>16. <strong>智慧供應商付款計畫優化器</strong>：綜合考量企業自身資金成本、銀行利率與供應商提供的早期付款折扣，自動計算出最優的付款排程。</p>
+
+13. <strong>智慧收據與發票 OCR 報支機器人</strong>：員工僅需用手機拍攝收據，系統即刻自動辨識消費金額、統一編號、品名與交易日期，並自動填妥報支單。
+14. <strong>差旅費用自動合規稽核器</strong>：對照企業內部差旅管理辦法，自動審查報銷單中是否存在超支、重複報銷、非工作日消費等異常行為。
+15. <strong>零用金動態預警與智慧補足預測器</strong>：分析部門歷史零用金支出的速率與週期，預測水位低於安全線的時間點，並自動觸發補款流程。
+16. <strong>智慧供應商付款計畫優化器</strong>：綜合考量企業自身資金成本、銀行利率與供應商提供的早期付款折扣，自動計算出最優的付款排程。
 </details>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別五：客戶服務與自動化銷售 (Customer Service & Automated Sales)</b></summary>
-<br>
-<p>17. <strong>多模態智慧客服 Chatbot</strong>：結合 RAG 技術與視覺辨識，不僅能回答文字問題，還能看懂用戶上傳的產品故障照片，給出精準的維修故障排除步驟。</p>
-<p>18. <strong>銷售漏斗機會智慧預測與評分器</strong>：深度分析銷售日誌、客戶郵件往來與互動頻率，自動為潛在機會進行贏率評分，並推薦下一步最佳行動。</p>
-<p>19. <strong>智慧合約續約與到期主動提醒器</strong>：自動偵測即將到期的客戶合約，結合客戶滿意度與使用頻率分析，自動草擬客製化的續約方案與邀請信。</p>
-<p>20. <strong>社群聆聽與輿情警報系統</strong>：即時監控論壇、社群媒體與新聞，當出現針對公司產品或品牌的負面輿情時，即時發送警報並自動生成公關回應草稿。</p>
+
+17. <strong>多模態智慧客服 Chatbot</strong>：結合 RAG 技術與視覺辨識，不僅能回答文字問題，還能看懂用戶上傳的產品故障照片，給出精準的維修故障排除步驟。
+18. <strong>銷售漏斗機會智慧預測與評分器</strong>：深度分析銷售日誌、客戶郵件往來與互動頻率，自動為潛在機會進行贏率評分，並推薦下一步最佳行動。
+19. <strong>智慧合約續約與到期主動提醒器</strong>：自動偵測即將到期的客戶合約，結合客戶滿意度與使用頻率分析，自動草擬客製化的續約方案與邀請信。
+20. <strong>社群聆聽與輿情警報系統</strong>：即時監控論壇、社群媒體與新聞，當出現針對公司產品或品牌的負面輿情時，即時發送警報並自動生成公關回應草稿。
 </details>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別六：技術研發與代碼協作 (R&D and Code Collaboration)</b></summary>
-<br>
-<p>21. <strong>舊系統代碼 (Legacy Code) 智慧重構與註解生成器</strong>：自動為老舊的 Legacy Code (如 COBOL, 舊版 SQL) 補上清晰的語意註解，並重構為高效、安全的現代程式語言。</p>
-<p>22. <strong>自動化單元測試 (Unit Test) 生成助理</strong>：自動分析程式碼的邊界條件與邏輯分支，一鍵生成覆蓋率達 90% 以上的單元測試程式碼，提升軟體品質。</p>
-<p>23. <strong>智慧 API 文件生成與 Mock Server 搭建器</strong>：根據程式碼結構與註解，自動產出標準的 OpenAPI (Swagger) 文件，並一鍵建立 Mock API 供前端團隊併行開發。</p>
-<p>24. <strong>軟體漏洞與安全隱患靜態掃描器</strong>：在程式碼 Commit 時，自動進行靜態程式碼分析 (SAST)，檢測 OWASP Top 10 漏洞與硬編碼金鑰，防範安全威脅。</p>
+
+21. <strong>舊系統代碼 (Legacy Code) 智慧重構與註解生成器</strong>：自動為老舊的 Legacy Code (如 COBOL, 舊版 SQL) 補上清晰的語意註解，並重構為高效、安全的現代程式語言。
+22. <strong>自動化單元測試 (Unit Test) 生成助理</strong>：自動分析程式碼的邊界條件與邏輯分支，一鍵生成覆蓋率達 90% 以上的單元測試程式碼，提升軟體品質。
+23. <strong>智慧 API 文件生成與 Mock Server 搭建器</strong>：根據程式碼結構與註解，自動產出標準的 OpenAPI (Swagger) 文件，並一鍵建立 Mock API 供前端團隊併行開發。
+24. <strong>軟體漏洞與安全隱患靜態掃描器</strong>：在程式碼 Commit 時，自動進行靜態程式碼分析 (SAST)，檢測 OWASP Top 10 漏洞與硬編碼金鑰，防範安全威脅。
 </details>
-<br>
+
 <details style="margin-top: 10px; margin-left: 15px;">
 <summary><b>類別七：數據分析與決策支援 (Data Analysis & Decision Support)</b></summary>
-<br>
-<p>25. <strong>對話式資料庫查詢 (Text-to-SQL) 助手</strong>：非技術主管只需用口語提問，系統即可自動轉換為精準的 SQL 查詢，並在前端自動繪製成直觀的數據圖表。</p>
-<p>26. <strong>智慧 KPI 看板與異常指標警報器</strong>：自動監控營運數據，當發現關鍵 KPI 異常偏離歷史區間時，主動進行根本原因分析 (RCA) 並發送警報報告。</p>
-<p>27. <strong>市場競品定價策略動態分析器</strong>：自動爬取並分析競爭對手官網的價格波動、折扣方案與套裝組合，為公司業務團隊提供動態定價建議。</p>
-<p>28. <strong>企業知識庫 (RAG) 精準問答調優助理</strong>：自動評估知識庫問答的檢索準確度與回答質量，主動指出並修正資訊衝突、缺失或過期的文檔。</p>
+
+25. <strong>對話式資料庫查詢 (Text-to-SQL) 助手</strong>：非技術主管只需用口語提問，系統即可自動轉換為精準的 SQL 查詢，並在前端自動繪製成直觀的數據圖表。
+26. <strong>智慧 KPI 看板與異常指標警報器</strong>：自動監控營運數據，當發現關鍵 KPI 異常偏離歷史區間時，主動進行根本原因分析 (RCA) 並發送警報報告。
+27. <strong>市場競品定價策略動態分析器</strong>：自動爬取並分析競爭對手官網的價格波動、折扣方案與套裝組合，為公司業務團隊提供動態定價建議。
+28. <strong>企業知識庫 (RAG) 精準問答調優助理</strong>：自動評估知識庫問答的檢索準確度與回答質量，主動指出並修正資訊衝突、缺失或過期的文檔。
 </details>
-<br>
+
 </details>
 <br>
 <p>---</p>
