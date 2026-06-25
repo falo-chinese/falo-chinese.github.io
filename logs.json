@@ -1,17 +1,15 @@
 [
   {
-    "timestamp": "2026-06-25T19:49:55+08:00",
+    "timestamp": "2026-06-25T19:54:06+08:00",
     "action_type": "synced",
-    "description": "依據老師最新指示，進行兩項重大架構重構：1. 將主題五（AI App 腦力激盪）重構為三大核心業務方向（政府 AI 知識庫、銀河 ERP SaaS 配套增強、個人/公司常用效率工具），並詳盡闡述各方向下的 AI 元件定位與具體用途；2. 全面重構左側 TOC 側邊欄，將 10 個工作坊配套手冊與工具連結移至最底部，並以高質感微動畫摺疊選單（📂 其他參考資源）收納，大幅優化 UI 導航體驗。同時，將全域代碼卡片套用 details/summary 摺疊，並升級 Gemini API 為 3.1 Flash-Lite 與 3.5 Flash 黃金組合，完成全專案天心品牌與密碼去識別化。重新編譯所有 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），同步推送到 falo-taiwan 及 falo-chinese 雙 GitHub Pages 鏡像倉庫。",
+    "description": "依據老師最新指示，重構並優化兩項核心教材內容：1. 將主題五的「方向 A」更名為「AI KM 政府與企業知識庫平台」，使知識管理業務定位更為精準；2. 在主題四中新增「NotebookLM 整合運用」子分類，深度介紹結合 Prompt 管理器與 NotebookLM CLI 打造企業共用知識入口的實務模式。重新編譯所有 18 個 HTML 課件、更新專案 ZIP 壓縮檔（20260625_class04_project.zip），同步推送到 falo-taiwan 及 falo-chinese 雙 GitHub Pages 遠端倉庫。",
     "operator": "AI (Antigravity)",
     "files_affected": [
       "compile_workshop.py",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.md",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.html",
       "falo-taiwan/class/a01/class4/topic5_brainstorming.md",
       "falo-taiwan/class/a01/class4/topic5_brainstorming.html",
-      "falo-taiwan/class/a01/class4/topic6_ai_api.md",
-      "falo-taiwan/class/a01/class4/topic6_ai_api.html",
-      "falo-taiwan/class/a01/class4/index.md",
-      "falo-taiwan/class/a01/class4/index.html",
       "class/a01/class4/20260625_class04_project.zip",
       "logs.md",
       "logs.json"

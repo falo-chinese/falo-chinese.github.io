@@ -634,6 +634,24 @@
 <h3>5. 零運維成本 (Serverless/Static)</h3>
 <p>採用 100% 靜態網頁架構（HTML/CSS/JS），無需部署資料庫或後端伺服器，免去高昂的維護成本與各種潛在的伺服器漏洞安全性威脅，極適合快速部署於內部儲存空間。</p>
 <br>
+<h2>📓 NotebookLM 整合運用</h2>
+<br>
+<p>企業在導入知識管理 (KM) 時，除了自行建置 RAG 系統，亦可深度整合與搭配 Google NotebookLM 作為協作與提煉工具。為了克服 NotebookLM 網頁端手動操作與單兵作戰的限制，我們規劃了以下兩種企業級整合運用模式：</p>
+<br>
+<h3>1. 結合 Prompt 管理器 (Prompt Manager Integration)</h3>
+<p>NotebookLM 的強大在於其基於來源資料的理解與互動，但不同部門（如研發、業務、財務）在提煉知識時所需的輸出格式與視角各有不同。透過導入「企業統一 Prompt 管理器」，同仁可快速調用標準化的系統提示詞（System Prompts），在 NotebookLM 內進行一致性的高質量引導：</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>結構化大綱生成</strong>：統一規定 NotebookLM 生成特定格式的專案審查清單或合規風險矩陣。</li>
+<li style="margin-bottom: 8px;"><strong>特定視角角色扮演</strong>：例如以「資深 ERP 顧問」或「政府補助稽核員」的視角，對導入的專案文件進行深度詰問與核對。</li>
+</ul>
+<br>
+<h3>2. 建立企業共用入口與 NotebookLM CLI 整合 (Unified Portal & NotebookLM CLI)</h3>
+<p>為了解決傳統上需要逐一手動上傳文件至 NotebookLM 的痛點，企業可構建一層「統一知識共用入口」（Web Portal）。此入口底層結合 <strong>NotebookLM CLI (命令列介面工具)</strong> 或自動化腳本，實現以下流程：</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>自動化文件同步</strong>：員工只需將發票、補助計畫書或合約拖入企業 KM 系統，底層腳本便會自動調用 NotebookLM CLI，將文件同步上傳至指定的 Google Drive 資料夾或 Notebook 來源庫中。</li>
+<li style="margin-bottom: 8px;"><strong>跨團隊共用導覽</strong>：透過共用入口，團隊能一鍵將自動編排好的 Notebook 分享給專案利害關係人，實現組織級的知識快速對接與共用。</li>
+</ul>
+<br>
 <p>---</p>
 <br>
 <h2>🔍 核心系統與技術文檔入口</h2>
