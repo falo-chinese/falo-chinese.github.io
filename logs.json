@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-06-26T00:05:42+08:00",
+    "action_type": "synced",
+    "description": "更新了主題三（Topic 3）的「核心實戰案例展示（Featured Case Studies）」板塊：收錄並精簡提煉了包括 LINE 資訊過載助手、銀河 ERP 憑證下載助手 Hub、口語化政府資料 AI 爬蟲助手 (Chrome 外掛)、FALO OCR Workbench、FALO Prompt Manager、FALO NotebookLM Runtime Lab、從故障到能力包的 FALO 精神實踐以及 LINE 防封鎖訊息變體生成器等九大高階 AI 實戰專案，提供高質量的重點技術特點剖析與線上展示連結；全套教材已重新編譯、檢測無誤後，打包並成功同步推送至雙鏡像 Git 倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic6_ai_api.md",
+      "force-taiwan/class/a01/class4/topic6_ai_api.html",
+      "compile_workshop.py",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-26T00:04:35+08:00",
     "action_type": "synced",
     "description": "更新了主題三（Topic 3）的「核心實戰案例展示（Featured Case Studies）」板塊：收錄並精簡提煉了包括 LINE 資訊過載助手、銀河 ERP 憑證下載助手 Hub、口語化政府資料 AI 爬蟲助手 (Chrome 外掛)、FALO OCR Workbench、FALO Prompt Manager、FALO NotebookLM Runtime Lab 以及從故障到能力包的 FALO 精神實踐等八大高階 AI 實戰專案，提供高質量的重點技術特點剖析與線上展示連結；全套教材已重新編譯、檢測無誤後，打包並成功同步推送至雙鏡像 Git 倉庫。",
