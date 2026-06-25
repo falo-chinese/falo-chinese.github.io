@@ -553,7 +553,7 @@
 <h3>1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>技術定位</strong>：商業級雲端大模型 API。</li>
-<li style="margin-bottom: 8px;">  <strong>優勢</strong>：模型推理解析力最強，支援超長上下文 (Context Window)，具備強大的多模態理解力，且完全免去本地硬體配置負擔。本範例採用 Google 最新一代主力模型 <strong>Gemini 3.1 Flash</strong> 與 <strong>Gemini 3.1 Flash-Lite</strong>。</li>
+<li style="margin-bottom: 8px;">  <strong>優勢</strong>：模型推理解析力最強，支援超長上下文 (Context Window)，具備強大的多模態理解力，且完全免去本地硬體配置負擔。本範例推薦並採用 Google 最新一代主力模型 <strong>Gemini 3.1 Flash-Lite</strong> 與 <strong>Gemini 3.5 Flash</strong>。</li>
 <li style="margin-bottom: 8px;">  <strong>劣勢</strong>：必須連接網際網路、有 API 調用成本 (按 Token 計費)、敏感數據直接送往雲端需注意隱私合規。</li>
 </ul>
 <br>
@@ -561,9 +561,9 @@
 <strong style="color: var(--primary); display: block; margin-bottom: 0.5rem;">⚠️ IMPORTANT / 重要</strong>
 <p style="margin: 0; font-size: 0.95rem;"></p></div>
 <blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;"><strong>模型版本重要聲明</strong></blockquote>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">請勿使用已停用或即將失效的舊版 <strong>Gemini 1.5 系列 (如 gemini-1.5-flash)</strong> 或較舊的 <strong>Gemini 2.0 系列</strong>，舊版模型在新版 API 通道中已無法正常運作或不具備最佳效能。本課程全面升級並採用最新的：</blockquote>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">1. <strong>`gemini-3.1-flash`</strong>：預設主力模型，具備極佳的推理速度、代碼生成與多模態表現，適合絕大多數 AI App 實戰。</blockquote>
-<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">2. <strong>`gemini-3.1-flash-lite`</strong>：極速輕量化模型，回應延遲更低，Token 消耗成本極低，是高頻率查詢與 PoC 階段的首選。</blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">請勿使用已停用或即將失效的舊版 <strong>Gemini 1.5 系列 (如 gemini-1.5-flash)</strong> 或較舊的 <strong>Gemini 2.0 系列</strong>，舊版模型在新版 API 通道中已無法正常運作或不具備最佳效能。本課程全面升級並推薦採用最新的黃金組合：</blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">1. <strong>`gemini-3.1-flash-lite`</strong>：（推薦/最省用量）極速輕量化模型，回應延遲更低，Token 消耗成本極低，是高頻率查詢與 PoC 階段的首選。</blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">2. <strong>`gemini-3.5-flash`</strong>：（推薦/高精度）高階深度審查模型，具備極佳的推理速度、代碼生成與多模態表現，最適合複雜邏輯、表格辨識與品管審查。</blockquote>
 <br>
 <p>---</p>
 <br>
@@ -639,12 +639,12 @@
 async function callGemini(promptText, apiKey, options = {}) {
   const { 
     // 💡 支援模型名單 (modelName):
-    // - 'gemini-3.5-flash'      (🛡️ 高階深度審查，最適合複雜邏輯、表格與手寫辨識)
-    // - 'gemini-3.1-flash'      (⚡ 主流主力模型，預設，平衡效能與速度)
-    // - 'gemini-3.1-flash-lite' (💸 低成本快速草稿，極速，超省用量)
+    // - 'gemini-3.1-flash-lite' (💸 低成本快速草稿，預設/最省用量)
+    // - 'gemini-3.5-flash'      (🛡️ 高階深度審查，推薦/高精度，最適合複雜邏輯與表格)
+    // - 'gemini-3.1-flash'      (⚡ 主流主力模型，平衡效能與速度)
     // - 'gemini-2.5-flash'      (📊 歷史基準教學比較)
     // - 'gemini-2.5-flash-lite' (⏳ 歷史低成本基準)
-    modelName = 'gemini-3.1-flash', 
+    modelName = 'gemini-3.1-flash-lite', 
     responseJson = false           // 是否強制要求以 JSON 格式回傳
   } = options;
 
@@ -702,19 +702,19 @@ async function callGemini(promptText, apiKey, options = {}) {
 
 // 💡 實測呼叫方式（學員可複製整段程式碼至瀏覽器 F12 Console 貼上運行）：
 // 
-// 1. 【普通文字模式】 使用預設的 Gemini 3.1 Flash：
+// 1. 【極速低成本模式】 使用預設的 Gemini 3.1 Flash-Lite (最省用量)：
 // callGemini("請用繁體中文解釋什麼是 RAG 技術？", "YOUR_GEMINI_API_KEY");
 //
-// 2. 【高階深度審查模式】 使用最強的 Gemini 3.5 Flash 處理複雜任務：
+// 2. 【高階深度審查模式】 指定使用 Gemini 3.5 Flash 處理複雜精密任務：
 // callGemini("請分析此程式碼的潛在記憶體洩漏風險：[在此貼上您的代碼]", "YOUR_GEMINI_API_KEY", { modelName: "gemini-3.5-flash" });
 //
-// 3. 【極速低成本模式】 使用更划算的 Gemini 3.1 Flash-Lite：
-// callGemini("請寫一首關於寫程式的五言絕句。", "YOUR_GEMINI_API_KEY", { modelName: "gemini-3.1-flash-lite" });
+// 3. 【主流平衡模式】 指定使用 Gemini 3.1 Flash 平衡速度與能力：
+// callGemini("請寫一首關於寫程式的五言絕句。", "YOUR_GEMINI_API_KEY", { modelName: "gemini-3.1-flash" });
 //
 // 4. 【歷史基準對照模式】 使用前代 Gemini 2.5 Flash 做對比測試：
 // callGemini("什麼是落地經濟學？", "YOUR_GEMINI_API_KEY", { modelName: "gemini-2.5-flash" });
 //
-// 5. 【結構化 JSON 模式】 要求模型輸出特定 JSON 物件 (以 3.1 Flash 進行精密分析)：
+// 5. 【結構化 JSON 模式】 要求模型輸出特定 JSON 物件 (以 3.5 Flash 進行精密分析)：
 // const jsonPrompt = `分析這封客戶信件的情感與急迫性。
 // 信件內容：「我今天早上訂的系統到現在都無法登入，請立刻處理！」
 // 請務必只回傳符合以下格式的 JSON 內容，不要包含額外文字：
