@@ -1,15 +1,16 @@
 [
   {
     "timestamp": "2026-06-25T15:50:00+08:00",
-    "action_type": "local_updated",
-    "description": "依據老師最新指示將 Class 04 首頁重構為 master-detail 單頁平滑滾動門戶網頁：將左側 TOC 與導航卡片之所有連結皆更換為本機 HTML 錨點（如 #topic-1-section 等），實現平滑滾動與原視窗內導航之流暢體驗，而網頁內文中的案例按鈕則維持線上 falo 網址且在新視窗中開啟。同時在首頁右側將所有內容區塊按五大核心主題重排，全新製作主題四（KM RAG）介紹卡片並搬移主題五（AI App Studio）實作套件至底部，最後重新編譯 15 個工作坊 HTML 課件並同步至本地 preview 倉庫（僅限地端）。",
+    "action_type": "sync_updated",
+    "description": "依據老師最新指示將 Class 04 首頁重構為 master-detail 單頁平滑滾動門戶網頁：將左側 TOC 與導航卡片之所有連結皆更換為本機 HTML 錨點（如 #topic-1-section 等），實現平滑滾動與原視窗內導航之流暢體驗，而網頁內文中的案例按鈕則維持線上 falo 網址且在新視窗中開啟。同時在首頁右側將所有內容區塊按五大核心主題重排，全新製作主題四（KM RAG）介紹卡片並搬移主題五（AI App Studio）實作套件至底部，最後重新編譯 15 個工作坊 HTML 課件，並順利打包專案 ZIP 壓縮包，同步推送到 falo-taiwan 與 falo-chinese 兩個 GitHub Pages 儲存庫。",
     "operator": "AI (Antigravity)",
     "files_affected": [
       "falo-taiwan/class/a01/class4/index.html",
       "compile_workshop.py",
       "topic3_etl_cases.html",
       "logs.md",
-      "logs.json"
+      "logs.json",
+      "class/a01/class4/20260625_class04_project.zip"
     ]
   },
   {
