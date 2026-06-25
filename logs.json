@@ -1,14 +1,18 @@
 [
   {
-    "timestamp": "2026-06-25T19:20:40+08:00",
+    "timestamp": "2026-06-25T19:26:09+08:00",
     "action_type": "synced",
-    "description": "依據老師最新指示，於 Class 04 主題一（前三堂課程交流與補充）最前方增設『呼叫 AI 的三大運用模式：雲端、地端與瀏覽器原生 (Cloud vs Local vs Edge)』之實戰啟蒙教學。提供學員可直接於瀏覽器 Console 執行之精美 JavaScript 程式碼範例（包含雲端 Gemini API 呼叫、地端 Ollama 本地 API 呼叫與免 CORS 避坑指引、以及 Chrome 內建 Gemini Nano 端側邊緣運算 API 呼叫與生命週期管理）。同步更新首頁大綱描述、重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有變更同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "description": "依據老師最新指示與上傳截圖，於 Class 04 主題一（前三堂課程交流與補充）最前方正式整合『手把手申請與複製 Gemini API Key 步驟』的 6 張高清實務步驟圖文教學，並完整解構免費級別 (Free tier) 確認與複制作業。同步重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有新圖片與代碼同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
     "operator": "AI (Antigravity)",
     "files_affected": [
       "falo-taiwan/class/a01/class4/topic1_retrospective.md",
       "falo-taiwan/class/a01/class4/topic1_retrospective.html",
-      "falo-taiwan/class/a01/class4/index.md",
-      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step1.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step2.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step3.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step4.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step5.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step6.png",
       "class/a01/class4/20260625_class04_project.zip",
       "logs.md",
       "logs.json"

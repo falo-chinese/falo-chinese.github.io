@@ -23,6 +23,34 @@
 *   **技術定位**：商業級雲端大模型 API。
 *   **優勢**：模型推理解析力最強（如 Gemini 1.5 Pro / Flash），支援高達 200 萬 Token 的超長上下文 (Context Window)，具備強大的多模態（圖片、語音、影片）理解力，且完全免去本地硬體配置負擔。
 *   **劣勢**：必須連接網際網路、有 API 調用成本 (按 Token 計費)、敏感數據直接送往雲端需注意隱私合規。
+
+*   **💡 實戰指引：手把手申請與複製 Gemini API Key 步驟**：
+    在呼叫 API 之前，學員必須先取得專屬的 API Key。請遵循以下 6 個步驟進行申請與確認：
+    
+    1. **步驟一：前往 Google AI Studio 官方入口**
+       請在瀏覽器搜尋「Google AI Studio API key」，或直接點選訪問 [https://aistudio.google.com/api-keys](https://aistudio.google.com/api-keys)。
+       ![步驟一：搜尋並進入 Google AI Studio](images/gemini_api_key_step1.png)
+       
+    2. **步驟二：點擊創建 API Key**
+       進入後台的「API Keys」介面後，點擊右上角紫色的 **「Create API key」** 按鈕。
+       ![步驟二：點擊 Create API key 按鈕](images/gemini_api_key_step2.png)
+       
+    3. **步驟三：輸入 Key 的名稱與專案**
+       在彈出的視窗中，為您的 API Key 命名（例如：`Gemini API Key - 20260625`），並選擇或創建您的 Google Cloud 專案。
+       ![步驟三：為 API Key 命名與選擇專案](images/gemini_api_key_step3.png)
+       
+    4. **步驟四：確認生成金鑰**
+       點擊彈出對話框右下角的 **「Create key」** 按鈕。
+       ![步驟四：點擊 Create key 確認生成](images/gemini_api_key_step4.png)
+       
+    5. **步驟五：複製並安全保存金鑰**
+       生成成功後，會顯示您的專屬 API Key（`AQ...`），點擊右下角的 **「Copy key」** 按鈕即可複製。請將此 Key 妥善保存，切勿公開洩漏！
+       ![步驟五：點擊 Copy key 複製並安全保存](images/gemini_api_key_step5.png)
+       
+    6. **步驟六：隨時管理與確認付費級別**
+       回到金鑰列表中，您可以看見已建立的金鑰。請確認其 **Billing Tier 為「Free tier (免費級別)」**。此處不需綁定信用卡，學員即可安心進行免費額度內的 API 測試。您隨時可以點擊列表中的「Copy key (複製圖示)」重新複製金鑰。
+       ![步驟六：於列表中管理金鑰並確認 Free tier 級別](images/gemini_api_key_step6.png)
+
 *   **實戰前端 JavaScript 呼叫代碼**：
 ```javascript
 // ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用 1.5 Flash)
