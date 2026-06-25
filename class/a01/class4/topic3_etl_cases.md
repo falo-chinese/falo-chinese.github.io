@@ -63,7 +63,7 @@
   * **雙軌雲端與地端 Nano 協作**：支援多代 Gemini 雲端模型（3.5 Flash / 3.1 Flash-Lite）並行運作與「雙 OCR 模式」；並深度整合 **Chrome Built-in AI (Gemini Nano)**，在使用者本機進行離線結果比對、校對與摘要提煉，實現零 API 成本與極致隱私保護。
   * **落地經濟學與 PWA 實踐**：內建實時「對帳日誌」，精確計算每一次辨識的 Token 數、延遲（ms）與台幣花費（NT$），落實企業級成本控制意識；採用離線 PWA 技術，打造流暢的桌面級拖拽與浮動縮放交互體驗。
 * **研究報告入口**：
-  * [🌐 開啟 FALO OCR Workbench 智慧開源 OCR 工作台](https://falo-taiwan.github.io/ai-ocr-demo/) *(將於新分頁中開啟)*
+  * [🌐 開啟 FALO OCR Workbench 智慧開源 OCR 工作台](https://falo-chinese.github.io/ai-ocr-demo/) *(將於新分頁中開啟)*
 
 ### 案例五：影片內容分析之成本與效能對抗
 * **專案精神**：針對多模態影片分析設計的成本與效能對抗指南，深度對比「原生影片直投大模型」與「自適應抽樣故事板拼圖（Storyboard Grid）」兩種架構，協助企業在影片 OCR 與場景理解中極致降低 Token 成本。
