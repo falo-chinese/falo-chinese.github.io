@@ -304,70 +304,78 @@ function copyPrompt(type) {
         console.error('複製失敗: ', err);
     });
 }
-</script>ape-expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🛡️ 高效多源網頁採集與 CSV 實體資料庫建立專家
+</script>
 
-你是一位頂尖的資料採集與網頁爬蟲專家。請針對以下兩個台灣政府的 AI 補助與服務專區網站，進行深入分析並執行資料採集，目標是將所有 AI 工具的完整專案內容抓取下來，匯出為一份乾淨、無雜訊的統一 CSV 實體資料庫：
+## 🎯 實戰模仿開發（Imitation Coding）：使用「學生實戰資源包」快速解構與實作 {#imitation-coding}
 
-- 目標網站 A：經濟部產發署 AI 工具專區
-  URL: https://eii.nat.gov.tw/moeai-plus/ai-tools
-- 目標網站 B：中小企業數位轉型入口網（SMEBiz）
-  URL: https://www.smebiz.org.tw/service-ai.php
+在掌握了 v1 與 v2 版的提示詞對照後，學員在實際開發中，最有效率且最扎實的實踐方式並非從零盲目撰寫上千行代碼，而是透過 **「架構模仿（Imitation Coding）」** 來循序漸進地實作。
 
----
-
-## ⚙️ 第一階段：架構分析與最優採集路徑選擇
-1. **自主技術選型**：請先分析這兩個網站的資料載入機制（例如：是否背後有直接提供 JSON 的非同步 API 通道？還是必須解析 HTML DOM？是否有分頁限制？）。請主動選擇 最省時、最穩健且最高效 的方法與工具鏈（如直接 API 提取、瀏覽器自動化、編寫輕量腳本等）。
-2. **完整性與翻頁**：腳本或方法必須能夠完整採集到「所有頁面」的專案，而非僅有第一頁，需具備自動處理分頁或循環請求的能力。
-3. **採集禮貌**：在批次請求之間加入適當的延遲，確保不對官方伺服器造成連線壓力。
+我們為學員準備了一份專屬的 **「學生實戰資源包」**，內含完整的 AI 工具資料庫以及一個半成品骨架 HTML 檔案（已寫好高質感 CSS 樣式與視覺結構，但 JavaScript 核心邏輯預留為 TODO 區塊）。學員可以直接下載，並搭配專屬的 **「AI 模仿開發導師」**，一步步將其拼裝並部署成自己專屬的系統。
 
 ---
 
-## 🧼 第二階段：資料去噪與 CSV 欄位規範
-採集到的資料在寫入 CSV 之前，必須完成以下清洗流程，確保資料庫品質：
-1. **文字純淨化**：清除所有 HTML 殘留標籤、逸出字元（如 `&amp;nbsp;`）、以及描述文字中多餘的換行符與前後空白，確保 CSV 欄位不會錯位。
-2. **對齊標準 CSV 欄位**：將兩站的資料統一對齊至以下 CSV 欄位結構：
-   - `來源網站` (如：經濟部產發署 / 中小企業數位轉型網)
-   - `AI工具名稱`
-   - `服務廠商` (提供該工具的廠商名稱)
-   - `分類標籤` (原始網頁上的分類名稱)
-   - `詳細介紹` (該 AI 工具的功能描述、適用場景等)
-   - `補助或費用資訊` (若網頁有記載則抓取，若無則留空)
-   - `原始網頁連結`
+### 📦 學生實戰資源包下載
 
----
+請直接點擊下方連結下載實戰資源包，並將其解壓縮至您的開發目錄中：
 
-## 💾 第三階段：CSV 資料落地與報告
-1. **資料去重**：根據 `AI工具名稱` 與 `服務廠商` 進行重複值篩除，避免重複採集。
-2. **格式與編碼**：將合併後的資料輸出為 `unified_raw_ai_tools.csv` 檔案，且必須強制使用 `utf-8-sig` 編碼儲存（確保在 Windows/Mac 等不同系統的 Excel 中直接雙擊開啟時中文完美顯示，不出現亂碼）。
-3. **執行統計**：採集完成後，輸出簡單的採集統計摘要（如成功抓取總筆數、各網站筆數分布等）。
-
-請為我輸出最優的實作方案與完整的代碼/指令，並附上詳細的安裝、執行與調試中文說明。</pre>
-        </details>
+<div style="margin: 1.5rem 0; padding: 1.25rem; background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; backdrop-filter: blur(8px);">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(56, 189, 248, 0.1); display: flex; align-items: center; justify-content: center; color: #38bdf8;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+        <div>
+            <h5 style="margin: 0; color: white; font-size: 0.95rem; font-weight: 600;">tw_ai_grant_student_resource_pack_20260625_232807.zip</h5>
+            <p style="margin: 0; color: #94a3b8; font-size: 0.8rem;">內含 unified_ai_tools_db.json 與 tw-ai-grant-skeleton.html 骨架網頁</p>
+        </div>
     </div>
+    <a href="https://falo-taiwan.github.io/class/a01/class4/tw_ai_grant_student_resource_pack_20260625_232807.zip" style="background: #0284c7; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s ease;" onmouseover="this.style.background='#0369a1'" onmouseout="this.style.background='#0284c7'">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        下載實戰資源包
+    </a>
 </div>
 
-<script>
-function copyPrompt(type) {
-    const textToCopy = document.getElementById(type + '-prompt-text').textContent;
-    const buttonId = 'btn-' + type;
-    const originalText = type === 'scrape-simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';
-    const successColor = '#059669';
-    const originalColor = type === 'scrape-simple' ? '#059669' : '#0284c7';
-    
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        const btn = document.getElementById(buttonId);
-        btn.style.background = successColor;
-        btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg> ✓ 已複製到剪貼簿`;
-        
-        setTimeout(() => {
-            btn.style.background = originalColor;
-            btn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg> ` + originalText;
-        }, 2000);
-    }).catch(err => {
-        console.error('複製失敗: ', err);
-    });
-}
-</script>
+---
+
+### 🖥️ 實戰模仿與客製化開發 AI 導師提示詞
+
+學員下載資源包後，可以直接複製下方的 **「AI 導師提示詞」** 並發送給您的 AI 助理。這位 AI 導師會以高度互動的方式，一步步指導您如何填充網頁骨架，並部署出您想要的系統版本（原版或修改客製版）：
+
+<div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem; margin-top: 1rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+        <h5 style="margin: 0; color: #38bdf8; font-size: 1.02rem; font-weight: 600; border: none; padding: 0;">
+            🧭 實戰模仿與客製開發互動提示詞
+        </h5>
+        <button id="btn-build-tutor" data-original-text="複製「AI 導師」提示詞" data-original-color="#0284c7" onclick="copyPrompt('build-tutor')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
+            複製「AI 導師」提示詞
+        </button>
+    </div>
+    <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+        將此提示詞發送給您的 AI 助理，它會主動詢問您想開發的版本（原版或客製化版本），並一次只提供一個 TODO 區塊的代碼，一步步引導您完成部署。
+    </p>
+    <details class="prompt-details" style="margin-top: 0.5rem; outline: none;">
+        <summary style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; user-select: none; padding: 0.5rem 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 6px; outline: none; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; transition: all 0.2s ease;">
+            <span class="arrow" style="transition: transform 0.2s ease; display: inline-block; font-size: 0.75rem;">▶</span> 點擊展開 / 折疊完整提示詞內容
+        </summary>
+        <pre id="build-tutor-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; text-align: left; outline: none;"># 🖥️ 台灣政府 AI 補助系統：模仿與客製開發助手
+
+你現在是一位專業的前端開發導師。我手邊有一份「台灣政府 AI 補助系統實戰資源包」，裡面包含：
+1. `unified_ai_tools_db.json`：244 筆 AI 補助工具的資料庫。
+2. `tw-ai-grant-skeleton.html`：已寫好高質感深色 CSS 樣式與 HTML 結構的半成品骨架網頁。
+
+我想要利用這份資源包，實作出我想要的系統版本（可以是原版的檢索系統，或是根據我的需求做修改/客製化的版本）。
+
+## ⚠️ 請遵循以下步驟引導我：
+1. **先別寫代碼**：請先問我想要做出什麼樣的版本（例如：是要完整還原原版的功能，還是想要加入哪些客製化功能或修改？）。
+2. **一步步指導**：等我回答後，請根據我的需求，一步步指導我如何修改骨架網頁中的 JavaScript 區塊，並教我如何在本機打開與測試它。
+3. **區塊式提供**：每次只指導一個功能，不要一次丟出整頁程式碼，確保我能跟上並完全理解。
+
+請用親切的繁體中文，開始我們的第一步互動，詢問我的開發需求。</pre>
+    </details>
+</div>
+
+---
+
 
 ## 🗺️ 企業級 AI App 落地藍圖：全面合規與長期維運
 
