@@ -1,6 +1,6 @@
 # 主題五：AI App 專案腦力激盪
 
-本主題收錄完整的「AI APP Studio 工作坊」實戰框架，引導同仁從痛點出發，共創銀河 ERP × FALO AI App Store 的產品藍圖。
+本主題收錄完整的「AI APP Studio 工作坊」實戰框架，引導同仁從痛點出發，共創銀河 ERP × FALO AI App Store 的產品藍圖。本專案將 AI App 創意與需求池物理性地劃分為三大核心業務方向。
 
 ---
 
@@ -20,27 +20,46 @@
 
 在進行 AI App 的專案腦力激盪、MVP（最小可行性產品）與 PoC（概念驗證）規劃時，團隊往往會面臨一個極具殺傷力的現實問題：**「這款 AI App 在企業內部高度安全的網絡環境下到底能不能通？」**
 
-企業的網絡拓撲通常極為嚴格，開發或部署 AI App (特別是需要串接外部 LLM API、雲端數據庫或開源模型庫的專案) 時，常因防火牆阻擋、DNS 無法解析或 CORS 限制，導致 API 連線失敗。如果沒有在 PoC 規劃初期就進行評估，好不容易想出來的 AI App 創意將在部署階段面臨停滯。
+為了在 PoC 規劃初期就進行評估，避免 AI App 創意在部署階段面臨阻礙，我們將 **FALO Assessment Tool (Firewall Test)** 閘道與平台相容性評估工具納入本主題，作為 AI App 專案可行性評估的即戰力武器。
+* 🌐 **[線上即時檢測工具入口 ➔ FALO Firewall Test](https://falo-taiwan.github.io/firewall-test/)**
+* 📖 **[企業導入部署說明手冊 ➔ Firewall Test Readme](https://falo-taiwan.github.io/firewall-test/readme.html)**
+* 💻 **本地運行版入口 ➔ [deployment-assessment.html](deployment-assessment.html)**
 
-為了解決這個企業落地的關鍵痛點，我們將 **FALO Assessment Tool (Firewall Test)** 閘道與平台相容性評估工具納入本主題，作為 AI App 專案可行性評估的即戰力武器。
+---
 
-### 1. 工具設計定位與核心價值
-這是一個**去中心化、純前端、可離線運行**的環境相容性評估系統，專為售前顧問 (Pre-sales)、產品經理 (PM)、系統架構師 (Architect) 在進行專案 Discovery (探索) 與 MVP 評估時打造。其核心價值在於：
-* **一鍵化快速評估**：團隊只需在客戶或目標企業的內網環境中點開網頁，即可在 10 秒內快速檢測 50+ 種主流 AI API、雲端平台、開源模型庫的連通性。
-* **可行性決策矩陣 (Compatibility Matrix)**：將受測平台依「推薦等級 (A–D)」與「導入難度 (1–5 星)」進行視覺化分類，直接對應到專案可行性評估中，提供清晰的防火牆放行與替代架構建議。
-* **安全指紋診斷 (Diagnostics)**：自動偵測瀏覽器環境的安全防禦狀態、CORS 繞過可能性、以及 DNS 連線特徵，為 AI App 架構設計提供科學的客觀數據。
-* **零隱私洩露風險**：工具採用 100% Client-side 前端執行，不透過 any 後端伺服器中轉數據，保障企業內網拓撲與檢測結果的隱私安全。
+## 🎯 銀河 ERP × FALO AI App Store 三大業務方向產品藍圖
 
-### 2. 核心技術原理與實作機制
-該工具展示了多項在規劃 AI App 時非常實用的「前端防禦性與診斷性編程 (Defensive & Diagnostic Programming)」技術：
-* **`no-cors` 連通性探針 (Reachability Probing)**：利用 Fetch API 的 `mode: 'no-cors'` 模式向外部伺服器發送探針（如向 `https://api.openai.com` 請求）。雖然因跨來源限制無法取得回應內容，但瀏覽器仍會觸發 `fetch` 成功或失敗，藉此精準判斷該網域是否已被防火牆攔截，同時避開了 CORS 的跨域阻擋報錯。
-* **離線數據狀態匯出與載入 (State Export & Import)**：針對與網際網路完全隔離的極端內網（Air-gapped Env），支援將本地檢測結果序列化為編碼後的加密 HTML Payload。使用者可下載此離線文件，並在任何有網或無網環境中重新回載、分析其環境矩陣，實現極致的去中心化協作。
+為引導同仁將日常工作的「痛點」轉化為「標準化 AI 產品」，我們規劃了代表未來升級方向的三大核心 AI App 業務方向。以下為各方向的產品定位、元件設計與具體用途：
 
-### 3. 工具實測與說明入口
-本專案已將此工具完整整合，提供線上與本地的雙軌實測管道：
-* 🌐 **[線上即時檢測工具入口 ➔ FALO Firewall Test](https://falo-taiwan.github.io/firewall-test/)** *(推薦：一鍵為您的當前環境進行相容性與連通性檢測)*
-* 📖 **[企業導入部署說明手冊 ➔ Firewall Test Readme](https://falo-taiwan.github.io/firewall-test/readme.html)** *(詳解 50+ 種平台放行規則、評估等級與網絡架構調校)*
-* 💻 **本地運行版入口 ➔ [deployment-assessment.html](deployment-assessment.html)** *(學員可直接雙擊專案包內的 HTML 檔，在本地或內網隔離環境中直接執行檢測與評估)*
+### 方向 A：政府 AI 與知識庫平台 (NotebookLM 延伸應用)
+*   **業務定位**：解決企業在政策對接、法規檢索與政府補助案申請時面臨的「資訊碎片化」與「合規解讀難度高」等痛點。透過輕量前端檢索與上下文快取，打造低成本的公務知識平台。
+*   **核心元件與用途**：
+    1.  **台灣政府 AI 補助 RAG 智慧檢索系統 (PoC 實戰案)**：
+        *   *用途*：整合 224 筆政府補助案資料庫，以純前端字元級 TF-IDF 檢索與 Gemini Context Caching 技術，提供秒級響應且降低 90% Token 成本的語意對話診斷，並自動渲染 HTML Notion 風格建議書。
+    2.  **政策法規智慧問答助理**：
+        *   *用途*：針對企業日常面臨的勞基法、稅務法規或環評標準，提供本地離線的智慧問答，確保敏感商業資料完全不出企業內網。
+    3.  **補助資格自動精準比對器**：
+        *   *用途*：學員可導入企業自身的財務、員工人數與技術指標，由 AI 自動與多管道政府補助資格進行精準的差補比對，給出最優申報路徑。
+
+### 方向 B：銀河 ERP 企業配套軟體 (SaaS 智慧增強)
+*   **業務定位**：作為 ERP 廠商（銀河軟體 台西分公司），將 AI 技術無縫融入現有 ERP 作業流程中，為企業客戶提供高價值的 SaaS 智慧增值配套，解決複雜表單輸入與財務憑證稽核的耗時痛點。
+*   **核心元件與用途**：
+    1.  **AAA-Evidence Hub 智慧憑證稽核系統**：
+        *   *用途*：結合 OCR 影像辨識與 ETL 資料正規化引擎，自動採集並清洗發票、收據與出貨單等財務憑證，校正大模型輸出的噪聲數據，實現自動化帳務核銷。
+    2.  **FALO ERP Form Helper (智慧填單助手)**：
+        *   *用途*：運用 Chrome 瀏覽器外掛，將使用者的非結構化對話或電子郵件內容，自動解析並填入 ERP 系統的複雜表單中，實現「對話即填單」。
+    3.  **iPAS 智慧刷題模擬器 (產線自動化測試與監控版)**：
+        *   *用途*：模擬真實瀏覽器的 Swiping 刷題動作，結合 Vision AI 進行自動化高頻解題，並提供精準的 Token 消耗、費用診斷與延遲等即時 Telemetry 數據回報。
+
+### 方向 C：個人與公司常用軟體 (日常效率倍增器)
+*   **業務定位**：加速同仁日常行政事務、會議協作與知識提煉的通用型效率工具，全面釋放組織生產力。
+*   **核心元件與用途**：
+    1.  **Video to PPT 簡報影格智慧萃取工具**：
+        *   *用途*：自動解析教育訓練影片，運用 OpenCV MAE 影格變化偵測與 dHash 結構去重，智慧萃取關鍵投影片影格並執行 OCR 摘要，快速產出培訓精華講義。
+    2.  **本地離線合約與法務稽核助理**：
+        *   *用途*：基於 Ollama 在本地運行輕量大模型（如 Gemma 4 或 Qwen 3），在 100% 物理隔離與隱私安全的前提下，快速審查並標註商業合約中的潛在法務風險。
+    3.  **AI 會議記錄與 Action Item 自動生成器**：
+        *   *用途*：將錄音逐字稿交由 AI 進行語意摘要，自動提煉出會議結論、核心決策與結構化的跨部門任務指派清單，實現高效追蹤。
 
 ---
 
@@ -49,14 +68,7 @@
 - 進行三階段工作坊，共創 50+ AI App 創意 Backlog。
 - 評估與設計 MVP（最小可行性產品）與 PoC（概念驗證）規劃。
 
-## 工作坊全套資源
-- [📖 工作坊總覽首頁](ai_app_readme.html)
-- [🧠 產品思維方法論](methodology_blueprint.html)
-- [🔍 痛點與需求驗證手冊](discovery_validation_playbook.html)
-- [📋 50+ AI App 創意 Backlog](backlog_template.html)
-- [💡 100+ AI App 創意庫](idea_library.html)
-- [📊 100分制評審與決策表](scorecard.html)
-- [🚀 MVP & PoC 規劃指南](mvp_poc_guide.html)
-- [📝 學員實作工作紙](student_worksheets.html)
-- [👨‍🏫 講師引導指南](workshop_facilitator_guide.html)
-- [📂 歷程記錄](project_record.html)
+---
+
+## 工作坊配套工具資源
+*詳細的配套工具與手寫工作紙，請參閱左側導航最下方的**「其他參考資源」**專區。*
