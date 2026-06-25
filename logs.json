@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-06-25T16:10:00+08:00",
+    "action_type": "synced",
+    "description": "依據老師進一步指示，進行側邊欄 TOC 選單之折疊式交互優化：將五大主題之子選單預設完全折疊收起，僅當學員處於對應的大主題網頁（Active）時，才在左側展開該主題專屬的子項目，總覽首頁則維持簡潔收起狀態。同時，所有子選單連結目前皆移除 #錨點 後綴，統一暫時指向大主題頁面頂端（不作定位導覽），以便老師在後續編輯修改內容。重新編譯與打包發布 Class 04 全套 HTML 課件與 ZIP 檔，並順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "compile_workshop.py",
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/topic2_agent_tools.html",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.html",
+      "falo-taiwan/class/a01/class4/topic5_brainstorming.html",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T16:05:00+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示（方案 A）將 Class 04 首頁重構為高質感的「本次課程說明」入口主頁，並將五大核心課程主題物理拆分至 5 個獨立的主題網頁檔案中。升級 Markdown 編譯器以支援全套主題分頁編譯，在左側 TOC 目錄最上方增設獨立的「📋 本次課程說明」入口選單（指向 index.html），並將各主題之 TOC 導航與子選單錨點串接至其對應的獨立分頁（同視窗載入，維持流暢體感）。重新編譯 Class 04 全套 16 個 HTML 課件，並同步打包入 20260625_class04_project.zip 專案檔中，最後將所有更新同步至本地預覽庫，並順利推送到 falo-taiwan 及 falo-chinese 遠端倉庫。",
