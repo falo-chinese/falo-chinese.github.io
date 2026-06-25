@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-06-25T19:49:03+08:00",
+    "timestamp": "2026-06-25T19:49:55+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示，進行兩項重大架構重構：1. 將主題五（AI App 腦力激盪）重構為三大核心業務方向（政府 AI 知識庫、銀河 ERP SaaS 配套增強、個人/公司常用效率工具），並詳盡闡述各方向下的 AI 元件定位與具體用途；2. 全面重構左側 TOC 側邊欄，將 10 個工作坊配套手冊與工具連結移至最底部，並以高質感微動畫摺疊選單（📂 其他參考資源）收納，大幅優化 UI 導航體驗。同時，將全域代碼卡片套用 details/summary 摺疊，並升級 Gemini API 為 3.1 Flash-Lite 與 3.5 Flash 黃金組合，完成全專案天心品牌與密碼去識別化。重新編譯所有 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），同步推送到 falo-taiwan 及 falo-chinese 雙 GitHub Pages 鏡像倉庫。",
     "operator": "AI (Antigravity)",
