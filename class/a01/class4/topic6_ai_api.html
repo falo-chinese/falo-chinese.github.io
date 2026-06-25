@@ -565,6 +565,31 @@
 <blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">1. <strong>`gemini-3.1-flash`</strong>：預設主力模型，具備極佳的推理速度、代碼生成與多模態表現，適合絕大多數 AI App 實戰。</blockquote>
 <blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">2. <strong>`gemini-3.1-flash-lite`</strong>：極速輕量化模型，回應延遲更低，Token 消耗成本極低，是高頻率查詢與 PoC 階段的首選。</blockquote>
 <br>
+<p>---</p>
+<br>
+<h3>📊 企業級落地經濟學：新世代 Gemini 家族 (3.5 / 3.1 / 2.5) 模型選型與路由指引</h3>
+<br>
+<p>在真實的企業級 AI 專案（如天心 ERP 轉型或 AAA 憑證稽核）中，我們不可能盲目選用最貴的模型，否則 API 成本將會迅速吞噬產品利潤。這就引入了 <strong>「落地經濟學 (Economics)」</strong> 與 <strong>「多模型級聯路由 (Cascade Routing)」</strong> 的思維：在不同的處理階段、針對不同的任務難度，分流派遣最合適的模型廚師上陣。</p>
+<br>
+<p>#### 1. 新世代 Gemini 家族成員技術定位對比</p>
+<br>
+<table class="comparison-table"><thead><tr><th>模型名稱</th><th>API 識別代碼</th><th>建議角色定位</th><th>適用場景與特色</th></tr></thead><tbody>tr<tr><td><strong>Gemini 3.5 Flash</strong></td><td>`gemini-3.5-flash`</td><td>🛡️ <strong>高階深度審查 (Stronger Review)</strong></td><td>小字辨識、複雜表格、手寫辨識、或第一輪結果衝突時的終極裁決者。具備最強推理與 Agent 行為。</td></tr>tr<tr><td><strong>Gemini 3.1 Flash</strong></td><td>`gemini-3.1-flash`</td><td>⚡ <strong>主流主力模型 (Main Engine)</strong></td><td>預設主力，具備極佳的代碼生成、邏輯推理與多模態表現，效能與速度最為平衡。</td></tr>tr<tr><td><strong>Gemini 3.1 Flash-Lite</strong></td><td>`gemini-3.1-flash-lite`</td><td>💸 <strong>低成本快速草稿 (Low-cost Draft)</strong></td><td>高頻率調用、PoC 概念驗證、第一版文字或 JSON 結構草稿提取。速度極快，成本極低。</td></tr>tr<tr><td><strong>Gemini 2.5 Flash</strong></td><td>`gemini-2.5-flash`</td><td>📊 <strong>基準教學比較 (Baseline Comparison)</strong></td><td>用於歷史基準對照、一般教學或簡單問答，作為效能升級前後的對比點。</td></tr>tr<tr><td><strong>Gemini 2.5 Flash-Lite</strong></td><td>`gemini-2.5-flash-lite`</td><td>⏳ <strong>歷史低成本基準 (Older Lite Baseline)</strong></td><td>用於歷史版本的低成本基準對照。</td></tr></tbody></table>
+<br>
+<p>#### 2. 企業級多模型雙通道路由 (Cascade Router) 設計實戰</p>
+<br>
+<p>在處理高精度 OCR 或自動化報表稽核時，生產環境通常會採取 <strong>「雙通道級聯 (Cascade)」</strong> 策略：</p>
+<br>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;">  <strong>預設雙模型通道 (教學展示 / 一般效能)</strong>：</li>
+<li style="margin-bottom: 8px;">  <strong>第一步 (Draft)</strong>：`gemini-2.5-flash` (舊版基準，快速生成初始比對)</li>
+<li style="margin-bottom: 8px;">  <strong>第二步 (Review)</strong>：`gemini-3.1-flash-lite` (極速精修，以低成本過濾輕量級任務)</li>
+<li style="margin-bottom: 8px;">  <strong>強化雙模型通道 (高精度 / 生產環境實戰)</strong>：</li>
+<li style="margin-bottom: 8px;">  <strong>第一步 (Draft)</strong>：`gemini-3.1-flash-lite` (快速打草稿，過濾 90% 簡單任務)</li>
+<li style="margin-bottom: 8px;">  <strong>第二步 (Review)</strong>：`gemini-3.5-flash` (對剩餘 10% 複雜表格與小字做終極審核，發揮最大推理潛能)</li>
+</ul>
+<br>
+<p>---</p>
+<br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>💡 實戰指引：手把手申請與複製 Gemini API Key 步驟</strong>：</li>
 </ul>
