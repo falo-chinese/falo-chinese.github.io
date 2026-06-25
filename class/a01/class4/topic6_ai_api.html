@@ -696,7 +696,7 @@
 <br>
 <script>
 <p>function copyPrompt(type) {</p>
-<p>    const textToCopy = document.getElementById(type + '-prompt-text').innerText;</p>
+<p>    const textToCopy = document.getElementById(type + '-prompt-text').textContent;</p>
 <p>    const buttonId = type === 'simple' ? 'btn-simple-prompt' : 'btn-expert-prompt';</p>
 <p>    const originalText = type === 'simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';</p>
 <p>    const successColor = '#059669';</p>

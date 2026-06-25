@@ -127,7 +127,7 @@ details.prompt-details summary:hover {
 
 <script>
 function copyPrompt(type) {
-    const textToCopy = document.getElementById(type + '-prompt-text').innerText;
+    const textToCopy = document.getElementById(type + '-prompt-text').textContent;
     const buttonId = type === 'simple' ? 'btn-simple-prompt' : 'btn-expert-prompt';
     const originalText = type === 'simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';
     const successColor = '#059669';
