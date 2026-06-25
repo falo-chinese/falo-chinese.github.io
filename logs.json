@@ -1,5 +1,18 @@
 [
   {
+    "timestamp": "2026-06-25T22:36:23+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示，更新 Class 04 主題三（ETL 實務案例分享）中的 Agent（AI Agent）智慧協作區塊：將原本的相關展示佔位符號替換為實際的「iPAS 智慧輔導 AI Agent 模擬器」線上展示專案連結（https://falo-taiwan.github.io/ipas-aiap/practice-swiper.html），並新增簡要技術功能介紹。同步完成全站 HTML 課件編譯，重新打包 20260625_class04_project.zip 專案壓縮檔，並順利將所有變更同步至本地預覽庫，推送到 falo-taiwan 與 falo-chinese 雙遠端 Git 倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T22:27:29+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示，重構 Class 04 核心教材結構與課程案例編排：1. 將原本位於主題三（topic3_etl_cases.md）尾部的「企業級 AI 雙軌戰情中心 (War Room) 與元件解構」整個核心案例區塊，完整移動至主題四（topic4_km_rag.md）的兩個主要次主題（AI KM 建置範例與 NotebookLM 整合運用）之間，標題設定為大章節並配置跳轉錨點 {#ai-war-room}，同時對區塊內的品牌字詞進行統一校正（以 FORCE 取代 FALO）。2. 簡化主題三，使其專注於 E-T-L-Agent 基礎及三大精選實作案例（Video to PPT, Evidence Hub, iPAS Swiper）。3. 物理刪除主題四原本的「延伸開發：企業級 AI 決策儀表板與統一戰情中心 (War Room) 規劃」連結導引區塊。4. 同步更新 HTML 編譯器 compile_workshop.py 中的側邊欄 TOC 模板結構，為主題四側邊欄新增「🖥️ 企業級 AI 雙軌戰情中心」內部跳轉與導覽錨點，並重新編譯生成所有 HTML 課件。5. 重新打包 20260625_class04_project.zip 專案壓縮檔，並將所有變更同步至本地預覽庫與雙遠端倉庫。",
