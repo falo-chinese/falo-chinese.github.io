@@ -562,7 +562,58 @@
 <li style="margin-bottom: 8px;"><strong>演進路徑與商業價值</strong>：從「可用（Find）」到「分析（Analyze）」，進而實現「執行（Execute）」與「自治（Agent）」。高手優化版具備多搜尋模式（語意、同義詞、模糊搜尋）、結構化 JSON Schema 輸出（一鍵導出 HTML/PDF 報告），並具有操作歷程稽核日誌，是真正可維護、可擴充且符合企業安全標準的解決方案。</li>
 </ul>
 <br>
+<h3>3. 延伸開發：企業級 AI 決策儀表板 (Dashboard) 規劃</h3>
+<br>
+<p>在大數據與多來源整合的知識庫場景中（例如結合經濟部工業館與 Tcloud 的 244 筆補助專案），如何將結構化的 RAG 知識庫轉化為直觀、即時的商業洞察，是企業級 AI App 能否成功落地的分水嶺。</p>
+<br>
+<p>我們為本專案設計了一套高質感的深色科技風格<strong>「企業級 AI 決策儀表板」</strong>藍圖，透過純前端的數據聯動，實現零運維、零延遲的決策輔助：</p>
+<br>
+<p><img src="images/enterprise_ai_dashboard_blueprint.svg" alt="企業級 AI 決策儀表板設計藍圖" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<p>#### 📊 決策儀表板四大核心模組與技術解構</p>
+<br>
+<p>1. <strong>大盤核心 KPI 指標面板 (Top Cards)</strong></p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>數據洞察</strong>：即時呈現「工具方案總數 244 筆」、「活躍廠商 128 家」以及「導入預算中位數 NT$ 65,000」。</li>
+<li style="margin-bottom: 8px;"><strong>技術實現</strong>：在前端加載 `unified_ai_tools_db.json` 後，利用 JavaScript 的數組處理方法進行動態計算。例如：</li>
+<div class="code-container"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>     const totalTools = database.length; // 244
+     const uniqueProviders = [...new Set(database.map(item =&gt; item.provider_name))].length; // 128
+     const medianBudget = calculateMedian(database.map(item =&gt; item.price_amount)); // 65,000</code></pre></div>
+</ul>
+<br>
+<p>2. <strong>AI 標準化分類佔比圓環圖 (Donut Chart)</strong></p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>數據洞察</strong>：揭示了補助案在四大 SaaS 領域的分佈。「人資與知識管理 (40%)」佔比最高，是目前政府補助的主力方向；其次為「客戶服務與溝通 (25%)」、「行銷與銷售加值 (20%)」及「生產與運營管理 (15%)」。</li>
+<li style="margin-bottom: 8px;"><strong>技術實現</strong>：利用 SVG 原生的 `stroke-dasharray` 與 `stroke-dashoffset` 進行半徑為 85 的動態圓環比例繪製，再結合 CSS 轉場效果（Transition）提供流暢的數據加載動畫。</li>
+</ul>
+<br>
+<p>3. <strong>適用產業熱力矩陣 (Heatmap)</strong></p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>數據洞察</strong>：以熱力漸層色彩標註不同 AI 分類在「資訊、製造、零售、醫療、金融」五大產業的適用度。例如「製造業」在「人資知識」與「生產工安」中熱度極高。</li>
+<li style="margin-bottom: 8px;"><strong>技術實現</strong>：在前端設計動態聯動事件。當使用者點選特定產業（如製造業）的熱力單元格或下方快速過濾按鈕時，觸發雙向數據聯動（Bi-directional Binding），儀表板其他圖表（如圓環圖與象限圖）將立即過濾並重新繪製。</li>
+</ul>
+<br>
+<p>4. <strong>預算期程性價比象限圖 (Value Matrix)</strong></p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>數據洞察</strong>：以橫軸「期程 (月)」與縱軸「預算金額」劃分出四大決策象限，協助企業進行精準決策：</li>
+<li style="margin-bottom: 8px;"><strong>I. 客製 PoC 服務</strong>：高預算、短週期，適合前期概念驗證。</li>
+<li style="margin-bottom: 8px;"><strong>II. 重型專案系統</strong>：高預算、長週期，適用大型核心系統導入。</li>
+<li style="margin-bottom: 8px;"><strong>III. 輕量嘗鮮區</strong>：低預算、短週期，適合小範圍敏捷試錯。</li>
+<li style="margin-bottom: 8px;"><strong>IV. 高性價比 SaaS</strong>：低預算、長週期，是企業轉型、低成本高收益的首選。</li>
+<li style="margin-bottom: 8px;"><strong>技術實現</strong>：以 Bubble 散佈點（Scatter Plot）定位，氣泡大小與各分類的方案數或點擊熱度掛鉤。透過中位數（6個月與 6.5 萬元）作為動態十字交叉線，為企業篩選出最佳方案（如 Vital KM+）。</li>
+</ul>
+<br>
+<p>#### 💡 零延遲與零運維的前端 RAG 數據聯動設計</p>
+<p>傳統儀表板依賴 SQL 資料庫的 `GROUP BY` 或後端 API 進行篩選，若伺服器帶寬不足容易產生卡頓。</p>
+<p>高手優化版（v2）採用 <strong>100% 靜態伺服器無伺服器（Serverless Static）架構</strong>：</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>數據載入</strong>：在頁面初始化時，一次性異步加載輕量化 JSON 資料庫（壓縮後僅約 150KB）。</li>
+<li style="margin-bottom: 8px;"><strong>內存過濾 (In-Memory Filter)</strong>：所有篩選條件均在瀏覽器內存中以 JS 進行處理（例如 `.filter()`、`.reduce()`），數據處理時間小於 5 毫秒，帶來絲滑般的零延遲互動體驗。</li>
+<li style="margin-bottom: 8px;"><strong>無縫嵌入 Line/Slack 聯動</strong>：未來更可延伸透過 Webhook 將過濾後的 JSON 決策報告一鍵推送到企業 Line 官方帳號或 Slack 頻道，完成跨平台的 AI 加值協作。</li>
+</ul>
+<br>
 <p>---</p>
+<br>
 <br>
 <h2>🗺️ 企業級 AI App 落地藍圖：全面合規與長期維運</h2>
 <br>
