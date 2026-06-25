@@ -233,14 +233,4 @@
 * 📖 **[企業導入部署說明手冊 ➔ Firewall Test Readme](https://force-taiwan.github.io/firewall-test/readme.html)**
 * 💻 **本地運行版入口 ➔ [deployment-assessment.html](deployment-assessment.html)**
 
----
 
-## 學習目標
-- 運用「痛點轉化矩陣」與產品思維方法論。
-- 進行三階段工作坊，共創 50+ AI App 創意 Backlog。
-- 評估與設計 MVP（最小可行性產品）與 PoC（概念驗證）規劃。
-
----
-
-## 工作坊配套工具資源
-*詳細的配套工具與手寫工作紙，請參閱左側導航最下方的**「其他參考資源」**專區。*
