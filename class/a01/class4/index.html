@@ -143,6 +143,41 @@
             gap: 0.4rem;
         }
 
+        .toc-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+            padding-left: 0.8rem;
+        }
+
+        /* 💡 Five topics highlighted in light blue */
+        .toc-title a.toc-link {
+            color: #38bdf8 !important; /* Light blue for dark mode */
+            font-size: 0.82rem !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+        }
+        body.theme-light .toc-title a.toc-link {
+            color: #0284c7 !important; /* Solid blue for light mode */
+        }
+        .toc-title a.toc-link:hover {
+            color: #7dd3fc !important;
+            background: var(--primary-glow);
+            padding-left: 1rem !important;
+        }
+        body.theme-light .toc-title a.toc-link:hover {
+            color: #0369a1 !important;
+        }
+        .toc-title a.toc-link.active {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(192, 132, 252, 0.15) 100%) !important;
+            border: 1px solid rgba(56, 189, 248, 0.3) !important;
+        }
+
         .toc-link {
             display: block;
             padding: 0.6rem 0.8rem;
@@ -543,82 +578,125 @@
             </div>
             
             <ul class="toc">
-                <!-- 主題一：前三堂課程的交流、補充 -->
-                <div style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding-left: 0.8rem; margin-top: 1rem; margin-bottom: 0.4rem;">💬 前三堂課程的交流、補充</div>
-                <li><a class="toc-link" href="#notice-section">📌 常見提醒與交付規範</a></li>
-                <li><a class="toc-link" href="#topic-0">主軸 1：前三週重點補充與問題解答</a></li>
-                <li><a class="toc-link" href="#topic-2">主軸 3：同學專案方向交流與診斷</a></li>
-                <li><a class="toc-link" href="#faq-section">🙋 學員提問 QA</a></li>
+                <!-- 主題一：前三堂課程交流與補充 -->
+                <div class="toc-title"><a class="toc-link" href="#topic-1-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">💬 1. 前三堂課程交流與補充</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="#notice-section">📌 常見提醒與交付規範</a></li>
+                    <li><a class="toc-link" href="#topic-0">主軸 1：前三週重點補充與問題解答</a></li>
+                    <li><a class="toc-link" href="#topic-2">主軸 3：同學專案方向交流與診斷</a></li>
+                    <li><a class="toc-link" href="#faq-section">🙋 學員提問 QA</a></li>
+                </ul>
                 
-                <!-- 主題二：Agent工具的心得交流 -->
-                <div style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding-left: 0.8rem; margin-top: 1rem; margin-bottom: 0.4rem;">🛠️ Agent工具的心得交流</div>
-                <li><a class="toc-link" href="#topic-1">主軸 2：AI 專案規劃與實作思維</a></li>
-                <li><a class="toc-link" href="#topic-3">主軸 4：AI 專案所需技能與工具解析</a></li>
-                <li><a class="toc-link" href="#tools-section">📊 AI 開發工具對比</a></li>
-                <li><a class="toc-link" href="#resources-section">🔗 其他參考資源</a></li>
+                <!-- 主題二：Agent 工具應用交流 -->
+                <div class="toc-title"><a class="toc-link" href="#topic-2-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 2. Agent 工具應用交流</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="#topic-1">主軸 2：AI 專案規劃與實作思維</a></li>
+                    <li><a class="toc-link" href="#topic-3">主軸 4：AI 專案所需技能與工具解析</a></li>
+                    <li><a class="toc-link" href="#tools-section">📊 AI 開發工具對比</a></li>
+                    <li><a class="toc-link" href="#resources-section">🔗 其他參考資源</a></li>
+                </ul>
                 
-                <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding-left: 0.8rem; margin-top: 0.5rem; margin-bottom: 0.2rem;">🎯 AI APP Studio 工作坊</div>
-                <li><a class="toc-link" href="ai_app_readme.html">📖 工作坊總覽首頁</a></li>
-                <li><a class="toc-link" href="methodology_blueprint.html">🧠 產品思維方法論</a></li>
-                <li><a class="toc-link" href="discovery_validation_playbook.html">🔍 痛點與需求驗證手冊</a></li>
-                <li><a class="toc-link" href="backlog_template.html">📋 50+ AI App 創意 Backlog</a></li>
-                <li><a class="toc-link" href="idea_library.html">💡 100+ AI App 創意庫</a></li>
-                <li><a class="toc-link" href="scorecard.html">📊 100分制評審與決策表</a></li>
-                <li><a class="toc-link" href="mvp_poc_guide.html">🚀 MVP & PoC 規劃指南</a></li>
-                <li><a class="toc-link" href="student_worksheets.html">📝 學員實作工作紙</a></li>
-                <li><a class="toc-link" href="workshop_facilitator_guide.html">👨‍🏫 講師引導指南</a></li>
-                <li><a class="toc-link" href="project_record.html">📂 歷程記錄</a></li>
+                <!-- 主題三：ETL 實務案例分享 -->
+                <div class="toc-title"><a class="toc-link" href="#topic-3-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">⚡ 3. ETL 實務案例分享</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="#case-swiper" style="color: var(--accent); font-weight: bold;">📱 iPAS 智慧刷題模擬器</a></li>
+                    <li><a class="toc-link" href="#cases-section">🚀 核心實戰案例展示</a></li>
+                    <li><a class="toc-link" href="#handbooks-section">📂 實戰專案與手冊</a></li>
+                </ul>
                 
-                <!-- 主題三：ETL -->
-                <div style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding-left: 0.8rem; margin-top: 1rem; margin-bottom: 0.4rem;">⚡ ETL</div>
-                <li><a class="toc-link" href="practice-swiper.html" style="color: var(--accent); font-weight: bold;">📱 iPAS 智慧刷題模擬器</a></li>
-                <li><a class="toc-link" href="#cases-section">🚀 核心實戰案例展示</a></li>
-                <li><a class="toc-link" href="#handbooks-section">📂 實戰專案與手冊</a></li>
+                <!-- 主題四：KM 建置與應用思維 -->
+                <div class="toc-title"><a class="toc-link" href="#topic-4-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📂 4. KM 建置與應用思維</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="#topic-4-section" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
+                </ul>
                 
-                <!-- 主題四：KM -->
-                <div style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding-left: 0.8rem; margin-top: 1rem; margin-bottom: 0.4rem;">📂 KM</div>
-                <li><a class="toc-link" href="tw-ai-grant-intro.html" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
+                <!-- 主題五：AI App 專案腦力激盪 -->
+                <div class="toc-title"><a class="toc-link" href="#topic-5-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 5. AI App 專案腦力激盪</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="#topic-5-section" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
+                </ul>
             </ul>
-
             <div class="sidebar-footer">
                 <a class="sidebar-btn" href="../index.html">⬅ 返回課程首頁</a>
                 <a class="sidebar-btn" href="editor.html" style="background: var(--primary); border-color: var(--primary); color: #ffffff;">✍️ 開啟內容編輯器</a>
             </div>
         </aside>
-
         <main>
             <header>
                 <h1>Class 04 企業級 AI Agent 自動化實戰：重點補充、專案診斷與工具解析</h1>
                 <div class="subtitle">銀河軟體 台西分公司 Class 04</div>
             </header>
 
-            <div class="info-widget">
-                <div class="info-cell">
-                    <div class="info-cell-label">📅 上課時間</div>
-                    <div class="info-cell-value">2026/06/28 (日) 09:00-12:00 (暫定)</div>
-                </div>
-                <div class="info-cell">
-                    <div class="info-cell-label">👨‍🏫 授課教師</div>
-                    <div class="info-cell-value">鄭穎臨 老師</div>
-                </div>
-                <div class="info-cell">
-                    <div class="info-cell-label">📍 上課地點</div>
-                    <div class="info-cell-value">台南市安平區育平九街49號 二樓教室</div>
-                </div>
-                <div class="info-cell">
-                    <div class="info-cell-label">🔑 課程簡報</div>
-                    <div class="info-cell-value">
-                        <span style="opacity: 0.6;">課前另行公佈</span> (🔒 密碼：attn)
+            <section id="topics-navigation" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 12px; color: var(--text-main);">🎯 Class 04 五大核心課程主題</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    
+                    <!-- Card 1 -->
+                    <div class="card" style="margin-bottom: 0; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">主題一 / TOPIC 1</div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: #ffffff;">💬 前三堂課程交流與補充</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                                深度沉澱前三週學習精髓，針對開發盲點進行診斷、補充說明，並提供課前與即時 QA 問答互動。
+                            </p>
+                        </div>
+                        <a href="#topic-1-section" class="sidebar-btn" style="width: 100%; margin-top: auto; background: var(--primary-glow); border-color: rgba(192, 132, 252, 0.2); color: var(--accent);">導覽至主題內容 ➔</a>
                     </div>
+
+                    <!-- Card 2 -->
+                    <div class="card" style="margin-bottom: 0; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">主題二 / TOPIC 2</div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: #ffffff;">🛠️ Agent 工具應用交流</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                                橫向對比與評估主流 AI Agent 開發環境（如 Canvas 與 Cursor），學習如何將軟體工程思維導入 AI 專案中。
+                            </p>
+                        </div>
+                        <a href="#topic-2-section" class="sidebar-btn" style="width: 100%; margin-top: auto; background: var(--primary-glow); border-color: rgba(192, 132, 252, 0.2); color: var(--accent);">導覽至主題內容 ➔</a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card" style="margin-bottom: 0; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">主題三 / TOPIC 3</div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: #ffffff;">⚡ ETL 實務案例分享</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                                分享智慧憑證辨識、刷題模擬器等高保真案例，詳解 OCR 影像辨識、人機協作與資料結構化轉置實務。
+                            </p>
+                        </div>
+                        <a href="#topic-3-section" class="sidebar-btn" style="width: 100%; margin-top: auto; background: var(--primary-glow); border-color: rgba(192, 132, 252, 0.2); color: var(--accent);">導覽至主題內容 ➔</a>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card" style="margin-bottom: 0; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">主題四 / TOPIC 4</div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: #ffffff;">📂 KM 建置與應用思維</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                                解構企業知識管理與 RAG 系統建置，以政府補助案作為載體，探討落地經濟學與結構化交付核心 Pattern。
+                            </p>
+                        </div>
+                        <a href="#topic-4-section" class="sidebar-btn" style="width: 100%; margin-top: auto; background: var(--primary-glow); border-color: rgba(192, 132, 252, 0.2); color: var(--accent);">導覽至主題內容 ➔</a>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card" style="margin-bottom: 0; padding: 1.8rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">主題五 / TOPIC 5</div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: #ffffff;">🎯 AI App 專案腦力激盪</h3>
+                            <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+                                完整收錄 AI App Studio 工作坊全套 10 個核心教材，引導同仁共創天心 ERP × FALO AI App 創意產品藍圖。
+                            </p>
+                        </div>
+                        <a href="#topic-5-section" class="sidebar-btn" style="width: 100%; margin-top: auto; background: var(--primary); border-color: var(--primary); color: #ffffff;">導覽至主題內容 ➔</a>
+                    </div>
+
                 </div>
-            </div>
+            </section>
 
-            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 3rem; max-width: 900px;">
-                前三週還有部分內容尚未完整說明，本週將安排重點補充與回顧，並開放 QA 討論。希望能協助大家完成謝總交代的功課，也透過彼此交流與問題討論，加深對 AI 工具、方法與實務應用的理解與印象。課程內容以工作上的應用為主，但加速個人日常運用的也是可以～
-            </p>
-
-            <!-- Notice Section -->
-            <section id="notice-section" class="card section-card" style="border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.02);">
+            <!-- ==================== 主題一：前三堂課程交流與補充 ==================== -->
+            <div id="topic-1-section" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <section id="notice-section" class="card section-card" style="border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.02);">
                 <div class="section-num" style="color: #f59e0b;">NOTICE / 常見提醒</div>
                 <h2>📌 重要交付與作業規範</h2>
                 <p class="intro" style="color: #f59e0b; font-weight: 600;">※ 所有上課時間、作業繳交期限等，皆統一宣告並以【台灣時間 (UTC+8)】為唯一準則！</p>
@@ -647,16 +725,42 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Topic 1 -->
-            <section id="topic-0" class="card section-card">
+                <section id="topic-0" class="card section-card">
                 <div class="section-num">主軸 01 / 重點補充與問題解答</div>
                 <h2>前三週重點補充與問題解答</h2>
                 <p class="intro">針對前三堂課（Class 01 - Class 03）中尚未完整說明的核心觀念、技術細節及學員在實作中遇到的疑難雜症進行深度補充與解答。</p>
             </section>
+                <section id="topic-2" class="card section-card">
+                <div class="section-num">主軸 03 / 專案診斷與交流討論</div>
+                <h2>同學專案方向交流與診斷</h2>
+                <p class="intro">現場開放式的交流與診斷環節。學員可分享各自的專案構想或工作痛點，由講師現場診斷並給予可行性建議，協助同仁順利完成謝總交代的作業與功課。</p>
+            </section>
+                <section id="faq-section" class="card section-card">
+                <div class="section-num">QA / FAQ</div>
+                <h2>學員課前提問與解答</h2>
+                <div class="faq-container" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="faq-item" style="border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.1);">
+                        <button class="faq-trigger" onclick="toggleAccordion(this)" style="width: 100%; text-align: left; background: transparent; border: none; padding: 1.2rem; color: #ffffff; font-weight: 600; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Q: 如果有想討論的專案構想，需要提前準備什麼嗎？</span>
+                            <span class="faq-arrow" style="transition: transform 0.2s;">▼</span>
+                        </button>
+                        <div class="faq-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 1.2rem; color: var(--text-secondary); font-size: 0.95rem;">
+                            <div style="padding-bottom: 1.2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+                                <div style="margin-bottom: 0.75rem;">
+                                    <span class="badge">專案診斷</span>
+                                    <span class="badge">課前準備</span>
+                                </div>
+                                <p>建議提前整理出：(1) 目前的人工作業流程與痛點、(2) 期望達成的自動化效果。哪怕只有文字大綱或螢幕截圖，只要提前傳給講師，便能方便講師事先準備相關案例，讓課程診斷更貼近您的需求！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
 
-            <!-- Topic 2 -->
-            <section id="topic-1" class="card section-card">
+            <!-- ==================== 主題二：Agent 工具應用交流 ==================== -->
+            <div id="topic-2-section" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem;">
+                <section id="topic-1" class="card section-card">
                 <div class="section-num">主軸 02 / 專案規劃與實作思維</div>
                 <h2>AI 專案規劃與實作思維：從痛點走向 AI App Store</h2>
                 <p class="intro">
@@ -767,78 +871,68 @@
                         這將直接轉化為 <strong>「天心 ERP × FALO AI App Store」</strong> 的產品藍圖，引領產品走向下一代 AI 原生升級！
                     </p>
                 </div>
-
-                <!-- AI APP Studio Workshop Suite Card -->
-                <div style="margin-top: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem;">
-                    <div class="badge" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.3); color: var(--accent); margin-bottom: 0.75rem;">ROADMAP & TOOLKITS</div>
-                    <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🎯 AI APP Studio：從創意到 AI 產品實作套件</span>
-                    </h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                        本週核心思維躍升的教學配套資源。我們為您整理了從<strong>痛點掃描、需求解剖、優先級決策到 MVP 驗證</strong>的完整方法論與實作工具包：
-                    </p>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                        <a href="ai_app_readme.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📖 工作坊總覽首頁</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">整體願景與四階段實作地圖</span>
-                        </a>
-                        <a href="methodology_blueprint.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">🧠 產品思維方法論</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">AI-Native 產品解剖術與20+案例</span>
-                        </a>
-                        <a href="discovery_validation_playbook.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">🔍 痛點與需求驗證手冊</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">痛點掃描框架與商業分流模型</span>
-                        </a>
-                        <a href="backlog_template.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📋 50+ AI App 創意 Backlog</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">已分類/排序的天心 ERP 需求池</span>
-                        </a>
-                        <a href="idea_library.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">💡 100+ AI App 創意庫</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">橫跨15大領域之開箱即用靈感庫</span>
-                        </a>
-                        <a href="scorecard.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📊 100分制評審與決策表</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">科學化評審指標與決策優先級</span>
-                        </a>
-                        <a href="mvp_poc_guide.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">🚀 MVP & PoC 規劃指南</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">無程式碼 MVP 規劃法與規格書範本</span>
-                        </a>
-                        <a href="student_worksheets.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📝 學員實作工作紙</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">工作坊現場實作練習模板</span>
-                        </a>
-                        <a href="workshop_facilitator_guide.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">👨‍🏫 講師引導指南</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">時程規劃、活動設計與口語逐字稿</span>
-                        </a>
-                        <a href="project_record.html" target="_blank" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
-                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📂 歷程記錄</strong>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">APP 演化與重構軌跡日誌</span>
-                        </a>
-                    </div>
-                </div>
             </section>
-
-            <!-- Topic 3 -->
-            <section id="topic-2" class="card section-card">
-                <div class="section-num">主軸 03 / 專案診斷與交流討論</div>
-                <h2>同學專案方向交流與診斷</h2>
-                <p class="intro">現場開放式的交流與診斷環節。學員可分享各自的專案構想或工作痛點，由講師現場診斷並給予可行性建議，協助同仁順利完成謝總交代的作業與功課。</p>
-            </section>
-
-            <!-- Topic 4 -->
-            <section id="topic-3" class="card section-card">
+                <section id="topic-3" class="card section-card">
                 <div class="section-num">主軸 04 / 技能工具與深度解析</div>
                 <h2>AI 專案所需技能與工具解析</h2>
                 <p class="intro">深度盤點並解析執行企業級 AI 專案所需的技術堆疊、核心提示工程技巧以及協作工具應用，為後續的專案自主開發奠定基礎。</p>
             </section>
+                <section id="tools-section" class="card section-card">
+                <div class="section-num">COMPARE / ANALYSIS</div>
+                <h2>AI 開發工具與對比分析表</h2>
+                <div style="overflow-x: auto; margin-top: 1.5rem;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>工具名稱</th>
+                                <th>核心定位</th>
+                                <th>優勢特色</th>
+                                <th>實戰技巧/限制</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Antigravity (AI 程式助理)</strong></td>
+                                <td>AI Agent 開發與代碼生成</td>
+                                <td>專為本機/雲端 Pair Programming 設計，高效率產出</td>
+                                <td>善用 Markdown 做為專案記憶與上下文控制</td>
+                            </tr>
+                            <tr>
+                                <td><strong>n8n / GAS</strong></td>
+                                <td>企業工作流自動化與 ERP 串接</td>
+                                <td>視覺化 Workflow 與 Google 服務無縫串接</td>
+                                <td>可作為 Event-Rule-Action 落地執行的白箱管道</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+                <section id="resources-section" class="card section-card">
+                <div class="section-num">RESOURCES</div>
+                <h2>其他參考資源</h2>
+                <div class="resource-links" style="margin-top: 1rem;">
+                    <a class="resource-link" href="https://forceai0001-commits.github.io/ipas-aiap-2026/" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        <span class="link-text"><strong>IPAS AIAP 課程網站</strong> — 提供歷屆考試資源與 AI 技術學習指引</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                    <a class="resource-link" href="https://falo-taiwan.github.io/ai-line-help/" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        <span class="link-text"><strong>LINE Bot 專業開發專區 (ai-line-help)</strong> — 專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                    <a class="resource-link" href="../../../../gov-audit.html" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        <span class="link-text"><strong>政府 AI 與資安成熟度檢核專案</strong> — 協助企業對接政府補助案與資安自評 SOP</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                </div>
+            </section>
+            </div>
 
-            <!-- Case Studies Section -->
-            <section id="cases-section" class="card section-card" style="border-color: rgba(192, 132, 252, 0.4); background: rgba(139, 92, 246, 0.02);">
+            <!-- ==================== 主題三：ETL 實務案例分享 ==================== -->
+            <div id="topic-3-section" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem;">
+                <section id="cases-section" class="card section-card" style="border-color: rgba(192, 132, 252, 0.4); background: rgba(139, 92, 246, 0.02);">
                 <div class="section-num" style="color: var(--accent);">CASE STUDIES / 實戰案例</div>
                 <h2>🚀 核心實戰案例展示</h2>
                 <p class="intro">以下為 Class 04 重點示範專案，著重於將電腦視覺、OCR 辨識與企業工作流/智慧稽核整合運作的實際落地設計。</p>
@@ -897,7 +991,7 @@
                     </div>
 
                     <!-- Case 3: iPAS Swiper -->
-                    <div style="display: flex; gap: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; overflow: hidden; align-items: flex-start; flex-wrap: wrap;">
+                    <div id="case-swiper" style="display: flex; gap: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; overflow: hidden; align-items: flex-start; flex-wrap: wrap;">
                         <div style="flex: 1 1 400px; min-width: 280px;">
                             <strong style="font-size: 1.25rem; color: #ffffff; display: block; margin-bottom: 0.5rem;">案例三：iPAS 智慧刷題模擬器 (OCR + ETL 實戰)</strong>
                             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5;">
@@ -909,20 +1003,18 @@
                                 • <strong>2. 資料清洗 (ETL)：</strong> 利用 Regex 與規則引擎對 OCR 斷字、多餘空格進行極致降噪與欄位校對，轉化為標準 JSON 格式。<br>
                                 • <strong>3. 模擬器交互 (Swiper)：</strong> 結合 Swiper.js 打造流暢的滑動刷題體驗，內建即時 Token 消耗與台幣花費 Telemetry 面板，落實企業級 AI 成本控制意識。
                             </p>
-                            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                                <a href="practice-swiper.html" target="_blank" class="sidebar-btn" style="background: var(--primary); border-color: var(--primary); color: #ffffff; padding: 0.5rem 1rem; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                                    📱 開啟本機模擬器體驗
+                            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                                <a href="https://falo-taiwan.github.io/class/a01/class4/practice-swiper.html" target="_blank" rel="noopener noreferrer" class="sidebar-btn" style="background: var(--primary); border-color: var(--primary); color: #ffffff; padding: 0.5rem 1rem; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+                                    📱 開啟 iPAS 智慧刷題模擬器 (falo網址)
                                 </a>
-                                <span style="font-size: 0.8rem; color: var(--text-muted); align-self: center;">(100% 本地自包含單頁應用，自動載入 questions.csv)</span>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">(將於新視窗中開啟線上版模擬器)</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </section>
-
-            <!-- Handbooks section -->
-            <section id="handbooks-section" class="card section-card">
+                <section id="handbooks-section" class="card section-card">
                 <div class="section-num">PROJ / MANUALS</div>
                 <h2>實戰專案與進階手冊</h2>
                 <div class="resource-links" style="margin-top: 1rem;">
@@ -938,85 +1030,94 @@
                     </a>
                 </div>
             </section>
+            </div>
 
-            <!-- Tools section -->
-            <section id="tools-section" class="card section-card">
-                <div class="section-num">COMPARE / ANALYSIS</div>
-                <h2>AI 開發工具與對比分析表</h2>
-                <div style="overflow-x: auto; margin-top: 1.5rem;">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>工具名稱</th>
-                                <th>核心定位</th>
-                                <th>優勢特色</th>
-                                <th>實戰技巧/限制</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Antigravity (AI 程式助理)</strong></td>
-                                <td>AI Agent 開發與代碼生成</td>
-                                <td>專為本機/雲端 Pair Programming 設計，高效率產出</td>
-                                <td>善用 Markdown 做為專案記憶與上下文控制</td>
-                            </tr>
-                            <tr>
-                                <td><strong>n8n / GAS</strong></td>
-                                <td>企業工作流自動化與 ERP 串接</td>
-                                <td>視覺化 Workflow 與 Google 服務無縫串接</td>
-                                <td>可作為 Event-Rule-Action 落地執行的白箱管道</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- FAQ Section -->
-            <section id="faq-section" class="card section-card">
-                <div class="section-num">QA / FAQ</div>
-                <h2>學員課前提問與解答</h2>
-                <div class="faq-container" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="faq-item" style="border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.1);">
-                        <button class="faq-trigger" onclick="toggleAccordion(this)" style="width: 100%; text-align: left; background: transparent; border: none; padding: 1.2rem; color: #ffffff; font-weight: 600; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                            <span>Q: 如果有想討論的專案構想，需要提前準備什麼嗎？</span>
-                            <span class="faq-arrow" style="transition: transform 0.2s;">▼</span>
-                        </button>
-                        <div class="faq-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 1.2rem; color: var(--text-secondary); font-size: 0.95rem;">
-                            <div style="padding-bottom: 1.2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
-                                <div style="margin-bottom: 0.75rem;">
-                                    <span class="badge">專案診斷</span>
-                                    <span class="badge">課前準備</span>
-                                </div>
-                                <p>建議提前整理出：(1) 目前的人工作業流程與痛點、(2) 期望達成的自動化效果。哪怕只有文字大綱或螢幕截圖，只要提前傳給講師，便能方便講師事先準備相關案例，讓課程診斷更貼近您的需求！</p>
-                            </div>
-                        </div>
+            <!-- Topic 4: KM 建置與應用思維 -->
+            <section id="topic-4-section" class="card section-card">
+                <div class="section-num">主題 04 / 知識管理與 RAG</div>
+                <h2>主題四：KM 建置與應用思維</h2>
+                <p class="intro">解構企業知識庫與 RAG 系統的落地實踐，探討高可靠度、低延遲的政府補助案智慧檢索系統架構，落實企業知識資產化。</p>
+                
+                <div style="margin-top: 2rem; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem;">
+                    <strong style="font-size: 1.15rem; color: #ffffff; display: block; margin-bottom: 0.5rem;">📂 AI KM 建置範例：政府 RAG 智慧檢索與診斷系統</strong>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.6;">
+                        <strong>五大核心架構思維：</strong>
+                        <br>
+                        • <strong>務實主義 (Pragmatism)：</strong> 拒絕盲目追求高複雜度，以最簡可行產品 (MVP) 驗證核心價值。<br>
+                        • <strong>安全防禦 (Defensive Coding)：</strong> 針對無網際網路、無 CORS 企業內網設計 no-cors 探針與離線備援。<br>
+                        • <strong>落地經濟學 (Economics)：</strong> 深度優化 Token 消耗，設計本地快取與 Telemetry 成本監控面板。<br>
+                        • <strong>結構化交付 (Structured Output)：</strong> 強制 LLM 輸出符合規格之 JSON 數據，確保與 ERP 系統無縫對接。<br>
+                        • <strong>零運維成本 (Serverless/Static)：</strong> 採用 100% 靜態網頁架構，免去伺服器維護與安全性漏洞威脅。
+                    </p>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/tw-ai-grant-intro.html" target="_blank" rel="noopener noreferrer" class="sidebar-btn" style="background: var(--primary); border-color: var(--primary); color: #ffffff; padding: 0.5rem 1rem; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+                            🌐 開啟線上 RAG 系統介紹 (falo網址)
+                        </a>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">(將於新視窗中開啟線上介紹頁面)</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Resources Section -->
-            <section id="resources-section" class="card section-card">
-                <div class="section-num">RESOURCES</div>
-                <h2>其他參考資源</h2>
-                <div class="resource-links" style="margin-top: 1rem;">
-                    <a class="resource-link" href="https://forceai0001-commits.github.io/ipas-aiap-2026/" target="_blank">
-                        <span class="link-icon">🔗</span>
-                        <span class="link-text"><strong>IPAS AIAP 課程網站</strong> — 提供歷屆考試資源與 AI 技術學習指引</span>
-                        <span class="link-arrow">➔</span>
-                    </a>
-                    <a class="resource-link" href="https://falo-taiwan.github.io/ai-line-help/" target="_blank">
-                        <span class="link-icon">🔗</span>
-                        <span class="link-text"><strong>LINE Bot 專業開發專區 (ai-line-help)</strong> — 專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧</span>
-                        <span class="link-arrow">➔</span>
-                    </a>
-                    <a class="resource-link" href="../../../../gov-audit.html" target="_blank">
-                        <span class="link-icon">🔗</span>
-                        <span class="link-text"><strong>政府 AI 與資安成熟度檢核專案</strong> — 協助企業對接政府補助案與資安自評 SOP</span>
-                        <span class="link-arrow">➔</span>
-                    </a>
+            <!-- Topic 5: AI App 專案腦力激盪 -->
+            <section id="topic-5-section" class="card section-card">
+                <div class="section-num">主題 05 / 產品藍圖與工作坊</div>
+                <h2>主題五：AI App 專案腦力激盪</h2>
+                <p class="intro">運用痛點轉化矩陣與三階段設計，建立「天心 ERP AI App Backlog (需求池)」，共同描繪天心 ERP × FALO AI App Store 產品藍圖。</p>
+                
+                <div style="margin-top: 2rem; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem;">
+                    <div class="badge" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.3); color: var(--accent); margin-bottom: 0.75rem;">ROADMAP & TOOLKITS</div>
+                    <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🎯 AI APP Studio：從創意到 AI 產品實作套件</span>
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                        本週核心思維躍升的教學配套資源。我們為您整理了從<strong>痛點掃描、需求解剖、優先級決策到 MVP 驗證</strong>的完整方法論與實作工具包：
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/ai_app_readme.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📖 工作坊總覽首頁</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">整體願景與四階段實作地圖</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/methodology_blueprint.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">🧠 產品思維方法論</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">AI-Native 產品解剖術與20+案例</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/discovery_validation_playbook.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">🔍 痛點與需求驗證手冊</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">痛點掃描框架與商業分流模型</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/backlog_template.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📋 50+ AI App 創意 Backlog</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">已分類/排序的天心 ERP 需求池</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/idea_library.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">💡 100+ AI App 創意庫</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">橫跨15大領域之開箱即用靈感庫</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/scorecard.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📊 100分制評審與決策表</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">科學化評審指標與決策優先級</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/mvp_poc_guide.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">🚀 MVP & PoC 規劃指南</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">無程式碼 MVP 規劃法與規格書範本</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/student_worksheets.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📝 學員實作工作紙</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">工作坊現場實作練習模板</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/workshop_facilitator_guide.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">👨‍🏫 講師引導指南</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">時程規劃、活動設計與口語逐字稿</span>
+                        </a>
+                        <a href="https://falo-taiwan.github.io/class/a01/class4/project_record.html" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--card-border); border-radius: 10px; text-decoration: none; color: #ffffff; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='var(--card-border)';">
+                            <strong style="color: var(--accent); font-size: 0.95rem; margin-bottom: 0.25rem;">📂 歷程記錄</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">APP 演化與重構軌跡日誌</span>
+                        </a>
+                    </div>
                 </div>
             </section>
-        </main>
+</main>
     </div>
 
     <script>

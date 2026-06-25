@@ -151,6 +151,30 @@
             padding-left: 0.8rem;
         }
 
+        /* 💡 Five topics highlighted in light blue */
+        .toc-title a.toc-link {
+            color: #38bdf8 !important; /* Light blue for dark mode */
+            font-size: 0.82rem !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+        }
+        body.theme-light .toc-title a.toc-link {
+            color: #0284c7 !important; /* Solid blue for light mode */
+        }
+        .toc-title a.toc-link:hover {
+            color: #7dd3fc !important;
+            background: var(--primary-glow);
+            padding-left: 1rem !important;
+        }
+        body.theme-light .toc-title a.toc-link:hover {
+            color: #0369a1 !important;
+        }
+        .toc-title a.toc-link.active {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(192, 132, 252, 0.15) 100%) !important;
+            border: 1px solid rgba(56, 189, 248, 0.3) !important;
+        }
+
         .toc-link {
             display: block;
             padding: 0.6rem 0.8rem;
@@ -452,41 +476,44 @@
             </div>
             
             <ul class="toc">
-                <!-- 主題一：前三堂課程的交流、補充 -->
-                <div class="toc-title">💬 前三堂課程的交流、補充</div>
-                <li><a class="toc-link" href="index.html#notice-section">📌 常見提醒與交付規範</a></li>
-                <li><a class="toc-link" href="index.html#topic-0">主軸 1：前三週重點補充與解答</a></li>
-                <li><a class="toc-link" href="index.html#topic-2">主軸 3：同學專案方向交流與診斷</a></li>
-                <li><a class="toc-link" href="index.html#faq-section">🙋 學員提問 QA</a></li>
+                <!-- 主題一：前三堂課程交流與補充 -->
+                <div class="toc-title"><a class="toc-link " href="index.html#topic-1-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">💬 1. 前三堂課程交流與補充</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="index.html#notice-section">📌 常見提醒與交付規範</a></li>
+                    <li><a class="toc-link" href="index.html#topic-0">主軸 1：前三週重點補充與解答</a></li>
+                    <li><a class="toc-link" href="index.html#topic-2">主軸 3：同學專案方向交流與診斷</a></li>
+                    <li><a class="toc-link" href="index.html#faq-section">🙋 學員提問 QA</a></li>
+                </ul>
                 
-                <!-- 主題二：Agent工具的心得交流 -->
-                <div class="toc-title">🛠️ Agent工具的心得交流</div>
-                <li><a class="toc-link" href="index.html#topic-1">主軸 2：AI 專案規劃與實作思維</a></li>
-                <li><a class="toc-link" href="index.html#topic-3">主軸 4：AI 專案所需技能與解析</a></li>
-                <li><a class="toc-link" href="index.html#tools-section">📊 AI 開發工具對比</a></li>
-                <li><a class="toc-link" href="index.html#resources-section">🔗 其他參考資源</a></li>
+                <!-- 主題二：Agent 工具應用交流 -->
+                <div class="toc-title"><a class="toc-link " href="index.html#topic-2-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 2. Agent 工具應用交流</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="index.html#topic-1">主軸 2：AI 專案規劃與實作思維</a></li>
+                    <li><a class="toc-link" href="index.html#topic-3">主軸 4：AI 專案所需技能與解析</a></li>
+                    <li><a class="toc-link" href="index.html#tools-section">📊 AI 開發工具對比</a></li>
+                    <li><a class="toc-link" href="index.html#resources-section">🔗 其他參考資源</a></li>
+                </ul>
                 
-                <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding-left: 0.8rem; margin-top: 0.3rem; margin-bottom: 0.2rem;">🎯 AI APP Studio 工作坊</div>
-                <li><a class="toc-link " href="ai_app_readme.html">📖 工作坊總覽首頁</a></li>
-                <li><a class="toc-link " href="methodology_blueprint.html">🧠 產品思維方法論</a></li>
-                <li><a class="toc-link " href="discovery_validation_playbook.html">🔍 痛點與需求驗證手冊</a></li>
-                <li><a class="toc-link " href="backlog_template.html">📋 50+ AI App 創意 Backlog</a></li>
-                <li><a class="toc-link " href="idea_library.html">💡 100+ AI App 創意庫</a></li>
-                <li><a class="toc-link " href="scorecard.html">📊 100分制評審與決策表</a></li>
-                <li><a class="toc-link active" href="mvp_poc_guide.html">🚀 MVP & PoC 規劃指南</a></li>
-                <li><a class="toc-link " href="student_worksheets.html">📝 學員實作工作紙</a></li>
-                <li><a class="toc-link " href="workshop_facilitator_guide.html">👨‍🏫 講師引導指南</a></li>
-                <li><a class="toc-link " href="project_record.html">📂 歷程記錄</a></li>
+                <!-- 主題三：ETL 實務案例分享 -->
+                <div class="toc-title"><a class="toc-link " href="index.html#topic-3-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">⚡ 3. ETL 實務案例分享</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="index.html#case-swiper" style="color: var(--accent); font-weight: bold;">📱 iPAS 智慧刷題模擬器</a></li>
+                    <li><a class="toc-link" href="index.html#cases-section">🚀 核心實戰案例展示</a></li>
+                    <li><a class="toc-link" href="index.html#handbooks-section">📂 實戰專案與手冊</a></li>
+                </ul>
                 
-                <!-- 主題三：ETL -->
-                <div class="toc-title">⚡ ETL</div>
-                <li><a class="toc-link" href="practice-swiper.html" style="color: var(--accent); font-weight: bold;">📱 iPAS 智慧刷題模擬器</a></li>
-                <li><a class="toc-link" href="index.html#cases-section">🚀 核心實戰案例展示</a></li>
-                <li><a class="toc-link" href="index.html#handbooks-section">📂 實戰專案與手冊</a></li>
+                <!-- 主題四：KM 建置與應用思維 -->
+                <div class="toc-title"><a class="toc-link " href="index.html#topic-4-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📂 4. KM 建置與應用思維</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="index.html#topic-4-section" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
+                </ul>
                 
-                <!-- 主題四：KM -->
-                <div class="toc-title">📂 KM</div>
-                <li><a class="toc-link" href="tw-ai-grant-intro.html" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
+                <!-- 主題五：AI App 專案腦力激盪 -->
+                <div class="toc-title"><a class="toc-link " href="index.html#topic-5-section" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 5. AI App 專案腦力激盪</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="index.html#topic-5-section" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
+                </ul>
+            </ul>
             </ul>
 
             <div class="sidebar-footer">

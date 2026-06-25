@@ -1,5 +1,83 @@
 [
   {
+    "timestamp": "2026-06-25T15:50:00+08:00",
+    "action_type": "local_updated",
+    "description": "依據老師最新指示將 Class 04 首頁重構為 master-detail 單頁平滑滾動門戶網頁：將左側 TOC 與導航卡片之所有連結皆更換為本機 HTML 錨點（如 #topic-1-section 等），實現平滑滾動與原視窗內導航之流暢體驗，而網頁內文中的案例按鈕則維持線上 falo 網址且在新視窗中開啟。同時在首頁右側將所有內容區塊按五大核心主題重排，全新製作主題四（KM RAG）介紹卡片並搬移主題五（AI App Studio）實作套件至底部，最後重新編譯 15 個工作坊 HTML 課件並同步至本地 preview 倉庫（僅限地端）。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/index.html",
+      "compile_workshop.py",
+      "topic3_etl_cases.html",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
+    "timestamp": "2026-06-25T15:45:00+08:00",
+    "action_type": "local_updated",
+    "description": "依據老師指示針對 iPAS 智慧刷題模擬器增設雙連結：在 Class 04 首頁案例三與主題三主頁中，同步置入「本機內連結 (practice-swiper.html，原視窗內導引)」與「線上 falo 網址 (https://falo-taiwan...，新視窗中開啟)」兩個體驗按鈕，落實內外分流與開窗規範（僅限地端）。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "compile_workshop.py",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
+    "timestamp": "2026-06-25T15:43:00+08:00",
+    "action_type": "local_updated",
+    "description": "依據老師指示微調連結導覽與視覺：更新編譯器之 Markdown 連結解析器，使所有外部 HTTP(S) 連結自動在「新視窗中開啟 (target=\"_blank\")」，而本機/內部連結則維持在「原視窗內導引」；同時於 CSS 中新增樣式，將側邊欄（TOC）中的五大核心主題主連結統一標示為高質感的「淺藍色」，並同步更新 Class 04 首頁、政府 RAG 介紹頁與 9 個工作坊雙軌網頁（僅限地端）。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/tw-ai-grant-intro.html",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/topic2_agent_tools.html",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.html",
+      "falo-taiwan/class/a01/class4/topic5_brainstorming.html",
+      "falo-taiwan/class/a01/class4/ai_app_readme.html",
+      "falo-taiwan/class/a01/class4/methodology_blueprint.html",
+      "falo-taiwan/class/a01/class4/discovery_validation_playbook.html",
+      "falo-taiwan/class/a01/class4/mvp_poc_guide.html",
+      "falo-taiwan/class/a01/class4/backlog_template.html",
+      "falo-taiwan/class/a01/class4/scorecard.html",
+      "falo-taiwan/class/a01/class4/idea_library.html",
+      "falo-taiwan/class/a01/class4/workshop_facilitator_guide.html",
+      "falo-taiwan/class/a01/class4/student_worksheets.html",
+      "falo-taiwan/class/a01/class4/project_record.html",
+      "compile_workshop.py",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
+    "timestamp": "2026-06-25T15:05:00+08:00",
+    "action_type": "local_updated",
+    "description": "依據老師指示重構 Class 04 為五大核心主題架構，新建 5 個主題專屬的 HTML/MD 主頁檔案；在 Class 04 首頁增設「五大核心課程主題」網頁導覽入口卡片，同步重構全套工作坊網頁的左側導覽側邊欄（TOC）為嵌套式多層級目錄，本變更僅限地端（未推送）。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/topic1_retrospective.md",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/topic2_agent_tools.md",
+      "falo-taiwan/class/a01/class4/topic2_agent_tools.html",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.md",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.html",
+      "falo-taiwan/class/a01/class4/topic5_brainstorming.md",
+      "falo-taiwan/class/a01/class4/topic5_brainstorming.html",
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/index.md",
+      "compile_workshop.py",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T15:00:00+08:00",
     "action_type": "sync_updated",
     "description": "依據老師指示重構 Class 04 左側側邊欄（TOC）導覽結構，精確劃分為「前三堂課程的交流、補充」、「Agent工具的心得交流」、「ETL」與「KM」四大主題區塊；同步更新 Class 04 主頁、政府 RAG 介紹頁與 9 個工作坊編譯模板，重新編譯全套網頁，並同步推送到 falo-taiwan 與 falo-chinese 兩個 GitHub Pages 儲存庫。",
@@ -656,56 +734,77 @@
     "action_type": "directory_created",
     "description": "建立專案歸檔目錄：archive/class01、archive/class02、archive/class03。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["archive/class01", "archive/class02", "archive/class03"]
+    "files_affected": [
+      "archive/class01",
+      "archive/class02",
+      "archive/class03"
+    ]
   },
   {
     "timestamp": "2026-06-07T11:36:30+08:00",
     "action_type": "file_downloaded",
     "description": "從 Google Drive 下載第二堂課 PDF 銀河class02-v101.pdf 並儲存至對應歸檔目錄。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["archive/class02/銀河class02-v101.pdf"]
+    "files_affected": [
+      "archive/class02/銀河class02-v101.pdf"
+    ]
   },
   {
     "timestamp": "2026-06-07T11:36:40+08:00",
     "action_type": "file_downloaded",
     "description": "從 Google Drive 下載第一堂課 PDF (完整版v1)銀河-class01.pdf 並儲存至對應歸檔目錄。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["archive/class01/(完整版v1)銀河-class01.pdf"]
+    "files_affected": [
+      "archive/class01/(完整版v1)銀河-class01.pdf"
+    ]
   },
   {
     "timestamp": "2026-06-07T11:39:40+08:00",
     "action_type": "file_created",
     "description": "建立歷史課程彙整 Markdown history.md，提供 AI 讀取與理解 Class 01、02 的主要概念與原始連結。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["history.md"]
+    "files_affected": [
+      "history.md"
+    ]
   },
   {
     "timestamp": "2026-06-07T11:39:50+08:00",
     "action_type": "file_created",
     "description": "建立歷史課程彙整網頁 history.html，具備 Glassmorphism 現代化視覺設計與 RWD 排版。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["history.html"]
+    "files_affected": [
+      "history.html"
+    ]
   },
   {
     "timestamp": "2026-06-07T11:39:54+08:00",
     "action_type": "file_created",
     "description": "建立 Falo 變更與決策日誌 logs.md 與 logs.json，用以追蹤專案脈絡。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["logs.md", "logs.json"]
+    "files_affected": [
+      "logs.md",
+      "logs.json"
+    ]
   },
   {
     "timestamp": "2026-06-07T12:55:50+08:00",
     "action_type": "file_created",
     "description": "建立與更新 AI Agent 開發工具比較表 agent_tools.md 與 agent_tools.html，新增 Gemini Canvas 模式對比。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["agent_tools.md", "agent_tools.html"]
+    "files_affected": [
+      "agent_tools.md",
+      "agent_tools.html"
+    ]
   },
   {
     "timestamp": "2026-06-07T12:56:00+08:00",
     "action_type": "file_created",
     "description": "建立 Class 03 案例教材 class03.md 與 class03.html，詳細解構 FALO 六層模型與 Chrome Gemini 解鎖案例。",
     "operator": "AI (Antigravity)",
-    "files_affected": ["class03.md", "class03.html"]
+    "files_affected": [
+      "class03.md",
+      "class03.html"
+    ]
   },
   {
     "timestamp": "2026-06-07T16:41:00+08:00",

@@ -142,6 +142,41 @@
             gap: 0.4rem;
         }
 
+        .toc-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+            padding-left: 0.8rem;
+        }
+
+        /* 💡 Five topics highlighted in light blue */
+        .toc-title a.toc-link {
+            color: #38bdf8 !important; /* Light blue for dark mode */
+            font-size: 0.82rem !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+        }
+        body.theme-light .toc-title a.toc-link {
+            color: #0284c7 !important; /* Solid blue for light mode */
+        }
+        .toc-title a.toc-link:hover {
+            color: #7dd3fc !important;
+            background: var(--primary-glow);
+            padding-left: 1rem !important;
+        }
+        body.theme-light .toc-title a.toc-link:hover {
+            color: #0369a1 !important;
+        }
+        .toc-title a.toc-link.active {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(192, 132, 252, 0.15) 100%) !important;
+            border: 1px solid rgba(56, 189, 248, 0.3) !important;
+        }
+
         .toc-link {
             display: block;
             padding: 0.6rem 0.8rem;
