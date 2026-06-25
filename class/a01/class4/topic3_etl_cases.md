@@ -135,4 +135,4 @@
 本主題提供豐富的實戰手冊，引導您一步步動手實作上述的案例：
 * [🔍 痛點與需求驗證手冊](discovery_validation_playbook.html)：學習如何掃描並定位真實業務痛點。
 * [🚀 MVP & PoC 規劃指南](mvp_poc_guide.html)：掌握最簡可行產品的架構設計與交付方法。
-* [📋 50+ AI App 創意 Backlog](backlog_template.html)：參考天心 ERP 實際梳理出的需求池，加速靈感轉換。
+* [📋 50+ AI App 創意 Backlog](backlog_template.html)：參考銀河 ERP 實際梳理出的需求池，加速靈感轉換。

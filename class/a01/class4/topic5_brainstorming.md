@@ -1,6 +1,6 @@
 # 主題五：AI App 專案腦力激盪
 
-本主題收錄完整的「AI APP Studio 工作坊」實戰框架，引導同仁從痛點出發，共創天心 ERP × FALO AI App Store 的產品藍圖。
+本主題收錄完整的「AI APP Studio 工作坊」實戰框架，引導同仁從痛點出發，共創銀河 ERP × FALO AI App Store 的產品藍圖。
 
 ---
 

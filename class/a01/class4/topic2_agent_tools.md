@@ -6,7 +6,7 @@
 
 ## 🧠 主軸 2：AI 專案規劃與實作思維：從痛點走向 AI App Store
 本週將進行關鍵思維躍升：從 **AI 工具認識 ➔ AI 工作流 ➔ AI 能力建立**，正式轉向 **AI 專案思維 ➔ AI App 思維 ➔ AI 產品思維**。
-我們將透過 **AI App Workshop**，引導同仁將日常工作的「痛點」轉化為「AI App 需求池」，最終匯聚成天心 ERP × FALO AI App Store 的核心資產。
+我們將透過 **AI App Workshop**，引導同仁將日常工作的「痛點」轉化為「AI App 需求池」，最終匯聚成銀河 ERP × FALO AI App Store 的核心資產。
 
 ### 產品思維三大支柱
 1. **痛點價值定位**：不為 AI 而 AI，必須精準解決高頻、耗時的業務痛點。
