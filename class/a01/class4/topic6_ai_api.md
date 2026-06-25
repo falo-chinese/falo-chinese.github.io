@@ -15,51 +15,100 @@
         </p>
     </div>
 
-    <!-- 雙卡片佈局 -->
-    <div class="prompt-grid" style="display: flex; flex-wrap: wrap; gap: 1.25rem;">
-        
-        <!-- 簡單版卡片 -->
-        <div class="prompt-card" style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 1.25rem; transition: all 0.3s ease;">
-            <div>
-                <h4 style="margin: 0 0 0.5rem 0; color: #10b981; font-size: 1.05rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; border: none; padding: 0;">
-                    🟢 1. 簡易檢測版 Prompt
-                </h4>
-                <p style="margin: 0 0 1.25rem 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-                    適合快速體驗。自動掃描硬體後，給出入門/中階/高階評級，並推薦最合適的 3B 及 7B 級別流暢模型與 Ollama 運行指令。
-                </p>
-            </div>
-            <button id="btn-simple-prompt" onclick="copyPrompt('simple')" style="width: 100%; background: #059669; color: white; border: none; padding: 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.4rem; transition: all 0.2s ease;">
+    <!-- 簡單版 Prompt 區塊 -->
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <h4 style="margin: 0; color: #10b981; font-size: 1.05rem; font-weight: 600; border: none; padding: 0;">
+                🟢 1. 簡易檢測版 Prompt
+            </h4>
+            <button id="btn-simple-prompt" onclick="copyPrompt('simple')" style="background: #059669; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
                 複製「簡單版」提示詞
             </button>
         </div>
+        <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+            適合快速體驗。自動掃描硬體後，給出入門/中階/高階評級，並推薦最合適的 3B 及 7B 級別流暢模型與 Ollama 運行指令。
+        </p>
+        <pre id="simple-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; max-height: 250px; overflow-y: auto; text-align: left;"># 🤖 簡易本地 AI 算力檢測與 Ollama 選型
 
-        <!-- 專家版卡片 -->
-        <div class="prompt-card" style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 1.25rem; transition: all 0.3s ease;">
-            <div>
-                <h4 style="margin: 0 0 0.5rem 0; color: #38bdf8; font-size: 1.05rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; border: none; padding: 0;">
-                    🛡️ 2. 深度診斷專家版 Prompt
-                </h4>
-                <p style="margin: 0 0 1.25rem 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-                    適合企業部署評估。自動計算 VRAM 預算、系統記憶體頻寬瓶頸，並產出多模型選型矩陣、Context 增長壓力評估與 Ollama 性能極限調優腳本。
-                </p>
-            </div>
-            <button id="btn-expert-prompt" onclick="copyPrompt('expert')" style="width: 100%; background: #0284c7; color: white; border: none; padding: 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.4rem; transition: all 0.2s ease;">
+你現在是本地 AI 部署助手。請針對我提供的電腦規格，執行系統檢測命令（如果你具備執行權限）來自動獲取我的 CPU、GPU/VRAM、RAM、OS 和硬碟空間，或者請我手動提供。
+
+獲取硬體規格後，請為我輸出：
+1. **算力簡評**：我的電腦屬於入門體驗、中階實用還是高階流暢級？
+2. **Ollama 模型選型推薦**：
+   - 🟢 綠色流暢（&gt;30 tps）：最推薦運行的模型（如 llama3.2:3b）。
+   - 🟡 黃色流暢（10-20 tps）：勉強可跑的模型。
+   - 🔴 紅色警告（&lt;5 tps）：千萬別下的模型。
+3. **一鍵部署指令**：對應的 `ollama run` 指令。</pre>
+    </div>
+
+    <!-- 專家版 Prompt 區塊 -->
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <h4 style="margin: 0; color: #38bdf8; font-size: 1.05rem; font-weight: 600; border: none; padding: 0;">
+                🛡️ 2. 深度診斷專家版 Prompt
+            </h4>
+            <button id="btn-expert-prompt" onclick="copyPrompt('expert')" style="background: #0284c7; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s ease;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-6 4h10m-5-5v10"></path></svg>
                 複製「專家版」提示詞
             </button>
         </div>
+        <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+            適合企業部署評估。自動計算 VRAM 預算、系統記憶體頻寬瓶頸，並產出多模型選型矩陣、Context 增長壓力評估與 Ollama 性能極限調優腳本。
+        </p>
+        <pre id="expert-prompt-text" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 1rem; color: #e2e8f0; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; margin: 0.5rem 0 0 0; max-height: 350px; overflow-y: auto; text-align: left;"># 🛡️ 本地 AI 算力診斷與 Ollama 部署極限選型專家
 
+你是一位頂尖的 AI 基礎架構架構師與本地 LLM 效能調優專家。請在我的本地開發環境中，依據以下工作流（Workflow）對我的電腦進行深度算力診斷，並產出一份企業級的本地 LLM 部署規劃書。
+
+---
+
+## ⚙️ 第一階段：環境感知與硬體掃描 (System Profiling)
+請主動判斷我當前的作業系統環境（macOS / Windows / Linux），並執行或引導我執行對應的安全檢測指令，以獲取以下完整硬體數據。如果你具備終端機執行權限，請自主執行以下指令獲取數據：
+
+- **macOS (Apple Silicon/Intel)**:
+  `sysctl -n machdep.cpu.brand_string; echo "RAM:"; sysctl -n hw.memsize; echo "OS:"; sw_vers; echo "Disk:"; df -h /; echo "GPU/VRAM:"; system_profiler SPDisplaysDataType`
+- **Windows (PowerShell)**:
+  `Get-CimInstance Win32_Processor | Select-Object Name; Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum | Select-Object Sum; Get-CimInstance Win32_VideoController | Select-Object Name, AdapterRAM; Get-Volume`
+- **Linux**:
+  `lscpu; free -h; df -h; lspci | grep -i vga`
+
+---
+
+## 📊 第二階段：多維度算力與限制評估 (Bottleneck Analysis)
+獲取數據後，請進行以下精確計算與物理限制分析：
+1. **可用顯存/統一記憶體預算 (VRAM Budget)**：計算扣除 OS 運作（Windows 預設扣 1.5GB，macOS 預設扣 3GB）後的「LLM 安全載入顯存上限」。
+2. **記憶體頻寬與代償評估 (Memory Bandwidth & Offloading)**：評估若模型超出顯存，CPU 代償（Offloading）時的效能降幅。
+3. **儲存介面評估**：確認剩餘空間是否足以容納目標模型，並說明磁碟剩餘空間的安全水位線（建議保留至少 10GB 空閒空間以防虛擬記憶體鎖死）。
+
+---
+
+## 🎯 第三階段：精準模型選型矩陣 (Model Selection Matrix)
+請提供一個結構化的 Markdown 表格，針對以下主流開源模型，計算並推薦在我的硬體上運行的「最優量化精度 (Quantization)」與「預估推理速度 (tps)」：
+- **模型對象**：Llama 3.2 (1B/3B), Qwen 2.5 (1.5B/3B/7B/14B), Gemma 2 (2B/9B), Llama 3 (8B)。
+- **評估維度**：磁碟佔用(GB)、運行位置（VRAM/System RAM）、最優量化（如 Q4_K_M、Q8_0、FP16）、預估 Token 生成速度 (tokens/sec)、Context Window 安全上限（2K / 4K / 8K / 32K）。
+
+---
+
+## 💻 第四階段：輸出本地部署與優化藍圖 (Deployment Blueprint)
+請依據上述評估，產出以下四個部分的專業報告：
+
+### 1. 🎚️ 設備本地 AI 算力綜合評級
+- [評級分類：入門體驗 / 中階實用 / 高階流暢 / 專業工作站，並指出核心硬體瓶頸。]
+
+### 2. 🟢 推薦部署首選模型 (Highly Recommended)
+- [列出 2 款在此設備上能達到 100% 顯存載入且推理速度 > 30 tps 的最優模型，附帶技術理由。]
+
+### 3. 🛠️ 一鍵部署指令集 (Ollama Commands)
+- [提供所推薦模型的安裝與運行指令，包括如何指定特定量化版本的 Tag（如 `qwen2.5:7b-instruct-q4_K_M`）。]
+
+### 4. ⚡ 本地性能極限調優建議 (Performance Tuning)
+- [提供 2-3 點針對該 OS 與硬體的系統級優化參數。例如：環境變數 `OLLAMA_NUM_PARALLEL`（多用戶併發）、`OLLAMA_MAX_LOADED_MODELS`、以及如何透過限制執行緒數 `num_thread` 來優化 CPU 推理效能。]</pre>
     </div>
 </div>
 
 <script>
 function copyPrompt(type) {
-    const simplePrompt = `# 🤖 簡易本地 AI 算力檢測與 Ollama 選型\n\n你現在是本地 AI 部署助手。請針對我提供的電腦規格，執行系統檢測命令（如果你具備執行權限）來自動獲取我的 CPU、GPU/VRAM、RAM、OS 和硬碟空間，或者請我手動提供。\n\n獲取硬體規格後，請為我輸出：\n1. **算力簡評**：我的電腦屬於入門體驗、中階實用還是高階流暢級？\n2. **Ollama 模型選型推薦**：\n   - 🟢 綠色流暢（>30 tps）：最推薦運行的模型（如 llama3.2:3b）。\n   - 🟡 黃色流暢（10-20 tps）：勉強可跑的模型。\n   - 🔴 紅色警告（<5 tps）：千萬別下的模型。\n3. **一鍵部署指令**：對應的 \`ollama run\` 指令。`;
-
-    const expertPrompt = `# 🛡️ 本地 AI 算力診斷與 Ollama 部署極限選型專家\n\n你是一位頂尖的 AI 基礎架構架構師與本地 LLM 效能調優專家。請在我的本地開發環境中，依據以下工作流（Workflow）對我的電腦進行深度算力診斷，並產出一份企業級的本地 LLM 部署規劃書。\n\n---\n\n## ⚙️ 第一階段：環境感知與硬體掃描 (System Profiling)\n請主動判斷我當前的作業系統環境（macOS / Windows / Linux），並執行或引導我執行對應的安全檢測指令，以獲取以下完整硬體數據。如果你具備終端機執行權限，請自主執行以下指令獲取數據：\n\n- **macOS (Apple Silicon/Intel)**:\n  \`sysctl -n machdep.cpu.brand_string; echo "RAM:"; sysctl -n hw.memsize; echo "OS:"; sw_vers; echo "Disk:"; df -h /; echo "GPU/VRAM:"; system_profiler SPDisplaysDataType\`\n- **Windows (PowerShell)**:\n  \`Get-CimInstance Win32_Processor | Select-Object Name; Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum | Select-Object Sum; Get-CimInstance Win32_VideoController | Select-Object Name, AdapterRAM; Get-Volume\`\n- **Linux**:\n  \`lscpu; free -h; df -h; lspci | grep -i vga\`\n\n---\n\n## 📊 第二階段：多維度算力與限制評估 (Bottleneck Analysis)\n獲取數據後，請進行以下精確計算與物理限制分析：\n1. **可用顯存/統一記憶體預算 (VRAM Budget)**：計算扣除 OS 運作（Windows 預設扣 1.5GB，macOS 預設扣 3GB）後的「LLM 安全載入顯存上限」。\n2. **記憶體頻寬與代償評估 (Memory Bandwidth & Offloading)**：評估若模型超出顯存，CPU 代償（Offloading）時的效能降幅。\n3. **儲存介面評估**：確認剩餘空間是否足以容納目標模型，並說明磁碟剩餘空間的安全水位線（建議保留至少 10GB 空閒空間以防虛擬記憶體鎖死）。\n\n---\n\n## 🎯 第三階段：精準模型選型矩陣 (Model Selection Matrix)\n請提供一個結構化的 Markdown 表格，針對以下主流開源模型，計算並推薦在我的硬體上運行的「最優量化精度 (Quantization)」與「預估推理速度 (tps)」：\n- **模型對象**：Llama 3.2 (1B/3B), Qwen 2.5 (1.5B/3B/7B/14B), Gemma 2 (2B/9B), Llama 3 (8B)。\n- **評估維度**：磁碟佔用(GB)、運行位置（VRAM/System RAM）、最優量化（如 Q4_K_M、Q8_0、FP16）、預估 Token 生成速度 (tokens/sec)、Context Window 安全上限（2K / 4K / 8K / 32K）。\n\n---\n\n## 💻 第四階段：輸出本地部署與優化藍圖 (Deployment Blueprint)\n請依據上述評估，產出以下四個部分的專業報告：\n\n### 1. 🎚️ 設備本地 AI 算力綜合評級\n- [評級分類：入門體驗 / 中階實用 / 高階流暢 / 專業工作站，並指出核心硬體瓶頸。]\n\n### 2. 🟢 推薦部署首選模型 (Highly Recommended)\n- [列出 2 款在此設備上能達到 100% 顯存載入且推理速度 > 30 tps 的最優模型，附帶技術理由。]\n\n### 3. 🛠️ 一鍵部署指令集 (Ollama Commands)\n- [提供所推薦模型的安裝與運行指令，包括如何指定特定量化版本的 Tag（如 \`qwen2.5:7b-instruct-q4_K_M\`）。]\n\n### 4. ⚡ 本地性能極限調優建議 (Performance Tuning)\n- [提供 2-3 點針對該 OS 與硬體的系統級優化參數。例如：環境變數 \`OLLAMA_NUM_PARALLEL\`（多用戶併發）、\`OLLAMA_MAX_LOADED_MODELS\`、以及如何透過限制執行緒數 \`num_thread\` 來優化 CPU 推理效能。]`;
-
-    const textToCopy = type === 'simple' ? simplePrompt : expertPrompt;
+    const textToCopy = document.getElementById(type + '-prompt-text').innerText;
     const buttonId = type === 'simple' ? 'btn-simple-prompt' : 'btn-expert-prompt';
     const originalText = type === 'simple' ? '複製「簡單版」提示詞' : '複製「專家版」提示詞';
     const successColor = '#059669';
