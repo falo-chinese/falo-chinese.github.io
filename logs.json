@@ -1,5 +1,27 @@
 [
   {
+    "timestamp": "2026-06-25T16:05:00+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示（方案 A）將 Class 04 首頁重構為高質感的「本次課程說明」入口主頁，並將五大核心課程主題物理拆分至 5 個獨立的主題網頁檔案中。升級 Markdown 編譯器以支援全套主題分頁編譯，在左側 TOC 目錄最上方增設獨立的「📋 本次課程說明」入口選單（指向 index.html），並將各主題之 TOC 導航與子選單錨點串接至其對應的獨立分頁（同視窗載入，維持流暢體感）。重新編譯 Class 04 全套 16 個 HTML 課件，並同步打包入 20260625_class04_project.zip 專案檔中，最後將所有更新同步至本地預覽庫，並順利推送到 falo-taiwan 及 falo-chinese 遠端倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/index.md",
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.md",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/topic2_agent_tools.md",
+      "falo-taiwan/class/a01/class4/topic2_agent_tools.html",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "falo-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.md",
+      "falo-taiwan/class/a01/class4/topic4_km_rag.html",
+      "compile_workshop.py",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T16:00:00+08:00",
     "action_type": "synced",
     "description": "依據老師指示將 FALO 最新架構圖（ETL × KM × Agent）放入 Class 04 ETL 實務案例分享主題主頁（topic3_etl_cases.md）中。重新編譯該主題 HTML 頁面，成功將該架構圖以 Glassmorphic 高質感邊框與陰影樣式嵌入於前言段落後；同步將圖片資源打包入 Class 04 專案壓縮檔（20260625_class04_project.zip），並將變更同步至本地預覽庫與 falo-taiwan、falo-chinese 兩個 GitHub Pages 遠端倉庫。",
