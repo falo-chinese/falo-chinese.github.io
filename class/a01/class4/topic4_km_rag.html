@@ -540,14 +540,38 @@
 <br>
 <p>---</p>
 <br>
-<h2>🗺️ 企業級 AI App 落地藍圖：從 KM 建置到全面合規</h2>
+<h2>⚖️ AI Coding 實務對照：一般版 (v1) 與高手優化版 (v2) 的演進</h2>
 <br>
-<p>將知識庫與 RAG（檢索增強生成）系統推向企業級落地，不僅僅是把文件丟給大模型這麼簡單。根據 <strong>「AI App 企業落地藍圖」</strong> 的核心維度，一個能夠讓企業安心長期使用的 KM 系統必須重點落實以下面向：</p>
+<p>在台灣政府 AI 補助工具庫的實戰開發中，開發者常面臨「能用就好」與「企業級落地」兩種截然不同的開發思維。我們透過以下兩張架構與功能對照圖，深入剖析其中的技術分野：</p>
+<br>
+<p><img src="images/ai_coding_comparison_v1_v2.png" alt="AI App Studio: 兩種 AI Coding 的差異" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<p><img src="images/ai_coding_architecture_details.png" alt="AI App Studio: 同一需求，不同層次的 AI Coding" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<h3>1. 一般 AI Coding 普通版 (v1) 的限制</h3>
+<p>普通版 v1 的核心目標是 <strong>「快速交付 Demo，驗證想法 (PoC)」</strong>。</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>技術特點</strong>：採用純前端 SPA 架構，資料儲存於靜態 JSON 中，使用簡易的 MiniSearch (TF-IDF) 進行關鍵字搜尋。這在開發初期非常高效，能在幾小時到一天內快速實現。</li>
+<li style="margin-bottom: 8px;"><strong>優缺點與瓶頸</strong>：開發快、門檻低。但由於「無語意理解能力（只能關鍵字比對）」、「無 AI 智慧分析與建議」且「無法防範超長輸入與 Token 控制」，在面對複雜長文本、大數據量或正式企業導入時，會暴露出極高的安全防禦漏洞與 Token 花費風險。</li>
+</ul>
+<br>
+<h3>2. 高手優化版 (v2) 的企業級突破</h3>
+<p>優化版 v2 的核心目標是 <strong>「AI 加值診斷 + 安全防護 + 成本優化 + 結構化交付」</strong>。</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>技術特點</strong>：在架構中引入了完整的 KM 資料庫（經 ETL 整理與去重標籤化）、Token 防禦機制（Payload 限制）、Gemini API (RAG 診斷) 以及 <strong>Context Caching（快取機制，可將重複對話的 Token 成本大降 90%）</strong>。</li>
+<li style="margin-bottom: 8px;"><strong>演進路徑與商業價值</strong>：從「可用（Find）」到「分析（Analyze）」，進而實現「執行（Execute）」與「自治（Agent）」。高手優化版具備多搜尋模式（語意、同義詞、模糊搜尋）、結構化 JSON Schema 輸出（一鍵導出 HTML/PDF 報告），並具有操作歷程稽核日誌，是真正可維護、可擴充且符合企業安全標準的解決方案。</li>
+</ul>
+<br>
+<p>---</p>
+<br>
+<h2>🗺️ 企業級 AI App 落地藍圖：全面合規與長期維運</h2>
+<br>
+<p>正如上述對照，做得出來只是開始，要讓企業長期安心使用，必須將技術思維上升到產品與工程思維。根據 <strong>「AI App 企業落地藍圖」</strong> 的七大關鍵注意事項，企業級知識管理（KM）與 RAG 系統的落地必須落實以下防護維度：</p>
 <br>
 <p><img src="images/falo_ai_app_enterprise_landing.png" alt="AI App 企業落地關鍵注意事項" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>資料與知識管理</strong>：這是 RAG 系統的基石。企業必須進行嚴格的「資料品質控管（確保準確與完整）」，建立「ETL 定期更新與監控機制」以保證知識庫的時效性，並透過「知識分類與標籤標準化」大幅提升向量比對檢索的精準度。</li>
+<li style="margin-bottom: 8px;"><strong>資料與知識管理</strong>：這是 RAG 系統的基石。企業必須進行嚴格的「資料品質控管（確保準確與完整）」，建立「ETL 定期更新與監控機制」以保證知識庫的時效性，並透過「知識分類與標籤標準化」大幅提升向量比對檢索的精振度。</li>
 <li style="margin-bottom: 8px;"><strong>資安防護與治理合規</strong>：企業內部知識庫通常包含高度敏感的專利、法規或經營數據。因此，系統必須實施嚴格的「權限控管（限制誰可查閱哪些知識庫）」，防範「Prompt 注入攻擊」，並建立完整的「操作紀錄與稽核日誌 (Audit Log)」，確保每一次的 AI 檢索均有跡可循。</li>
 <li style="margin-bottom: 8px;"><strong>落地經濟學與成本效能</strong>：在大規模查詢情境下，Token 成本會迅速攀升。我們必須導入「Context Caching（上下文快取）」以降低長文本的重複處理花費，優化「快取與索引機制」，落實「聰明用資源，才能長久又划算」的落地指標。</li>
 </ul>
