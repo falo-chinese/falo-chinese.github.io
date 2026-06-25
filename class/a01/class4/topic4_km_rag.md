@@ -2,6 +2,8 @@
 
 本主題深入剖析企業知識管理（KM）與檢索增強生成（RAG）系統的建置觀念，以政府補助案作為載體，解構企業級 AI App 的設計 Pattern。
 
+![AI KM 建置流程概念圖](images/ai_km_development_flow.jpg)
+
 ---
 
 ## 📂 AI KM 建置範例：政府 RAG 智慧檢索與診斷系統
