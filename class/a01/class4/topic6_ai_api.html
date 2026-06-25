@@ -629,19 +629,26 @@
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>實戰前端 JavaScript 呼叫代碼</strong>：</li>
 <details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ JAVASCRIPT 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>/**
- * ☁️ 雲端 AI: Google Gemini API 呼叫範例 (採用最新一代 3.1 Flash / Flash-Lite)
+ * ☁️ 雲端 AI: Google Gemini API 呼叫範例 (支援最新一代 3.5 / 3.1 / 2.5 家族)
  * 
- * 💡 技術特色（參考生產環境 3.1 規格實戰設計）：
+ * 💡 技術特色（參考生產環境規格實戰設計）：
  * 1. 【安全金鑰傳遞】：捨棄在 URL 暴露 API Key，改以 HTTP Header 'x-goog-api-key' 傳送，避免金鑰殘留在瀏覽器歷史紀錄或 proxy log 中。
- * 2. 【結構化 JSON 回傳】：展示如何利用 generationConfig 強制要求 Gemini 3.1 輸出 100% 合規的 JSON 格式，便於前端直接解析渲染。
+ * 2. 【結構化 JSON 回傳】：展示如何利用 generationConfig 強制要求 Gemini 輸出 100% 合規的 JSON 格式，便於前端直接解析渲染。
+ * 3. 【多模型切換路由】：支援動態傳入不同世代模型，讓學員親身體驗各世代（3.5 vs 3.1 vs 2.5）在推理能力與回應速度上的差異。
  */
 async function callGemini(promptText, apiKey, options = {}) {
   const { 
-    modelName = 'gemini-3.1-flash', // 預設 3.1 Flash，可切換 'gemini-3.1-flash-lite'
+    // 💡 支援模型名單 (modelName):
+    // - 'gemini-3.5-flash'      (🛡️ 高階深度審查，最適合複雜邏輯、表格與手寫辨識)
+    // - 'gemini-3.1-flash'      (⚡ 主流主力模型，預設，平衡效能與速度)
+    // - 'gemini-3.1-flash-lite' (💸 低成本快速草稿，極速，超省用量)
+    // - 'gemini-2.5-flash'      (📊 歷史基準教學比較)
+    // - 'gemini-2.5-flash-lite' (⏳ 歷史低成本基準)
+    modelName = 'gemini-3.1-flash', 
     responseJson = false           // 是否強制要求以 JSON 格式回傳
   } = options;
 
-  // 建立符合 W3C 標準的 Gemini 3.1 REST 端點 URL
+  // 建立符合 W3C 標準的 Gemini REST 端點 URL (支援動態傳入模型名稱)
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent`;
   
   const payload = {
@@ -689,19 +696,25 @@ async function callGemini(promptText, apiKey, options = {}) {
     
     return generatedText;
   } catch (error) {
-    console.error("Gemini 3.1 呼叫失敗：", error);
+    console.error(`Gemini (${modelName}) 呼叫失敗：`, error);
   }
 }
 
-// 💡 實測呼叫方式：
+// 💡 實測呼叫方式（學員可複製整段程式碼至瀏覽器 F12 Console 貼上運行）：
 // 
 // 1. 【普通文字模式】 使用預設的 Gemini 3.1 Flash：
 // callGemini("請用繁體中文解釋什麼是 RAG 技術？", "YOUR_GEMINI_API_KEY");
 //
-// 2. 【極速文字模式】 使用更低成本的 Gemini 3.1 Flash-Lite：
+// 2. 【高階深度審查模式】 使用最強的 Gemini 3.5 Flash 處理複雜任務：
+// callGemini("請分析此程式碼的潛在記憶體洩漏風險：[在此貼上您的代碼]", "YOUR_GEMINI_API_KEY", { modelName: "gemini-3.5-flash" });
+//
+// 3. 【極速低成本模式】 使用更划算的 Gemini 3.1 Flash-Lite：
 // callGemini("請寫一首關於寫程式的五言絕句。", "YOUR_GEMINI_API_KEY", { modelName: "gemini-3.1-flash-lite" });
 //
-// 3. 【結構化 JSON 模式】 要求模型輸出特定 JSON 物件 (以 3.1 Flash 進行精密分析)：
+// 4. 【歷史基準對照模式】 使用前代 Gemini 2.5 Flash 做對比測試：
+// callGemini("什麼是落地經濟學？", "YOUR_GEMINI_API_KEY", { modelName: "gemini-2.5-flash" });
+//
+// 5. 【結構化 JSON 模式】 要求模型輸出特定 JSON 物件 (以 3.1 Flash 進行精密分析)：
 // const jsonPrompt = `分析這封客戶信件的情感與急迫性。
 // 信件內容：「我今天早上訂的系統到現在都無法登入，請立刻處理！」
 // 請務必只回傳符合以下格式的 JSON 內容，不要包含額外文字：
