@@ -585,24 +585,24 @@
 <br>
 <p>以下為 Class 04 重點示範專案，著重於將電腦視覺、OCR 辨識與企業工作流/智慧稽核整合運作的實際落地設計。</p>
 <br>
-<h3>案例一：LINE 資訊過載助手 ─ 深度研究彙總報告</h3>
+<h3>案例一：FALO Prompt Manager ─ 企業級提示詞資產管理平台</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>專案精神</strong>：解決 LINE 群組對話資訊過載痛點，透過極致 Prompt 工程與多模型並行測試，將碎片化對話自動提煉為高品質的結構化彙總與待辦清單。</li>
+<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業與 AI 教育訓練設計的本機優先 PWA 提示詞資產管理平台，整合變數動態替換、多模型裝盤教學（Model-Dish）與工作流 Prompt 卡片，解決企業內部提示詞資產混亂、難以複用與培訓銜接的痛點。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
-<li style="margin-bottom: 8px;"><strong>六大模型實測</strong>：基於同一套基準 Prompt，深度對比 Google DeepThink（慢思考推理）、Google DeepResearch（長篇研究）、Claude（繁體中文美感）、Grok（即時社交熱點）、Kimi（超長文本細節）與 Perplexity（智慧搜尋背景）在對話摘要上的效能表現。</li>
-<li style="margin-bottom: 8px;"><strong>ETL 資料管線</strong>：探討非結構化聊天紀錄（TXT/CSV）的降噪、清洗、分段切片與級聯彙總設計，並提供多模型性能與 Token 成本評估，協助架構師規劃最優落地路徑。</li>
+<li style="margin-bottom: 8px;"><strong>動態變數與工作流卡片</strong>：支援雙欄「編輯對照工作台」與即時變數渲染預覽，能將複雜的 AI 任務拆解為時間序列的「工作流 Prompt 卡片（Workflow Strip）」，指導同仁依序執行；支援離線 PWA、語音輸入與高精度 OCR 輔助輸入。</li>
+<li style="margin-bottom: 8px;"><strong>多主題教學與 JSON Connect</strong>：專門針對大型課堂設計「教學大字體主題」與「模型裝盤」示範，支援拖拽式 CSV/JSON 模板批量導入與導出，實現跨團隊提示詞資產無縫同步與 JSON 結構化對接。</li>
 <li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 LINE 資訊過載助手 ─ 深度研究彙總報告</a> *(將於新分頁中開啟)*</li>
+<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/prompt-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 FALO Prompt Manager 企業級提示詞資產管理平台</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>案例二：銀河ERP - 憑證下載助手 Hub</h3>
+<h3>案例二：FALO OCR Workbench ─ 智慧開源 OCR 工作台</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業差旅報銷流程設計的雙版本自主部署解決方案，提供台鐵購票證明的快速查詢、自訂重命名與一鍵下載服務，解決傳統財務手動處理發票憑證的低效痛點。</li>
+<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業與開發者設計的 PWA 智慧開源 OCR 工作台，整合雲端雙模型與瀏覽器原生 AI，打通「圖片上傳 ➔ 智慧 Prompt 模板 ➔ 雙軌比對 ➔ 實時 Token 對帳」的極致資料清洗與轉化 ETL 端到端實踐。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
-<li style="margin-bottom: 8px;"><strong>雙版本靈活部署</strong>：提供輕量前端無伺服器版（Serverless SPA）與企業後端整合版，滿足不同組織的網絡架構與資訊安全治理規範。</li>
-<li style="margin-bottom: 8px;"><strong>憑證自動化管線</strong>：實現非結構化憑證資料的欄位精準提取（如乘車日期、金額、起訖站），支援自訂重命名規則與批量打包下載，極大簡化財務報銷前的審查與歸檔工作。</li>
+<li style="margin-bottom: 8px;"><strong>雙軌雲端與地端 Nano 協作</strong>：支援多代 Gemini 雲端模型（3.5 Flash / 3.1 Flash-Lite）並行運作與「雙 OCR 模式」；並深度整合 <strong>Chrome Built-in AI (Gemini Nano)</strong>，在使用者本機進行離線結果比對、校對與摘要提煉，實現零 API 成本與極致隱私保護。</li>
+<li style="margin-bottom: 8px;"><strong>落地經濟學與 PWA 實踐</strong>：內建實時「對帳日誌」，精確計算每一次辨識的 Token 數、延遲（ms）與台幣花費（NT$），落實企業級成本控制意識；採用離線 PWA 技術，打造流暢的桌面級拖拽與浮動縮放交互體驗。</li>
 <li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ticket-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟銀河ERP - 憑證下載助手 Hub</a> *(將於新分頁中開啟)*</li>
+<li style="margin-bottom: 8px;"><a href="https://falo-chinese.github.io/ai-ocr-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 FALO OCR Workbench 智慧開源 OCR 工作台</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
 <h3>案例三：口語化政府資料 AI 爬蟲助手 (Chrome 外掛)</h3>
@@ -615,17 +615,7 @@
 <li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/skyline-class/class2/demo/ai-parser-demo1/index.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟口語化政府資料 AI 爬蟲助手</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>案例四：FALO OCR Workbench ─ 智慧開源 OCR 工作台</h3>
-<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業與開發者設計的 PWA 智慧開源 OCR 工作台，整合雲端雙模型與瀏覽器原生 AI，打通「圖片上傳 ➔ 智慧 Prompt 模板 ➔ 雙軌比對 ➔ 實時 Token 對帳」的極致資料清洗與轉化 ETL 端到端實踐。</li>
-<li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
-<li style="margin-bottom: 8px;"><strong>雙軌雲端與地端 Nano 協作</strong>：支援多代 Gemini 雲端模型（3.5 Flash / 3.1 Flash-Lite）並行運作與「雙 OCR 模式」；並深度整合 <strong>Chrome Built-in AI (Gemini Nano)</strong>，在使用者本機進行離線結果比對、校對與摘要提煉，實現零 API 成本與極致隱私保護。</li>
-<li style="margin-bottom: 8px;"><strong>落地經濟學與 PWA 實踐</strong>：內建實時「對帳日誌」，精確計算每一次辨識的 Token 數、延遲（ms）與台幣花費（NT$），落實企業級成本控制意識；採用離線 PWA 技術，打造流暢的桌面級拖拽與浮動縮放交互體驗。</li>
-<li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-chinese.github.io/ai-ocr-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 FALO OCR Workbench 智慧開源 OCR 工作台</a> *(將於新分頁中開啟)*</li>
-</ul>
-<br>
-<h3>案例五：影片內容分析之成本與效能對抗</h3>
+<h3>案例四：影片內容分析之成本與效能對抗</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對多模態影片分析設計的成本與效能對抗指南，深度對比「原生影片直投大模型」與「自適應抽樣故事板拼圖（Storyboard Grid）」兩種架構，協助企業在影片 OCR 與場景理解中極致降低 Token 成本。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
@@ -635,24 +625,34 @@
 <li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/video-analysis-optimization/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟影片 AI 內容分析之成本與效效能對抗指南</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>案例六：FALO Prompt Manager ─ 企業級提示詞資產管理平台</h3>
+<h3>案例五：LINE 防封鎖訊息變體生成器 ─ PWA 雙效混淆與 Agent 沙盒</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業與 AI 教育訓練設計的本機優先 PWA 提示詞資產管理平台，整合變數動態替換、多模型裝盤教學（Model-Dish）與工作流 Prompt 卡片，解決企業內部提示詞資產混亂、難以複用與培訓銜接的痛點。</li>
+<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對社群行銷與大量通知發送場景設計的雙軌訊息防封鎖工具。整合「傳統演算法混淆」與「Gemini AI 語意改寫」，並特別內建 <strong>Computer Use 智能示範沙盒</strong>，展示未來 AI Agent 透過模擬人類游標移動與參數點擊的自動化操作軌跡，防止因內容高度重複而被 LINE 系統判定洗版封帳。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
-<li style="margin-bottom: 8px;"><strong>動態變數與工作流卡片</strong>：支援雙欄「編輯對照工作台」與即時變數渲染預覽，能將複雜的 AI 任務拆解為時間序列的「工作流 Prompt 卡片（Workflow Strip）」，指導同仁依序執行；支援離線 PWA、語音輸入與高精度 OCR 輔助輸入。</li>
-<li style="margin-bottom: 8px;"><strong>多主題教學與 JSON Connect</strong>：專門針對大型課堂設計「教學大字體主題」與「模型裝盤」示範，支援拖拽式 CSV/JSON 模板批量導入與導出，實現跨團隊提示詞資產無縫同步與 JSON 結構化對接。</li>
+<li style="margin-bottom: 8px;"><strong>雙效防封鎖混淆管線</strong>：支援「非 AI 演算法混淆」（零寬字元混淆、標點噪聲、同形字替換）與「Gemini 語意無損改寫」雙軌機制，並自動保留原始連結，生成具備唯一 Hash 值的多樣化訊息變體。</li>
+<li style="margin-bottom: 8px;"><strong>Computer Use 模擬沙盒與 PWA</strong>：提供極具視覺衝擊的模擬游標與 Action Terminal HUD 面板，直觀展示 AI Agent 自動點擊、輸入與調節滑桿之執行軌跡；支援響應式主題切換與離線 PWA 運行。</li>
 <li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/prompt-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 FALO Prompt Manager 企業級提示詞資產管理平台</a> *(將於新分頁中開啟)*</li>
+<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/computer-use/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 LINE 防封鎖訊息變體生成器與 Agent 沙盒</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>案例七：FALO NotebookLM Runtime Lab ─ 企業級知識庫整合運行網關</h3>
+<h3>案例六：銀河ERP - 憑證下載助手 Hub</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業內部部署知識管理（KM）與自動化同步設計的網關（Gateway）。本案例由於涉及地端文件同步與自動化指令碼，線上展示僅提供「高階架構示意圖與原型卡片」，完整功能需結合本機開發環境與 <strong>ngrok 安全隧道技術</strong> 穿透進行實時操作與展示。</li>
+<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業差旅報銷流程設計的雙版本自主部署解決方案，提供台鐵購票證明的快速查詢、自訂重命名與一鍵下載服務，解決傳統財務手動處理發票憑證的低效痛點。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
-<li style="margin-bottom: 8px;"><strong>雙版本門戶網關</strong>：提供雙版本門戶入口，支援自動化文件同步腳本，免去手動上傳 NotebookLM 來源庫的限制；透過 ngrok 將地端自動化服務安全映射至公網。</li>
-<li style="margin-bottom: 8px;"><strong>地端與 ngrok 隧道穿透</strong>：利用地端指令列工具（CLI）與 ngrok 隧道，實現「非同步文件監聽 ➔ 自動同步上傳 ➔ 團隊共用導覽」之地端與雲端橋接技術驗證。</li>
+<li style="margin-bottom: 8px;"><strong>雙版本靈活部署</strong>：提供輕量前端無伺服器版（Serverless SPA）與企業後端整合版，滿足不同組織的網絡架構與資訊安全治理規範。</li>
+<li style="margin-bottom: 8px;"><strong>憑證自動化管線</strong>：實現非結構化憑證資料的欄位精準提取（如乘車日期、金額、起訖站），支援自訂重命名規則與批量打包下載，極大簡化財務報銷前的審查與歸檔工作。</li>
 <li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ai-notebooklm/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 FALO NotebookLM Runtime Lab 門戶入口 (僅提供示意圖)</a> *(將於新分頁中開啟)*</li>
+<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ticket-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟銀河ERP - 憑證下載助手 Hub</a> *(將於新分頁中開啟)*</li>
+</ul>
+<br>
+<h3>案例七：LINE 資訊過載助手 ─ 深度研究彙總報告</h3>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>專案精神</strong>：解決 LINE 群組對話資訊過載痛點，透過極致 Prompt 工程與多模型並行測試，將碎片化對話自動提煉為高品質的結構化彙總與待辦清單。</li>
+<li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
+<li style="margin-bottom: 8px;"><strong>六大模型實測</strong>：基於同一套基準 Prompt，深度對比 Google DeepThink（慢思考推理）、Google DeepResearch（長篇研究）、Claude（繁體中文美感）、Grok（即時社交熱點）、Kimi（超長文本細節）與 Perplexity（智慧搜尋背景）在對話摘要上的效能表現。</li>
+<li style="margin-bottom: 8px;"><strong>ETL 資料管線</strong>：探討非結構化聊天紀錄（TXT/CSV）的降噪、清洗、分段切片與級聯彙總設計，並提供多模型性能與 Token 成本評估，協助架構師規劃最優落地路徑。</li>
+<li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
+<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 LINE 資訊過載助手 ─ 深度研究彙總報告</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
 <h3>案例八：從故障到能力包 ─ FALO 精神的案例實踐</h3>
@@ -665,14 +665,14 @@
 <li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/gemini_chrome/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟從故障到能力包 ─ FALO 精神的案例實踐</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>案例九：LINE 防封鎖訊息變體生成器 ─ PWA 雙效混淆與 Agent 沙盒</h3>
+<h3>案例九：FALO NotebookLM Runtime Lab ─ 企業級知識庫整合運行網關</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對社群行銷與大量通知發送場景設計的雙軌訊息防封鎖工具。整合「傳統演算法混淆」與「Gemini AI 語意改寫」，並特別內建 <strong>Computer Use 智能示範沙盒</strong>，展示未來 AI Agent 透過模擬人類游標移動與參數點擊的自動化操作軌跡，防止因內容高度重複而被 LINE 系統判定洗版封帳。</li>
+<li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業內部部署知識管理（KM）與自動化同步設計的網關（Gateway）。本案例由於涉及地端文件同步與自動化指令碼，線上展示僅提供「高階架構示意圖與原型卡片」，完整功能需結合本機開發環境與 <strong>ngrok 安全隧道技術</strong> 穿透進行實時操作與展示。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
-<li style="margin-bottom: 8px;"><strong>雙效防封鎖混淆管線</strong>：支援「非 AI 演算法混淆」（零寬字元混淆、標點噪聲、同形字替換）與「Gemini 語意無損改寫」雙軌機制，並自動保留原始連結，生成具備唯一 Hash 值的多樣化訊息變體。</li>
-<li style="margin-bottom: 8px;"><strong>Computer Use 模擬沙盒與 PWA</strong>：提供極具視覺衝擊的模擬游標與 Action Terminal HUD 面板，直觀展示 AI Agent 自動點擊、輸入與調節滑桿之執行軌跡；支援響應式主題切換與離線 PWA 運行。</li>
+<li style="margin-bottom: 8px;"><strong>雙版本門戶網關</strong>：提供雙版本門戶入口，支援自動化文件同步腳本，免去手動上傳 NotebookLM 來源庫的限制；透過 ngrok 將地端自動化服務安全映射至公網。</li>
+<li style="margin-bottom: 8px;"><strong>地端與 ngrok 隧道穿透</strong>：利用地端指令列工具（CLI）與 ngrok 隧道，實現「非同步文件監聽 ➔ 自動同步上傳 ➔ 團隊共用導覽」之地端與雲端橋接技術驗證。</li>
 <li style="margin-bottom: 8px;"><strong>研究報告入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/computer-use/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 LINE 防封鎖訊息變體生成器與 Agent 沙盒</a> *(將於新分頁中開啟)*</li>
+<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ai-notebooklm/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 FALO NotebookLM Runtime Lab 門戶入口 (僅提供示意圖)</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
 <br>
