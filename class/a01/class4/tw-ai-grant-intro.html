@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI KM 建置範例：台灣政府 AI 補助工具採集與 RAG 智慧檢索系統</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Dark Mode Theme */
+            --bg-gradient: radial-gradient(circle at 50% 50%, #0b071e 0%, #020108 100%);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(25, 18, 50, 0.45);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(192, 132, 252, 0.45);
+            --primary: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.15);
+            --accent: #c084fc;
+            --sidebar-bg: rgba(15, 10, 35, 0.85);
+            --sidebar-border: rgba(255, 255, 255, 0.08);
+            --toggle-bg: rgba(255, 255, 255, 0.05);
+            --toggle-border: rgba(255, 255, 255, 0.1);
+            --toggle-color: #f3f4f6;
+            --btn-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            --btn-shadow: rgba(139, 92, 246, 0.25);
+            --badge-bg: rgba(192, 132, 252, 0.12);
+            --badge-color: #d8b4fe;
+            --badge-border: rgba(192, 132, 252, 0.25);
+            --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+            --code-bg: #0d091e;
+        }
+
+        body.theme-light {
+            /* Fresh White Mode */
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(99, 102, 241, 0.12);
+            --card-hover-border: rgba(99, 102, 241, 0.45);
+            --primary: #4f46e5;
+            --primary-glow: rgba(79, 70, 229, 0.1);
+            --accent: #0891b2;
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-border: rgba(99, 102, 241, 0.15);
+            --toggle-bg: rgba(0, 0, 0, 0.05);
+            --toggle-border: rgba(0, 0, 0, 0.08);
+            --toggle-color: #4f46e5;
+            --btn-bg: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --btn-shadow: rgba(79, 70, 229, 0.2);
+            --badge-bg: rgba(8, 145, 178, 0.08);
+            --badge-color: #0891b2;
+            --badge-border: rgba(8, 145, 178, 0.15);
+            --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
+            --code-bg: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            transition: background 0.4s ease, color 0.3s ease;
+        }
+
+        body.zoom-large { font-size: 1.15rem; }
+        body.zoom-large h1 { font-size: 2.5rem; }
+        body.zoom-large h2 { font-size: 1.8rem; }
+        
+        .layout-wrapper {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            transition: max-width 0.3s ease;
+        }
+        
+        body.width-wide .layout-wrapper {
+            max-width: 1600px;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 300px;
+            flex-shrink: 0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            padding: 2.5rem 1.5rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .brand h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .brand .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand .sub-brand {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--sidebar-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .toc {
+            list-style: none;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-link:hover {
+            color: var(--text-main);
+            background: var(--primary-glow);
+            padding-left: 1.2rem;
+        }
+
+        .toc-link.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(192, 132, 252, 0.15) 100%);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            font-weight: 700;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid var(--sidebar-border);
+            padding-top: 1.5rem;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-btn {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 0.8rem;
+            background: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-btn:hover {
+            background: var(--primary-glow);
+            border-color: var(--primary);
+        }
+
+        /* Main Content Area */
+        main {
+            flex-grow: 1;
+            margin-left: 300px;
+            padding: 3.5rem 3rem;
+            max-width: 900px;
+            width: calc(100% - 300px);
+            transition: max-width 0.3s ease;
+        }
+
+        body.width-wide main {
+            max-width: 1300px;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: var(--h1-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        header .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        header .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            margin-bottom: 2.2rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--card-hover-border);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: var(--badge-bg);
+            color: var(--badge-color);
+            border: 1px solid var(--badge-border);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 5 Concepts Grid */
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .concepts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .concept-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .concept-card:hover {
+            border-color: var(--accent);
+            background: rgba(139, 92, 246, 0.02);
+            transform: translateY(-1px);
+        }
+
+        .concept-num {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .concept-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .concept-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Interactive Controls Button Grid */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .btn-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--card-border);
+            color: #ffffff;
+        }
+
+        .action-btn.primary {
+            background: var(--btn-bg);
+            border-color: transparent;
+            box-shadow: 0 4px 20px var(--btn-shadow);
+        }
+
+        .action-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .action-btn.accent-btn {
+            background: rgba(139, 92, 246, 0.08);
+            border-color: rgba(139, 92, 246, 0.3);
+            color: var(--accent);
+        }
+
+        .action-btn.accent-btn:hover {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.15);
+        }
+
+        .btn-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-lbl {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .btn-sub {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.25rem;
+        }
+
+        .action-btn.accent-btn .btn-sub {
+            color: var(--text-muted);
+        }
+
+        /* Floating Accessibility Toolbar */
+        .accessibility-toolbar {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(15, 10, 35, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        body.theme-light .accessibility-toolbar {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(99, 102, 241, 0.15);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+        }
+
+        .toolbar-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .toolbar-btn:hover {
+            background: var(--primary-glow);
+            color: var(--accent);
+        }
+
+        .divider {
+            width: 1px;
+            height: 18px;
+            background: var(--card-border);
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 992px) {
+            aside {
+                display: none; /* Hide sidebar on small screens for simplicity */
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating accessibility toolbar -->
+    <div class="accessibility-toolbar">
+        <button class="toolbar-btn" onclick="toggleLocalTheme()" title="切換配色">💡</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustZoom(true)" title="放大字體">A+</button>
+        <button class="toolbar-btn" onclick="adjustZoom(false)" title="縮小字體">A-</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustWidth(true)" title="寬版版面">W+</button>
+        <button class="toolbar-btn" onclick="adjustWidth(false)" title="窄版版面">W-</button>
+    </div>
+
+    <div class="layout-wrapper">
+        <aside>
+            <div class="brand">
+                <div class="eyebrow">銀河 ERP 內訓</div>
+                <h2>Class 04</h2>
+                <div class="sub-brand">銀河軟體 台西分公司</div>
+            </div>
+            
+            <ul class="toc">
+                <li><a class="toc-link" href="index.html#notice-section">📌 常見提醒與交付規範</a></li>
+                <li><a class="toc-link" href="index.html#topic-0">主軸 1：前三週重點補充與解答</a></li>
+                <li><a class="toc-link" href="index.html#topic-1">主軸 2：AI 專案規劃與實作思維</a></li>
+                <li><a class="toc-link" href="index.html#topic-2">主軸 3：同學專案方向交流與診斷</a></li>
+                <li><a class="toc-link" href="index.html#topic-3">主軸 4：AI 專案所需技能與解析</a></li>
+                <li><a class="toc-link" href="index.html#cases-section">🚀 核心實戰案例展示</a></li>
+                <li><a class="toc-link active" href="#">📂 AI KM 建置範例：政府 RAG</a></li>
+                <li><a class="toc-link" href="practice-swiper.html" style="color: var(--accent); font-weight: bold;">📱 iPAS 智慧刷題模擬器</a></li>
+                
+                <div style="font-size: 0.75rem; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding-left: 0.8rem; margin-top: 1rem; margin-bottom: 0.4rem;">🎯 AI APP Studio 工作坊</div>
+                <li><a class="toc-link" href="ai_app_readme.html">📖 工作坊總覽首頁</a></li>
+                <li><a class="toc-link" href="methodology_blueprint.html">🧠 產品思維方法論</a></li>
+                <li><a class="toc-link" href="discovery_validation_playbook.html">🔍 痛點與需求驗證手冊</a></li>
+                <li><a class="toc-link" href="backlog_template.html">📋 50+ AI App 創意 Backlog</a></li>
+                <li><a class="toc-link" href="idea_library.html">💡 100+ AI App 創意庫</a></li>
+                <li><a class="toc-link" href="scorecard.html">📊 100分制評審與決策表</a></li>
+                <li><a class="toc-link" href="mvp_poc_guide.html">🚀 MVP & PoC 規劃指南</a></li>
+                <li><a class="toc-link" href="student_worksheets.html">📝 學員實作工作紙</a></li>
+                <li><a class="toc-link" href="workshop_facilitator_guide.html">👨‍🏫 講師引導指南</a></li>
+                <li><a class="toc-link" href="project_record.html">📂 歷程記錄</a></li>
+
+                <div style="border-top: 1px solid var(--sidebar-border); margin: 0.5rem 0; padding-top: 0.5rem;"></div>
+                <li><a class="toc-link" href="index.html#handbooks-section">實戰專案與手冊</a></li>
+                <li><a class="toc-link" href="index.html#tools-section">AI 開發工具對比</a></li>
+                <li><a class="toc-link" href="index.html#faq-section">學員提問 QA</a></li>
+                <li><a class="toc-link" href="index.html#resources-section">其他參考資源</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a class="sidebar-btn" href="../index.html">⬅ 返回課程首頁</a>
+                <a class="sidebar-btn" href="editor.html" style="background: var(--primary); border-color: var(--primary); color: #ffffff;">✍️ 開啟內容編輯器</a>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <span class="badge">Class 04 專屬技術重構案例剖析</span>
+                <h1 style="margin-top: 0.75rem;">AI KM 建置範例：台灣政府 AI 補助工具採集與 RAG 智慧檢索系統</h1>
+                <div class="subtitle">企業級 AI App 設計 pattern 與軟體工程觀念藍圖</div>
+                <div class="meta">
+                    <span>📅 上課時間：2026/06/28 (日)</span>
+                    <span>👨‍🏫 授課教師：鄭穎臨 老師</span>
+                </div>
+            </header>
+
+            <!-- Overview Section -->
+            <section class="card">
+                <h2>🎯 專案重構定位與教學目的</h2>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                    本專案並非直接套用外部的公務查找工具，而是<strong>專為 Class 04 內訓課程精心重構、優化的企業級 RAG 示範專案</strong>。
+                    我們將真實世界中「政府多管道補助資訊碎片化」的商業痛點作為載體，重構成一個在架構上具備極高安全性、成本可行性與極致部署效能的 AI 原生應用（AI App）。
+                    <br><br>
+                    透過本專案，學員將跳脫「Chatbot 即 AI 應用」的狹隘認知，深刻理解如何將<strong>逆向資料採集、輕量前端 TF-IDF、Token payload 防護、以及 Context Caching（上下文快取）減費技術</strong>融入正式的軟體開發管線中，打造符合天心 ERP 下一代 AI 生態圈架構的產品。
+                </p>
+            </section>
+
+            <!-- The Five Concepts Section -->
+            <section class="card" style="border-color: rgba(192, 132, 252, 0.3); background: rgba(139, 92, 246, 0.01);">
+                <div class="badge" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.3); color: var(--accent);">5 ARCHITECTURAL PATTERNS</div>
+                <h2 style="margin-top: 0.75rem;">💡 專案蘊含的五大核心軟體工程觀念</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">點擊或瀏覽以下五個卡片，理解我們如何透過軟體設計架構，解決企業落地 AI 的真實痛點：</p>
+                
+                <div class="concepts-grid">
+                    <!-- Concept 1 -->
+                    <div class="concept-card">
+                        <div class="concept-num">CONCEPT 01 / 工程務實主義</div>
+                        <div class="concept-title">輕量化地端 TF-IDF 檢索</div>
+                        <div class="concept-desc">
+                            捨棄昂貴且架構複雜的伺服器端向量資料庫（Vector DB）。針對 224 筆補助案這種中小規模的企業內部專屬知識集，利用前端字元級 TF-IDF 引擎（如 MiniSearch）即可在毫秒內完成精準檢索，大幅降低維運門檻與基礎設施成本。
+                        </div>
+                    </div>
+
+                    <!-- Concept 2 -->
+                    <div class="concept-card">
+                        <div class="concept-num">CONCEPT 02 / 物理與安全防禦</div>
+                        <div class="concept-title">Token 物理防護與邊界管理</div>
+                        <div class="concept-desc">
+                            在將數據送往雲端大模型之前，前端預檢機制嚴格限制 Payload 上限為 4,096 tokens。此物理邊界防禦不僅徹底杜絕超長文本导致的 API 刷爆財務風險，還有效攔截了惡意提示詞注入（Prompt Injection），建立健全的企業 AI 安全意識。
+                        </div>
+                    </div>
+
+                    <!-- Concept 3 -->
+                    <div class="concept-card">
+                        <div class="concept-num">CONCEPT 03 / 企業落地經濟學</div>
+                        <div class="concept-title">Context Caching 雲端快取技術</div>
+                        <div class="concept-desc">
+                            每次 RAG 對話如果都要將整份數據庫傳送給 LLM，Token 費用將成線性暴漲。本專案示範如何調用 Gemini API 的 Context Caching 技術，將 224 筆工具庫快取在雲端，使後續的對話診斷成本降低 90%，解決企業 AI 應用的經濟可行性問題。
+                        </div>
+                    </div>
+
+                    <!-- Concept 4 -->
+                    <div class="concept-card">
+                        <div class="concept-num">CONCEPT 04 / 結構化價值交付</div>
+                        <div class="concept-title">從「對話」到「商務白皮書」</div>
+                        <div class="concept-desc">
+                            企業 AI 應用的終點絕非只是個聊天機器人。本專案展示了如何將 AI 的多維度診斷結論，在前端直接渲染成一份排版精緻、無廣告干擾的 Notion 風格 HTML 轉型建議書，一鍵即可列印或存為 PDF，實現「對話即交付」的高商務價值。
+                        </div>
+                    </div>
+
+                    <!-- Concept 5 -->
+                    <div class="concept-card">
+                        <div class="concept-num">CONCEPT 05 / 零運維極致部署</div>
+                        <div class="concept-title">100% 自包含單頁應用 (SPA)</div>
+                        <div class="concept-desc">
+                            將 224 筆政府補助案黃金資料庫與檢索引擎、UI 邏輯完全封裝於單一 HTML 檔案中。無任何 CORS 跨域限制，可完全離線運行或透過本地 file:// 直接開啟，展示了如何設計「零伺服器成本、零維運死角」的極致高可用 AI App。
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Direct Jump / Action Buttons Section -->
+            <section class="card">
+                <h2>🚀 實戰系統體驗與教材入口</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                    本專案提供兩個不同重構階段的系統版本，以及一份完整的網頁逆向與前端 RAG 設計技術講義。建議依序體驗與閱讀：
+                </p>
+                
+                <div class="btn-grid">
+                    <!-- Button 1: v2 -->
+                    <a href="tw-ai-grant-v2.html" target="_blank" class="action-btn primary">
+                        <div class="btn-icon">⚡</div>
+                        <div class="btn-lbl">開啟 v2.10 進階版</div>
+                        <div class="btn-sub">RAG 降噪與 Token 防禦控制台</div>
+                    </a>
+
+                    <!-- Button 2: v1 -->
+                    <a href="tw-ai-grant-v1.html" target="_blank" class="action-btn secondary">
+                        <div class="btn-icon">🔍</div>
+                        <div class="btn-lbl">開啟 v1.01 首發版</div>
+                        <div class="btn-sub">雙層智慧過濾與本地秒級檢索</div>
+                    </a>
+
+                    <!-- Button 3: Lesson -->
+                    <a href="tw-ai-grant-lesson.html" target="_blank" class="action-btn accent-btn">
+                        <div class="btn-icon">📖</div>
+                        <div class="btn-lbl">閱讀實戰教材講義</div>
+                        <div class="btn-sub">Chrome 逆向、TF-IDF 與防禦實作</div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Replicate index.html scripts for responsiveness and accessibility theme toggle -->
+    <script>
+        // Accessibility triggers
+        function toggleLocalTheme() {
+            document.body.classList.toggle('theme-light');
+            const current = document.body.classList.contains('theme-light') ? 'light' : 'dark';
+            localStorage.setItem('class04-theme', current);
+        }
+
+        if (localStorage.getItem('class04-theme') === 'light') {
+            document.body.classList.add('theme-light');
+        }
+
+        function adjustZoom(enlarge) {
+            if (enlarge) {
+                document.body.classList.add('zoom-large');
+                localStorage.setItem('class04-zoom', 'large');
+            } else {
+                document.body.classList.remove('zoom-large');
+                localStorage.setItem('class04-zoom', 'normal');
+            }
+        }
+
+        if (localStorage.getItem('class04-zoom') === 'large') {
+            document.body.classList.add('zoom-large');
+        }
+
+        function adjustWidth(wide) {
+            if (wide) {
+                document.body.classList.add('width-wide');
+                localStorage.setItem('class04-width', 'wide');
+            } else {
+                document.body.classList.remove('width-wide');
+                localStorage.setItem('class04-width', 'normal');
+            }
+        }
+
+        if (localStorage.getItem('class04-width') === 'wide') {
+            document.body.classList.add('width-wide');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>政府 AI 與資安成熟度檢核專案 | 企業資安點檢首頁</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Dark Mode Theme */
+            --bg-gradient: radial-gradient(circle at 50% 50%, #0c0724 0%, #020108 100%);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(25, 18, 50, 0.45);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(192, 132, 252, 0.45);
+            --primary: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.15);
+            --accent: #c084fc;
+            --sidebar-bg: rgba(15, 10, 35, 0.85);
+            --sidebar-border: rgba(255, 255, 255, 0.08);
+            --toggle-bg: rgba(255, 255, 255, 0.05);
+            --toggle-border: rgba(255, 255, 255, 0.1);
+            --toggle-color: #f3f4f6;
+            --btn-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            --btn-shadow: rgba(139, 92, 246, 0.25);
+            --badge-bg: rgba(192, 132, 252, 0.12);
+            --badge-color: #d8b4fe;
+            --badge-border: rgba(192, 132, 252, 0.25);
+            --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+        }
+
+        body.theme-light {
+            /* Light Mode Theme */
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(99, 102, 241, 0.12);
+            --card-hover-border: rgba(99, 102, 241, 0.45);
+            --primary: #4f46e5;
+            --primary-glow: rgba(79, 70, 229, 0.1);
+            --accent: #0891b2;
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-border: rgba(99, 102, 241, 0.15);
+            --toggle-bg: rgba(0, 0, 0, 0.05);
+            --toggle-border: rgba(0, 0, 0, 0.08);
+            --toggle-color: #4f46e5;
+            --btn-bg: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --btn-shadow: rgba(79, 70, 229, 0.2);
+            --badge-bg: rgba(8, 145, 178, 0.08);
+            --badge-color: #0891b2;
+            --badge-border: rgba(8, 145, 178, 0.15);
+            --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            transition: background 0.4s ease, color 0.3s ease;
+        }
+
+        body.zoom-large { font-size: 1.15rem; }
+        body.zoom-large h1 { font-size: 2.5rem; }
+        body.zoom-large h2 { font-size: 1.8rem; }
+
+        .layout-wrapper {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            transition: max-width 0.3s ease;
+        }
+
+        body.width-wide .layout-wrapper {
+            max-width: 1600px;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 300px;
+            flex-shrink: 0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            padding: 2.5rem 1.5rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .brand h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .brand .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand .sub-brand {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--sidebar-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .toc {
+            list-style: none;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-link:hover, .toc-link.active {
+            color: var(--text-main);
+            background: var(--primary-glow);
+            padding-left: 1.2rem;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid var(--sidebar-border);
+            padding-top: 1.5rem;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-btn {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 0.8rem;
+            background: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 300px;
+            flex-grow: 1;
+            padding: 3.5rem 2.5rem;
+            width: calc(100% - 300px);
+            box-sizing: border-box;
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--h1-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2.5rem;
+            scroll-margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            border-color: var(--card-hover-border);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .section-num {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .intro {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* SOP Steps */
+        .sop-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .sop-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            transition: border-color 0.25s ease;
+        }
+
+        body.theme-light .sop-step {
+            background: rgba(0, 0, 0, 0.01);
+        }
+
+        .sop-step:hover {
+            border-color: var(--primary-glow);
+        }
+
+        .step-icon {
+            font-size: 1.5rem;
+            background: var(--primary-glow);
+            padding: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        .step-content strong {
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        /* Resource links */
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        body.theme-light .resource-link {
+            background: rgba(0, 0, 0, 0.015);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .resource-link:hover {
+            background: var(--primary-glow);
+            border-color: var(--card-hover-border);
+            padding-left: 1.5rem;
+        }
+
+        .link-icon {
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+        }
+
+        .link-text {
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .link-arrow {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: transform 0.2s ease;
+        }
+
+        .resource-link:hover .link-arrow {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        .badge {
+            background: var(--badge-bg);
+            color: var(--badge-color);
+            border: 1px solid var(--badge-border);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            margin-right: 0.75rem;
+            white-space: nowrap;
+        }
+
+        /* Accessibility Floating Toolbar */
+        .accessibility-toolbar {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--sidebar-bg);
+            border: 1px solid var(--sidebar-border);
+            border-radius: 30px;
+            padding: 0.4rem 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        body.theme-light .accessibility-toolbar {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .toolbar-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .toolbar-btn:hover {
+            background: var(--primary-glow);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .accessibility-toolbar .divider {
+            width: 1px;
+            height: 1.2rem;
+            background: var(--sidebar-border);
+        }
+
+        /* RWD Support */
+        @media (max-width: 900px) {
+            aside {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 1.5rem;
+            }
+            .accessibility-toolbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating accessibility toolbar -->
+    <div class="accessibility-toolbar">
+        <button class="toolbar-btn" onclick="toggleLocalTheme()" title="切換配色">💡</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustZoom(true)" title="放大字體">A+</button>
+        <button class="toolbar-btn" onclick="adjustZoom(false)" title="縮小字體">A-</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustWidth(true)" title="寬版版面">W+</button>
+        <button class="toolbar-btn" onclick="adjustWidth(false)" title="窄版版面">W-</button>
+    </div>
+
+    <div class="layout-wrapper">
+        <!-- Left Sidebar Navigation -->
+        <aside>
+            <div class="brand">
+                <div class="eyebrow">FALO Gov Project</div>
+                <h2>政府 AI 檢核專案</h2>
+                <div class="sub-brand">企業資安與合規性點檢首頁</div>
+            </div>
+            
+            <ul class="toc">
+                <li><a class="toc-link" href="#policy-section">📅 政策背景與補助大意</a></li>
+                <li><a class="toc-link" href="#sop-section">📋 企業資安自評 SOP</a></li>
+                <li><a class="toc-link" href="#tools-section">🛠️ 實戰檢測工具箱</a></li>
+                <li><a class="toc-link" href="#resources-section">📚 相關參考資源</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a class="sidebar-btn" href="history.html">⬅ 返回課程首頁</a>
+                <a class="sidebar-btn" href="falo-taiwan/class/a01/class4/index.html" style="background: var(--primary); border-color: var(--primary); color: #ffffff;">📖 Class 04 課程頁</a>
+            </div>
+        </aside>
+
+        <!-- Right Main Content -->
+        <main>
+            <header>
+                <h1>政府 AI 與資安成熟度檢核專案</h1>
+                <div class="subtitle">協助企業對接政府補助案與資安點檢 SOP</div>
+            </header>
+
+            <!-- Policy Section -->
+            <section id="policy-section" class="card section-card">
+                <div class="section-num">POLICY / SUBSIDIES</div>
+                <h2>📅 專案政策背景與政府補助案大意</h2>
+                <p class="intro">
+                    為加速產業 AI 化並確保資訊安全，政府近年推出多項<strong>「企業 AI 導入與資安強化輔導案」</strong>與資金補助。企業在向政府申請 AI 專案補助時，必須提交客觀的「AI 技術就緒度與網路資安相容性評估報告」做為申請及結案之必要附件。
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 0.95rem;">
+                    <div style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.8rem; background: rgba(255,255,255,0.01); border: 1px solid var(--card-border); border-radius: 8px;">
+                        <span>🎯</span>
+                        <div>
+                            <strong style="color: var(--text-main); display: block; margin-bottom: 0.25rem;">評估指標核心</strong>
+                            確認企業網路環境是否具備與雲端 AI APIs 安全通訊的能力、內網資料防洩（DLP）機制是否完善，以及是否符合政府對 AI 演算法安全與隱私之治理規範。
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.8rem; background: rgba(255,255,255,0.01); border: 1px solid var(--card-border); border-radius: 8px;">
+                        <span>💡</span>
+                        <div>
+                            <strong style="color: var(--text-main); display: block; margin-bottom: 0.25rem;">雙軌報告商業價值</strong>
+                            本點檢專案不僅做為企業內部 IT 審查工具，更能產出符合政府審查標準的雙軌報告，協助企業順利通過補助核定。
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOP Section -->
+            <section id="sop-section" class="card section-card">
+                <div class="section-num">CHECKLIST / SOP</div>
+                <h2>📋 企業資安自評與點檢流程</h2>
+                <p class="intro">企業在導入 AI 系統前，建議依據以下標準步驟進行點檢，以確保網關相容與資安合規：</p>
+                
+                <div class="sop-container">
+                    <div class="sop-step">
+                        <div class="step-icon">⚙️</div>
+                        <div class="step-content">
+                            <strong>1. 基礎架構掃描 (Infrastructure Scan)</strong>
+                            <p>確認地端與雲端伺服器之連線狀態，釐清是否需要特定代理（Proxy）或例外排除規則，保障 AI Agent 本地環境之連線環境。</p>
+                        </div>
+                    </div>
+                    <div class="sop-step">
+                        <div class="step-icon">🌐</div>
+                        <div class="step-content">
+                            <strong>2. 網絡與網關相容性檢測 (Network & Gateway Test)</strong>
+                            <p>探測各大 AI API 端點（如 OpenAI, Gemini, Anthropic）及 Webhook 接收點（如 GAS, LINE Bot）之連線通暢度與白名單策略。</p>
+                        </div>
+                    </div>
+                    <div class="sop-step">
+                        <div class="step-icon">🛡️</div>
+                        <div class="step-content">
+                            <strong>3. 資料防洩與資安審計 (DLP & Safety Audit)</strong>
+                            <p>盤點 AI 工作流所存取的敏感資料表，確認是否已建立人機協作（HITL）審核機制，避免敏感機密數據外洩至非授權端點。</p>
+                        </div>
+                    </div>
+                    <div class="sop-step">
+                        <div class="step-icon">📊</div>
+                        <div class="step-content">
+                            <strong>4. 生成與匯出評估報告 (Report Export)</strong>
+                            <p>匯出高階符合標準之 HTML/CSV 報告，提交給 IT 資安部門與政府窗口進行審查與結案備查。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Section -->
+            <section id="tools-section" class="card section-card">
+                <div class="section-num">TOOLS / ENGINES</div>
+                <h2>🛠️ 實戰檢測工具箱</h2>
+                <p class="intro">本專案提供多項輕量級自評與探測工具。其中核心網路探測工具如下：</p>
+                
+                <div class="resource-links" style="margin-top: 1rem;">
+                    <a class="resource-link" href="falo-taiwan/class/a01/class4/deployment-assessment.html" target="_blank">
+                        <span class="badge">TOOL / Matrix</span>
+                        <span class="link-text"><strong>FALO 企業環境部署評估與網關相容性矩陣 (Deployment Assessment)</strong> — 100% Client-Side 離線網路檢測與相容性分析矩陣。支援 no-cors 網域 TCP 握手探測，可一鍵檢測 50+ 核心網域通暢度，並支持 HTML/JSON 報告還原匯入與 Excel 無亂碼 CSV 匯出。</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources-section" class="card section-card">
+                <div class="section-num">REFERENCES</div>
+                <h2>📚 相關參考資源</h2>
+                <div class="resource-links" style="margin-top: 1rem;">
+                    <a class="resource-link" href="falo-taiwan/class/a01/class4/index.html" target="_blank">
+                        <span class="link-icon">📖</span>
+                        <span class="link-text"><strong>Class 04 課程首頁 (企業級 AI Agent 自動化實戰)</strong> — 提供歷屆考試資源、AI 技術學習指引與 Vibe Coding 實作教材。</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                    <a class="resource-link" href="falo-taiwan/class/a01/class4/TEACHING_NOTES.html" target="_blank">
+                        <span class="link-icon">📖</span>
+                        <span class="link-text"><strong>FALO 企業環境部署評估講義 (TEACHING_NOTES)</strong> — 拆解無 CORS 探針、DNS 假性阻擋及網關相容評估技術細節之實戰教學筆記。</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                    <a class="resource-link" href="history.html" target="_blank">
+                        <span class="link-icon">📁</span>
+                        <span class="link-text"><strong>銀河 ERP 內訓歷史課程首頁</strong> — Class 01 - Class 03 核心教材、簡報與學習軌跡記錄目錄。</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                    <a class="resource-link" href="https://forceai0001-commits.github.io/ipas-aiap-2026/" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        <span class="link-text"><strong>IPAS AIAP 官方課程指引</strong> — 提供國家級 AIAP 檢定與專業技術標準指標。</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                    <a class="resource-link" href="https://falo-taiwan.github.io/ai-line-help/" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        <span class="link-text"><strong>LINE Bot 專業開發專區 (ai-line-help)</strong> — 專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧。</span>
+                        <span class="link-arrow">➔</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Collapsible theme toggle
+        function toggleLocalTheme() {
+            document.body.classList.toggle('theme-light');
+            const current = document.body.classList.contains('theme-light') ? 'light' : 'dark';
+            localStorage.setItem('gov-audit-theme', current);
+        }
+
+        if (localStorage.getItem('gov-audit-theme') === 'light') {
+            document.body.classList.add('theme-light');
+        }
+
+        // Accessibility zoom
+        function adjustZoom(enlarge) {
+            if (enlarge) {
+                document.body.classList.add('zoom-large');
+                localStorage.setItem('gov-audit-zoom', 'large');
+            } else {
+                document.body.classList.remove('zoom-large');
+                localStorage.setItem('gov-audit-zoom', 'normal');
+            }
+        }
+
+        if (localStorage.getItem('gov-audit-zoom') === 'large') {
+            document.body.classList.add('zoom-large');
+        }
+
+        // Layout width
+        function adjustWidth(wide) {
+            if (wide) {
+                document.body.classList.add('width-wide');
+                localStorage.setItem('gov-audit-width', 'wide');
+            } else {
+                document.body.classList.remove('width-wide');
+                localStorage.setItem('gov-audit-width', 'normal');
+            }
+        }
+
+        if (localStorage.getItem('gov-audit-width') === 'wide') {
+            document.body.classList.add('width-wide');
+        }
+    </script>
+</body>
+</html>

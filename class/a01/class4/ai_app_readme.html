@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI APP Studio: From Idea to AI Product | Class 04 AI App Studio 工作坊</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: radial-gradient(circle at 50% 50%, #0b071e 0%, #020108 100%);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(25, 18, 50, 0.45);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(192, 132, 252, 0.45);
+            --primary: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.15);
+            --accent: #c084fc;
+            --sidebar-bg: rgba(15, 10, 35, 0.85);
+            --sidebar-border: rgba(255, 255, 255, 0.08);
+            --toggle-bg: rgba(255, 255, 255, 0.05);
+            --toggle-border: rgba(255, 255, 255, 0.1);
+            --toggle-color: #f3f4f6;
+            --btn-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            --btn-shadow: rgba(139, 92, 246, 0.25);
+            --badge-bg: rgba(192, 132, 252, 0.12);
+            --badge-color: #d8b4fe;
+            --badge-border: rgba(192, 132, 252, 0.25);
+            --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+            --code-bg: #0d091e;
+        }
+
+        body.theme-light {
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(99, 102, 241, 0.12);
+            --card-hover-border: rgba(99, 102, 241, 0.45);
+            --primary: #4f46e5;
+            --primary-glow: rgba(79, 70, 229, 0.1);
+            --accent: #0891b2;
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-border: rgba(99, 102, 241, 0.15);
+            --toggle-bg: rgba(0, 0, 0, 0.05);
+            --toggle-border: rgba(0, 0, 0, 0.08);
+            --toggle-color: #4f46e5;
+            --btn-bg: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --btn-shadow: rgba(79, 70, 229, 0.2);
+            --badge-bg: rgba(8, 145, 178, 0.08);
+            --badge-color: #0891b2;
+            --badge-border: rgba(8, 145, 178, 0.15);
+            --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
+            --code-bg: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            transition: background 0.4s ease, color 0.3s ease;
+        }
+
+        body.zoom-large { font-size: 1.15rem; }
+        body.zoom-large h1 { font-size: 2.5rem; }
+        body.zoom-large h2 { font-size: 1.8rem; }
+        
+        .layout-wrapper {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            transition: max-width 0.3s ease;
+        }
+        
+        body.width-wide .layout-wrapper {
+            max-width: 1600px;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 300px;
+            flex-shrink: 0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            padding: 2.5rem 1.5rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .brand h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .brand .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand .sub-brand {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--sidebar-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .toc {
+            list-style: none;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .toc-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+            padding-left: 0.8rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-link:hover {
+            color: var(--text-main);
+            background: var(--primary-glow);
+            padding-left: 1.2rem;
+        }
+
+        .toc-link.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(192, 132, 252, 0.15) 100%);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            font-weight: 700;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid var(--sidebar-border);
+            padding-top: 1.5rem;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-btn {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 0.8rem;
+            background: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-btn:hover {
+            background: var(--primary-glow);
+            border-color: var(--primary);
+        }
+
+        /* Main Content Area */
+        main {
+            flex-grow: 1;
+            margin-left: 300px;
+            padding: 3.5rem 3rem;
+            max-width: 900px;
+            width: calc(100% - 300px);
+            transition: max-width 0.3s ease;
+        }
+
+        body.width-wide main {
+            max-width: 1300px;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: var(--h1-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        header .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            margin-bottom: 2.2rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--card-hover-border);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        body.theme-light p {
+            color: #334155;
+        }
+
+        /* Code Block Container */
+        .code-container {
+            position: relative;
+            background: var(--code-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        pre {
+            padding: 1.25rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.theme-light .comparison-table th, 
+        body.theme-light .comparison-table td {
+            border-bottom-color: rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            color: var(--text-muted);
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        /* Floating Accessibility Toolbar */
+        .accessibility-toolbar {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(15, 10, 35, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        body.theme-light .accessibility-toolbar {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .toolbar-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .toolbar-btn:hover {
+            background: var(--primary-glow);
+            color: var(--accent);
+        }
+
+        .divider {
+            width: 1px;
+            height: 18px;
+            background: var(--card-border);
+        }
+
+        @media (max-width: 992px) {
+            aside {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accessibility-toolbar">
+        <button class="toolbar-btn" onclick="toggleLocalTheme()" title="切換配色">💡</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustZoom(true)" title="放大字體">A+</button>
+        <button class="toolbar-btn" onclick="adjustZoom(false)" title="縮小字體">A-</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustWidth(true)" title="寬版版面">W+</button>
+        <button class="toolbar-btn" onclick="adjustWidth(false)" title="窄版版面">W-</button>
+    </div>
+
+    <div class="layout-wrapper">
+        <aside>
+            <div class="brand">
+                <div class="eyebrow">銀河 ERP 內訓</div>
+                <h2>Class 04</h2>
+                <div class="sub-brand">銀河軟體 台西分公司</div>
+            </div>
+            
+            <ul class="toc">
+                <li><a class="toc-link" href="index.html#notice-section">📌 常見提醒與交付規範</a></li>
+                <li><a class="toc-link" href="index.html#topic-0">主軸 1：前三週重點補充與解答</a></li>
+                <li><a class="toc-link" href="index.html#topic-1">主軸 2：AI 專案規劃與實作思維</a></li>
+                <li><a class="toc-link" href="index.html#topic-2">主軸 3：同學專案方向交流與診斷</a></li>
+                <li><a class="toc-link" href="index.html#topic-3">主軸 4：AI 專案所需技能與解析</a></li>
+                <li><a class="toc-link" href="index.html#cases-section">🚀 核心實戰案例展示</a></li>
+                <li><a class="toc-link" href="tw-ai-grant-intro.html" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
+                <li><a class="toc-link" href="practice-swiper.html" style="color: var(--accent); font-weight: bold;">📱 iPAS 智慧刷題模擬器</a></li>
+                
+                <div class="toc-title">🎯 AI APP Studio 工作坊</div>
+                <li><a class="toc-link active" href="ai_app_readme.html">📖 工作坊總覽首頁</a></li>
+                <li><a class="toc-link " href="methodology_blueprint.html">🧠 產品思維方法論</a></li>
+                <li><a class="toc-link " href="discovery_validation_playbook.html">🔍 痛點與需求驗證手冊</a></li>
+                <li><a class="toc-link " href="backlog_template.html">📋 50+ AI App 創意 Backlog</a></li>
+                <li><a class="toc-link " href="idea_library.html">💡 100+ AI App 創意庫</a></li>
+                <li><a class="toc-link " href="scorecard.html">📊 100分制評審與決策表</a></li>
+                <li><a class="toc-link " href="mvp_poc_guide.html">🚀 MVP & PoC 規劃指南</a></li>
+                <li><a class="toc-link " href="student_worksheets.html">📝 學員實作工作紙</a></li>
+                <li><a class="toc-link " href="workshop_facilitator_guide.html">👨‍🏫 講師引導指南</a></li>
+                <li><a class="toc-link " href="project_record.html">📂 歷程記錄</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a class="sidebar-btn" href="../index.html">⬅ 返回課程首頁</a>
+                <a class="sidebar-btn" href="editor.html" style="background: var(--primary); border-color: var(--primary); color: #ffffff;">✍️ 開啟內容編輯器</a>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <span class="badge">Class 04 AI App Studio 實作藍圖套件</span>
+                <h1 style="margin-top: 0.75rem;">AI APP Studio: From Idea to AI Product</h1>
+                <div class="subtitle">從創意到 AI 產品的完整實作藍圖與工作坊套件</div>
+            </header>
+
+            <article class="card">
+                <h1>AI APP Studio: From Idea to AI Product</h1>
+<h3>從創意到 AI 產品的完整實作藍圖與工作坊套件</h3>
+<br>
+<p>歡迎使用 <strong>AI APP Studio</strong> 實作藍圖。這是一套專門為產品經理、創業家、組織創新推動者以及 AI Native 工作流設計師打造的系統化落地指南。</p>
+<br>
+<p>本專案的核心宗旨是：<strong>「不是學習 AI 工具，而是訓練如何找到值得被 AI 解決的問題，並將其轉化為高價值的 AI 原生產品。」</strong></p>
+<br>
+<p>---</p>
+<br>
+<h2>核心設計哲學</h2>
+<br>
+<p>在 AI 時代，最珍貴的資源不是演算法或算力，而是<strong>「對問題的深刻洞察」</strong>。如果我們的思維被既有的 ERP 或產品框架綁死，我們就只能做出「微調型」的改良。</p>
+<br>
+<p><strong>AI APP Studio</strong> 主張打破框架，從工作、生活、管理、教育、銷售、財務、生產與個人效率等維度進行全方位的需求發掘。先發想出最具價值的解決方案，再回頭進行商業決策：</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;">哪些適合整合進既有的 <strong>ERP</strong>？</li>
+<li style="margin-bottom: 8px;">哪些適合納入 <strong>FALO</strong> 平台？</li>
+<li style="margin-bottom: 8px;">哪些甚至具備<strong>獨立創業</strong>、成為全新 SaaS 的潛力？</li>
+</ul>
+<br>
+<p>---</p>
+<br>
+<h2>實作藍圖四大階段 (The 4-Phase Roadmap)</h2>
+<br>
+<p>本藍圖將 AI 產品的誕生劃分為四個核心階段，每個階段皆有對應的實作工具與指南：</p>
+<br>
+<div class="code-container"><div class="code-header"><span>MERMAID</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>graph TD
+    A[Phase 1: 發現問題 Discovery] --&gt;|痛點掃描與發掘| B[Phase 2: 定義需求 Definition]
+    B --&gt;|APP 解剖與發想演算法| C[Phase 3: 設計與評估 Design &amp; Evaluation]
+    C --&gt;|100分制決策矩陣| D[Phase 4: MVP/PoC 規劃 MVP &amp; PoC]
+    D --&gt;|分流決策| E{商業落地分流}
+    E --&gt;|系統升級| F[ERP 整合]
+    E --&gt;|平台延伸| G[FALO 納入]
+    E --&gt;|商業孵化| H[獨立創業]</code></pre></div>
+<br>
+<h3>1. 發現問題 (Discovery)</h3>
+<p>從日常與工作中的「重複、繁瑣、易出錯、抗拒」中掃描真實痛點，避免做出無人問津的「偽需求」產品。</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>對應檔案</strong>：<a href="discovery_validation_playbook.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">discovery_validation_playbook.md</a> 的第一部分。</li>
+</ul>
+<br>
+<h3>2. 定義需求 (Definition)</h3>
+<p>透過「APP 解剖術」與「AI APP 發想演算法」，將模糊的痛點轉化為結構化的產品邏輯：`問題 → 流程 → 資料 → AI → APP`。</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>對應檔案</strong>：<a href="methodology_blueprint.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">methodology_blueprint.md</a>。</li>
+</ul>
+<br>
+<h3>3. 設計與評估 (Design & Evaluation)</h3>
+<p>使用 100 分制的評審大會機制，從「痛點強度、市場需求、AI 適合度、技術可行性、商業價值」五大維度對構想進行科學評估與優先級排序。</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>對應檔案</strong>：<a href="scorecard.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">scorecard.md</a> 與 <a href="backlog_template.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">backlog_template.md</a>。</li>
+</ul>
+<br>
+<h3>4. MVP 與 PoC 規劃 (MVP & PoC)</h3>
+<p>定義產品的首發版本規格，並規劃如何以無程式碼/低程式碼工具（如 Dify, Make, ChatGPT 等）在數天內搭建出可運作的 MVP，進行技術可行性驗證（PoC）。</p>
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>對應檔案</strong>：<a href="mvp_poc_guide.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">mvp_poc_guide.md</a>。</li>
+</ul>
+<br>
+<p>---</p>
+<br>
+<h2>檔案架構與導覽 (File Structure)</h2>
+<br>
+<p>本工作空間包含以下核心檔案，您可以根據需要點擊跳轉閱讀：</p>
+<br>
+<table class="comparison-table"><thead><tr><th>檔案名稱</th><th>類型</th><th>核心內容與用途</th></tr></thead><tbody>tr<tr><td><strong><a href="ai_app_readme.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">ai_app_readme.md</a></strong></td><td>總覽</td><td>藍圖整體願景、核心哲學與導覽地圖（本檔案）。</td></tr>tr<tr><td><strong><a href="methodology_blueprint.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">methodology_blueprint.md</a></strong></td><td>方法論</td><td>白話解析 AI APP/Workflow/Agent 差異、解剖主流 App、20 個 AI-Native 案例分析。</td></tr>tr<tr><td><strong><a href="discovery_validation_playbook.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">discovery_validation_playbook.md</a></strong></td><td>手冊</td><td>痛點掃描框架、需求驗證機制、ERP/FALO/獨立創業分流決策模型。</td></tr>tr<tr><td><strong><a href="mvp_poc_guide.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">mvp_poc_guide.md</a></strong></td><td>指南</td><td>無程式碼/低程式碼 MVP 規劃法、規格定義書範本、PoC 驗證路徑圖。</td></tr>tr<tr><td><strong><a href="backlog_template.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">backlog_template.md</a></strong></td><td>模板/數據</td><td><strong>50+ 個優先排序與分流的 AI APP 創意 Backlog</strong>（ID, 名稱, 問題, 對象, 價值）。</td></tr>tr<tr><td><strong><a href="scorecard.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">scorecard.md</a></strong></td><td>工具</td><td>100 分制評審指標細則、評估表與決策優先級矩陣。</td></tr>tr<tr><td><strong><a href="idea_library.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">idea_library.md</a></strong></td><td>數據庫</td><td><strong>100 個 AI APP 創意庫</strong>（橫跨 15 大領域，含名稱、痛點、對象、MVP 想法）。</td></tr>tr<tr><td><strong><a href="workshop_facilitator_guide.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">workshop_facilitator_guide.md</a></strong></td><td>講師指南</td><td>1 天密集工作坊的時程規劃、高互動分組活動指南與講師口語化逐字講稿。</td></tr>tr<tr><td><strong><a href="student_worksheets.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">student_worksheets.md</a></strong></td><td>學員工具</td><td>學員實作工作紙與練習模板，供工作坊現場或個人實作使用。</td></tr></tbody></table>
+<br>
+<p>---</p>
+<br>
+<h2>如何開始使用這套藍圖？</h2>
+<br>
+<p>1. <strong>如果您是講師或引導者</strong>：請直接閱讀 <strong><a href="workshop_facilitator_guide.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">workshop_facilitator_guide.md</a></strong>，裡面有完整的課程大綱、分組活動與逐字稿，並搭配 <strong><a href="student_worksheets.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">student_worksheets.md</a></strong> 進行授課。</p>
+<p>2. <strong>如果您是產品經理或創業家</strong>：您可以將 <strong><a href="methodology_blueprint.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">methodology_blueprint.md</a></strong> 作為思維工具，並利用 <strong><a href="discovery_validation_playbook.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">discovery_validation_playbook.md</a></strong> 來梳理自己的想法，最後在 <strong><a href="backlog_template.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">backlog_template.md</a></strong> 管理您的產品線。</p>
+<p>3. <strong>如果您需要尋求靈感</strong>：請直接翻閱 <strong><a href="idea_library.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">idea_library.md</a></strong>，這裡有 100 個開箱即用的 AI 應用創意，能為您在各個行業的應用提供切實的參考。</p>
+<br>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        function toggleLocalTheme() {
+            document.body.classList.toggle('theme-light');
+            localStorage.setItem('class04-theme', document.body.classList.contains('theme-light') ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('class04-theme') === 'light') document.body.classList.add('theme-light');
+
+        function adjustZoom(enlarge) {
+            if (enlarge) {
+                document.body.classList.add('zoom-large');
+                localStorage.setItem('class04-zoom', 'large');
+            } else {
+                document.body.classList.remove('zoom-large');
+                localStorage.setItem('class04-zoom', 'normal');
+            }
+        }
+        if (localStorage.getItem('class04-zoom') === 'large') document.body.classList.add('zoom-large');
+
+        function adjustWidth(wide) {
+            if (wide) {
+                document.body.classList.add('width-wide');
+                localStorage.setItem('class04-width', 'wide');
+            } else {
+                document.body.classList.remove('width-wide');
+                localStorage.setItem('class04-width', 'normal');
+            }
+        }
+        if (localStorage.getItem('class04-width') === 'wide') document.body.classList.add('width-wide');
+
+        function copyCode(btn) {
+            const code = btn.parentElement.nextElementSibling.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const origText = btn.innerText;
+                btn.innerText = "已複製！";
+                setTimeout(() => btn.innerText = origText, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
