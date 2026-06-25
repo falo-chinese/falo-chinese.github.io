@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-06-25T16:15:00+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示，將全套教材左側側邊欄頁尾的「✍️ 開啟內容編輯器」實體按鈕全面移除（包含 Class 04 首頁、政府 RAG 介紹頁與所有工作坊 HTML 課件），以確保學員端查閱介面的純淨與安全性。同時將政府 RAG 介紹頁（tw-ai-grant-intro.md）納入編譯器自動化處理，以確保與全套課件的側邊欄結構及樣式完全一致。重新編譯並打包所有網頁與專案壓縮檔，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "compile_workshop.py",
+      "falo-taiwan/class/a01/class4/index.html",
+      "falo-taiwan/class/a01/class4/tw-ai-grant-intro.html",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T16:10:00+08:00",
     "action_type": "synced",
     "description": "依據老師進一步指示，進行側邊欄 TOC 選單之折疊式交互優化：將五大主題之子選單預設完全折疊收起，僅當學員處於對應的大主題網頁（Active）時，才在左側展開該主題專屬的子項目，總覽首頁則維持簡潔收起狀態。同時，所有子選單連結目前皆移除 #錨點 後綴，統一暫時指向大主題頁面頂端（不作定位導覽），以便老師在後續編輯修改內容。重新編譯與打包發布 Class 04 全套 HTML 課件與 ZIP 檔，並順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 倉庫。",
