@@ -197,13 +197,3 @@ AI Agent 貫穿了 E-T-L 的全生命週期，讓整個數據管線具備了自�
 *   **圖表類型**：**告警狀態面板 (Security Alarm Panels)** ＋ **流水線狀態佇列 (Agent Pipeline Queue)**。
 *   **商業洞察**：上方以紅色警報燈監控當日 Prompt 注入攻擊攔截次數（8次）與違規敏感詞查詢，保障系統的生命線；下方監控 ETL-Agent、RAG-Agent、Report-Agent 等非同步協作佇列的執行狀態（ACTIVE/IDLE），讓運維人員精準掌握後台微服務的負載。
 *   **技術實現**：資安防護模組（Gatekeeper）攔截惡意輸入並即時寫入告警計數器；微服務協調器（Orchestrator）在非同步工作流啟動與休眠時，通過 Webhook 將狀態即時推送到戰情中心佇列面板。
-
----
-
----
-
-## 📂 實戰專案與手冊
-本主題提供豐富的實戰手冊，引導您一步步動手實作上述的案例：
-* [🔍 痛點與需求驗證手冊](discovery_validation_playbook.html)：學習如何掃描並定位真實業務痛點。
-* [🚀 MVP & PoC 規劃指南](mvp_poc_guide.html)：掌握最簡可行產品的架構設計與交付方法。
-* [📋 50+ AI App 創意 Backlog](backlog_template.html)：參考銀河 ERP 實際梳理出的需求池，加速靈感轉換。
