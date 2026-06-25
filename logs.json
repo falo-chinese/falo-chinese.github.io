@@ -1,8 +1,8 @@
 [
   {
-    "timestamp": "2026-06-25T19:33:57+08:00",
+    "timestamp": "2026-06-25T19:36:27+08:00",
     "action_type": "synced",
-    "description": "依據老師最新指示，將全套教材課件中的所有程式碼區塊（code blocks）進行全域摺疊優化。透過 HTML5 details/summary 實現預設折疊的高質感代碼卡片，並保留右上角的複製鈕，保持頁面純淨度與學員實測便利性。同時，將主題六中 Gemini API 的呼叫範例與說明全面升級為最新免費的主力模型 Gemini 2.0 Flash (端點 `gemini-2.0-flash`)，捨棄已停用的舊版 1.5 系列。重新編譯全套 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後同步推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "description": "依據老師最新指示，將全套教材課件中的所有程式碼區塊（code blocks）進行全域摺疊優化。透過 HTML5 details/summary 實現預設折疊的高質感代碼卡片，並保留右上角的複製鈕，保持頁面純淨度與學員實測便利性。同時，將主題六中 Gemini API 的呼叫範例與說明全面升級為最新主力模型 Gemini 3.1 Flash / Flash-Lite (端點 `gemini-3.1-flash`, `gemini-3.1-flash-lite`)，捨棄已停用的舊版 1.5 及 2.0 系列。重新編譯全套 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後同步推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
     "operator": "AI (Antigravity)",
     "files_affected": [
       "compile_workshop.py",

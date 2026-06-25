@@ -10,8 +10,14 @@
 
 ### 1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)
 *   **技術定位**：商業級雲端大模型 API。
-*   **優勢**：模型推理解析力最強（如 Gemini 2.0 Flash / Flash-Lite），支援高達 200 萬 Token 的超長上下文 (Context Window)，具備強大的多模態（圖片、語音、影片）理解力，且完全免去本地硬體配置負擔。
+*   **優勢**：模型推理解析力最強，支援超長上下文 (Context Window)，具備強大的多模態理解力，且完全免去本地硬體配置負擔。本範例採用 Google 最新一代主力模型 **Gemini 3.1 Flash** 與 **Gemini 3.1 Flash-Lite**。
 *   **劣勢**：必須連接網際網路、有 API 調用成本 (按 Token 計費)、敏感數據直接送往雲端需注意隱私合規。
+
+> [!IMPORTANT]
+> **模型版本重要聲明**
+> 請勿使用已停用或即將失效的舊版 **Gemini 1.5 系列 (如 gemini-1.5-flash)** 或較舊的 **Gemini 2.0 系列**，舊版模型在新版 API 通道中已無法正常運作或不具備最佳效能。本課程全面升級並採用最新的：
+> 1. **`gemini-3.1-flash`**：預設主力模型，具備極佳的推理速度、代碼生成與多模態表現，適合絕大多數 AI App 實戰。
+> 2. **`gemini-3.1-flash-lite`**：極速輕量化模型，回應延遲更低，Token 消耗成本極低，是高頻率查詢與 PoC 階段的首選。
 
 *   **💡 實戰指引：手把手申請與複製 Gemini API Key 步驟**：
     在呼叫 API 之前，學員必須先取得專屬的 API Key。請遵循以下 7 個步驟進行申請與確認：
@@ -25,7 +31,7 @@
        ![步驟二：點擊 Create API key 按鈕](images/gemini_api_key_step2.png)
        
     3. **步驟三：輸入 Key 的名稱與專案**
-       In 彈出的視窗中，為您的 API Key 命名（例如：`Gemini API Key - 20260625`），並選擇或創建您的 Google Cloud 專案。
+       在彈出的視窗中，為您的 API Key 命名（例如：`Gemini API Key - 20260625`），並選擇或創建您的 Google Cloud 專案。
        ![步驟三：為 API Key 命名與選擇專案](images/gemini_api_key_step3.png)
        
     4. **步驟四：確認生成金鑰**
@@ -49,10 +55,15 @@
 
 *   **實戰前端 JavaScript 呼叫代碼**：
 ```javascript
-// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用最新的 Gemini 2.0 Flash)
-async function callGemini(promptText, apiKey) {
-  // 建立 Gemini REST API 端點 URL (包含 API Key，指定最新的 gemini-2.0-flash 模型)
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (支援最新的 3.1 Flash 與 3.1 Flash-Lite)
+async function callGemini(promptText, apiKey, modelName = 'gemini-3.1-flash') {
+  // 💡 可用 modelName 參數說明:
+  // 1. 'gemini-3.1-flash' (預設，效能與速度平衡的主力模型)
+  // 2. 'gemini-3.1-flash-lite' (極速且高經濟效益的輕量模型)
+  // ⚠️ 請勿使用已無法工作的舊版 1.5 或 2.0 系列
+  
+  // 建立 Gemini REST API 端點 URL (包含 API Key，動態指定 3.1 系列模型)
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
   
   const payload = {
     contents: [{
@@ -70,17 +81,27 @@ async function callGemini(promptText, apiKey) {
     });
     
     const data = await response.json();
+    
+    // 檢查回傳資料中是否包含錯誤訊息
+    if (data.error) {
+      throw new Error(data.error.message || "未知 API 錯誤");
+    }
+    
     // 從回傳的結構中精準萃取生成的文字內容
     const generatedText = data.candidates[0].content.parts[0].text;
-    console.log("Gemini 輸出：\n", generatedText);
+    console.log(`[${modelName}] 輸出：\n`, generatedText);
     return generatedText;
   } catch (error) {
     console.error("Gemini 呼叫失敗：", error);
   }
 }
 
-// 💡 實測呼叫：填入您的 API Key 即可在控制台運行
+// 💡 實測呼叫方式：
+// 1. 使用預設的 Gemini 3.1 Flash 運行：
 // callGemini("請用繁體中文解釋什麼是 RAG 技術？", "YOUR_GEMINI_API_KEY");
+//
+// 2. 切換為極速的 Gemini 3.1 Flash-Lite 運行：
+// callGemini("請寫一首關於寫程式的五言絕句。", "YOUR_GEMINI_API_KEY", "gemini-3.1-flash-lite");
 ```
 
 ---
