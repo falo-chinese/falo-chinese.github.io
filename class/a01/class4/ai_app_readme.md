@@ -13,7 +13,7 @@
 
 **AI APP Studio** 主張打破框架，從工作、生活、管理、教育、銷售、財務、生產與個人效率等維度進行全方位的需求發掘。先發想出最具價值的解決方案，再回頭進行商業決策：
 * 哪些適合整合進既有的 **ERP**？
-* 哪些適合納入 **FALO** 平台？
+* 哪些適合納入 **FORCE** 平台？
 * 哪些甚至具備**獨立創業**、成為全新 SaaS 的潛力？
 
 ---
@@ -29,7 +29,7 @@ graph TD
     C -->|100分制決策矩陣| D[Phase 4: MVP/PoC 規劃 MVP & PoC]
     D -->|分流決策| E{商業落地分流}
     E -->|系統升級| F[ERP 整合]
-    E -->|平台延伸| G[FALO 納入]
+    E -->|平台延伸| G[FORCE 納入]
     E -->|商業孵化| H[獨立創業]
 ```
 
@@ -59,7 +59,7 @@ graph TD
 | :--- | :--- | :--- |
 | **[ai_app_readme.md](ai_app_readme.md)** | 總覽 | 藍圖整體願景、核心哲學與導覽地圖（本檔案）。 |
 | **[methodology_blueprint.md](methodology_blueprint.md)** | 方法論 | 白話解析 AI APP/Workflow/Agent 差異、解剖主流 App、20 個 AI-Native 案例分析。 |
-| **[discovery_validation_playbook.md](discovery_validation_playbook.md)** | 手冊 | 痛點掃描框架、需求驗證機制、ERP/FALO/獨立創業分流決策模型。 |
+| **[discovery_validation_playbook.md](discovery_validation_playbook.md)** | 手冊 | 痛點掃描框架、需求驗證機制、ERP/FORCE/獨立創業分流決策模型。 |
 | **[mvp_poc_guide.md](mvp_poc_guide.md)** | 指南 | 無程式碼/低程式碼 MVP 規劃法、規格定義書範本、PoC 驗證路徑圖。 |
 | **[backlog_template.md](backlog_template.md)** | 模板/數據 | **50+ 個優先排序與分流的 AI APP 創意 Backlog**（ID, 名稱, 問題, 對象, 價值）。 |
 | **[scorecard.md](scorecard.md)** | 工具 | 100 分制評審指標細則、評估表與決策優先級矩陣。 |

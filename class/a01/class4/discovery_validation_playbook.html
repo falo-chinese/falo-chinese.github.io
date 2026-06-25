@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -444,6 +454,10 @@
             background: var(--card-border);
         }
 
+        .resources-details[open] summary span:last-child {
+            transform: rotate(180deg);
+        }
+
         @media (max-width: 992px) {
             aside {
                 display: none;
@@ -487,16 +501,18 @@
                     <li><a class="toc-link" href="topic1_retrospective.html">主軸 3：同學專案方向交流與診斷</a></li>
                     <li><a class="toc-link" href="topic1_retrospective.html">🙋 學員提問 QA</a></li>
                 </ul>
-                
-                <!-- 主題二：Agent 工具應用交流 -->
-                <div class="toc-title"><a class="toc-link " href="topic2_agent_tools.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 2. Agent 工具應用交流</a></div>
+
+                <!-- 主題二：AI App 專案腦力激盪 -->
+                <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
-                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 2：AI 專案規劃與實作思維</a></li>
-                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 4：AI 專案所需技能與解析</a></li>
-                    <li><a class="toc-link" href="topic2_agent_tools.html">📊 AI 開發工具對比</a></li>
-                    <li><a class="toc-link" href="topic2_agent_tools.html">🔗 其他參考資源</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
-                
+
                 <!-- 主題三：ETL 實務案例分享 -->
                 <div class="toc-title"><a class="toc-link " href="topic3_etl_cases.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">⚡ 3. ETL 實務案例分享</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
@@ -504,19 +520,51 @@
                     <li><a class="toc-link" href="topic3_etl_cases.html">🚀 核心實戰案例展示</a></li>
                     <li><a class="toc-link" href="topic3_etl_cases.html">📂 實戰專案與手冊</a></li>
                 </ul>
-                
+
                 <!-- 主題四：KM 建置與應用思維 -->
                 <div class="toc-title"><a class="toc-link " href="topic4_km_rag.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📂 4. KM 建置與應用思維</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic4_km_rag.html" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
                 </ul>
-                
-                <!-- 主題五：AI App 專案腦力激盪 -->
-                <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 5. AI App 專案腦力激盪</a></div>
+
+                <!-- 主題五：Agent 工具應用交流 -->
+                <div class="toc-title"><a class="toc-link " href="topic2_agent_tools.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. Agent 工具應用交流</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
-                    <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 2：AI 專案規劃與實作思維</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 4：AI 專案所需技能與解析</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">📊 AI 開發工具對比</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">🔗 其他參考資源</a></li>
                 </ul>
-            </ul>
+
+                <!-- 主題六：AI API 呼叫三大模式實戰 -->
+                <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 6. AI API 呼叫三大模式實戰</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic6_ai_api.html" style="color: var(--accent); font-weight: bold;">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                </ul>
+
+                <!-- 其他參考資源 -->
+                <div class="toc-title" style="margin-top: 1.5rem; border-top: 1px solid var(--sidebar-border); padding-top: 1rem;">
+                    <details open class="resources-details">
+                        <summary style="cursor: pointer; font-weight: bold; color: var(--text-muted); list-style: none; user-select: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>📂 其他參考資源</span>
+                            <span style="font-size: 0.75rem; transition: transform 0.2s;">▼</span>
+                        </summary>
+                        <ul style="list-style: none; padding-left: 0.8rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <li><a class="toc-link " href="ai_app_readme.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📖 工作坊總覽首頁</a></li>
+                            <li><a class="toc-link " href="methodology_blueprint.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">🧠 產品思維方法論</a></li>
+                            <li><a class="toc-link active" href="discovery_validation_playbook.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">🔍 痛點與需求驗證手冊</a></li>
+                            <li><a class="toc-link " href="backlog_template.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📋 50+ AI App 創意 Backlog</a></li>
+                            <li><a class="toc-link " href="idea_library.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">💡 100+ AI App 創意庫</a></li>
+                            <li><a class="toc-link " href="scorecard.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📊 100分制評審與決策表</a></li>
+                            <li><a class="toc-link " href="mvp_poc_guide.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">🚀 MVP & PoC 規劃指南</a></li>
+                            <li><a class="toc-link " href="student_worksheets.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📝 學員實作工作紙</a></li>
+                            <li><a class="toc-link " href="workshop_facilitator_guide.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">👨‍🏫 講師引導指南</a></li>
+                            <li><a class="toc-link " href="project_record.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📂 歷程記錄</a></li>
+                        </ul>
+                    </details>
+                </div>
             </ul>
 
             <div class="sidebar-footer">
@@ -542,13 +590,13 @@
 <br>
 <p>許多失敗的產品都源於「手握錘子（AI 技術），尋找釘子（問題）」。本框架要求我們回到原點，從<strong>「痛點」</strong>出發。請引導學員或您的團隊，針對日常工作與生活進行以下 <strong>6 大維度</strong> 的系統化掃描。</p>
 <br>
-<div class="code-container"><div class="code-header"><span>CODE</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>                       ┌────────────────────────┐
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ CODE 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>CODE</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>                       ┌────────────────────────┐
                        │   日常與工作痛點掃描器   │
                        └───────────┬────────────┘
          ┌─────────────┬───────────┼───────────┬─────────────┐
    ┌─────┴─────┐ ┌─────┴─────┐ ┌───┴───┐ ┌─────┴─────┐ ┌─────┴─────┐ ┌─────┴─────┐
    │ 1.最花時間 │ │ 2.最常重複 │ │ 3.最煩 │ │ 4.最易遺忘 │ │ 5.最易出錯 │ │ 6.最不想做 │
-   └───────────┘ └───────────┘ └───────┘ └───────────┘ └───────────┘ └───────────┘</code></pre></div>
+   └───────────┘ └───────────┘ └───────┘ └───────────┘ └───────────┘ └───────────┘</code></pre></div></details>
 <br>
 <h3>1. 每天最花時間的事情 (Time-Consuming Tasks)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
@@ -614,7 +662,7 @@
 <br>
 <p>一個值得被 AI 解決的真需求，必須同時滿足以下四個指標：</p>
 <br>
-<div class="code-container"><div class="code-header"><span>CODE</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>                    【 真需求 ＝ 痛苦夠深 ＋ 頻率夠高 ＋ 願意付費 ＋ AI 適配 】</code></pre></div>
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ CODE 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>CODE</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>                    【 真需求 ＝ 痛苦夠深 ＋ 頻率夠高 ＋ 願意付費 ＋ AI 適配 】</code></pre></div></details>
 <br>
 <p>1.  <strong>痛苦夠深 (Pain Severity)</strong></p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
@@ -643,19 +691,19 @@
 <br>
 <p>發想出 AI APP 構想後，我們不應該盲目地直接去寫程式或開源創辦公司。我們必須根據<strong>「數據敏感性、流程變動頻率、商業價值與系統相依性」</strong>，將創意分流到以下三個賽道：</p>
 <br>
-<div class="code-container"><div class="code-header"><span>CODE</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>                            ┌────────────────────────┐
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ CODE 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>CODE</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>                            ┌────────────────────────┐
                             │     AI 創意分流決策      │
                             └───────────┬────────────┘
                                         │
          ┌──────────────────────────────┼──────────────────────────────┐
          ▼                              ▼                              ▼
  ┌───────────────┐              ┌───────────────┐              ┌───────────────┐
- │   ERP 整合軌   │              │   FALO 平台軌  │              │   獨立創業軌  │
+ │   ERP 整合軌   │              │   FORCE 平台軌  │              │   獨立創業軌  │
  ├───────────────┤              ├───────────────┤              ├───────────────┤
  │ 核心業務數據  │              │ 靈活運營流程  │              │ 跨產業普適性  │
  │ 強一致性要求  │              │ 快速變動需求  │              │ 高額付費意願  │
  │ 嚴格權限控管  │              │ 輕量級自動化  │              │ 獨立 SaaS 潛力│
- └───────────────┘              └───────────────┘              └───────────────┘</code></pre></div>
+ └───────────────┘              └───────────────┘              └───────────────┘</code></pre></div></details>
 <br>
 <h3>1. ERP 整合軌 (ERP Integration Track)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
@@ -667,9 +715,9 @@
 <li style="margin-bottom: 8px;">  <strong>典型案例</strong>：*AI 應收帳款對帳小幫手*。它需要讀取 ERP 的傳票與銀行對帳單，自動進行語意模糊比對，並直接在 ERP 中產生過帳分錄。</li>
 </ul>
 <br>
-<h3>2. FALO 平台軌 (Flexible & Agile Low-code Operations Track)</h3>
+<h3>2. FORCE 平台軌 (Flexible & Agile Low-code Operations Track)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  <strong>定義</strong>：將創意納入企業內部的靈活運營/自動化工作流平台（如 FALO、企業內部 low-code 平台、Dify 企業版）。</li>
+<li style="margin-bottom: 8px;">  <strong>定義</strong>：將創意納入企業內部的靈活運營/自動化工作流平台（如 FORCE、企業內部 low-code 平台、Dify 企業版）。</li>
 <li style="margin-bottom: 8px;">  <strong>適合特徵</strong>：</li>
 <li style="margin-bottom: 8px;">  流程變動頻繁，需要快速迭代以應對業務變化。</li>
 <li style="margin-bottom: 8px;">  主要處理「非結構化資料」（如：客戶詢價 Email、社群合約草稿、產品圖片）。</li>
@@ -699,7 +747,7 @@
 </ul>
 <p>2.  <strong>「這個流程是我們公司特有的，且下個月業務規則可能就會變嗎？」</strong></p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
-<li style="margin-bottom: 8px;">  如果是 → <strong>歸入 FALO 平台軌</strong>。利用低代碼與工作流引擎保持極大靈活性。</li>
+<li style="margin-bottom: 8px;">  如果是 → <strong>歸入 FORCE 平台軌</strong>。利用低代碼與工作流引擎保持極大靈活性。</li>
 </ul>
 <p>3.  <strong>「如果把這個 APP 賣給我們行業內的其他 100 家公司，他們會面臨一模一樣的痛點且可以直接開箱使用嗎？」</strong></p>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">

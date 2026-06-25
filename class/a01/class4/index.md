@@ -25,7 +25,7 @@
    *包含：產品思維方法論、50+ App 創意 Backlog、100+ 創意靈感庫、MVP & PoC 規劃指南、企業部署與防火牆相容性評估工具與工作坊全套套件。*
 
 3. ### [⚡ 主題三：ETL 實務案例分享](topic3_etl_cases.html)
-   分享智慧憑證自動化、影片簡報影格萃取、iPAS 刷題模擬器等高保真 OCR + ETL 實戰案例與最新 FALO 架構圖。
+   分享智慧憑證自動化、影片簡報影格萃取、iPAS 刷題模擬器等高保真 OCR + ETL 實戰案例與最新 FORCE 架構圖。
    *包含：Video to PPT 簡報影格萃取、AAA-Evidence Hub 憑證稽核、iPAS 刷題 Swiper 實戰。*
 
 4. ### [📂 主題四：KM 建置與應用思維](topic4_km_rag.html)

@@ -2,7 +2,7 @@
 
 本主題分享多個高保真（High-Fidelity）的 ETL 與 OCR 整合實戰案例，引導同仁理解如何進行結構化資料轉置與自動化處理。
 
-![FALO 架構圖 (ETL x KM x Agent)](images/falo_etl_km_agent.png)
+![FORCE 架構圖 (ETL x KM x Agent)](images/force_etl_km_agent.png)
 
 ---
 
@@ -26,7 +26,7 @@
   * **2. 轉換層 (ETL)**：將憑證資料清洗並標準化為 Expense Record 格式。
   * **3. 工作流 (Workflow)**：以狀態機驅動自動送審、會計覆核與模擬過帳流程。
   * **4. 智慧稽核 (AI Audit)**：比對歷史資料進行重複核銷防弊、設定金額上限警示、以及透過語意理解驗證「週末公務乘車事由」之合規性。
-* **互動展示**：[🌐 開啟線上互動展示頁 (ticket-demo)](https://falo-taiwan.github.io/ticket-demo/)
+* **互動展示**：[🌐 開啟線上互動展示頁 (ticket-demo)](https://force-taiwan.github.io/ticket-demo/)
 
 <div id="case-swiper"></div>
 
@@ -37,7 +37,7 @@
   * **2. 資料清洗 (ETL)**：利用 Regex 與規則引擎對 OCR 斷字、多餘空格進行極致降噪與欄位校對，轉化為標準 JSON 格式。
   * **3. 模擬器交互 (Swiper)**：結合 Swiper.js 打造流暢的滑動刷題體驗，內建即時 Token 消耗與台幣花費 Telemetry 面板，落實企業級 AI 成本控制意識。
 * **雙通道體驗入口**：
-  * [🌐 開啟 iPAS 智慧刷題模擬器 (線上 falo 網址)](https://falo-taiwan.github.io/class/a01/class4/practice-swiper.html) *(將於新視窗中開啟線上版模擬器)*
+  * [🌐 開啟 iPAS 智慧刷題模擬器 (線上 force 網址)](https://force-taiwan.github.io/class/a01/class4/practice-swiper.html) *(將於新視窗中開啟線上版模擬器)*
 
 <div id="etl-load"></div>
 

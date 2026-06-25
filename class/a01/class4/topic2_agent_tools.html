@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -496,8 +506,11 @@
                 <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🗺️ AI App 關鍵注意事項</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🛡️ 客戶環境測試（網絡防火牆）</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
 
                 <!-- 主題三：ETL 實務案例分享 -->
@@ -575,7 +588,7 @@
 <br>
 <h2>🧠 主軸 2：AI 專案規劃與實作思維：從痛點走向 AI App Store</h2>
 <p>本週將進行關鍵思維躍升：從 <strong>AI 工具認識 ➔ AI 工作流 ➔ AI 能力建立</strong>，正式轉向 <strong>AI 專案思維 ➔ AI App 思維 ➔ AI 產品思維</strong>。</p>
-<p>我們將透過 <strong>AI App Workshop</strong>，引導同仁將日常工作的「痛點」轉化為「AI App 需求池」，最終匯聚成銀河 ERP × FALO AI App Store 的核心資產。</p>
+<p>我們將透過 <strong>AI App Workshop</strong>，引導同仁將日常工作的「痛點」轉化為「AI App 需求池」，最終匯聚成銀河 ERP × FORCE AI App Store 的核心資產。</p>
 <br>
 <h3>產品思維三大支柱</h3>
 <p>1. <strong>痛點價值定位</strong>：不為 AI 而 AI，必須精準解決高頻、耗時的業務痛點。</p>
@@ -605,7 +618,7 @@
 <br>
 <p>在企業數位轉型的過程中，將 AI Agent 落地於通訊軟體是提升組織協作與客戶服務效率的最直接途徑。本章節將結合 Anthropic 最新推出的 <strong>Claude Tag (Slack 整合)</strong> 與 <strong>LINE Bot (聊天機器人)</strong>，剖析企業級 AI Agent 在不同通訊端點上的應用思維與技術架構。</p>
 <br>
-<table class="comparison-table"><thead><tr><th>📰 實務新聞報導</th><th>💬 官方實戰專區</th></tr></thead><tbody>tr<tr><td><a href="https://www.techbang.com/posts/130504-anthropic-claude-tag-slack-integration" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">Anthropic 推出 Claude Tag 讓 AI 進入 Slack 成為團隊成員 ➔</a></td><td><a href="https://falo-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">LINE Bot 聊天機器人整合實務與 AI 自動對答技巧 ➔</a></td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>📰 實務新聞報導</th><th>💬 官方實戰專區</th></tr></thead><tbody>tr<tr><td><a href="https://www.techbang.com/posts/130504-anthropic-claude-tag-slack-integration" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">Anthropic 推出 Claude Tag 讓 AI 進入 Slack 成為團隊成員 ➔</a></td><td><a href="https://force-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">LINE Bot 聊天機器人整合實務與 AI 自動對答技巧 ➔</a></td></tr></tbody></table>
 <br>
 <h3>1. Claude Tag (Slack 整合) 實務收納</h3>
 <p>Anthropic 於 2026 年 6 月推出了 <strong>Claude Tag</strong> 功能（搭配 Opus 4.8 運作）。這項功能的推出標誌著 AI 輔助工作從「個人對話」正式演進為「團隊協作」。</p>
@@ -652,7 +665,7 @@
 <h2>🔗 其他參考資源</h2>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><a href="https://forceai0001-commits.github.io/ipas-aiap-2026/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">IPAS AIAP 課程網站</a>：提供歷屆考試資源與 AI 技術學習指引，加深學術與實戰結合。</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">LINE Bot 專業開發專區</a>：專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧，提供多元管道輸出示範。</li>
+<li style="margin-bottom: 8px;"><a href="https://force-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">LINE Bot 專業開發專區</a>：專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧，提供多元管道輸出示範。</li>
 </ul>
 <br>
             </article>

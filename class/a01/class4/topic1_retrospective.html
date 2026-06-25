@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -496,8 +506,11 @@
                 <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🗺️ AI App 關鍵注意事項</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🛡️ 客戶環境測試（網絡防火牆）</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
 
                 <!-- 主題三：ETL 實務案例分享 -->
@@ -616,7 +629,7 @@
 <br>
 <h2>🙋 學員課前提問與解答 (FAQ)</h2>
 <br>
-<p>#### Q: 如果有想討論的專案構想，需要提前準備什麼嗎？</p>
+<h4>Q: 如果有想討論的專案構想，需要提前準備什麼嗎？</h4>
 <p>A: 建議提前整理出：</p>
 <p>1. <strong>目前的人工作業流程與痛點</strong>（例如：每週需花費 4 小時手動比對 ERP 報表與電子發票）。</p>
 <p>2. <strong>期望達成的自動化效果</strong>（例如：系統能自動收信、下載發票、辨識金額並與 ERP 沖帳，異常時通知會計）。</p>

@@ -6,7 +6,7 @@
 
 ## 🧠 主軸 2：AI 專案規劃與實作思維：從痛點走向 AI App Store
 本週將進行關鍵思維躍升：從 **AI 工具認識 ➔ AI 工作流 ➔ AI 能力建立**，正式轉向 **AI 專案思維 ➔ AI App 思維 ➔ AI 產品思維**。
-我們將透過 **AI App Workshop**，引導同仁將日常工作的「痛點」轉化為「AI App 需求池」，最終匯聚成銀河 ERP × FALO AI App Store 的核心資產。
+我們將透過 **AI App Workshop**，引導同仁將日常工作的「痛點」轉化為「AI App 需求池」，最終匯聚成銀河 ERP × FORCE AI App Store 的核心資產。
 
 ### 產品思維三大支柱
 1. **痛點價值定位**：不為 AI 而 AI，必須精準解決高頻、耗時的業務痛點。
@@ -39,7 +39,7 @@
 
 | 📰 實務新聞報導 | 💬 官方實戰專區 |
 | :--- | :--- |
-| [Anthropic 推出 Claude Tag 讓 AI 進入 Slack 成為團隊成員 ➔](https://www.techbang.com/posts/130504-anthropic-claude-tag-slack-integration) | [LINE Bot 聊天機器人整合實務與 AI 自動對答技巧 ➔](https://falo-taiwan.github.io/ai-line-help/) |
+| [Anthropic 推出 Claude Tag 讓 AI 進入 Slack 成為團隊成員 ➔](https://www.techbang.com/posts/130504-anthropic-claude-tag-slack-integration) | [LINE Bot 聊天機器人整合實務與 AI 自動對答技巧 ➔](https://force-taiwan.github.io/ai-line-help/) |
 
 ### 1. Claude Tag (Slack 整合) 實務收納
 Anthropic 於 2026 年 6 月推出了 **Claude Tag** 功能（搭配 Opus 4.8 運作）。這項功能的推出標誌著 AI 輔助工作從「個人對話」正式演進為「團隊協作」。
@@ -91,4 +91,4 @@ sequenceDiagram
 
 ## 🔗 其他參考資源
 * [IPAS AIAP 課程網站](https://forceai0001-commits.github.io/ipas-aiap-2026/)：提供歷屆考試資源與 AI 技術學習指引，加深學術與實戰結合。
-* [LINE Bot 專業開發專區](https://falo-taiwan.github.io/ai-line-help/)：專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧，提供多元管道輸出示範。
+* [LINE Bot 專業開發專區](https://force-taiwan.github.io/ai-line-help/)：專家級 LINE 聊天機器人整合實務與 AI 自動對答技巧，提供多元管道輸出示範。

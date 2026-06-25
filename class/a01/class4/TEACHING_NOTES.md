@@ -1,4 +1,4 @@
-# FALO 企業環境部署評估矩陣：專案建置與技術教學講義
+# FORCE 企業環境部署評估矩陣：專案建置與技術教學講義
 > 🎓 **Force 課程教學專用講義與實戰踩坑筆記**
 
 本專案是一個非常經典的 **「純前端去中心化協作（Serverless Client-Side Collaboration）」** 實戰案例。本講義旨在為學生拆解這款評估矩陣工具的技術建置過程、在真實網路環境中碰到的核心問題（如 **CORS 跨域防護**、**DNS 假性阻擋**）以及最終的解決方案與黑科技。
@@ -106,7 +106,7 @@ const serializedData = btoa(latinStr);
 ```
 隨後，我們將這段 Base64 字串寫入導出報告最底部的隱藏標籤中：
 ```html
-<div id="falo-embedded-data" style="display:none;" data-payload="[Base64加密數據]"></div>
+<div id="force-embedded-data" style="display:none;" data-payload="[Base64加密數據]"></div>
 ```
 
 ### 2. 如何反向還原 (HTML Parser)？
@@ -116,7 +116,7 @@ const serializedData = btoa(latinStr);
 const parser = new DOMParser();
 const doc = parser.parseFromString(htmlText, "text/html");
 // 2. 尋找隱藏的資料 DIV
-const div = doc.getElementById("falo-embedded-data");
+const div = doc.getElementById("force-embedded-data");
 // 3. 取得 Payload 並還原解碼
 const encodedPayload = div.getAttribute("data-payload");
 const decodedJson = decodeURIComponent(escape(atob(encodedPayload)));
@@ -137,7 +137,7 @@ const parsedPayload = JSON.parse(decodedJson);
 * **課堂思維引導**：
   如果顧問沒有經過本地解析驗證，就直接把這份錯誤的清單丟給客戶的資安窗口說：「請幫我們在防火牆放行 `lambda.amazonaws.com` 與 `openai.azure.com`」。
   1. 客戶的網管工程師在設定時會發現「這些網域根本沒有 IP 紀錄，無法配置防火牆策略」，直接退件。
-  2. 這會立刻讓客戶質疑 FALO 顧問團隊的技術專業度，並在無意義的溝通中白白浪費數天時間。
+  2. 這會立刻讓客戶質疑 FORCE 顧問團隊的技術專業度，並在無意義的溝通中白白浪費數天時間。
 * **結論**：工程師必須建立**「先驗證本地配置正確性（如用 nslookup 確保 DNS 解析正常），再指控網路環境阻擋」**的標準排查思維。
 
 ### 概念二：AI 生成內容不等於「正確」或「符合實戰」
@@ -164,7 +164,7 @@ const parsedPayload = JSON.parse(decodedJson);
 * **原理**：利用 CSS 的遮罩與絕對裁切技術（Absolute Clipping），建立一個既在 DOM 樹中存在，但又完全不佔用版面、不被視覺察覺的 DOM 節點。
 * **代碼實作**：
   ```css
-  .falo-invisible-watermark {
+  .force-invisible-watermark {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -186,14 +186,14 @@ const parsedPayload = JSON.parse(decodedJson);
 * **原理**：利用 ES5 的 `Object.defineProperty()` 註冊全域變數，並將 `writable` 與 `configurable` 設為 `false`，防範第三方指令碼惡意覆寫或刪除版權。
 * **代碼實作**：
   ```javascript
-  Object.defineProperty(window, '__FALO_WATERMARK__', {
+  Object.defineProperty(window, '__FORCE_WATERMARK__', {
     value: "Falo x Force Cheng 2026/6/22",
-    writable: false,      // 防範覆寫：window.__FALO_WATERMARK__ = 'new value' 將會失效
+    writable: false,      // 防範覆寫：window.__FORCE_WATERMARK__ = 'new value' 將會失效
     enumerable: true,     // 可枚舉，便於自動化稽核
-    configurable: false   // 防範刪除：delete window.__FALO_WATERMARK__ 將會失效
+    configurable: false   // 防範刪除：delete window.__FORCE_WATERMARK__ 將會失效
   });
   ```
-* **教學提示**：可讓學生在瀏覽器開發者工具的 Console 中嘗試執行 `window.__FALO_WATERMARK__ = 'test'`，觀察其值是否依然保持不變，理解 JavaScript 元程式設計（Metaprogramming）在安全防護上的實踐。
+* **教學提示**：可讓學生在瀏覽器開發者工具的 Console 中嘗試執行 `window.__FORCE_WATERMARK__ = 'test'`，觀察其值是否依然保持不變，理解 JavaScript 元程式設計（Metaprogramming）在安全防護上的實踐。
 
 ---
 

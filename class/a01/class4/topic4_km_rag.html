@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -496,8 +506,11 @@
                 <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🗺️ AI App 關鍵注意事項</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🛡️ 客戶環境測試（網絡防火牆）</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
 
                 <!-- 主題三：ETL 實務案例分享 -->
@@ -607,7 +620,7 @@
 <br>
 <p>正如上述對照，做得出來只是開始，要讓企業長期安心使用，必須將技術思維上升到產品與工程思維。根據 <strong>「AI App 企業落地藍圖」</strong> 的七大關鍵注意事項，企業級知識管理（KM）與 RAG 系統的落地必須落實以下防護維度：</p>
 <br>
-<p><img src="images/falo_ai_app_enterprise_landing.png" alt="AI App 企業落地關鍵注意事項" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<p><img src="images/force_ai_app_enterprise_landing.png" alt="AI App 企業落地關鍵注意事項" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>資料與知識管理</strong>：這是 RAG 系統的基石。企業必須進行嚴格的「資料品質控管（確保準確與完整）」，建立「ETL 定期更新與監控機制」以保證知識庫的時效性，並透過「知識分類與標籤標準化」大幅提升向量比對檢索的精振度。</li>

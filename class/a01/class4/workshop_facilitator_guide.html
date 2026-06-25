@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -444,6 +454,10 @@
             background: var(--card-border);
         }
 
+        .resources-details[open] summary span:last-child {
+            transform: rotate(180deg);
+        }
+
         @media (max-width: 992px) {
             aside {
                 display: none;
@@ -487,16 +501,18 @@
                     <li><a class="toc-link" href="topic1_retrospective.html">主軸 3：同學專案方向交流與診斷</a></li>
                     <li><a class="toc-link" href="topic1_retrospective.html">🙋 學員提問 QA</a></li>
                 </ul>
-                
-                <!-- 主題二：Agent 工具應用交流 -->
-                <div class="toc-title"><a class="toc-link " href="topic2_agent_tools.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 2. Agent 工具應用交流</a></div>
+
+                <!-- 主題二：AI App 專案腦力激盪 -->
+                <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
-                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 2：AI 專案規劃與實作思維</a></li>
-                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 4：AI 專案所需技能與解析</a></li>
-                    <li><a class="toc-link" href="topic2_agent_tools.html">📊 AI 開發工具對比</a></li>
-                    <li><a class="toc-link" href="topic2_agent_tools.html">🔗 其他參考資源</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
-                
+
                 <!-- 主題三：ETL 實務案例分享 -->
                 <div class="toc-title"><a class="toc-link " href="topic3_etl_cases.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">⚡ 3. ETL 實務案例分享</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
@@ -504,19 +520,51 @@
                     <li><a class="toc-link" href="topic3_etl_cases.html">🚀 核心實戰案例展示</a></li>
                     <li><a class="toc-link" href="topic3_etl_cases.html">📂 實戰專案與手冊</a></li>
                 </ul>
-                
+
                 <!-- 主題四：KM 建置與應用思維 -->
                 <div class="toc-title"><a class="toc-link " href="topic4_km_rag.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📂 4. KM 建置與應用思維</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic4_km_rag.html" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例：政府 RAG</a></li>
                 </ul>
-                
-                <!-- 主題五：AI App 專案腦力激盪 -->
-                <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 5. AI App 專案腦力激盪</a></div>
+
+                <!-- 主題五：Agent 工具應用交流 -->
+                <div class="toc-title"><a class="toc-link " href="topic2_agent_tools.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. Agent 工具應用交流</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
-                    <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 2：AI 專案規劃與實作思維</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">主軸 4：AI 專案所需技能與解析</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">📊 AI 開發工具對比</a></li>
+                    <li><a class="toc-link" href="topic2_agent_tools.html">🔗 其他參考資源</a></li>
                 </ul>
-            </ul>
+
+                <!-- 主題六：AI API 呼叫三大模式實戰 -->
+                <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 6. AI API 呼叫三大模式實戰</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic6_ai_api.html" style="color: var(--accent); font-weight: bold;">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                </ul>
+
+                <!-- 其他參考資源 -->
+                <div class="toc-title" style="margin-top: 1.5rem; border-top: 1px solid var(--sidebar-border); padding-top: 1rem;">
+                    <details open class="resources-details">
+                        <summary style="cursor: pointer; font-weight: bold; color: var(--text-muted); list-style: none; user-select: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>📂 其他參考資源</span>
+                            <span style="font-size: 0.75rem; transition: transform 0.2s;">▼</span>
+                        </summary>
+                        <ul style="list-style: none; padding-left: 0.8rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.3rem;">
+                            <li><a class="toc-link " href="ai_app_readme.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📖 工作坊總覽首頁</a></li>
+                            <li><a class="toc-link " href="methodology_blueprint.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">🧠 產品思維方法論</a></li>
+                            <li><a class="toc-link " href="discovery_validation_playbook.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">🔍 痛點與需求驗證手冊</a></li>
+                            <li><a class="toc-link " href="backlog_template.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📋 50+ AI App 創意 Backlog</a></li>
+                            <li><a class="toc-link " href="idea_library.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">💡 100+ AI App 創意庫</a></li>
+                            <li><a class="toc-link " href="scorecard.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📊 100分制評審與決策表</a></li>
+                            <li><a class="toc-link " href="mvp_poc_guide.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">🚀 MVP & PoC 規劃指南</a></li>
+                            <li><a class="toc-link " href="student_worksheets.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📝 學員實作工作紙</a></li>
+                            <li><a class="toc-link active" href="workshop_facilitator_guide.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">👨‍🏫 講師引導指南</a></li>
+                            <li><a class="toc-link " href="project_record.html" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">📂 歷程記錄</a></li>
+                        </ul>
+                    </details>
+                </div>
             </ul>
 
             <div class="sidebar-footer">
@@ -542,7 +590,7 @@
 <br>
 <h2>1. 課程時程表 (6 小時密集版)</h2>
 <br>
-<table class="comparison-table"><thead><tr><th>時間</th><th>時長</th><th>單元主題</th><th>核心活動與輸出物</th></tr></thead><tbody>tr<tr><td><strong>09:00 - 09:30</strong></td><td>30分</td><td><strong>Part 1：AI APP 到底是什麼？</strong></td><td>破冰、白話釐清 APP/Workflow/Agent 概念。</td></tr>tr<tr><td><strong>09:30 - 10:30</strong></td><td>60分</td><td><strong>Part 2：發現問題工作坊</strong></td><td><strong>活動一：日常痛點大掃描</strong>（產出：痛點清單）。</td></tr>tr<tr><td><strong>10:30 - 10:45</strong></td><td>15分</td><td>*茶敘與休息*</td><td></td></tr>tr<tr><td><strong>10:45 - 11:30</strong></td><td>45分</td><td><strong>Part 3：APP 解剖術</strong></td><td>解剖主流產品的 `Problem → Input → Process → Output → Value`。</td></tr>tr<tr><td><strong>11:30 - 12:15</strong></td><td>45分</td><td><strong>Part 4 & 5：AI APP 發想術與類型地圖</strong></td><td>學習 `問題 → 流程 → 資料 → AI → APP` 演算法。</td></tr>tr<tr><td><strong>12:15 - 13:30</strong></td><td>75分</td><td>*午餐與休息*</td><td></td></tr>tr<tr><td><strong>13:30 - 14:00</strong></td><td>30分</td><td><strong>Part 6：AI Native APP 深度剖析</strong></td><td>探討 20 個「非 AI 不可」的典型產品案例。</td></tr>tr<tr><td><strong>14:00 - 15:15</strong></td><td>75分</td><td><strong>Part 7：MVP & PoC Workshop</strong></td><td><strong>活動二：MVP 規格定義實作</strong>（產出：MVP 規格書）。</td></tr>tr<tr><td><strong>15:15 - 15:30</strong></td><td>15分</td><td>*茶敘與休息*</td><td></td></tr>tr<tr><td><strong>15:30 - 16:30</strong></td><td>60分</td><td><strong>Part 8：APP 評審大會</strong></td><td><strong>活動三：團隊提案發表與評分</strong>（產出：決策矩陣）。</td></tr>tr<tr><td><strong>16:30 - 17:00</strong></td><td>30分</td><td><strong>結業與下一步：商業分流</strong></td><td>說明如何將創意分流至 ERP、FALO 或獨立創業。</td></tr></tbody></table>
+<table class="comparison-table"><thead><tr><th>時間</th><th>時長</th><th>單元主題</th><th>核心活動與輸出物</th></tr></thead><tbody>tr<tr><td><strong>09:00 - 09:30</strong></td><td>30分</td><td><strong>Part 1：AI APP 到底是什麼？</strong></td><td>破冰、白話釐清 APP/Workflow/Agent 概念。</td></tr>tr<tr><td><strong>09:30 - 10:30</strong></td><td>60分</td><td><strong>Part 2：發現問題工作坊</strong></td><td><strong>活動一：日常痛點大掃描</strong>（產出：痛點清單）。</td></tr>tr<tr><td><strong>10:30 - 10:45</strong></td><td>15分</td><td>*茶敘與休息*</td><td></td></tr>tr<tr><td><strong>10:45 - 11:30</strong></td><td>45分</td><td><strong>Part 3：APP 解剖術</strong></td><td>解剖主流產品的 `Problem → Input → Process → Output → Value`。</td></tr>tr<tr><td><strong>11:30 - 12:15</strong></td><td>45分</td><td><strong>Part 4 & 5：AI APP 發想術與類型地圖</strong></td><td>學習 `問題 → 流程 → 資料 → AI → APP` 演算法。</td></tr>tr<tr><td><strong>12:15 - 13:30</strong></td><td>75分</td><td>*午餐與休息*</td><td></td></tr>tr<tr><td><strong>13:30 - 14:00</strong></td><td>30分</td><td><strong>Part 6：AI Native APP 深度剖析</strong></td><td>探討 20 個「非 AI 不可」的典型產品案例。</td></tr>tr<tr><td><strong>14:00 - 15:15</strong></td><td>75分</td><td><strong>Part 7：MVP & PoC Workshop</strong></td><td><strong>活動二：MVP 規格定義實作</strong>（產出：MVP 規格書）。</td></tr>tr<tr><td><strong>15:15 - 15:30</strong></td><td>15分</td><td>*茶敘與休息*</td><td></td></tr>tr<tr><td><strong>15:30 - 16:30</strong></td><td>60分</td><td><strong>Part 8：APP 評審大會</strong></td><td><strong>活動三：團隊提案發表與評分</strong>（產出：決策矩陣）。</td></tr>tr<tr><td><strong>16:30 - 17:00</strong></td><td>30分</td><td><strong>結業與下一步：商業分流</strong></td><td>說明如何將創意分流至 ERP、FORCE 或獨立創業。</td></tr></tbody></table>
 <br>
 <p>---</p>
 <br>
@@ -580,7 +628,7 @@
 </ul>
 <p>    1.  <strong>Pitch 發表</strong>：每組有 <strong>3 分鐘</strong>時間上台發表他們的 AI APP 構想，另外 <strong>2 分鐘</strong>接受評審（講師與其他組別）的提問。</p>
 <p>    2.  <strong>互評打分</strong>：其他小組成員作為評審，使用 <a href="scorecard.html" style="color: var(--accent); font-weight: bold; text-decoration: underline;">scorecard.md</a> 中的指標，為發表組在「痛點強度、市場需求、AI 適合度、技術可行性、商業價值」五大維度打分（每維度滿分 20 分，總分 100 分）。</p>
-<p>    3.  <strong>決策分流</strong>：講師收集所有評分，將各組項目填入「決策優先級矩陣」，並現場給予「ERP 整合 / FALO 平台 / 獨立創業」的分流建議。</p>
+<p>    3.  <strong>決策分流</strong>：講師收集所有評分，將各組項目填入「決策優先級矩陣」，並現場給予「ERP 整合 / FORCE 平台 / 獨立創業」的分流建議。</p>
 <br>
 <p>---</p>
 <br>
@@ -844,7 +892,7 @@
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>第一軌：ERP 整合軌</strong>。如果你的創意（例如發票審計、庫存呆滯料預警）需要實時讀寫公司的核心財務帳目、核心庫存，且容錯率極低。沒錯，它應該規規矩矩地作為功能模組，嵌入或串接既有的 ERP 系統。</li>
-<li style="margin-bottom: 8px;">  <strong>第二軌：FALO 平台軌</strong>。如果你的創意（例如跨部門合約審查、會議記錄追蹤、競品價格監控）流程變動極快，且主要處理的是 Email、合約草稿等『非結構化資料』，請直接利用企業內部的 low-code 工作流平台（如 Dify 企業版）快速搭建。這能讓你們的運營保持極大的靈活性，下週流程變了，小編下午自己改拉線就能上線，完全不需要排隊等 IT 部門開發半年。</li>
+<li style="margin-bottom: 8px;">  <strong>第二軌：FORCE 平台軌</strong>。如果你的創意（例如跨部門合約審查、會議記錄追蹤、競品價格監控）流程變動極快，且主要處理的是 Email、合約草稿等『非結構化資料』，請直接利用企業內部的 low-code 工作流平台（如 Dify 企業版）快速搭建。這能讓你們的運營保持極大的靈活性，下週流程變了，小編下午自己改拉線就能上線，完全不需要排隊等 IT 部門開發半年。</li>
 <li style="margin-bottom: 8px;">  <strong>第三軌：獨立創業軌</strong>。如果你們發現這組設計的產品（例如夢境繪本師、聲入人心），不僅解決了我們公司的痛點，更是全台灣、甚至全球幾十萬家企業或個人面臨的共同痛點，且大家有極高的付費訂閱意願。恭喜你！這個項目不應該被埋沒在公司內部，它具備獨立拿去市場融資、成立全新 SaaS 新創公司的巨大潛力！</li>
 </ul>
 <br>
@@ -852,7 +900,7 @@
 <br>
 <p>今天，大家離開這間教室時，每個人手裡不僅僅是學到了一些 AI 的名詞，而是帶著一份屬於你們自己的 <strong>AI APP Backlog 創意清單</strong>，以及一份清晰的 <strong>MVP 落地路線圖</strong>。</p>
 <br>
-<p>回去之後，第一步：花 3 天時間，用 Dify + LINE Bot 把你們這組的 MVP 做出來；第二步：找 10 個真實用戶進行 PoC 測試；第三步：根據回饋決定是要併入 ERP、納入 FALO 平台，還是準備去外面創業！</p>
+<p>回去之後，第一步：花 3 天時間，用 Dify + LINE Bot 把你們這組的 MVP 做出來；第二步：找 10 個真實用戶進行 PoC 測試；第三步：根據回饋決定是要併入 ERP、納入 FORCE 平台，還是準備去外面創業！</p>
 <br>
 <p>感謝大家今天的參與，我們 AI APP Studio，頂峰相見！謝謝大家！」</p>
 <br>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FALO 企業環境部署評估矩陣：專案建置與技術教學講義</title>
+    <title>FORCE 企業環境部署評估矩陣：專案建置與技術教學講義</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -433,7 +433,7 @@
         <!-- Left Sidebar Navigation -->
         <aside>
             <div class="brand">
-                <div class="eyebrow">FALO Academy</div>
+                <div class="eyebrow">FORCE Academy</div>
                 <h2>Class 04 講義</h2>
                 <div class="sub-brand">專案建置與技術教學筆記</div>
             </div>
@@ -459,7 +459,7 @@
         <!-- Right Main Content -->
         <main>
             <header id="intro-section">
-                <h1>FALO 企業環境部署評估矩陣：專案建置與技術教學講義</h1>
+                <h1>FORCE 企業環境部署評估矩陣：專案建置與技術教學講義</h1>
                 <div class="subtitle">Force 課程教學專用講義與實戰踩坑筆記</div>
             </header>
 
@@ -619,13 +619,13 @@
                 
                 <h3>1. 數據是如何被隱藏內嵌的？</h3>
                 <p>在顧問點擊「產生 HTML 報告」時，JavaScript 會將當前記憶體中的資料封裝為 JSON，並進行 Base64 編碼，隨後寫入導出報告最底部的隱藏標籤中：</p>
-                <pre><code>&lt;div id="falo-embedded-data" style="display:none;" data-payload="[Base64加密數據]"&gt;&lt;/div&gt;</code></pre>
+                <pre><code>&lt;div id="force-embedded-data" style="display:none;" data-payload="[Base64加密數據]"&gt;&lt;/div&gt;</code></pre>
 
                 <h3>2. 如何反向還原 (HTML Parser)？</h3>
                 <p>當顧問拿到客戶發回的 <code>Report.html</code> 報告並上傳時，我們在純前端使用瀏覽器內建的 <strong><code>DOMParser</code></strong> 進行解析還原：</p>
                 <pre><code>const parser = new DOMParser();
 const doc = parser.parseFromString(htmlText, "text/html");
-const div = doc.getElementById("falo-embedded-data");
+const div = doc.getElementById("force-embedded-data");
 const encodedPayload = div.getAttribute("data-payload");
 const decodedJson = decodeURIComponent(escape(atob(encodedPayload)));
 const parsedPayload = JSON.parse(decodedJson);</code></pre>
@@ -665,7 +665,7 @@ const parsedPayload = JSON.parse(decodedJson);</code></pre>
 
                 <h3>2. DOM 隱身浮水印</h3>
                 <p>利用 CSS 的絕對裁切技術（Absolute Clipping），建立一個存在於 DOM 樹中，但完全不佔用版面、對訪客完全不可見的 DOM 節點。當抄襲者直接複製代碼或爬蟲抓取時，該浮水印文字將會被一併複製，成為侵權鐵證。</p>
-                <pre><code>.falo-invisible-watermark {
+                <pre><code>.force-invisible-watermark {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -679,7 +679,7 @@ const parsedPayload = JSON.parse(decodedJson);</code></pre>
 
                 <h3>3. JavaScript 全域唯讀浮水印</h3>
                 <p>利用 ES5 的 <code>Object.defineProperty()</code> 註冊全域變數，並將 <code>writable</code> 與 <code>configurable</code> 設為 <code>false</code>，防範第三方指令碼惡意覆寫或刪除版權。</p>
-                <pre><code>Object.defineProperty(window, '__FALO_WATERMARK__', {
+                <pre><code>Object.defineProperty(window, '__FORCE_WATERMARK__', {
   value: "Falo x Force Cheng 2026/6/22",
   writable: false,
   configurable: false

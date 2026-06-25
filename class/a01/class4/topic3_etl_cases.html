@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -496,8 +506,11 @@
                 <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🗺️ AI App 關鍵注意事項</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🛡️ 客戶環境測試（網絡防火牆）</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
 
                 <!-- 主題三：ETL 實務案例分享 -->
@@ -571,7 +584,7 @@
 <br>
 <p>本主題分享多個高保真（High-Fidelity）的 ETL 與 OCR 整合實戰案例，引導同仁理解如何進行結構化資料轉置與自動化處理。</p>
 <br>
-<p><img src="images/falo_etl_km_agent.png" alt="FALO 架構圖 (ETL x KM x Agent)" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<p><img src="images/force_etl_km_agent.png" alt="FORCE 架構圖 (ETL x KM x Agent)" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
 <p>---</p>
 <br>
@@ -598,10 +611,10 @@
 <li style="margin-bottom: 8px;"><strong>2. 轉換層 (ETL)</strong>：將憑證資料清洗並標準化為 Expense Record 格式。</li>
 <li style="margin-bottom: 8px;"><strong>3. 工作流 (Workflow)</strong>：以狀態機驅動自動送審、會計覆核與模擬過帳流程。</li>
 <li style="margin-bottom: 8px;"><strong>4. 智慧稽核 (AI Audit)</strong>：比對歷史資料進行重複核銷防弊、設定金額上限警示、以及透過語意理解驗證「週末公務乘車事由」之合規性。</li>
-<li style="margin-bottom: 8px;"><strong>互動展示</strong>：<a href="https://falo-taiwan.github.io/ticket-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟線上互動展示頁 (ticket-demo)</a></li>
+<li style="margin-bottom: 8px;"><strong>互動展示</strong>：<a href="https://force-taiwan.github.io/ticket-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟線上互動展示頁 (ticket-demo)</a></li>
 </ul>
 <br>
-<p><div id="case-swiper"></div></p>
+<div id="case-swiper"></div>
 <br>
 <h3>案例三：iPAS 智慧刷題模擬器 (OCR + ETL 實戰)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
@@ -611,10 +624,10 @@
 <li style="margin-bottom: 8px;"><strong>2. 資料清洗 (ETL)</strong>：利用 Regex 與規則引擎對 OCR 斷字、多餘空格進行極致降噪與欄位校對，轉化為標準 JSON 格式。</li>
 <li style="margin-bottom: 8px;"><strong>3. 模擬器交互 (Swiper)</strong>：結合 Swiper.js 打造流暢的滑動刷題體驗，內建即時 Token 消耗與台幣花費 Telemetry 面板，落實企業級 AI 成本控制意識。</li>
 <li style="margin-bottom: 8px;"><strong>雙通道體驗入口</strong>：</li>
-<li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/class/a01/class4/practice-swiper.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 iPAS 智慧刷題模擬器 (線上 falo 網址)</a> *(將於新視窗中開啟線上版模擬器)*</li>
+<li style="margin-bottom: 8px;"><a href="https://force-taiwan.github.io/class/a01/class4/practice-swiper.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 iPAS 智慧刷題模擬器 (線上 force 網址)</a> *(將於新視窗中開啟線上版模擬器)*</li>
 </ul>
 <br>
-<p><div id="etl-load"></div></p>
+<div id="etl-load"></div>
 <br>
 <h2>🚀 ETL 之 L (Load) 實踐：企業級 AI 雙軌戰情中心 (War Room) 與元件解構</h2>
 <br>
@@ -628,12 +641,12 @@
 <br>
 <p>學員可在宏觀大屏中體驗「密密麻麻」的高密度指揮中心布局。大屏整合了全局指標，有需要時可「點進去細看」下方物理拆解的各個元件。</p>
 <br>
-<p>#### 1. 版本 A：原始資料戰情系統大屏 (Raw Data & Knowledge Analytics)</p>
+<h4>1. 版本 A：原始資料戰情系統大屏 (Raw Data & Knowledge Analytics)</h4>
 <p>此系統專注於<strong>靜態原始資料的加載與多維度剖析</strong>。呈現 244 筆政府補助案的整體結構：</p>
 <br>
 <p><img src="images/enterprise_ai_war_room_raw_data.svg" alt="原始資料戰情系統大屏" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
-<p>#### 2. 版本 B：使用者行為與運維審計戰情系統大屏 (User Behavior & Operations Audit)</p>
+<h4>2. 版本 B：使用者行為與運維審計戰情系統大屏 (User Behavior & Operations Audit)</h4>
 <p>此系統專注於<strong>動態用戶行為、RAG 回答質量、實時 Token 成本與資安防禦監控</strong>：</p>
 <br>
 <p><img src="images/enterprise_ai_war_room_user_behavior.svg" alt="使用者行為與運維審計戰情系統大屏" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
@@ -644,7 +657,7 @@
 <br>
 <p>為了讓學員理解在不同商業與工程場景下，如何選擇並設計最適的圖表類型，我們將上述兩大系統拆解為 <strong>八大核心儀表板元件</strong>，逐一進行視覺展示與深度技術解構：</p>
 <br>
-<p>#### 📊 原始資料戰情系統 (版本 A) 元件解構</p>
+<h4>📊 原始資料戰情系統 (版本 A) 元件解構</h4>
 <br>
 <p>##### 元件 A1：大盤核心 KPI 指標面板 (Top Cards)</p>
 <p><img src="images/component_kpi_cards.svg" alt="KPI 指標面板" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
@@ -684,7 +697,7 @@
 <br>
 <p>---</p>
 <br>
-<p>#### 👤 使用者行為與運維審計系統 (版本 B) 元件解構</p>
+<h4>👤 使用者行為與運維審計系統 (版本 B) 元件解構</h4>
 <br>
 <p>##### 元件 B1：熱門搜尋詞與知識缺口橫條圖 (Horizontal Bar Chart)</p>
 <p><img src="images/component_horizontal_bar.svg" alt="熱門搜尋與知識缺口" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>

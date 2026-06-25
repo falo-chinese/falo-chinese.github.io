@@ -28,6 +28,7 @@
             --badge-border: rgba(192, 132, 252, 0.25);
             --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
             --code-bg: #0d091e;
+            --topic-green: #4ade80;
         }
 
         body.theme-light {
@@ -52,6 +53,7 @@
             --badge-border: rgba(8, 145, 178, 0.15);
             --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
             --code-bg: #f8fafc;
+            --topic-green: #16a34a;
         }
 
         * {
@@ -298,7 +300,15 @@
             font-weight: 700;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #ffffff;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
         }
 
         p {
@@ -496,8 +506,11 @@
                 <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🗺️ AI App 關鍵注意事項</a></li>
-                    <li><a class="toc-link" href="topic5_brainstorming.html">🛡️ 客戶環境測試（網絡防火牆）</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
                 </ul>
 
                 <!-- 主題三：ETL 實務案例分享 -->
@@ -598,11 +611,11 @@
 <br>
 <p>在真實的企業級 AI 專案（如銀河 ERP 轉型或 AAA 憑證稽核）中，我們不可能盲目選用最貴的模型，否則 API 成本將會迅速吞噬產品利潤。這就引入了 <strong>「落地經濟學 (Economics)」</strong> 與 <strong>「多模型級聯路由 (Cascade Routing)」</strong> 的思維：在不同的處理階段、針對不同的任務難度，分流派遣最合適的模型廚師上陣。</p>
 <br>
-<p>#### 1. 新世代 Gemini 家族成員技術定位對比</p>
+<h4>1. 新世代 Gemini 家族成員技術定位對比</h4>
 <br>
 <table class="comparison-table"><thead><tr><th>模型名稱</th><th>API 識別代碼</th><th>建議角色定位</th><th>適用場景與特色</th></tr></thead><tbody>tr<tr><td><span style="color: #0ea5e9; font-weight: bold;">⭐ Gemini 3.5 Flash (高階推薦)</span></td><td><span style="color: #0ea5e9; font-weight: bold;">`gemini-3.5-flash`</span></td><td><span style="color: #0ea5e9; font-weight: bold;">🛡️ 高階深度審查 (Stronger Review)</span></td><td><span style="color: #0ea5e9; font-weight: bold;">小字辨識、複雜表格、手寫辨識、或第一輪結果衝突時的終極裁決者。具備最強推理與 Agent 行為。</span></td></tr>tr<tr><td><strong>Gemini 3.1 Flash</strong></td><td>`gemini-3.1-flash`</td><td>⚡ <strong>主流主力模型 (Main Engine)</strong></td><td>預設主力，具備極佳的代碼生成、邏輯推理與多模態表現，效能與速度最為平衡。</td></tr>tr<tr><td><span style="color: #10b981; font-weight: bold;">⭐ Gemini 3.1 Flash-Lite (最省推薦)</span></td><td><span style="color: #10b981; font-weight: bold;">`gemini-3.1-flash-lite`</span></td><td><span style="color: #10b981; font-weight: bold;">💸 低成本快速草稿 (Low-cost Draft)</span></td><td><span style="color: #10b981; font-weight: bold;">高頻率調用、PoC 概念驗證、第一版文字或 JSON 結構草稿提取。速度極快，成本極低。</span></td></tr>tr<tr><td><strong>Gemini 2.5 Flash</strong></td><td>`gemini-2.5-flash`</td><td>📊 <strong>基準教學比較 (Baseline Comparison)</strong></td><td>用於歷史基準對照、一般教學或簡單問答，作為效能升級前後的對比點。</td></tr>tr<tr><td><strong>Gemini 2.5 Flash-Lite</strong></td><td>`gemini-2.5-flash-lite`</td><td>⏳ <strong>歷史低成本基準 (Older Lite Baseline)</strong></td><td>用於歷史版本的低成本基準對照。</td></tr></tbody></table>
 <br>
-<p>#### 2. 企業級多模型雙通道路由 (Cascade Router) 設計實戰</p>
+<h4>2. 企業級多模型雙通道路由 (Cascade Router) 設計實戰</h4>
 <br>
 <p>在處理高精度 OCR 或自動化報表稽核時，生產環境通常會採取 <strong>「雙通道級聯 (Cascade)」</strong> 策略：</p>
 <br>
