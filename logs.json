@@ -1,14 +1,13 @@
 [
   {
-    "timestamp": "2026-06-25T19:31:10+08:00",
+    "timestamp": "2026-06-25T19:33:57+08:00",
     "action_type": "synced",
-    "description": "依據老師最新指示，將整個呼叫 AI API 的教學模組物理拆分，於 Class 04 側邊欄與大綱中獨立建立一個全新專題：『🛠️ 主題六：AI API 呼叫三大模式實戰 (topic6_ai_api.html)』。收錄了雲端 Gemini API 申請與監控（7大步驟圖文與用量統計圖）、地端 Ollama 本地服務呼叫（免 CORS 避坑指南）、Chrome built-in AI 瀏覽器原生端側調用等完整 JS 實戰程式碼與避坑指引。同時還原主題一內容、更新 Class 04 首頁描述、重新編譯全套 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有新圖片與代碼同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "description": "依據老師最新指示，將全套教材課件中的所有程式碼區塊（code blocks）進行全域摺疊優化。透過 HTML5 details/summary 實現預設折疊的高質感代碼卡片，並保留右上角的複製鈕，保持頁面純淨度與學員實測便利性。同時，將主題六中 Gemini API 的呼叫範例與說明全面升級為最新免費的主力模型 Gemini 2.0 Flash (端點 `gemini-2.0-flash`)，捨棄已停用的舊版 1.5 系列。重新編譯全套 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後同步推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
     "operator": "AI (Antigravity)",
     "files_affected": [
+      "compile_workshop.py",
       "falo-taiwan/class/a01/class4/topic6_ai_api.md",
       "falo-taiwan/class/a01/class4/topic6_ai_api.html",
-      "falo-taiwan/class/a01/class4/topic1_retrospective.md",
-      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
       "falo-taiwan/class/a01/class4/index.md",
       "falo-taiwan/class/a01/class4/index.html",
       "class/a01/class4/20260625_class04_project.zip",

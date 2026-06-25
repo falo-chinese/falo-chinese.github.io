@@ -516,6 +516,14 @@
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
                     <li><a class="toc-link" href="topic5_brainstorming.html" style="color: var(--accent); font-weight: bold;">🎯 AI APP Studio 實作套件</a></li>
                 </ul>
+                
+                <!-- 主題六：AI API 呼叫三大模式實戰 -->
+                <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 6. AI API 呼叫三大模式實戰</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic6_ai_api.html" style="color: var(--accent); font-weight: bold;">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                </ul>
             </ul>
             </ul>
 
@@ -595,7 +603,7 @@
 <br>
 <p>其共通的技術流程如下圖所示：</p>
 <br>
-<div class="code-container"><div class="code-header"><span>MERMAID</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>sequenceDiagram
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ MERMAID 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>MERMAID</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>sequenceDiagram
     autonumber
     actor User as 使用者 / 團隊同仁
     participant Platform as 通訊軟體平台 (Slack / LINE)
@@ -608,7 +616,7 @@
     Webhook-&gt;&gt;LLM: 調用 API (傳入 Prompt 與 System Instruction)
     LLM--&gt;&gt;Webhook: 回傳結構化文本 / JSON 數據
     Webhook-&gt;&gt;Platform: 調用通訊平台 API (傳送 Reply / Push Message)
-    Platform--&gt;&gt;User: 於介面中呈現回覆內容</code></pre></div>
+    Platform--&gt;&gt;User: 於介面中呈現回覆內容</code></pre></div></details>
 <br>
 <p>開發企業級通訊軟體 Agent 時，軟體工程思維的展現主要在於<strong>步驟 3 的後端處理</strong>。我們必須在後端建立完善的快取機制以節省 Token 成本，設計防禦性代碼以應對平台超時限制（例如 LINE Webhook 要求在數秒內響應，複雜 LLM 任務需採用非同步處理），並透過 ETL 模組清洗大模型輸出的 JSON 數據，確保其符合企業系統的格式要求。</p>
 <br>

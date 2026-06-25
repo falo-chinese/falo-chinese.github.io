@@ -553,7 +553,7 @@
 <h3>1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>技術定位</strong>：商業級雲端大模型 API。</li>
-<li style="margin-bottom: 8px;">  <strong>優勢</strong>：模型推理解析力最強（如 Gemini 1.5 Pro / Flash），支援高達 200 萬 Token 的超長上下文 (Context Window)，具備強大的多模態（圖片、語音、影片）理解力，且完全免去本地硬體配置負擔。</li>
+<li style="margin-bottom: 8px;">  <strong>優勢</strong>：模型推理解析力最強（如 Gemini 2.0 Flash / Flash-Lite），支援高達 200 萬 Token 的超長上下文 (Context Window)，具備強大的多模態（圖片、語音、影片）理解力，且完全免去本地硬體配置負擔。</li>
 <li style="margin-bottom: 8px;">  <strong>劣勢</strong>：必須連接網際網路、有 API 調用成本 (按 Token 計費)、敏感數據直接送往雲端需注意隱私合規。</li>
 </ul>
 <br>
@@ -595,10 +595,10 @@
 <br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>實戰前端 JavaScript 呼叫代碼</strong>：</li>
-<div class="code-container"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用 1.5 Flash)
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ JAVASCRIPT 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用最新的 Gemini 2.0 Flash)
 async function callGemini(promptText, apiKey) {
-  // 建立 Gemini REST API 端點 URL (包含 API Key)
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  // 建立 Gemini REST API 端點 URL (包含 API Key，指定最新的 gemini-2.0-flash 模型)
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
   
   const payload = {
     contents: [{
@@ -626,7 +626,7 @@ async function callGemini(promptText, apiKey) {
 }
 
 // 💡 實測呼叫：填入您的 API Key 即可在控制台運行
-// callGemini("請用繁體中文解釋什麼是 RAG 技術？", "YOUR_GEMINI_API_KEY");</code></pre></div>
+// callGemini("請用繁體中文解釋什麼是 RAG 技術？", "YOUR_GEMINI_API_KEY");</code></pre></div></details>
 </ul>
 <br>
 <p>---</p>
@@ -637,7 +637,7 @@ async function callGemini(promptText, apiKey) {
 <li style="margin-bottom: 8px;">  <strong>優勢</strong>：100% 數據隱私安全（敏感商業資料完全不出企業內網）、零 Token 調用費用、可在無外網連線的物理隔離環境下穩定運作。</li>
 <li style="margin-bottom: 8px;">  <strong>劣勢</strong>：極度依賴本地硬體算力（需要足夠的 GPU 顯示卡與視訊記憶體），且本地部署的模型參數規模（如 8B, 14B）其推理能力與雲端超大型模型相比仍有差距。</li>
 <li style="margin-bottom: 8px;">  <strong>實戰前端 JavaScript 呼叫代碼</strong>：</li>
-<div class="code-container"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>// 🏠 地端 AI: Ollama 本地 API 呼叫範例 (非串流模式)
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ JAVASCRIPT 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>// 🏠 地端 AI: Ollama 本地 API 呼叫範例 (非串流模式)
 async function callOllama(promptText, modelName = 'llama3') {
   // 本地 Ollama 預設的生成端點
   const url = 'http://localhost:11434/api/generate';
@@ -670,7 +670,7 @@ async function callOllama(promptText, modelName = 'llama3') {
 }
 
 // 💡 實測呼叫：確保本地已執行 `ollama run llama3`
-// callOllama("請用繁體中文自我介紹。");</code></pre></div>
+// callOllama("請用繁體中文自我介紹。");</code></pre></div></details>
 </ul>
 <br>
 <p>---</p>
@@ -681,7 +681,7 @@ async function callOllama(promptText, modelName = 'llama3') {
 <li style="margin-bottom: 8px;">  <strong>優勢</strong>：真正的零伺服器運維成本、零網絡頻寬依賴（完全在使用者本地設備 CPU/NPU 運行）、極高隱私度，能大幅度減輕企業伺服器的算力負載。</li>
 <li style="margin-bottom: 8px;">  <strong>劣勢</strong>：屬於極限輕量化模型（Gemini Nano 約 1.8B–3.2B 參數），僅適合進行簡易的文本摘要、翻譯、改寫、情感分析或意圖分類任務；目前僅限特定版本 Chrome 瀏覽器，且使用者需手動啟用實驗性 Flag。</li>
 <li style="margin-bottom: 8px;">  <strong>實戰前端 JavaScript 呼叫代碼</strong>：</li>
-<div class="code-container"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>// 🌐 瀏覽器原生 AI: Chrome built-in AI (Gemini Nano) 呼叫範例
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ JAVASCRIPT 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>// 🌐 瀏覽器原生 AI: Chrome built-in AI (Gemini Nano) 呼叫範例
 async function callChromeNano(promptText) {
   // 1. 偵測瀏覽器是否支援且已啟用內建 AI API (W3C 草案標準)
   if (!window.ai || !window.ai.languageModel) {
@@ -715,7 +715,7 @@ async function callChromeNano(promptText) {
 }
 
 // 💡 實測呼叫：在符合條件的 Chrome 控制台直接執行
-// callChromeNano("請將這句話翻譯成英文：今天天氣真好。");</code></pre></div>
+// callChromeNano("請將這句話翻譯成英文：今天天氣真好。");</code></pre></div></details>
 </ul>
 <br>
             </article>

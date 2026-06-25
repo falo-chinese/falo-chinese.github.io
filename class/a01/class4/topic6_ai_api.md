@@ -10,7 +10,7 @@
 
 ### 1. 雲端 AI 呼叫：Google Gemini API (Cloud-based LLM)
 *   **技術定位**：商業級雲端大模型 API。
-*   **優勢**：模型推理解析力最強（如 Gemini 1.5 Pro / Flash），支援高達 200 萬 Token 的超長上下文 (Context Window)，具備強大的多模態（圖片、語音、影片）理解力，且完全免去本地硬體配置負擔。
+*   **優勢**：模型推理解析力最強（如 Gemini 2.0 Flash / Flash-Lite），支援高達 200 萬 Token 的超長上下文 (Context Window)，具備強大的多模態（圖片、語音、影片）理解力，且完全免去本地硬體配置負擔。
 *   **劣勢**：必須連接網際網路、有 API 調用成本 (按 Token 計費)、敏感數據直接送往雲端需注意隱私合規。
 
 *   **💡 實戰指引：手把手申請與複製 Gemini API Key 步驟**：
@@ -49,10 +49,10 @@
 
 *   **實戰前端 JavaScript 呼叫代碼**：
 ```javascript
-// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用 1.5 Flash)
+// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用最新的 Gemini 2.0 Flash)
 async function callGemini(promptText, apiKey) {
-  // 建立 Gemini REST API 端點 URL (包含 API Key)
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  // 建立 Gemini REST API 端點 URL (包含 API Key，指定最新的 gemini-2.0-flash 模型)
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
   
   const payload = {
     contents: [{
