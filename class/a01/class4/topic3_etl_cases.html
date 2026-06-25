@@ -512,9 +512,10 @@
                 <!-- 主題三：ETL 實務案例分享 -->
                 <div class="toc-title"><a class="toc-link active" href="topic3_etl_cases.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">⚡ 3. ETL 實務案例分享</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
-                    <li><a class="toc-link" href="topic3_etl_cases.html">📱 iPAS 智慧刷題模擬器</a></li>
-                    <li><a class="toc-link" href="topic3_etl_cases.html">🚀 核心實戰案例展示</a></li>
-                    <li><a class="toc-link" href="topic3_etl_cases.html">📂 實戰專案與手冊</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-e">📥 E (Extract) - 取得資料</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-t">⚡ T (Transform) - 整理 / 轉換</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-l">📤 L (Load) - 輸出 / 應用</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-agent">🤖 Agent (AI Agent) - 智慧協作</a></li>
                 </ul>
 
                 <!-- 主題四：KM 建置與應用思維 -->
@@ -553,25 +554,29 @@
 <p><img src="images/falo_etl_km_agent.png" alt="FORCE 架構圖 (ETL x KM x Agent)" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
 <div class="etl-intro-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-  <div class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
+  <div id="etl-e" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
     <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">📥</span> E (Extract) - 取得資料</h3>
     <img src="images/etl_e_extract.svg" alt="E (Extract) 取得資料" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
     <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的<b>多模態輸入端</b>。專注於從多元異質源頭（文件、影像、語音、影片、Email、Web API、ERP 資料庫）中萃取原始資訊。在 AI 時代，E 階段是「多模態感知的起點」，利用 OCR Agent 與 Vision 技術將非結構化實體/數位檔案進行初步採集，為後續處理提供豐富素材。</p>
+    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
   </div>
-  <div class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
+  <div id="etl-t" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
     <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">⚡</span> T (Transform) - 整理 / 轉換</h3>
     <img src="images/etl_t_transform.svg" alt="T (Transform) 整理 / 轉換" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
     <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的<b>八大整理轉換管線</b>。負責將採集到的混亂數據進行清洗去重、格式標準化、OCR 語意校正、AI 萃取分類與 Metadata 標籤建置。透過大模型語意理解與正則引擎，排除多餘空格與噪訊，將無序資料轉化為高度結構化、易於 AI 與資料庫索引的標準 JSON 格式。</p>
+    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
   </div>
-  <div class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
+  <div id="etl-l" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
     <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">📤</span> L (Load) - 輸出 / 應用</h3>
     <img src="images/etl_l_load.svg" alt="L (Load) 輸出 / 應用" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
     <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的<b>七大輸出應用</b>。將清洗與結構化後的 Payload 資料，精準載入關聯式資料庫、向量資料庫、ERP 核心系統、戰情 Dashboard 看板或對接 API Webhook。這一步是數據轉化為決策價值的最後一公里，為企業級應用提供穩固的數據支撐。</p>
+    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
   </div>
-  <div class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
+  <div id="etl-agent" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
     <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">🤖</span> Agent (AI Agent) - 智慧協作</h3>
     <img src="images/etl_agent.svg" alt="Agent (AI Agent) 智慧協作" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
     <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的 <b>AI Agent 智慧協作平台</b>。在 E-T-L 的各個階段，由多個專門的自治 Agent（如 Workflow Agent 流程自動化、ETL Agent 資料處理、Audit Agent 合規稽核與 HITL 人機協作）共同協同。透過多 Agent 協作機制，自主執行決策，保障管道安全並實現業務流程的智慧運營。</p>
+    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
   </div>
 </div>
 <br>
