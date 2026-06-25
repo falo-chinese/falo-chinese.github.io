@@ -524,7 +524,8 @@
                 <!-- 主題四：KM 建置與應用思維 -->
                 <div class="toc-title"><a class="toc-link active" href="topic4_km_rag.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📂 4. KM 建置與應用思維</a></div>
                 <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
-                    <li><a class="toc-link" href="topic4_km_rag.html#notebooklm" style="color: var(--accent); font-weight: bold;">📓 NotebookLM 整合運用</a></li>
+                    <li><a class="toc-link" href="topic4_km_rag.html#ai-km" style="color: var(--accent); font-weight: bold;">📂 AI KM 建置範例</a></li>
+                    <li><a class="toc-link" href="topic4_km_rag.html#notebooklm">📓 NotebookLM 整合運用</a></li>
                 </ul>
 
                 <!-- 主題五：AI API 呼叫三大模式實戰 -->
@@ -554,6 +555,27 @@
 <p>本主題深入剖析企業知識管理（KM）與檢索增強生成（RAG）系統的建置觀念，以政府補助案作為載體，解構企業級 AI App 的設計 Pattern。</p>
 <br>
 <p><img src="images/ai_km_development_flow.jpg" alt="AI KM 建置流程概念圖" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<p>---</p>
+<br>
+<h2 id="ai-km">📂 AI KM 建置範例：政府 RAG 智慧檢索與診斷系統</h2>
+<br>
+<p>為了解決複雜政策與補助法規的查詢痛點，我們開發了「政府 AI 與資安成熟度檢核專案」與「RAG 智慧檢索系統」。在此案例中，我們貫徹了企業級 RAG 系統的 <strong>五大核心架構思維</strong>：</p>
+<br>
+<h3>1. 務實主義 (Pragmatism)</h3>
+<p>拒絕盲目追求高複雜度與昂貴的第三方框架（如 LangChain），以最直觀、高效的「純 JavaScript 向量相似度比對（Cosine Similarity）」在瀏覽器端直接運行，快速驗證核心商業價值與 MVP。</p>
+<br>
+<h3>2. 安全防禦 (Defensive Coding)</h3>
+<p>針對企業內部可能存在「無網際網路、無外部 DNS、甚至嚴格限制 CORS」的極端內網環境，設計 `no-cors` 探針與自動降級策略（Fallback），在 API 無法連通時自動切換至離線預置數據庫。</p>
+<br>
+<h3>3. 落地經濟學 (Economics)</h3>
+<p>深度優化 Token 消耗，前端設計「本地快取機制（LocalStorage Cache）」，避免重複查詢相同問題而產生不必要的 API 花費。同時在 UI 置入即時 Token 消耗與台幣花費監控面板，強化團隊的成本控制意識。</p>
+<br>
+<h3>4. 結構化交付 (Structured Output)</h3>
+<p>強制要求大模型（LLM）輸出符合嚴格 JSON Schema 格式的數據，並在代碼端設計「自動修補與校對引擎」，確保輸出的診斷報告能 100% 與 ERP 的資料庫欄位無縫對接。</p>
+<br>
+<h3>5. 零運維成本 (Serverless/Static)</h3>
+<p>採用 100% 靜態網頁架構（HTML/CSS/JS），無需部署資料庫或後端伺服器，免去高昂的維護成本與各種潛在的伺服器漏洞安全性威脅，極適合快速部署於內部儲存空間。</p>
 <br>
 <p>---</p>
 <br>
@@ -598,25 +620,6 @@
 </ul>
 <br>
 <p>---</p>
-<br>
-<h2>📂 AI KM 建置範例：政府 RAG 智慧檢索與診斷系統</h2>
-<br>
-<p>為了解決複雜政策與補助法規的查詢痛點，我們開發了「政府 AI 與資安成熟度檢核專案」與「RAG 智慧檢索系統」。在此案例中，我們貫徹了企業級 RAG 系統的 <strong>五大核心架構思維</strong>：</p>
-<br>
-<h3>1. 務實主義 (Pragmatism)</h3>
-<p>拒絕盲目追求高複雜度與昂貴的第三方框架（如 LangChain），以最直觀、高效的「純 JavaScript 向量相似度比對（Cosine Similarity）」在瀏覽器端直接運行，快速驗證核心商業價值與 MVP。</p>
-<br>
-<h3>2. 安全防禦 (Defensive Coding)</h3>
-<p>針對企業內部可能存在「無網際網路、無外部 DNS、甚至嚴格限制 CORS」的極端內網環境，設計 `no-cors` 探針與自動降級策略（Fallback），在 API 無法連通時自動切換至離線預置數據庫。</p>
-<br>
-<h3>3. 落地經濟學 (Economics)</h3>
-<p>深度優化 Token 消耗，前端設計「本地快取機制（LocalStorage Cache）」，避免重複查詢相同問題而產生不必要的 API 花費。同時在 UI 置入即時 Token 消耗與台幣花費監控面板，強化團隊的成本控制意識。</p>
-<br>
-<h3>4. 結構化交付 (Structured Output)</h3>
-<p>強制要求大模型（LLM）輸出符合嚴格 JSON Schema 格式的數據，並在代碼端設計「自動修補與校對引擎」，確保輸出的診斷報告能 100% 與 ERP 的資料庫欄位無縫對接。</p>
-<br>
-<h3>5. 零運維成本 (Serverless/Static)</h3>
-<p>採用 100% 靜態網頁架構（HTML/CSS/JS），無需部署資料庫或後端伺服器，免去高昂的維護成本與各種潛在的伺服器漏洞安全性威脅，極適合快速部署於內部儲存空間。</p>
 <br>
 <h2 id="notebooklm">📓 NotebookLM 整合運用</h2>
 <br>
