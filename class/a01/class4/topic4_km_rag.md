@@ -61,7 +61,7 @@
 ### 5. 零運維成本 (Serverless/Static)
 採用 100% 靜態網頁架構（HTML/CSS/JS），無需部署資料庫或後端伺服器，免去高昂的維護成本與各種潛在的伺服器漏洞安全性威脅，極適合快速部署於內部儲存空間。
 
-## 📓 NotebookLM 整合運用
+## 📓 NotebookLM 整合運用 {#notebooklm}
 
 企業在導入知識管理 (KM) 時，除了自行建置 RAG 系統，亦可深度整合與搭配 Google NotebookLM 作為協作與提煉工具。為了克服 NotebookLM 網頁端手動操作與單兵作戰的限制，我們規劃了以下兩種企業級整合運用模式：
 

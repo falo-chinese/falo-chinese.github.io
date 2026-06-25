@@ -1,5 +1,29 @@
 [
   {
+    "timestamp": "2026-06-25T21:35:38+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示，全面優化 Class 04 主題二（AI App 專案腦力激盪）產品藍圖的排版。將方向 A 頂部資源連結重構為高質感的雙欄互動式卡片面板（🏛️ 官方釋出來源與 ⚡ Force 自研 RAG 原型），支持響應式與雙主題動態適配；修復編譯器 H4 (####) 標題無法解析及 HTML 多餘 `<p>` 標籤嵌套的 Bug；將技術描述精確對齊實際的 MiniSearch 本地檢索與 Serverless 瀏覽器端 RAG 架構，將四種檢索模式名稱精準同步為網頁 UI 的「關鍵字檢索、語意條件解析、同義詞關聯、模糊相關度排序」，加入並突出「先篩選、後分析」的 Token 節費優化工作流，將全站所有 H2 與 H3 子標題樣式統一進行綠色系醒目化調整（醒目淺綠色），移除主題五結尾重複的「學習目標」與「工作坊配套工具資源」卡片區塊，全面修復主題三與主題四中因 brand 重命名導致的舊版 force架構圖與落地藍圖之圖片破損 Bug（重新對齊 falo_etl_km_agent.png 與 falo_ai_app_enterprise_landing.png，並將重複的架構圖去重以保持單張架構圖置於主題三最上方），依據老師最新指示將原主題五（Agent 工具應用交流）從大綱選單及專案中整個拿掉，將原主題六（AI API 呼叫三大模式實戰）順次變更為主題五，同步更新課程首頁大綱與側邊欄 TOC 導覽結構，將側邊欄最下方的「返回課程首頁」按鈕從全套 HTML 課件中移除，並將主題二結尾的企業部署與防火牆檢測連結簡化為最新的 falo-taiwan 線上即時檢測網址，並進一步依據最新指示，從主題四（KM 建置與應用思維）內容與側邊欄中完全移除政府 RAG 智慧檢索系統的簡介入口頁面與連結，同時物理刪除相關孤立檔案（tw-ai-grant-intro.md/html、tw-ai-grant-lesson.html），以保持課程核心架構的簡潔度；並在主題四側邊欄新增了「NotebookLM 整合運用」的內部錨點導覽連結（#notebooklm），直接引導至頁面下方的企業級 NotebookLM 深度整合與協作實務章節。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/index.md",
+      "force-taiwan/class/a01/class4/index.html",
+      "force-taiwan/class/a01/class4/topic2_agent_tools.md",
+      "force-taiwan/class/a01/class4/topic2_agent_tools.html",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic5_brainstorming.md",
+      "force-taiwan/class/a01/class4/topic5_brainstorming.html",
+      "force-taiwan/class/a01/class4/tw-ai-grant-intro.md",
+      "force-taiwan/class/a01/class4/tw-ai-grant-intro.html",
+      "force-taiwan/class/a01/class4/tw-ai-grant-lesson.html",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T21:34:17+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示，全面優化 Class 04 主題二（AI App 專案腦力激盪）產品藍圖的排版。將方向 A 頂部資源連結重構為高質感的雙欄互動式卡片面板（🏛️ 官方釋出來源與 ⚡ Force 自研 RAG 原型），支持響應式與雙主題動態適配；修復編譯器 H4 (####) 標題無法解析及 HTML 多餘 `<p>` 標籤嵌套的 Bug；將技術描述精確對齊實際的 MiniSearch 本地檢索與 Serverless 瀏覽器端 RAG 架構，將四種檢索模式名稱精準同步為網頁 UI 的「關鍵字檢索、語意條件解析、同義詞關聯、模糊相關度排序」，加入並突出「先篩選、後分析」的 Token 節費優化工作流，將全站所有 H2 與 H3 子標題樣式統一進行綠色系醒目化調整（醒目淺綠色），移除主題五結尾重複的「學習目標」與「工作坊配套工具資源」卡片區塊，全面修復主題三與主題四中因 brand 重命名導致的舊版 force架構圖與落地藍圖之圖片破損 Bug（重新對齊 falo_etl_km_agent.png 與 falo_ai_app_enterprise_landing.png，並將重複的架構圖去重以保持單張架構圖置於主題三最上方），依據老師最新指示將原主題五（Agent 工具應用交流）從大綱選單及專案中整個拿掉，將原主題六（AI API 呼叫三大模式實戰）順次變更為主題五，同步更新課程首頁大綱與側邊欄 TOC 導覽結構，將側邊欄最下方的「返回課程首頁」按鈕從全套 HTML 課件中移除，並將主題二結尾的企業部署與防火牆檢測連結簡化為最新的 falo-taiwan 線上即時檢測網址，並進一步依據最新指示，從主題四（KM 建置與應用思維）內容與側邊欄中完全移除政府 RAG 智慧檢索系統的簡介入口頁面與連結，同時物理刪除相關孤立檔案（tw-ai-grant-intro.md/html、tw-ai-grant-lesson.html），以保持課程核心架構的簡潔度。",
