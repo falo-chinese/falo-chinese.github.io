@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-06-25T23:05:37+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新指示，升級 Class 04 主題五（AI API 呼叫三大模式實戰）最頂部的硬體檢測與 Ollama 選型互動功能：1. 設計並實現了高保真的雙卡片式 HTML 互動面板，提供「簡單版」與「專家版」雙重 Prompt。2. 簡單版適合快速體驗，給出簡易評級與推薦；專家版則面向企業級部署評估，進行多維度算力評估（顯存與系統記憶體頻寬計算、儲存介面安全水線）、精準模型選型量化矩陣與本地性能調優變數推薦。3. 為兩種 Prompt 均配置了專屬的 HTML 一鍵複製按鈕，結合原生 JavaScript 的 Clipboard API 與 CSS 微動畫，在複製成功後顯示『✓ 已複製到剪貼簿』之發光綠色狀態反饋，提升學員體驗。4. 重新編譯生成全套 HTML 課件，重新打包 20260625_class04_project.zip 專案檔，更新變更日誌，並成功同步推送至 falo-taiwan 與 falo-chinese 雙鏡像 Git 倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic6_ai_api.md",
+      "force-taiwan/class/a01/class4/topic6_ai_api.html",
+      "compile_workshop.py",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T23:03:00+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示，在 Class 04 主題五（AI API 呼叫三大模式實戰，原主題六）的最頂部新增了一個專屬的「互動式硬體檢測與 Ollama 選型」學習區塊。該區塊提供了一個可供學員複製的 Agent 專屬提示詞模本，讓學員可以直接授權具備環境感知與終端執行權限的 AI 助理（如 Antigravity / Codex）執行系統命令掃描硬體配置，並自動輸出量身定制的 Ollama 本地模型選型與部署優化報告，實現極具創新性與趣味性的 AI Agent 實戰體驗。同步更新 compile_workshop.py 側邊欄 TOC 選單模板，為主題五側邊欄最上方新增「🖥️ 互動式硬體檢測選型」定位跳轉子選單；重新編譯生成全套 HTML 課件，重新打包 20260625_class04_project.zip 專案檔，更新變更日誌，並成功同步推送至 falo-taiwan 與 falo-chinese 雙鏡像 Git 倉庫。",
