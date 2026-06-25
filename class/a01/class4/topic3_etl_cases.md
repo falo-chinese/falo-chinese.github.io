@@ -4,32 +4,76 @@
 
 ![FORCE 架構圖 (ETL x KM x Agent)](images/falo_etl_km_agent.png)
 
-<div class="etl-intro-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-  <div id="etl-e" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
-    <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">📥</span> E (Extract) - 取得資料</h3>
-    <img src="images/etl_e_extract.svg" alt="E (Extract) 取得資料" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
-    <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的<b>多模態輸入端</b>。專注於從多元異質源頭（文件、影像、語音、影片、Email、Web API、ERP 資料庫）中萃取原始資訊。在 AI 時代，E 階段是「多模態感知的起點」，利用 OCR Agent 與 Vision 技術將非結構化實體/數位檔案進行初步採集，為後續處理提供豐富素材。</p>
-    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
-  </div>
-  <div id="etl-t" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
-    <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">⚡</span> T (Transform) - 整理 / 轉換</h3>
-    <img src="images/etl_t_transform.svg" alt="T (Transform) 整理 / 轉換" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
-    <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的<b>八大整理轉換管線</b>。負責將採集到的混亂數據進行清洗去重、格式標準化、OCR 語意校正、AI 萃取分類與 Metadata 標籤建置。透過大模型語意理解與正則引擎，排除多餘空格與噪訊，將無序資料轉化為高度結構化、易於 AI 與資料庫索引的標準 JSON 格式。</p>
-    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
-  </div>
-  <div id="etl-l" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
-    <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">📤</span> L (Load) - 輸出 / 應用</h3>
-    <img src="images/etl_l_load.svg" alt="L (Load) 輸出 / 應用" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
-    <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的<b>七大輸出應用</b>。將清洗與結構化後的 Payload 資料，精準載入關聯式資料庫、向量資料庫、ERP 核心系統、戰情 Dashboard 看板或對接 API Webhook。這一步是數據轉化為決策價值的最後一公里，為企業級應用提供穩固的數據支撐。</p>
-    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
-  </div>
-  <div id="etl-agent" class="etl-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease;">
-    <h3 style="margin-top: 0; color: var(--sidebar-blue); display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;"><span style="font-size: 1.5rem;">🤖</span> Agent (AI Agent) - 智慧協作</h3>
-    <img src="images/etl_agent.svg" alt="Agent (AI Agent) 智慧協作" style="width: 100%; height: auto; border: none; box-shadow: none; border-radius: 0; margin: 1rem 0; display: block;" />
-    <p style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">對應 FALO 架構的 <b>AI Agent 智慧協作平台</b>。在 E-T-L 的各個階段，由多個專門的自治 Agent（如 Workflow Agent 流程自動化、ETL Agent 資料處理、Audit Agent 合規稽核與 HITL 人機協作）共同協同。透過多 Agent 協作機制，自主執行決策，保障管道安全並實現業務流程的智慧運營。</p>
-    <div class="demo-links" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--accent);">🔗 範例網站：<i>（待插入網站連結）</i></div>
-  </div>
-</div>
+## 🛠️ FORCE × Agent 核心四大階段深度解析 (Core Phases)
+
+以下針對 FORCE 智慧協作平台之 **E、T、L、Agent** 四大階段進行深度技術解析，引導學員掌握數據從「異質採集」到「自主決策」的完整演進路徑。
+
+---
+
+### 📥 E (Extract) - 取得資料 {#etl-e}
+
+![E (Extract) 取得資料](images/etl_e_extract.svg)
+
+這是數據管線（Data Pipeline）的起點，專注於從多元、異質的源頭中採集原始資訊。在企業級應用中，數據源通常包含：
+- **結構化數據**：ERP 資料庫、關聯式資料庫（SQL）交易紀錄、標準 FORCE API 接口。
+- **半結構化數據**：Email 通訊、CSV 報表、JSON 數據流。
+- **非結構化數據**：紙本憑證掃描件（PDF/圖片）、會議錄音（語音）、教學影片（影格）。
+
+在 AI 時代，E 階段更被賦予了「多模態感知起點」的使命。透過電腦視覺與 OCR Agent，系統能像人類的眼睛一樣，主動辨識實體世界與非結構化文件中的視覺元素，將其轉化為可供處理的原始文本流（Raw Stream），為後續的 FORCE 知識轉置提供源源不絕的素材。
+
+> [!NOTE]
+> 🔗 **相關展示與範例網站**：*(後續將在此插入具體範例網站與相關連結)*
+
+---
+
+### ⚡ T (Transform) - 整理 / 轉換 {#etl-t}
+
+![T (Transform) 整理 / 轉換](images/etl_t_transform.svg)
+
+這是整條數據管線的「核心靈魂」，負責將前階段採集到的無序 Raw 數據，進行極致的降噪、清洗、校正與結構化封裝。核心處理邏輯包括：
+1. **資料清洗與去重**：排除重複行、去除頁首頁尾、過濾空白字符與多餘雜訊。
+2. **OCR 校正與補件**：針對圖片辨識出的斷字、錯字進行語意校正，並補齊遺漏欄位。
+3. **AI 萃取與分類**：調用大語言模型（LLM）的推理能力，從段落中精確辨識並分類出實體（如金額、日期、品項、統編）。
+4. **建立 Metadata / 標籤**：自動生成檔案的版本、分類標籤、權限屬性，並將資料轉置為標準的結構化 JSON 格式。
+
+經過 T 階段的處理，原本雜亂無章的非結構化數據將轉化為「高價值、高清晰度、機器與 AI 皆可讀」的黃金數據（Clean JSON），並生成對應的向量嵌入（Embedding），為中央 FORCE 知識庫做好準備。
+
+> [!NOTE]
+> 🔗 **相關展示與範例網站**：*(後續將在此插入具體範例網站與相關連結)*
+
+---
+
+### 📤 L (Load) - 輸出 / 應用 {#etl-l}
+
+![L (Load) 輸出 / 應用](images/etl_l_load.svg)
+
+這是管線價值落地的「最後一公里」，負責將清洗乾淨且結構化後的黃金數據，精準加載至目標系統中，進而轉化為企業的決策價值。主要的載入目標與應用場景 include：
+- **知識沉澱（Vector DB）**：加載至向量資料庫（如 Milvus、Pinecone 或本地向量索引），作為 RAG（檢索增強生成）系統的核心知識源。
+- **業務整合（ERP / SQL）**：與 FORCE 平台或現有的 ERP、CRM 或 MIS 系統對接，自動完成單據入帳、主數據更新。
+- **運維監控（Dashboard）**：加載至戰情中心，實時呈現數據流狀態、Token 流量花費、以及 API 性能遙測數據（Telemetry）。
+- **主動通知（Notifications）**：加載完成後自動觸發下游通知，如 LINE 訊息推播、Email 自動派送或 Webhook 觸發。
+
+L 階段將結構化知識加載到正確的位置，使靜態的數據重新「活」了起來，成為驅動企業運營的即戰力。
+
+> [!NOTE]
+> 🔗 **相關展示與範例網站**：*(後續將在此插入具體範例網站與相關連結)*
+
+---
+
+### 🤖 Agent (AI Agent) - 智慧協作 {#etl-agent}
+
+![Agent (AI Agent) 智慧協作](images/etl_agent.svg)
+
+這是整條 ETL 管線的「大腦指揮官」，對應 FORCE 架縱最底層的 **AI Agent 智慧協作平台**。它改變了傳統自動化程式的僵化思維，引入了具備推理與規劃能力的自治 Agent 佇列：
+- **Workflow Agent**：主動規劃多步驟工作流，串聯不同的微服務。
+- **OCR / ETL Agent**：自主判斷最適合的辨識引擎，並在辨識失敗時進行自我反思與重試。
+- **Audit Agent**：全量審查入帳數據，主動識別異常交易、重複報支或合規漏洞。
+- **人機協作（HITL, Human-in-the-Loop）**：當系統遇到低置信度數據或高風險操作時，Agent 會主動暫停並將任務派送給人類主管進行審批，兼顧效率與安全。
+
+AI Agent 貫穿了 E-T-L 的全生命週期，讓整個數據管線具備了自我優化、主動防禦與自主決策的智慧能力。
+
+> [!NOTE]
+> 🔗 **相關展示與範例網站**：*(後續將在此插入具體範例網站與相關連結)*
 
 ---
 
