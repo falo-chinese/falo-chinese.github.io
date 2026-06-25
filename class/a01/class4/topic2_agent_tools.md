@@ -37,6 +37,10 @@
 
 在企業數位轉型的過程中，將 AI Agent 落地於通訊軟體是提升組織協作與客戶服務效率的最直接途徑。本章節將結合 Anthropic 最新推出的 **Claude Tag (Slack 整合)** 與 **LINE Bot (聊天機器人)**，剖析企業級 AI Agent 在不同通訊端點上的應用思維與技術架構。
 
+| 📰 實務新聞報導 | 💬 官方實戰專區 |
+| :--- | :--- |
+| [Anthropic 推出 Claude Tag 讓 AI 進入 Slack 成為團隊成員 ➔](https://www.techbang.com/posts/130504-anthropic-claude-tag-slack-integration) | [LINE Bot 聊天機器人整合實務與 AI 自動對答技巧 ➔](https://falo-taiwan.github.io/ai-line-help/) |
+
 ### 1. Claude Tag (Slack 整合) 實務收納
 Anthropic 於 2026 年 6 月推出了 **Claude Tag** 功能（搭配 Opus 4.8 運作）。這項功能的推出標誌著 AI 輔助工作從「個人對話」正式演進為「團隊協作」。
 
