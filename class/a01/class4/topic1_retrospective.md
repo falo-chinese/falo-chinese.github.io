@@ -1,5 +1,7 @@
 # 主題一：前三堂課程交流與補充
 
+> [!NOTE] 📂 **前三堂課程簡報 PDF 下載與存取說明**<br>• **Class 1 課程簡報**：[🌐 Google Drive 下載連結](https://drive.google.com/file/d/1lcTQQ4ceWf8-I-qxifTIbkTq8gwW0Pp7/view)<br>• **Class 2 課程簡報**：[🌐 Google Drive 下載連結](https://drive.google.com/file/d/1FV_SEjwf68vgd_CH28ScJSjz1FiwxxTw/view)<br>• **Class 3 課程簡報**：[🌐 Google Drive 下載連結](https://drive.google.com/file/d/1XDK6z2988pxJ0mIHCvgQmjFEHVCc2UeM/view?usp=sharing)<br>• 🔑 **PDF 檔案密碼提示**：公司英文縮寫（實際加密密碼為 `attn`，不分大小寫）。
+
 本主題旨在對前三週的學習重點進行深度沉澱與補充，並針對同仁在實務開發中遇到的盲點進行診斷與解答。
 
 ---

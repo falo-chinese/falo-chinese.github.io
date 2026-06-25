@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-06-26T00:17:42+08:00",
+    "action_type": "synced",
+    "description": "在主題一回顧（Topic 1 Retrospective）頁面頂部，新增了前三堂課程（Class 1, 2, 3）的 PDF 簡報下載連結與密碼存取提示（以公司英文縮寫為提示，實際加密密碼為 attn，不分大小寫）；全套教材重新編譯無誤後，已同步推送至雙鏡像 Git 倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic6_ai_api.md",
+      "force-taiwan/class/a01/class4/topic6_ai_api.html",
+      "compile_workshop.py",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-26T00:14:43+08:00",
     "action_type": "synced",
     "description": "對 Class 04 進行了全方位收尾與品質驗收：升級了 Markdown 編譯器以支援行內程式碼（Backticks）語意解析與特殊字元轉義，徹底修復了導師指南中的 HTML 標籤結構問題；同時開發並運行了全量 QA 自動化校驗腳本，確認全套 17 份編譯教材 HTML 之標籤結構與本機連結均 100% 完整無損；專案已重新打包並成功推送至雙鏡像 Git 倉庫。",
