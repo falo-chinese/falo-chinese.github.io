@@ -21,8 +21,8 @@
    *包含：常見提醒與交付規範、重點補充與問題解答、個別專案診斷與 FAQ。*
 
 ### 2. [🎯 主題二：AI App 專案腦力激盪](topic5_brainstorming.html)
-   引導同仁從業務痛點出發，共創銀河 ERP × FORCE AI App Store 三大核心方向之產品藍圖與 11 大 ERP SaaS 智慧增強模組，並整合企業網路防火牆與閘道相容性評估工具。
-   *包含：[📂 AI App Studio 工作坊套件總覽](ai_app_readme.html)（含 [產品思維方法論](methodology_blueprint.html)、[50+ App 創意 Backlog](backlog_template.html)、[100+ 創意靈感庫](idea_library.html)、[MVP & PoC 規劃指南](mvp_poc_guide.html)）與 [🛡️ FORCE 閘道與防火牆檢測工具](https://falo-taiwan.github.io/firewall-test/)。*
+   引導同仁從業務痛點出發，共創銀河 ERP × FORCE AI App Store 三大業務方向之產品藍圖（包含 AI KM 知識庫、ERP SaaS 智慧增強、日常效率倍增器），並提供 AI App 落地評估指標與網路防火牆檢測工具。
+   *包含：三大業務方向產品藍圖（11大 ERP 智慧加值模組、7大類28款日常組件全景圖譜）、AI App 企業落地關鍵注意事項與 FORCE 閘道相容性檢測工具。*
 
 ### 3. [⚡ 主題三：ETL 實務案例分享](topic3_etl_cases.html)
    分享九大高保真（High-Fidelity）的 ETL 與 OCR 整合實戰案例，引導同仁理解如何進行結構化資料轉置、AI 語意清洗與自動化處理。
