@@ -50,6 +50,13 @@
     6. **步驟六：隨時管理與確認付費級別**
        回到金鑰列表中，您可以看見已建立的金鑰。請確認其 **Billing Tier 為「Free tier (免費級別)」**。此處不需綁定信用卡，學員即可安心進行免費額度內的 API 測試。您隨時可以點擊列表中的「Copy key (複製圖示)」重新複製金鑰。
        ![步驟六：於列表中管理金鑰並確認 Free tier 級別](images/gemini_api_key_step6.png)
+       
+    7. **步驟七：觀測與監控 API 使用量與 Token 消耗**
+       在 API Key 列表中，點擊金鑰右側紫色的 **「用量統計按鈕 (圖表圖示)」**。
+       ![步驟七：點擊用量統計按鈕](images/gemini_api_usage_step1.png)
+       
+       這會引導您進入 **「Gemini API Usage (用量統計頁面)」**。在此頁面中，您可以即時觀測 Total API Requests (請求次數)、Total API Errors (錯誤次數)，以及每個模型的 Input/Output Tokens 消耗趨勢。這對於我們實作 AI 專案時進行 **「落地經濟學 (Economics)」** 的 Token 成本控制與用量監控至關重要！
+       ![用量統計頁面：即時監控 Token 消耗與請求次數](images/gemini_api_usage_step2.png)
 
 *   **實戰前端 JavaScript 呼叫代碼**：
 ```javascript

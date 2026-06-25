@@ -593,6 +593,13 @@
 <p>       回到金鑰列表中，您可以看見已建立的金鑰。請確認其 <strong>Billing Tier 為「Free tier (免費級別)」</strong>。此處不需綁定信用卡，學員即可安心進行免費額度內的 API 測試。您隨時可以點擊列表中的「Copy key (複製圖示)」重新複製金鑰。</p>
 <p>       <img src="images/gemini_api_key_step6.png" alt="步驟六：於列表中管理金鑰並確認 Free tier 級別" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
 <br>
+<p>    7. <strong>步驟七：觀測與監控 API 使用量與 Token 消耗</strong></p>
+<p>       在 API Key 列表中，點擊金鑰右側紫色的 <strong>「用量統計按鈕 (圖表圖示)」</strong>。</p>
+<p>       <img src="images/gemini_api_usage_step1.png" alt="步驟七：點擊用量統計按鈕" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<p>       這會引導您進入 <strong>「Gemini API Usage (用量統計頁面)」</strong>。在此頁面中，您可以即時觀測 Total API Requests (請求次數)、Total API Errors (錯誤次數)，以及每個模型的 Input/Output Tokens 消耗趨勢。這對於我們實作 AI 專案時進行 <strong>「落地經濟學 (Economics)」</strong> 的 Token 成本控制與用量監控至關重要！</p>
+<p>       <img src="images/gemini_api_usage_step2.png" alt="用量統計頁面：即時監控 Token 消耗與請求次數" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;">  <strong>實戰前端 JavaScript 呼叫代碼</strong>：</li>
 <div class="code-container"><div class="code-header"><span>JAVASCRIPT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre><code>// ☁️ 雲端 AI: Google Gemini API 呼叫範例 (使用 1.5 Flash)

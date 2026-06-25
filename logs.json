@@ -1,5 +1,26 @@
 [
   {
+    "timestamp": "2026-06-25T19:27:13+08:00",
+    "action_type": "synced",
+    "description": "依據老師最新上傳的用量統計截圖，進一步於 Class 04 主題一（前三堂課程交流與補充）最前方的 Gemini 申請流程中，正式追加『步驟七：觀測與監控 API 使用量與 Token 消耗』之實務圖文指引。手把手引導學員如何點選用量統計圖表，進入 Gemini API Usage 頁面即時觀測請求次數、錯誤率與 Token 吞吐消耗，使 Token 監控觀念與本課程的『落地經濟學 (Economics)』完美扣合。同步重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有新圖片與代碼同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "falo-taiwan/class/a01/class4/topic1_retrospective.md",
+      "falo-taiwan/class/a01/class4/topic1_retrospective.html",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step1.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step2.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step3.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step4.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step5.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_key_step6.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_usage_step1.png",
+      "falo-taiwan/class/a01/class4/images/gemini_api_usage_step2.png",
+      "class/a01/class4/20260625_class04_project.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-25T19:26:09+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示與上傳截圖，於 Class 04 主題一（前三堂課程交流與補充）最前方正式整合『手把手申請與複製 Gemini API Key 步驟』的 6 張高清實務步驟圖文教學，並完整解構免費級別 (Free tier) 確認與複制作業。同步重新編譯全套 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後將所有新圖片與代碼同步至本地預覽庫，順利推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
