@@ -10,6 +10,12 @@
 
 學員應透過本專案跳脫「聊天機器人 (Chatbot) 即 AI 應用」的狹隘認知，深刻理解如何將**逆向資料採集、輕量前端 TF-IDF、Token payload 防護、以及 Context Caching（上下文快取）減費技術**融入正式的軟體開發管線中，打造符合天心 ERP 下一代 AI 生態圈架構的產品。
 
+### 📊 AI KM RAG 系統整體架構圖
+![AI KM RAG 系統整體架構圖](images/ai_km_rag_architecture.png)
+
+### 📈 AI KM RAG 系統數據管線與流程圖
+![AI KM RAG 系統數據管線與流程圖](images/ai_km_rag_dataflow.png)
+
 ---
 
 ## 💡 專案蘊含的五大核心軟體工程觀念
