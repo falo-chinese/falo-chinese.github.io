@@ -29,9 +29,9 @@
 
 | 模型名稱 | API 識別代碼 | 建議角色定位 | 適用場景與特色 |
 | :--- | :--- | :--- | :--- |
-| **Gemini 3.5 Flash** | `gemini-3.5-flash` | 🛡️ **高階深度審查 (Stronger Review)** | 小字辨識、複雜表格、手寫辨識、或第一輪結果衝突時的終極裁決者。具備最強推理與 Agent 行為。 |
+| <span style="color: #0ea5e9; font-weight: bold;">⭐ Gemini 3.5 Flash (高階推薦)</span> | <span style="color: #0ea5e9; font-weight: bold;">`gemini-3.5-flash`</span> | <span style="color: #0ea5e9; font-weight: bold;">🛡️ 高階深度審查 (Stronger Review)</span> | <span style="color: #0ea5e9; font-weight: bold;">小字辨識、複雜表格、手寫辨識、或第一輪結果衝突時的終極裁決者。具備最強推理與 Agent 行為。</span> |
 | **Gemini 3.1 Flash** | `gemini-3.1-flash` | ⚡ **主流主力模型 (Main Engine)** | 預設主力，具備極佳的代碼生成、邏輯推理與多模態表現，效能與速度最為平衡。 |
-| **Gemini 3.1 Flash-Lite** | `gemini-3.1-flash-lite` | 💸 **低成本快速草稿 (Low-cost Draft)** | 高頻率調用、PoC 概念驗證、第一版文字或 JSON 結構草稿提取。速度極快，成本極低。 |
+| <span style="color: #10b981; font-weight: bold;">⭐ Gemini 3.1 Flash-Lite (最省推薦)</span> | <span style="color: #10b981; font-weight: bold;">`gemini-3.1-flash-lite`</span> | <span style="color: #10b981; font-weight: bold;">💸 低成本快速草稿 (Low-cost Draft)</span> | <span style="color: #10b981; font-weight: bold;">高頻率調用、PoC 概念驗證、第一版文字或 JSON 結構草稿提取。速度極快，成本極低。</span> |
 | **Gemini 2.5 Flash** | `gemini-2.5-flash` | 📊 **基準教學比較 (Baseline Comparison)** | 用於歷史基準對照、一般教學或簡單問答，作為效能升級前後的對比點。 |
 | **Gemini 2.5 Flash-Lite** | `gemini-2.5-flash-lite` | ⏳ **歷史低成本基準 (Older Lite Baseline)** | 用於歷史版本的低成本基準對照。 |
 
