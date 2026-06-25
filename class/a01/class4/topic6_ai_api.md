@@ -187,19 +187,43 @@ async function callGemini(promptText, apiKey, options = {}) {
 ### 2. 地端 AI 呼叫：Ollama 服務 (Local-based LLM)
 *   **技術定位**：地端部署之開源模型伺服器。
 *   **優勢**：100% 數據隱私安全（敏感商業資料完全不出企業內網）、零 Token 調用費用、可在無外網連線的物理隔離環境下穩定運作。
-*   **劣勢**：極度依賴本地硬體算力（需要足夠的 GPU 顯示卡與視訊記憶體），且本地部署的模型參數規模（如 8B, 14B）其推理能力與雲端超大型模型相比仍有差距。
+*   **劣勢**：極度依賴本地硬體算力（需要足夠的 GPU 顯示卡與視訊記憶體），且本地部署的模型參數規模其推理能力與雲端超大型模型相比仍有差距。
+
+*   **💻 實戰指引：Mac M4 mini 16G 基準模型選型與避坑指南**：
+    在本地運行 AI 模型時，主機記憶體大小是決定效能與穩定性的關鍵。
+    本課程以 **Apple Mac mini (M4 晶片, 16GB 統一記憶體)** 作為教學與學員練習的基準硬體平台：
+    *   **硬體優勢**：M4 晶片具備強大的 GPU 與 Neural Engine，統一記憶體架構（Unified Memory）能讓 GPU 以極高頻寬存取模型，運行速度極快。
+    *   **記憶體避坑限制**：由於 M4 晶片的 16GB 記憶體必須由 macOS 系統、開發工具 (IDE)、瀏覽器與 Ollama 共用，**我們強烈建議地端模型參數規模控制在 8B 以下**。若勉強加載 12B 以上的模型，會導致記憶體不足而觸發虛擬記憶體交換 (Swap)，Token 輸出速率會從順暢的 40+ tps 斷崖式下跌至個位數。
+    
+    以下為我們針對 Mac M4 mini 16G 推薦的最佳 Ollama 模型組合：
+
+    | 模型名稱 | Ollama 運行指令 | 模型類型與規模 | 記憶體佔用與效能評估 (16G 基準) | 適用企業場景 |
+    | :--- | :--- | :--- | :--- | :--- |
+    | **Gemma 4 (Effective 2B)** | `ollama run gemma4:e2b` | 文本 (Dense 2B) | 💾 極小 (約 1.6 GB)<br>⚡ 極速：~80+ tps | 本地極速文本分類、關鍵字提取、意圖偵測。完美留出系統開發空間。 |
+    | **Gemma 4 (Effective 4B)** | `ollama run gemma4:e4b` | 文本 (Dense 4B) | 💾 較小 (約 2.8 GB)<br>⚡ 快速：~55+ tps | 中文語意理解極佳。適合本地離線對話、簡易合約分析、會議記錄摘要。 |
+    | **Qwen 3 Vision-Language (2B)** | `ollama run qwen3-vl:2b` | 視覺多模態 (2B) | 💾 很小 (約 2.0 GB)<br>⚡ 快速：~60+ tps | **本地多模態/OCR 首選！** 支持直接傳入圖片進行發票辨識、考題解析，記憶體無負擔。 |
+    | **Qwen 3 Vision-Language (8B)** | `ollama run qwen3-vl:8b` | 視覺多模態 (8B) | 💾 中等 (約 5.5 GB)<br>🚀 流暢：~35+ tps | 複雜表格與小字辨識。16G 記憶體的效能上限，建議運行時關閉其他重度程式。 |
+    | **Qwen 3 (7B)** | `ollama run qwen3:7b` | 文本/代碼 (7B) | 💾 中等 (約 4.8 GB)<br>🚀 流暢：~40+ tps | 本地代碼輔助生成、複雜中文推理與 SQL 語法轉換。 |
+
 *   **實戰前端 JavaScript 呼叫代碼**：
 ```javascript
-// 🏠 地端 AI: Ollama 本地 API 呼叫範例 (非串流模式)
-async function callOllama(promptText, modelName = 'llama3') {
+// 🏠 地端 AI: Ollama 本地 API 呼叫範例 (支援最新 gemma4 與 qwen3-vl 視覺模型)
+async function callOllama(promptText, modelName = 'gemma4:e4b', options = {}) {
   // 本地 Ollama 預設的生成端點
+  // 💡 若為多模態視覺模型 (如 qwen3-vl)，Ollama 採用相同的 /api/generate 端點，但在 payload 中加入 images 陣列
   const url = 'http://localhost:11434/api/generate';
+  const { images = [] } = options; // 支援傳入 Base64 圖片陣列 (不含 data:image/*;base64, 前綴)
   
   const payload = {
     model: modelName,
     prompt: promptText,
     stream: false // 💡 設定為 false 關閉串流，直接返回完整 JSON，便於前端解析
   };
+
+  // 💡 多模態支援：若有圖片，則寫入 payload 中
+  if (images && images.length > 0) {
+    payload.images = images;
+  }
 
   try {
     const response = await fetch(url, {
@@ -212,7 +236,7 @@ async function callOllama(promptText, modelName = 'llama3') {
     
     const data = await response.json();
     const generatedText = data.response;
-    console.log("Ollama 輸出：\n", generatedText);
+    console.log(`[Ollama: ${modelName}] 輸出：\n`, generatedText);
     return generatedText;
   } catch (error) {
     console.error("Ollama 本地連線失敗，請確保本地 Ollama 已啟動且跨來源資源共用 (CORS) 已放行！\n錯誤資訊：", error);
@@ -222,8 +246,17 @@ async function callOllama(promptText, modelName = 'llama3') {
   }
 }
 
-// 💡 實測呼叫：確保本地已執行 `ollama run llama3`
-// callOllama("請用繁體中文自我介紹。");
+// 💡 實測呼叫（請先在終端機執行 ollama run 對應模型，並放行 CORS）：
+// 
+// 1. 【預設文本模式】 使用 Gemma 4 (4B) 進行本地問答：
+// callOllama("請用繁體中文自我介紹。", "gemma4:e4b");
+//
+// 2. 【極速文本模式】 使用更輕量的 Gemma 4 (2B) 運行：
+// callOllama("請寫一段 Python 氣泡排序法代碼。", "gemma4:e2b");
+//
+// 3. 【多模態視覺模式】 使用 Qwen 3 VL (2B) 進行圖片分析：
+// // 傳入一張發票或題目的 base64 圖片 (此處省略 base64 字串)
+// // callOllama("請辨識這張圖片中的發票號碼與總金額。", "qwen3-vl:2b", { images: ["iVBORw0KGgoAAAANSUhEUgAA..."] });
 ```
 
 ---

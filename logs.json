@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-06-25T19:40:16+08:00",
+    "timestamp": "2026-06-25T19:41:21+08:00",
     "action_type": "synced",
     "description": "依據老師最新指示，將全套教材課件中的所有程式碼區塊（code blocks）進行全域摺疊優化。透過 HTML5 details/summary 實現預設折疊的高質感代碼卡片，並保留右上角的複製鈕。同時，在主題六中全面升級 Gemini API 的呼叫範例，並新增『新世代 Gemini 3.5 / 3.1 / 2.5 家族成員技術選型與多模型雙通道級聯路由（Cascade Routing）實戰指引』。重新編譯全套 18 個 HTML 課件、更新並重新打包專案 ZIP 壓縮檔（20260625_class04_project.zip），最後同步推送到 falo-taiwan 及 falo-chinese 兩個 GitHub Pages 鏡像倉庫。",
     "operator": "AI (Antigravity)",
