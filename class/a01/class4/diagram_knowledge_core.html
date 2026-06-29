@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>萬佛朝宗：統一的 AI 知識核心架構圖 | Class 04 知識核心</title>
+    <title>萬佛朝宗：FALO AI 統一知識核心與架構總覽 | Class 04 知識核心</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -30,7 +30,7 @@
             --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.85);
             --card-border: rgba(99, 102, 241, 0.12);
             --card-hover-border: rgba(99, 102, 241, 0.45);
             --primary: #4f46e5;
@@ -217,6 +217,45 @@
             gap: 0.4rem;
         }
 
+        /* Tabs Control */
+        .tabs-header {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.6rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: var(--primary-glow);
+        }
+
+        .tab-btn.active {
+            color: #ffffff;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        body.theme-light .tab-btn.active {
+            color: #ffffff;
+        }
+
         /* Diagram Box Styling */
         .diagram-container {
             background: var(--card-bg);
@@ -294,14 +333,26 @@
             justify-content: center;
             background: #ffffff;
             padding: 1rem;
+            min-height: 300px;
+            align-items: center;
         }
 
         .diagram-image {
             max-width: 100%;
             height: auto;
-            display: block;
+            display: none;
             border-radius: 8px;
             transition: transform 0.3s ease;
+        }
+
+        .diagram-image.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Grid Breakdown */
@@ -316,6 +367,16 @@
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--primary);
             padding-left: 12px;
+        }
+
+        /* Tabs Specific Panels for Description */
+        .desc-panel {
+            display: none;
+        }
+
+        .desc-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .breakdown-grid {
@@ -621,6 +682,10 @@
                 from { transform: translateY(-2px); opacity: 0.5; }
                 to { transform: translateY(2px); opacity: 1; }
             }
+            .tabs-header {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
         }
     </style>
 </head>
@@ -650,7 +715,7 @@
             </a>
             <br>
             <span class="eyebrow-badge">企業架構藍圖</span>
-            <h1>萬佛朝宗：企業統一 AI 知識核心系統架構</h1>
+            <h1>FALO AI 統一知識核心與架構總覽</h1>
             <div class="meta-info">
                 <div class="meta-item">
                     <span>📅</span> <strong>發佈日期：2026/06/29</strong>
@@ -661,6 +726,12 @@
             </div>
         </header>
 
+        <!-- Tabs Navigation -->
+        <div class="tabs-header">
+            <button class="tab-btn active" id="btn-tab-functional" onclick="switchTab('functional')">🧠 1. 系統功能流轉圖</button>
+            <button class="tab-btn" id="btn-tab-technical" onclick="switchTab('technical')">🖥️ 2. 四層技術架構圖</button>
+        </div>
+
         <!-- Dynamic Lightbox Overlay -->
         <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
             <img class="lightbox-img" id="lightboxImg" src="" alt="Lightbox View">
@@ -669,25 +740,28 @@
         <!-- Diagram Showcase -->
         <div class="diagram-container">
             <div class="diagram-header">
-                <div class="diagram-title">ai_knowledge_core_map.png</div>
+                <div class="diagram-title" id="diagram-filename">ai_knowledge_core_map.png</div>
                 <button class="diagram-btn" onclick="openLightbox()">🔍 點此放大查看全圖</button>
             </div>
             <div class="diagram-wrapper">
-                <img class="diagram-image" id="targetDiagram" src="images/ai_knowledge_core_map.png" alt="萬佛朝宗 AI 知識核心架構圖">
+                <!-- Functional Map -->
+                <img class="diagram-image active" id="img-functional" src="images/ai_knowledge_core_map.png" alt="萬佛朝宗 AI 系統功能流轉圖">
+                <!-- Technical Overview -->
+                <img class="diagram-image" id="img-technical" src="images/falo_ai_architecture_overview.png" alt="FALO AI 四層技術架構圖">
             </div>
         </div>
 
-        <!-- Interactive Simulator -->
+        <!-- Interactive Simulator (Only show when functional flow is context, but relevant to both) -->
         <div class="simulator-box">
             <div class="sim-title">
-                <span>⚡</span> 知識流轉模擬器 (Knowledge Flow Simulator)
+                <span>⚡</span> FALO AI 數據流轉與處理模擬器
             </div>
-            <p class="sim-desc">點選下方不同的「多元輸入管道」，觀察資料如何經過 ETL 洗滌、儲存至統一知識核心（KM），並最終由 AI Agent 執行多管道輸出運作：</p>
+            <p class="sim-desc">點選下方不同的「多元重要資訊管道」，模擬觀察非結構化資料如何經過自動化 ETL 洗滌、寫入中央知識核心（KM），並經由 Python Cloud Run 與 AI Agent 執行多管道回寫輸出：</p>
             
             <div class="sim-selector">
-                <button class="sim-btn" onclick="runSimulation('email')">✉️ Email (夾帶 PDF 補助文件)</button>
-                <button class="sim-btn" onclick="runSimulation('line')">💬 LINE (客服詢問產品問題)</button>
-                <button class="sim-btn" onclick="runSimulation('telegram')">🤖 Telegram (上傳數據檔案)</button>
+                <button class="sim-btn" onclick="runSimulation('email')">✉️ Email (公文/私信 PDF 附件)</button>
+                <button class="sim-btn" onclick="runSimulation('line')">💬 LINE (好友群組對話/客服詢問)</button>
+                <button class="sim-btn" onclick="runSimulation('telegram')">🤖 Telegram (上傳錯誤日誌 txt)</button>
             </div>
 
             <div class="sim-pipeline">
@@ -722,88 +796,135 @@
             </div>
         </div>
 
-        <!-- Breakdown section -->
+        <!-- Breakdown sections -->
         <div class="breakdown-section">
-            <h2 class="breakdown-title">架構模組細節拆解</h2>
-            <div class="breakdown-grid">
-                
-                <!-- Card 1 -->
-                <div class="breakdown-card">
-                    <div>
-                        <div class="card-header-icon" style="color: var(--accent-blue);">📥</div>
-                        <h3 class="card-title">1. 多元輸入管道</h3>
-                        <p class="card-desc">企業每日有大量重要資訊流動。本層級打破資訊孤島，無論是公務/私人 Email 郵件附件、LINE 官方帳號對話，或是 Telegram Bot 的即時指令與圖片檔案，皆視為核心數據源。</p>
+            
+            <!-- Panel 1: Functional Cards -->
+            <div class="desc-panel active" id="panel-functional">
+                <h2 class="breakdown-title">系統功能流轉細節</h2>
+                <div class="breakdown-grid">
+                    
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-blue);">📥</div>
+                            <h3 class="card-title">1. 多元輸入管道</h3>
+                            <p class="card-desc">企業每日有大量重要資訊流動。本層級打破資訊孤島，無論是公務/私人 Email 郵件附件、LINE 官方帳號對話，或是 Telegram Bot 的即時指令與圖片檔案，皆視為核心數據源。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Email IMAP</span>
+                            <span class="card-tag">LINE Webhook</span>
+                            <span class="card-tag">Telegram Bot</span>
+                        </div>
                     </div>
-                    <div class="card-tags">
-                        <span class="card-tag">Email IMAP</span>
-                        <span class="card-tag">LINE Webhook</span>
-                        <span class="card-tag">Telegram Bot</span>
-                    </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="breakdown-card">
-                    <div>
-                        <div class="card-header-icon" style="color: var(--accent-orange);">⚙️</div>
-                        <h3 class="card-title">2. ETL 整理與轉換</h3>
-                        <p class="card-desc">非結構化資訊的洗滌區。資料經過「攝取」、「清理」、「解析（利用 OCR 解析文件與圖片文字）」以及關鍵資訊的「標註」，最終「載入」AI 知識庫，將雜亂資訊洗滌為結構化黃金資料。</p>
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-orange);">⚙️</div>
+                            <h3 class="card-title">2. ETL 整理與轉換</h3>
+                            <p class="card-desc">非結構化資訊的洗滌區。資料經過「攝取」、「清理」、「解析（利用 OCR 解析文件與圖片文字）」以及關鍵資訊的「標註」，最終「載入」AI 知識庫，將雜亂資訊洗滌為結構化黃金資料。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">LlamaParse</span>
+                            <span class="card-tag">FALO OCR</span>
+                            <span class="card-tag">LLM Metadata</span>
+                        </div>
                     </div>
-                    <div class="card-tags">
-                        <span class="card-tag">LlamaParse</span>
-                        <span class="card-tag">FALO OCR</span>
-                        <span class="card-tag">LLM Metadata</span>
-                    </div>
-                </div>
 
-                <!-- Card 3 -->
-                <div class="breakdown-card">
-                    <div>
-                        <div class="card-header-icon" style="color: var(--accent-green);">🗄️</div>
-                        <h3 class="card-title">3. AI 統一知識核心 (KM)</h3>
-                        <p class="card-desc">企業的中央大腦。統一儲存並建立「文件檔案」、「對話紀錄」與「事件任務」的關聯與記憶。利用向量化儲存支援超高性能語意檢索，實現跨項目人、事、時、地的智能網狀連結。</p>
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-green);">🗄️</div>
+                            <h3 class="card-title">3. AI 統一知識核心 (KM)</h3>
+                            <p class="card-desc">企業的中央大腦。統一儲存並建立「文件檔案」、「對話紀錄」與「事件任務」的關聯與記憶。利用向量化儲存支援超高性能語意檢索，實現跨項目人、事、時、地的智能網狀連結。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Vector DB</span>
+                            <span class="card-tag">Graph Memory</span>
+                            <span class="card-tag">Hybrid Search</span>
+                        </div>
                     </div>
-                    <div class="card-tags">
-                        <span class="card-tag">Vector DB</span>
-                        <span class="card-tag">Graph Memory</span>
-                        <span class="card-tag">Hybrid Search</span>
-                    </div>
-                </div>
 
-                <!-- Card 4 -->
-                <div class="breakdown-card">
-                    <div>
-                        <div class="card-header-icon" style="color: var(--accent);">🤖</div>
-                        <h3 class="card-title">4. AI Agent 智慧運用</h3>
-                        <p class="card-desc">頂層邏輯處理單元。AI Agent 讀取統一知識庫後，可靈活執行智慧 Q&A、進度自動追蹤任務、分析洞察預測、產生文件或簡報，並在特定閾值觸發時主動進行提醒與安全預警。</p>
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent);">🤖</div>
+                            <h3 class="card-title">4. AI Agent 智慧運用</h3>
+                            <p class="card-desc">頂層邏輯處理單元。AI Agent 讀取統一知識庫後，可靈活執行智慧 Q&A、進度自動追蹤任務、分析洞察預測、產生文件或簡報，並在特定閾值觸發時主動進行提醒與安全預警。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">LangGraph</span>
+                            <span class="card-tag">Task Scheduler</span>
+                            <span class="card-tag">Proactive Agent</span>
+                        </div>
                     </div>
-                    <div class="card-tags">
-                        <span class="card-tag">LangGraph</span>
-                        <span class="card-tag">Task Scheduler</span>
-                        <span class="card-tag">Proactive Agent</span>
-                    </div>
-                </div>
 
-                <!-- Card 5 -->
-                <div class="breakdown-card" style="grid-column: span 1; min-height: 250px;">
-                    <div>
-                        <div class="card-header-icon" style="color: var(--accent-red);">📤</div>
-                        <h3 class="card-title">5. 多渠道輸出與回應</h3>
-                        <p class="card-desc">實體業務串接層。Agent 的決策不只停留在文字，而是直接回信、自動 LINE 回覆、生成 PPT 簡報、更新主管 Dashboard 大屏、觸發外部 API 系統，或輸出 Excel 報表，完成閉環自動化。</p>
-                    </div>
-                    <div class="card-tags">
-                        <span class="card-tag">Email Send</span>
-                        <span class="card-tag">API Hook</span>
-                        <span class="card-tag">Auto Reports</span>
-                    </div>
                 </div>
-
             </div>
+
+            <!-- Panel 2: Technical Overview Cards -->
+            <div class="desc-panel" id="panel-technical">
+                <h2 class="breakdown-title">四層技術架構說明</h2>
+                <div class="breakdown-grid">
+                    
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-blue);">🖥️</div>
+                            <h3 class="card-title">前端 (入口層)</h3>
+                            <p class="card-desc">預設採用 <strong>Google Apps Script (GAS)</strong> 或 <strong>Cloudflare</strong>。負責做為流量的第一道防線，執行身分驗證與權限控管，提供簡單的 Portal 表單輸入，並執行最初步的驗證與分流，將任務派送至後端處理。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Apps Script</span>
+                            <span class="card-tag">Cloudflare Pages</span>
+                            <span class="card-tag">API Gateway</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-orange);">⚡</div>
+                            <h3 class="card-title">中間 (處理層)</h3>
+                            <p class="card-desc">預設採用 <strong>Google Cloud Run</strong>。做為 FALO AI 的核心運算引擎與 Runtime 執行環境。利用 Python 連接 OpenAI / Gemini 模型，部署複雜的非同步 ETL 洗滌程序、OCR 影像解析、影片摘要以及 Agent 自主排程任務。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">GCP Cloud Run</span>
+                            <span class="card-tag">Python App</span>
+                            <span class="card-tag">Docker Container</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-green);">💾</div>
+                            <h3 class="card-title">後端 (資料層)</h3>
+                            <p class="card-desc">預設為 <strong>Google 生態系 (Workspace)</strong>。資料完全儲存在客戶自有的雲端空間，包含 Google Drive 專屬資料夾、Sheets 表格庫（充當關聯資料庫）、Docs 文件協作、Gmail 郵件派送，並使用 NotebookLM 作為隨插即用的知識庫。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Google Sheets</span>
+                            <span class="card-tag">Shared Drive</span>
+                            <span class="card-tag">NotebookLM</span>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-card">
+                        <div>
+                            <div class="card-header-icon" style="color: var(--accent-red);">🔌</div>
+                            <h3 class="card-title">輔助 (彈性節點)</h3>
+                            <p class="card-desc"><strong>PC AI Node (地端代理程式)</strong>。此為非預設的彈性路徑，僅在有內網安全存取、地端硬體運算（如 Ollama 本地模型跑敏感 OCR）或需要操作地端 Office / Outlook 自動化等特殊情況下，由 Cloud Run 透過安全 VPN 隧道觸發啟用。</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="card-tag">Ollama Local</span>
+                            <span class="card-tag">Tailscale VPN</span>
+                            <span class="card-tag">Office Automation</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <!-- CTA Summary Card -->
         <div class="summary-card">
             <h3>一個入口，多種來源；一個核心，智慧整合；一個 Agent，創造最大價值！</h3>
-            <p>這套架構實現了「萬佛朝宗」的終極目的：將企業日常四散的零碎流程與文檔完全整合。只要把重複的工作流程整理好，AI 就會成為公司運轉最務實的引擎。</p>
+            <p>這套架構實現了「萬佛朝宗」的終極目的：將企業日常四散的零碎流程與文檔完全整合。透過前端 GAS/Cloudflare 控管權限、中間 Cloud Run 進行智能洗滌與 Agent 執行、後端 Google Sheets/Docs 儲存協作，實現資料安全、權限分明且靈活可控的 AI 落地。</p>
         </div>
     </div>
 
@@ -841,13 +962,37 @@
             }
         }
 
+        // Tab Switching Logic
+        let activeTab = "functional";
+        function switchTab(tabName) {
+            activeTab = tabName;
+            
+            // Buttons toggle
+            document.getElementById("btn-tab-functional").classList.toggle("active", tabName === "functional");
+            document.getElementById("btn-tab-technical").classList.toggle("active", tabName === "technical");
+
+            // Images toggle
+            document.getElementById("img-functional").classList.toggle("active", tabName === "functional");
+            document.getElementById("img-technical").classList.toggle("active", tabName === "technical");
+
+            // Descriptions toggle
+            document.getElementById("panel-functional").classList.toggle("active", tabName === "functional");
+            document.getElementById("panel-technical").classList.toggle("active", tabName === "technical");
+
+            // Filename tag update
+            document.getElementById("diagram-filename").innerText = 
+                tabName === "functional" ? "ai_knowledge_core_map.png" : "falo_ai_architecture_overview.png";
+        }
+
         // Lightbox Zoom Logic
         function openLightbox() {
             const overlay = document.getElementById("lightboxOverlay");
             const lightboxImg = document.getElementById("lightboxImg");
-            const srcImg = document.getElementById("targetDiagram");
+            const activeImg = activeTab === "functional" 
+                ? document.getElementById("img-functional") 
+                : document.getElementById("img-technical");
             
-            lightboxImg.src = srcImg.src;
+            lightboxImg.src = activeImg.src;
             overlay.style.display = "flex";
             document.body.style.overflow = "hidden"; // disable scroll
         }
@@ -873,22 +1018,22 @@
             const messages = {
                 email: [
                     "📥 [觸發] 收到來自政府補助案通知 Email，附帶『AI 智慧製造計畫.pdf』...",
-                    "⚙️ [ETL] 啟動 FALO OCR，將 PDF 內的表格與 5 萬字申請法規轉換為乾淨 Markdown，並標註來源：Email...",
-                    "🗄️ [知識核心] 將法規向量化存入 FAISS，並將『申請截止日』與『主管單位』關聯為事件實體...",
-                    "🤖 [Agent] 補助款診斷 Agent 讀取新資料，自動執行比對，判斷此法規與本公司現有專案相符...",
-                    "📤 [輸出] 自動產生 Email 評估報表草稿，並將『截止日』自動同步至主管 Dashboard 戰情室！"
+                    "⚙️ [ETL] Cloud Run 啟動 Python LlamaParse 洗滌，將 PDF 表格與條款轉換為 Markdown 並 OCR 標註時間...",
+                    "🗄️ [知識核心] 寫入後端 Google Sheets，並在 Google Drive 專屬資料夾建立連結與 NotebookLM 實體關聯...",
+                    "🤖 [Agent] 計畫比對 Agent 自主分析，判定此補助規範與公司目前開發的專案匹配，且截止日尚有 14 天...",
+                    "📤 [輸出] 自動產生 Email 評估報表草稿，並回寫數據，自動更新主管 Dashboard 戰情大屏！"
                 ],
                 line: [
                     "📥 [觸發] 客戶在 LINE 官方帳號詢問：『請問企業導入 AI 防火牆該怎麼設定？』...",
-                    "⚙️ [ETL] 清洗對話格式，去重多餘空行，提取詢問核心特徵：『防火牆設定、相容性』...",
-                    "🗄️ [知識核心] 呼叫本地知識核心，檢索到『FORCE 防火牆相容性檢測手冊.md』中的對應段落...",
-                    "🤖 [Agent] 客服 Q&A Agent 讀取檢索段落，撰寫專業回覆初稿，並確認不包含敏感資訊...",
-                    "📤 [輸出] 通過 LINE Webhook API 即時自動回覆客戶解答，並記錄此 FAQ 問題於 LocalStorage 儀表板。"
+                    "⚙️ [ETL] LINE Webhook 將文字派給 Cloud Run，進行格式清洗去重，抓取詢問實體詞為『防火牆』...",
+                    "🗄️ [知識核心] 透過 API 從 Google Sheets 知識庫中檢索『FORCE 防火牆相容性檢測手冊』對應回覆資訊...",
+                    "🤖 [Agent] Q&A 客服 Agent 接收檢索段落，調用 LLM 整合為一段流暢親切的 200 字回覆，並過濾敏感語句...",
+                    "📤 [輸出] 透過 LINE Webhook API 即時發送回覆，並將此條 Q&A 互動紀錄追蹤於後端 Sheet 資料庫中。"
                 ],
                 telegram: [
-                    "📥 [觸發] 研發部同仁在 Telegram 群組上傳『2026年Q2服務運行錯誤日誌.txt』...",
-                    "⚙️ [ETL] ETL 清洗日誌，剔除無效的 info 級數據，保留 error 與 warning 記錄，標註時間與來源群組...",
-                    "🗄️ [知識核心] 將錯誤日誌寫入故障資料庫，並與歷史『維修手冊』『知識庫』建立網狀實體連結...",
+                    "📥 [觸發] 運維部同仁在 Telegram 群組上傳日誌『2026年Q2服務運行錯誤日誌.txt』...",
+                    "⚙️ [ETL] Cloud Run ETL 清洗日誌，剔除無效的 info 級數據，保留 error 與 warning 記錄，標註時間與來源群組...",
+                    "🗄️ [知識核心] 呼叫本地知識核心，檢索到『FORCE 防火牆相容性檢測手冊.md』中的對應段落...",
                     "🤖 [Agent] 系統監控 Agent 執行故障診斷，比對歷史紀錄，給出最佳修復決策建議...",
                     "📤 [輸出] 自動產生故障修復 Excel 報表，並向運維團隊的 LINE/Slack 群組發送主動安全預警！"
                 ]
