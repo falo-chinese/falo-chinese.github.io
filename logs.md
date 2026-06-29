@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-29 16:14:00 | 本機與線上同步 | 建立獨立的『萬佛朝宗：企業統一 AI 知識核心架構圖』互動式網頁 (diagram_knowledge_core.html)，內置圖片放大 Lightbox 與知識流轉模擬器 (模擬 Email/LINE/Telegram 的 ETL 與 Agent 處理流向)，目前主結構維持不變，並成功打包與同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-29 14:57:00 | 本機與線上同步 | 建立兩個獨立的精美文章網頁：企業 AI 導入效率省思篇（article_ai_efficiency.html，內置成熟度自我檢測器與導入三部曲）與開源程式小模型新星 Ornith-1.0 介紹篇（article_ornith_agent.html，內置模型家族、SVG基準圖與 Self-Scaffolding 流程圖），並更新首頁延伸精選閱讀連結與側邊選單，成功編譯同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:39:00 | 本機與線上同步 | 修正主題二（topic5_brainstorming.html）日常效率倍增器之摺疊面板排版跑掉缺陷，將 28 款組件由原本合併在同一行的粗體樣式改為無粗體之獨立 HTML 段落排列，確保各項目排版完美分開；全套網頁已重新編譯並成功同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-26 00:27:00 | 本機與線上同步 | 精確修正 Class 04 主導覽頁（index.html）主題二之說明，移除已調整/刪除之舊版工作坊資源以對齊實際頁面內容；已將主題二主頁（topic5_brainstorming.html）完全還原至舊版狀態，不作任何修改；全套 HTML 頁面重新編譯與 QA 校驗均無誤，已同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
