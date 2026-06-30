@@ -57,3 +57,20 @@
   ![FALO 雙軌 AI 翻譯與智能摘要雙模式處理流程圖](images/chatgpt_image_20260630_213604.png)
   
   ![Email 2.0 從通訊工具進化成 AI Event Gateway 架構與價值分析圖](images/chatgpt_image_20260630_213818.png)
+
+
+### 商業型整合專案 F：資安與 AI 雙贏的下一代企業級架構 ─ Cloudflare 邊緣平台與合規通道設計
+* **專案精神**：企業在導入 AI 服務時，常面臨「AI 的創新效率（希望快速測試、無障礙調用）」與「資安的風規控管（拒絕隨意架設 Tunnel、要求內網解密與全面審計）」之間的拉鋸衝突。本專案由「資安高手 Harrison」與「AI 高手 Force」共同研討，提出「合規通道，可控創新」的雙贏架構。透過 Cloudflare Edge Platform 作為全球邊緣節點，使用者端完全不需要安裝任何 Tunnel Client，全線透過合法的 HTTPS (443) 埠進行加密與混淆傳輸。此外，架構中對比了「ngrok（開發測試期隨手工具）」與「Cloudflare（正式上線期平台基礎建設）」的關鍵定位差異，協助企業架構師規劃兼顧「零信任安全治理（Access Policy / Zero Trust / 日誌審計）」與「敏捷創新」的 AI 落地基礎設施。
+* **技術對比與特點**：
+  * **合規通道與零內網穿透風險**：不強行突破資安防火牆，而是採用合法的 HTTPS / SMTP 通道入口，結合 Cloudflare Access、WAF 及 DDoS 防護，滿足企業資安治理（DLP/CASB、UEBA、日誌審計）的最高標準。
+  * **Cloudflare Edge 邊緣整合運算**：結合 Pages、Workers 執行無伺服器邏輯，並透過 KV、D1 與 R2 儲存核心狀態，實現極速響應與零地端伺服器負載。
+  * **ngrok 與 Cloudflare 雙軌部署策略**：
+    * **開發階段 (ngrok)**：適合 1 分鐘快速公開本地服務、PoC/MVP 快速驗證。
+    * **產品階段 (Cloudflare)**：綁定自有網域、享受全球 CDN、企業級安全防護與 99.99% 高可用度。
+* **技術架構與部署差異圖**：
+  
+  ![Email 2.0 從通訊工具進化成 AI Event Gateway 架構圖](images/chatgpt_image_20260630_213818_f.png)
+  
+  ![資安高手 A + AI 高手 B 下一代 AI 服務合規傳輸架構圖](images/chatgpt_image_20260630_213940.png)
+  
+  ![ngrok vs Cloudflare 部署定位與重點差異對比圖](images/chatgpt_image_20260630_213955.png)

@@ -42,7 +42,7 @@
 
 ### 7. [💼 主題七：商業型整合專案](topic8_commercial_projects.html)
    收錄具備高度商業應用價值與軟體工程規格的 AI 整合專案，以架構師視角規劃具備長期維運與商業彈性的解決方案。
-   *包含：FALO NotebookLM Runtime Lab (知識庫執行網關)、LINE 資訊過載助手 (深度研究報告)、FALO Web Share API (Cloudflare Workers 拍照部署與 QRCode 門戶)、FALO 萬佛朝宗 (多通道重要工作資訊流與 AI Agent 知識核心架構)、FALO Email 驅動智慧引擎 (Email 驅動雙軌 AI 翻譯與智能摘要服務)。*
+   *包含：FALO NotebookLM Runtime Lab (知識庫執行網關)、LINE 資訊過載助手 (深度研究報告)、FALO Web Share API (Cloudflare Workers 拍照部署與 QRCode 門戶)、FALO 萬佛朝宗 (多通道重要工作資訊流與 AI Agent 知識核心架構)、FALO Email 驅動智慧引擎 (Email 驅動雙軌 AI 翻譯與智能摘要服務)、Cloudflare 邊緣平台與合規通道設計 (資安與 AI 雙贏架構)。*
 
 ---
 
