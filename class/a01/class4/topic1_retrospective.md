@@ -62,13 +62,13 @@ function verifyPdfPassword(url) {
 
 在 AI-Native 的工作流中，人與 AI 的協作不再是傳統指令式的對話，而是圍繞著「文件與知識」展開的閉環流轉：
 
-* **📄 一份知識真相，多份呈現 (One Source of Truth, Multiple Presentations)**
+* <span style="color: #c084fc; font-weight: bold;">📄 一份知識真相，多份呈現 (One Source of Truth, Multiple Presentations)</span>
   所有的業務規格與行為約束只寫在同一個檔案中。但這個檔案會有多種呈現形式：給 AI 讀取的是結構化、語意清晰的 Markdown 全文；給人類看的是視覺精美、具備互動效果與時間軸的 HTML 網頁。
-* **👥 每個角色選擇他看得懂的版本，用他看得懂的方式回饋**
+* <span style="color: #c084fc; font-weight: bold;">👥 每個角色選擇他看得懂的版本，用他看得懂的方式回饋</span>
   不同角色各司其職：商務端、管理層或客戶瀏覽 HTML 視覺網頁，並用自然語言提出回饋與修正建議；工程師審查代碼與技術架構；AI 則直接載入並嚴格遵循 Markdown 規則。每個人都用自己最舒服、最有效率的載體進行溝通與回饋。
-* **🤖 AI 幫忙分析解釋 (AI-Assisted Analysis & Translation)**
+* <span style="color: #c084fc; font-weight: bold;">🤖 AI 幫忙分析解釋 (AI-Assisted Analysis & Translation)</span>
   在協作過程中，AI 會主動扮演「催化劑」與「編譯器」角色：自動翻譯多國語言、分析代碼邊界、檢查邏輯衝突、產出紅線警示與視覺化流程圖，幫助人類跨越技術鴻溝，快速看懂代碼或複雜規則的實質影響。
-* **👤 人類確認 (Human Verification & Control)**
+* <span style="color: #c084fc; font-weight: bold;">👤 人類確認 (Human Verification & Control)</span>
   不論 AI 的生成與編譯能力再強，最終的決策與把關權永遠在「人」的手中。由人類在 HTML 互動介面上核對最終效果，進行實機測試，並做出 GO / NO GO 的決策，確保專案的安全落地與品質保障。
 
 ### 3. 導入 AI-Native 思維的四大顯著優勢
