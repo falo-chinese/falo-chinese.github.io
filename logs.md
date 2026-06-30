@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 18:37:00 | 本機與線上同步 | 調整實戰案例展示（topic3_etl_cases）的順序為 7、6、3、2、4、8、1、5、9 並重新編號，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 18:20:00 | 本機與線上同步 | 將「AI-Native 人機協作四部曲」精美資訊圖表示意圖嵌入至 topic1_retrospective 網頁對應章節中，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 16:58:00 | 本機與線上同步 | 補齊主題三第二小節中未套用至「核心戰術：模仿與重構」三個列表項目標題的橘色（#fb923c）樣式，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 16:51:00 | 本機與線上同步 | 規範並設計網頁標題之視覺分色系統：大標（H2）維持綠色、中標（H3）統一改為紫色、小標（列表項目標題）統一改為橘色（#fb923c），更新編譯器 CSS 並清空 md 中的行內 heading 樣式，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |

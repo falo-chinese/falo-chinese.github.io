@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-06-30T18:37:02+08:00",
+    "action_type": "synced",
+    "description": "調整實戰案例展示（topic3_etl_cases）的順序為 7、6、3、2、4、8、1、5、9 並重新編號，重新編譯打包並推播。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "class/a01/class4/20260630_class04_project.zip",
+      "class/a01/class4/20260630_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-30T18:20:26+08:00",
     "action_type": "synced",
     "description": "將「AI-Native 人機協作四部曲」精美資訊圖表示意圖嵌入至 topic1_retrospective 網頁對應章節中，重新編譯打包並推播。",
