@@ -89,6 +89,8 @@ function verifyPdfPassword(url) {
 ### 3. AI-Native 人機協作四部曲：高效協作的核心機制
 在 AI-Native 的工作流中，人與 AI 的協作不再是傳統指令式的對話，而是圍繞著「文件與知識」展開的閉環流轉：
 
+![AI-Native 人機協作四部曲](images/ai_native_collaboration_four_steps.jpg)
+
 * <span style="color: #fb923c; font-weight: bold;">📄 一份知識真相，多份呈現 (One Source of Truth, Multiple Presentations)</span>
   所有的業務規格與行為約束只寫在同一個檔案中。但這個檔案會有多種呈現形式：給 AI 讀取的是結構化、語意清晰的 Markdown 全文；給人類看的是視覺精美、具備互動效果與時間軸的 HTML 網頁。
 * <span style="color: #fb923c; font-weight: bold;">👥 每個角色選擇他看得懂的版本，用他看得懂的方式回饋</span>
