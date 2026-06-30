@@ -528,6 +528,8 @@ function copyPrompt(type) {
 
 企業在導入知識管理 (KM) 時，除了自行建置 RAG 系統，亦可深度整合與搭配 Google NotebookLM 作為協作與提煉工具。為了克服 NotebookLM 網頁端手動操作與單兵作戰的限制，我們規劃了以下兩種企業級整合運用模式：
 
+![NotebookLM 整合運用](images/notebooklm_integration_blueprint.png)
+
 ### 1. 結合 Prompt 管理器 (Prompt Manager Integration)
 NotebookLM 的強大在於其基於來源資料的理解與互動，但不同部門（如研發、業務、財務）在提煉知識時所需的輸出格式與視角各有不同。透過導入「企業統一 Prompt 管理器」，同仁可快速調用標準化的系統提示詞（System Prompts），在 NotebookLM 內進行一致性的高質量引導：
 - **結構化大綱生成**：統一規定 NotebookLM 生成特定格式的專案審查清單或合規風險矩陣。

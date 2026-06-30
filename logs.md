@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 19:27:00 | 本機與線上同步 | 將 NotebookLM 整合運用架構圖資訊圖表示意圖嵌入至 topic4_km_rag 網頁對應小節中，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 19:24:00 | 本機與線上同步 | 將大型專案更名並劃分為獨立的「商業型整合專案」大區塊，於側邊欄新增對應導覽，並以黃色（實戰）與綠色（商業整合）雙色凸顯視覺，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 19:16:00 | 本機與線上同步 | 將 ETL 實務案例中的九、十、十一，依序更名為大型專案 A、B、C，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 19:14:00 | 本機與線上同步 | 將 FALO Web Share API 雲端 Workers 部署平台新增為 ETL 實務案例十一，描述利用邊緣計算進行拍照一鍵部署流程，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
