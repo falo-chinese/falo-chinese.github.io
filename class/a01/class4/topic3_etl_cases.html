@@ -197,6 +197,33 @@
             padding-left: 1.2rem;
         }
 
+        /* Yellow and Green highlights for cases & projects */
+        a[href*="#featured-cases"] {
+            color: #fbbf24 !important;
+        }
+        a[href*="#featured-cases"]:hover, a[href*="#featured-cases"].active {
+            background: rgba(251, 191, 36, 0.08) !important;
+            border-left: 3px solid #fbbf24 !important;
+            color: #fbbf24 !important;
+        }
+        #featured-cases {
+            color: #fbbf24 !important;
+            border-left-color: #fbbf24 !important;
+        }
+
+        a[href*="#commercial-projects"] {
+            color: #34d399 !important;
+        }
+        a[href*="#commercial-projects"]:hover, a[href*="#commercial-projects"].active {
+            background: rgba(52, 211, 153, 0.08) !important;
+            border-left: 3px solid #34d399 !important;
+            color: #34d399 !important;
+        }
+        #commercial-projects {
+            color: #34d399 !important;
+            border-left-color: #34d399 !important;
+        }
+
         .sidebar-footer {
             border-top: 1px solid var(--sidebar-border);
             padding-top: 1.5rem;
@@ -517,6 +544,7 @@
                     <li><a class="toc-link" href="topic3_etl_cases.html#etl-t">⚡ T (Transform) - 整理 / 轉換</a></li>
                     <li><a class="toc-link" href="topic3_etl_cases.html#etl-l">📤 L (Load) - 輸出 / 應用</a></li>
                     <li><a class="toc-link" href="topic3_etl_cases.html#featured-cases">🚀 核心實戰案例展示</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#commercial-projects">💼 商業型整合專案</a></li>
                 </ul>
 
                 <!-- 主題四：KM 建置與應用思維 -->
@@ -672,7 +700,13 @@
 <li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ticket-demo/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟銀河ERP - 憑證下載助手 Hub</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>大型專案 A：FALO NotebookLM Runtime Lab ─ 企業級知識庫整合運行網關</h3>
+<p>---</p>
+<br>
+<h2 id="commercial-projects">💼 商業型整合專案 (Commercial Integrated Projects)</h2>
+<br>
+<p>本區塊收錄具備高度商業應用價值與軟體工程規格的 AI 整合專案。相較於前述針對特定場景的基礎 ETL 實作案例，商業型整合專案更著重於解決企業實際落地時的複雜架構痛點（如多模型性能對比、地端與雲端網絡安全穿透、Serverless 雲端邊緣計算部署等），協助同仁以架構師的視角規劃具備長期維運與商業彈性的解決方案。</p>
+<br>
+<h3>商業型整合專案 A：FALO NotebookLM Runtime Lab ─ 企業級知識庫整合運行網關</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對企業內部部署知識管理（KM）與自動化同步設計的網關（Gateway）。本案例由於涉及地端文件同步與自動化指令碼，線上展示僅提供「高階架構示意圖與原型卡片」，完整功能需結合本機開發環境與 <strong>ngrok 安全隧道技術</strong> 穿透進行實時操作與展示。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
@@ -683,7 +717,7 @@
 </ul>
 <br>
 <br>
-<h3>大型專案 B：LINE 資訊過載助手 ─ 深度研究彙總報告</h3>
+<h3>商業型整合專案 B：LINE 資訊過載助手 ─ 深度研究彙總報告</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>專案精神</strong>：解決 LINE 群組對話資訊過載痛點，透過極致 Prompt 工程與多模型並行測試，將碎片化對話自動提煉為高品質的結構化彙總與待辦清單。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>
@@ -693,7 +727,7 @@
 <li style="margin-bottom: 8px;"><a href="https://falo-taiwan.github.io/ai-line-help/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">🌐 開啟 LINE 資訊過載助手 ─ 深度研究彙總報告</a> *(將於新分頁中開啟)*</li>
 </ul>
 <br>
-<h3>大型專案 C：FALO Web Share API ─ 雲端 Workers 拍照快易部署與 QRCode 門戶</h3>
+<h3>商業型整合專案 C：FALO Web Share API ─ 雲端 Workers 拍照快易部署與 QRCode 門戶</h3>
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>專案精神</strong>：針對 AI 與雲端新手設計的超輕量 Web Share API 應用服務。本案例運用 <strong>Cloudflare Workers</strong> 進行 Serverless 邊緣計算部署，免去繁瑣的地端伺服器環境設定。協助 AI 新手小白簡單地使用 AI 服務，使用者只需透過手機拍照，即可將照片或檔案一鍵快速部署至雲端，並實時生成專屬的下載分享 QRCode，打通「實體捕捉 ➔ 邊緣負載 ➔ 雲端共享」的極簡化工作流。</li>
 <li style="margin-bottom: 8px;"><strong>技術對比與特點</strong>：</li>

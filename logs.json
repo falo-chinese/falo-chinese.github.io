@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-06-30T19:24:16+08:00",
+    "action_type": "synced",
+    "description": "將大型專案更名並劃分為獨立的「商業型整合專案」大區塊，於側邊欄新增對應導覽，並以黃色（實戰）與綠色（商業整合）雙色凸顯視覺，重新編譯打包並推播。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "class/a01/class4/20260630_class04_project.zip",
+      "class/a01/class4/20260630_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-30T19:16:39+08:00",
     "action_type": "synced",
     "description": "將 ETL 實務案例中的九、十、十一，依序更名為大型專案 A、B、C，重新編譯打包並推播。",
