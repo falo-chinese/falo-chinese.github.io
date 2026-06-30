@@ -242,6 +242,16 @@ pre:has(code.language-dot) {
     margin-bottom: 4px !important;
     color: var(--text-main);
 }
+
+/* Bilingual text styling */
+.zh-desc {
+    color: #a78bfa;
+    font-size: 0.92rem;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    display: block;
+    line-height: 1.5;
+}
 </style>
 
 <div class="superpowers-container">
@@ -250,18 +260,20 @@ pre:has(code.language-dot) {
   <h3>📚 Superpowers Skill 官方規範與導覽說明</h3>
   
   <div class="header-metadata">
-    <span>⏱️ <strong>最新版本更新時間：</strong>2026-06-30 15:26 (v5.0.7 Official Latest)</span>
+    <span>⏱️ <strong>官方最新版本更新時間：</strong>2026-06-18 (v6.0.3 Official Latest)</span>
   </div>
   
   <div class="header-links">
     <a href="https://github.com/obra/superpowers" target="_blank">🌐 官方 GitHub 儲存庫</a>
     <a href="https://falo-taiwan.github.io/superpowers/" target="_blank">🔗 FALO 雙軌教材介紹網頁</a>
-    <a href="superpowers_skill.md" target="_blank">📄 原始 Markdown 技能文字檔 (superpowers_skill.md)</a>
+    <a href="https://raw.githubusercontent.com/obra/superpowers/main/skills/using-superpowers/SKILL.md" target="_blank">📄 官方原始 Markdown 技能檔 (GitHub 英文版)</a>
+    <a href="superpowers_skill.md" target="_blank">📝 FALO 專案 Markdown 技能檔 (本機英文代碼版)</a>
+    <a href="superpowers_skill.html" target="_blank">📖 FALO HTML 雙語互動好讀版 (本頁)</a>
   </div>
   
   <div class="header-explanation">
     <p>💡 重要說明：</p>
-    <p>本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 <code>using-superpowers</code> 核心技能規則檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例與雙軌對照，讓大家理解如何透過本地 HTML 對原有的 Markdown 技能包進行視覺與互動增強。</p>
+    <p>本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 <code>using-superpowers</code> 核心技能規則檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例與雙軌對照，讓大家對照學習「官方原始版」、「FALO 本機版」以及「FALO HTML 雙語好讀版」的差異。</p>
   </div>
 </div>
 
@@ -356,7 +368,7 @@ Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") 
     <div class="flow-step-num">2</div>
     <div class="flow-step-desc">
       <strong>Might any skill apply? (技能匹配檢測)</strong>
-      <p>AI 進入流程思維：這件事是否有對應的 Skill？哪怕只有 1% 可能性，也必須先載入檢測！</p>
+      <p>AI 進入流程思維：這件事是否有對應之 Skill？哪怕只有 1% 可能性，也必須先載入檢測！</p>
     </div>
   </div>
   <div class="flow-step-card">

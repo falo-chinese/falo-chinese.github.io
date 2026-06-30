@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 15:32:00 | 本機與線上同步 | 將 superpowers_skill.md 還原為純粹的官方英文 Markdown 格式，確保 AI 原生相容性；同時在 HTML 編譯時動態注入雙語對照導讀說明、官方 GitHub 與本機雙軌版本連結入口，重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:27:00 | 本機與線上同步 | 在 superpowers_skill.md 頁面最上方增加最新版本更新時間（2026-06-30）與重要說明，以精美自訂 HTML 磨砂卡片展示，解決 Markdown 原生引用區塊編譯瑕疵，重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:25:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧網頁中移除重複的 HTML 優勢文字說明，維持版面精簡，僅保留案例連結與技能檔好讀版入口，重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:21:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧網頁中簡化 Superpowers 案例介紹，專注於說明本地化為 HTML 的三大核心優勢（動態視角切換、流程與規則視覺化、離線可用），重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |

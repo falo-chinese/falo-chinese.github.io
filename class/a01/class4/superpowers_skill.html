@@ -800,6 +800,16 @@ pre:has(code.language-dot) {
     margin-bottom: 4px !important;
     color: var(--text-main);
 }
+
+/* Bilingual text styling */
+.zh-desc {
+    color: #a78bfa;
+    font-size: 0.92rem;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    display: block;
+    line-height: 1.5;
+}
 </style>
 <br>
 <div class="superpowers-container">
@@ -808,56 +818,58 @@ pre:has(code.language-dot) {
   <h3>📚 Superpowers Skill 官方規範與導覽說明</h3>
 
   <div class="header-metadata">
-    <span>⏱️ <strong>最新版本更新時間：</strong>2026-06-30 15:26 (v5.0.7 Official Latest)</span>
+    <span>⏱️ <strong>官方最新版本更新時間：</strong>2026-06-18 (v6.0.3 Official Latest)</span>
   </div>
 
   <div class="header-links">
     <a href="https://github.com/obra/superpowers" target="_blank">🌐 官方 GitHub 儲存庫</a>
     <a href="https://falo-taiwan.github.io/superpowers/" target="_blank">🔗 FALO 雙軌教材介紹網頁</a>
-    <a href="superpowers_skill.md" target="_blank">📄 原始 Markdown 技能文字檔 (superpowers_skill.md)</a>
+    <a href="https://raw.githubusercontent.com/obra/superpowers/main/skills/using-superpowers/SKILL.md" target="_blank">📄 官方原始 Markdown 技能檔 (GitHub 英文版)</a>
+    <a href="superpowers_skill.md" target="_blank">📝 FALO 專案 Markdown 技能檔 (本機英文代碼版)</a>
+    <a href="superpowers_skill.html" target="_blank">📖 FALO HTML 雙語互動好讀版 (本頁)</a>
   </div>
 
   <div class="header-explanation">
     <p>💡 重要說明：</p>
-    <p>本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 <code>using-superpowers</code> 核心技能規則檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例與雙軌對照，讓大家理解如何透過本地 HTML 對原有的 Markdown 技能包進行視覺與互動增強。</p>
+    <p>本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 <code>using-superpowers</code> 核心技能規則檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例與雙軌對照，讓大家對照學習「官方原始版」、「FALO 本機版」以及「FALO HTML 雙語好讀版」的差異。</p>
   </div>
 </div>
 
 <SUBAGENT-STOP>
-If you were dispatched as a subagent to execute a specific task, skip this skill.
+If you were dispatched as a subagent to execute a specific task, skip this skill.<span class="zh-desc">👉 <strong>中文導讀</strong>：若您是被指派執行特定子任務的子代理 (Subagent)，請跳過此 Skill。</span>
 </SUBAGENT-STOP>
 
 <EXTREMELY-IMPORTANT>
-If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
+If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.<span class="zh-desc">👉 <strong>中文導讀</strong>：如果您認為您當前的工作有哪怕 1% 的機會適用某項技能 (Skill)，您<strong>絕對必須</strong>啟動與載入該技能。</span>
 
-IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
+IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.<span class="zh-desc">👉 <strong>中文導讀</strong>：只要技能適用於您的任務，您就別無選擇，<strong>必須嚴格執行它</strong>。</span>
 
-This is not negotiable. This is not optional. You cannot rationalize your way out of this.
+This is not negotiable. This is not optional. You cannot rationalize your way out of this.<span class="zh-desc">👉 <strong>中文導讀</strong>：這沒有商量的餘地，也不是可選項目。您不能尋求任何藉口或自我合理化來規避它。</span>
 </EXTREMELY-IMPORTANT>
 
-<h2>Instruction Priority</h2>
+<h2>Instruction Priority / 規則與指令優先級</h2>
 
-Superpowers skills override default system prompt behavior, but <strong>user instructions always take precedence</strong>:
+Superpowers skills override default system prompt behavior, but <strong>user instructions always take precedence</strong>:<span class="zh-desc">Superpowers 技能規範會覆寫預設的系統提示詞 (System Prompt) 行為，但<strong>使用者的指示永遠擁有最高優先權</strong>：</span>
 
-1. <strong>User's explicit instructions</strong> (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority
-2. <strong>Superpowers skills</strong> — override default system behavior where they conflict
-3. <strong>Default system prompt</strong> — lowest priority
+1. <strong>User's explicit instructions</strong> (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority<span class="zh-desc">1. <strong>使用者明確的指示</strong>（例如專案中的 CLAUDE.md、GEMINI.md、AGENTS.md 或對話中的直接命令）— 擁有最高優先權。</span>
+2. <strong>Superpowers skills</strong> — override default system behavior where they conflict<span class="zh-desc">2. <strong>Superpowers 技能規範</strong> — 當與預設的系統提示詞衝突時，以技能規範為準進行覆寫。</span>
+3. <strong>Default system prompt</strong> — lowest priority<span class="zh-desc">3. <strong>預設系統提示詞 (System Prompt)</strong> — 優先級最低。</span>
 
-If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.
+If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.<span class="zh-desc">如果 CLAUDE.md、GEMINI.md 或 AGENTS.md 寫明「不要使用 TDD」，而某項 Skill 規範寫著「務必使用 TDD」，請遵循使用者的指示。使用者擁有絕對控制權。</span>
 
-<h2>How to Access Skills</h2>
+<h2>How to Access Skills / 如何存取技能</h2>
 
-<strong>Never read skill files manually with file tools</strong> — always use your platform's skill-loading mechanism so the skill is properly activated.
+<strong>Never read skill files manually with file tools</strong> — always use your platform's skill-loading mechanism so the skill is properly activated.<span class="zh-desc"><strong>絕不要使用讀取檔案工具手動閱讀 Skill 檔案</strong> — 請務必使用您所用平台專屬的 Skill 載入工具/機制，以確保該技能被正確啟用與生效。</span>
 
 <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
 <li style="margin-bottom: 8px;"><strong>In Claude Code:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Skill</code> tool. When you invoke a skill, its content is loaded and presented to you — follow it directly.</li>
-<li style="margin-bottom: 8px;"><strong>In Codex:</strong> Skills load natively. Follow the instructions presented when a skill activates.</li>
+<li style="margin-bottom: 8px;"><strong>In Codex:</strong> Skills load natively. Follow the instructions presented when a skill activates.<span class="zh-desc"><strong>在 Codex 中</strong>：技能會原生載入。當技能啟動時，請遵循其展示的指示。</span></li>
 <li style="margin-bottom: 8px;"><strong>In Copilot CLI:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">skill</code> tool. Skills are auto-discovered from installed plugins.</li>
 <li style="margin-bottom: 8px;"><strong>In Gemini CLI:</strong> Skills activate via the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">activate_skill</code> tool. Gemini loads skill metadata at session start and activates the full content on demand.</li>
-<li style="margin-bottom: 8px;"><strong>In other environments:</strong> Check your platform's documentation for how skills are loaded.</li>
+<li style="margin-bottom: 8px;"><strong>In other environments:</strong> Check your platform's documentation for how skills are loaded.<span class="zh-desc"><strong>在其他環境中</strong>：請參閱您所使用平台的官方文件以瞭解技能是如何載入的。</span></li>
 </ul>
 
-<h2>Platform Adaptation</h2>
+<h2>Platform Adaptation / 平台適應性</h2>
 
 Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") rather than naming any one runtime's tools. For per-platform tool equivalents and instructions-file conventions, see the interactive tabs below:
 
@@ -896,9 +908,9 @@ Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") 
 
 <h1>Using Skills</h1>
 
-<h2>The Rule</h2>
+<h2>The Rule / 核心規則</h2>
 
-<strong>Invoke relevant or requested skills BEFORE any response or action.</strong> Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.
+<strong>Invoke relevant or requested skills BEFORE any response or action.</strong> Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.<span class="zh-desc"><strong>在進行任何回應或採取任何行動之前，請務必先啟用相關或被要求之技能 (Skills)。</strong> 哪怕只有 1% 的可能性適用，也意味著您必須調用該技能進行檢查！如果啟用後發現該技能不適用於當前情況，您後續便不需要使用它。</span>
 
 <h3>🔄 技能執行流轉圖 (Skill Execution Flow)</h3>
 
@@ -916,7 +928,7 @@ Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") 
     <div class="flow-step-num">2</div>
     <div class="flow-step-desc">
       <strong>Might any skill apply? (技能匹配檢測)</strong>
-      <p>AI 進入流程思維：這件事是否有對應的 Skill？哪怕只有 1% 可能性，也必須先載入檢測！</p>
+      <p>AI 進入流程思維：這件事是否有對應之 Skill？哪怕只有 1% 可能性，也必須先載入檢測！</p>
     </div>
   </div>
   <div class="flow-step-card">
@@ -970,33 +982,49 @@ Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") 
     "Create a todo per item" -&gt; "Follow skill exactly";
 }</code></pre></div></details>
 
-<h2>Red Flags</h2>
+<h2>Red Flags / 紅線警示</h2>
 
-These thoughts mean STOP—you're rationalizing:
+These thoughts mean STOP—you're rationalizing:<span class="zh-desc">當您在思考過程中出現以下想法時，代表您正在「自我合理化」規避流程，請立即停止 (STOP) 並嚴格執行檢測：</span>
 
 <table class="comparison-table"><thead><tr><th>Thought</th><th>Reality</th></tr></thead><tbody><tr><td>"This is just a simple question"</td><td>Questions are tasks. Check for skills.</td></tr><tr><td>"I need more context first"</td><td>Skill check comes BEFORE clarifying questions.</td></tr><tr><td>"Let me explore the codebase first"</td><td>Skills tell you HOW to explore. Check first.</td></tr><tr><td>"I can check git/files quickly"</td><td>Files lack conversation context. Check for skills.</td></tr><tr><td>"Let me gather information first"</td><td>Skills tell you HOW to gather information.</td></tr><tr><td>"This doesn't need a formal skill"</td><td>If a skill exists, use it.</td></tr><tr><td>"I remember this skill"</td><td>Skills evolve. Read current version.</td></tr><tr><td>"This doesn't count as a task"</td><td>Action = task. Check for skills.</td></tr><tr><td>"The skill is overkill"</td><td>Simple things become complex. Use it.</td></tr><tr><td>"I'll just do this one thing first"</td><td>Check BEFORE doing anything.</td></tr><tr><td>"This feels productive"</td><td>Undisciplined action wastes time. Skills prevent this.</td></tr><tr><td>"I know what that means"</td><td>Knowing the concept ≠ using the skill. Invoke it.</td></tr></tbody></table>
+<span class="zh-desc">
+💡 <strong>紅線警示對應中文翻譯對照：</strong><br>
+1. 🚩 <strong>「這只是一個簡單的問題」</strong> ➔ 💡 任何提問都是任務。立即檢查是否有適用之技能。<br>
+2. 🚩 <strong>「我需要先取得更多上下文脈絡」</strong> ➔ 💡 啟用與檢查技能的優先級永遠高於提出澄清問題。<br>
+3. 🚩 <strong>「讓我們先探索程式庫」</strong> ➔ 💡 技能會指導您如何探索。請先檢查技能。<br>
+4. 🚩 <strong>「我可以快速查看 git 或檔案」</strong> ➔ 💡 單純看檔案缺乏對話脈絡。請先檢查技能。<br>
+5. 🚩 <strong>「讓我們先蒐集資料資訊」</strong> ➔ 💡 技能規範了該如何收集資料。<br>
+6. 🚩 <strong>「這不需要使用正式的技能流程」</strong> ➔ 💡 只要存在對應之技能，就必須使用它。<br>
+7. 🚩 <strong>「我記得這個技能規範了」</strong> ➔ 💡 技能是持續演進的。請閱讀最新版本。<br>
+8. 🚩 <strong>「這不算是一項任務」</strong> ➔ 💡 任何行動皆視為任務。立即檢查技能。<br>
+9. 🚩 <strong>「使用這個技能實在是大材小用」</strong> ➔ 💡 看似簡單的事情往往會變複雜。請嚴格遵循。<br>
+10. 🚩 <strong>「我只先做這件小事」</strong> ➔ 💡 在動手做任何事情之前，先進行技能檢查。<br>
+11. 🚩 <strong>「這樣做感覺很有生產力」</strong> ➔ 💡 缺乏工程紀律的行動是在浪費時間。使用技能能防止這種情況。<br>
+12. 🚩 <strong>「我明白那是什麼意思」</strong> ➔ 💡 知道概念不等於有落實執行該技能。請啟用它！
+</span>
 
-<h2>Skill Priority</h2>
 
-When multiple skills could apply, use this order:
+<h2>Skill Priority / 技能優先級</h2>
 
-1. <strong>Process skills first</strong> (brainstorming, systematic-debugging) - these determine HOW to approach the task
-2. <strong>Implementation skills second</strong> (frontend-design, mcp-builder) - these guide execution
+When multiple skills could apply, use this order:<span class="zh-desc">當多個技能同時適用時，請遵循以下優先順序：</span>
 
-"Let's build X" → brainstorming first, then implementation skills.
-"Fix this bug" → systematic-debugging first, then domain-specific skills.
+1. <strong>Process skills first</strong> (brainstorming, systematic-debugging) - these determine HOW to approach the task<span class="zh-desc">1. <strong>程序類技能優先 (Process skills first)</strong>（例如 <code>brainstorming</code>、<code>systematic-debugging</code>）— 這些決定了「如何切入與規劃」該任務。</span>
+2. <strong>Implementation skills second</strong> (frontend-design, mcp-builder) - these guide execution<span class="zh-desc">2. <strong>實作類技能次之 (Implementation skills second)</strong>（例如 <code>frontend-design</code>、<code>mcp-builder</code>）— 這些用來指導具體執行。</span>
 
-<h2>Skill Types</h2>
+"Let's build X" → brainstorming first, then implementation skills.<span class="zh-desc">範例：「我們來開發 X」➔ 先啟用 <code>brainstorming</code> 技能，再使用實作技能。</span>
+"Fix this bug" → systematic-debugging first, then domain-specific skills.<span class="zh-desc">範例：「修復這個錯誤」➔ 先啟用 <code>systematic-debugging</code> 技能，再使用領域特定技能。</span>
 
-<strong>Rigid</strong> (TDD, systematic-debugging): Follow exactly. Don't adapt away discipline.
+<h2>Skill Types / 技能類型</h2>
 
-<strong>Flexible</strong> (patterns): Adapt principles to context.
+<strong>Rigid</strong> (TDD, systematic-debugging): Follow exactly. Don't adapt away discipline.<span class="zh-desc"><strong>嚴格型 (Rigid)</strong>（例如 <code>TDD</code>、<code>systematic-debugging</code>）：必須完全一字不差地遵循，切勿自行變通而妥協了工程紀律。</span>
 
-The skill itself tells you which.
+<strong>Flexible</strong> (patterns): Adapt principles to context.<span class="zh-desc"><strong>彈性型 (Flexible)</strong>（例如 <code>patterns</code> 等模式）：根據實際專案脈絡彈性適應其核心原則。</span>
 
-<h2>User Instructions</h2>
+The skill itself tells you which.<span class="zh-desc">具體類型會在各技能檔案中自行聲明。</span>
 
-Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.
+<h2>User Instructions / 使用者指示</h2>
+
+Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.<span class="zh-desc">使用者的指示規範的是「做什麼 (WHAT)」，而非「如何做 (HOW)」。「添加 X」或「修復 Y」等直接要求，絕不代表可以規避或跳過已定義的工程工作流程。</span>
 
 </div>
 <br>
