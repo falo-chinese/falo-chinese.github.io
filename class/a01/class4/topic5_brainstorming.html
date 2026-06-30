@@ -587,6 +587,24 @@
 <br>
 <p>---</p>
 <br>
+<h2>🛠️ FALO AI 系統開發核心工具與技術架構</h2>
+<br>
+<p>在進行 AI App 的設計與腦力激盪前，同仁應先對我們系統開發所<strong>主要聚焦的工具與核心架構</strong>有清晰的認識。我們完全基於國際大廠（Google 生態系與 Cloudflare）的企業級基礎設施進行開發，讓 AI 默默在後台默默完成所有工作：</p>
+<br>
+<p><img src="images/chatgpt_image_20260630_214914.png" alt="FALO AI 系統開發主要聚焦工具與架構總覽 (Google生態系＋Cloudflare)" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<p><img src="images/chatgpt_image_20260630_213818.png" alt="Email 2.0 AI Event Gateway 核心整合介面示意圖" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin: 1.5rem 0; display: block;"></p>
+<br>
+<div class="card" style="border-left: 4px solid var(--accent); background: rgba(192, 132, 252, 0.03); padding: 1.5rem; margin: 1.5rem 0;">
+<strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">💡 NOTE / 說明</strong>
+<p style="margin: 0; font-size: 0.95rem;"></p></div>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;"><strong>主要聚焦工具與設計精神</strong>：</blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">1. <strong>前端與入口層</strong>：主要聚焦於 <strong>Google Apps Script (GAS)</strong> 與 <strong>Cloudflare Workers / Email Routing</strong>。利用 Cloudflare 作為全球 Edge 節點，結合 Email 2.0 概念（將每個 Email Address 映射為專屬 AI Function，如 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">ocr@</code>、<code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">meeting@</code>），在完全不改變使用者習慣的前提下，將郵件收發轉化為啟動後台 AI 工作流的事件入口。</blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">2. <strong>處理層 (Middleware)</strong>：主要聚焦於 <strong>Google Cloud Run</strong>。作為 AI 運行的主要 Runtime，提供 Python 執行環境，負責高密度的 ETL 資料管線、OCR 辨識與影片分析。</blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">3. <strong>資料與後端層</strong>：主要聚焦於 <strong>Google Workspace (Drive, Sheets, Docs, Gmail, NotebookLM)</strong>。使客戶資料完整留存在自有的安全雲端空間中，符合 Zero Trust 企業安全與合規稽核。</blockquote>
+<br>
+<p>---</p>
+<br>
 <h2>🎯 銀河 ERP × FORCE AI App Store 三大業務方向產品藍圖</h2>
 <br>
 <p>為引導同仁將日常工作的「痛點」轉化為「標準化 AI 產品」，我們規劃了代表未來升級方向的三大核心 AI App 業務方向。以下為各方向的產品定位、架構細節與具體用途：</p>

@@ -4,6 +4,22 @@
 
 ---
 
+## 🛠️ FALO AI 系統開發核心工具與技術架構
+
+在進行 AI App 的設計與腦力激盪前，同仁應先對我們系統開發所**主要聚焦的工具與核心架構**有清晰的認識。我們完全基於國際大廠（Google 生態系與 Cloudflare）的企業級基礎設施進行開發，讓 AI 默默在後台默默完成所有工作：
+
+![FALO AI 系統開發主要聚焦工具與架構總覽 (Google生態系＋Cloudflare)](images/chatgpt_image_20260630_214914.png)
+
+![Email 2.0 AI Event Gateway 核心整合介面示意圖](images/chatgpt_image_20260630_213818.png)
+
+> [!NOTE]
+> **主要聚焦工具與設計精神**：
+> 1. **前端與入口層**：主要聚焦於 **Google Apps Script (GAS)** 與 **Cloudflare Workers / Email Routing**。利用 Cloudflare 作為全球 Edge 節點，結合 Email 2.0 概念（將每個 Email Address 映射為專屬 AI Function，如 `ocr@`、`meeting@`），在完全不改變使用者習慣的前提下，將郵件收發轉化為啟動後台 AI 工作流的事件入口。
+> 2. **處理層 (Middleware)**：主要聚焦於 **Google Cloud Run**。作為 AI 運行的主要 Runtime，提供 Python 執行環境，負責高密度的 ETL 資料管線、OCR 辨識與影片分析。
+> 3. **資料與後端層**：主要聚焦於 **Google Workspace (Drive, Sheets, Docs, Gmail, NotebookLM)**。使客戶資料完整留存在自有的安全雲端空間中，符合 Zero Trust 企業安全與合規稽核。
+
+---
+
 ## 🎯 銀河 ERP × FORCE AI App Store 三大業務方向產品藍圖
 
 為引導同仁將日常工作的「痛點」轉化為「標準化 AI 產品」，我們規劃了代表未來升級方向的三大核心 AI App 業務方向。以下為各方向的產品定位、架構細節與具體用途：
