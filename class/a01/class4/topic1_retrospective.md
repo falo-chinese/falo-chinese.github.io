@@ -68,30 +68,12 @@ function verifyPdfPassword(url) {
 ---
 
 ### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢 {#superpowers-case}
-為了讓大家更直觀地理解雙軌文件在實務上的威力，我們以知名的 AI Coding Agent 方法論專案 **Superpowers** 為例：
-* **官方 GitHub 儲存庫**：[https://github.com/obra/superpowers](https://github.com/obra/superpowers)
-* **FALO 雙軌教材介紹網頁**：[https://falo-taiwan.github.io/superpowers/](https://falo-taiwan.github.io/superpowers/)
+在 AI-Native 開發中，我們常以 [Superpowers](https://falo-taiwan.github.io/superpowers/) 專案（官方 Repo：[GitHub](https://github.com/obra/superpowers)）作為技能設計的範本。雖然其核心是基於 Markdown 定義的個人技能檔，但將其**本地化編譯為單頁 HTML 互動說明網頁**，具備了以下顯著的溝通與教學優勢：
 * **官方最新 `using-superpowers` 技能檔**：我們已將官方最新版本上傳至本教材包中，您可以直接閱讀 <a href="superpowers_skill.md" target="_blank">原始 Markdown 技能文字檔 (superpowers_skill.md)</a> 或存取 [HTML 互動好讀版](superpowers_skill.md)。
 
-該專案原本是一套基於 Markdown 定義的個人 AI 技能庫，但當轉化為團隊協作與教材時，將其**本地化編譯為單頁 HTML 互動說明網頁**帶來了諸多顯著好處：
-
-1. **動態「雙視角切換」解決資訊不對稱**
-   HTML 網頁可內建互動按鈕，讓讀者在「**新手/一般使用者**」與「**專家/系統架構師**」視角間一鍵切換。
-   * **新手視角**：專注於易懂的比喻與直觀 timeline，引導理解「AI 不要亂衝，照著 SOP 做」的世界。
-   * **專家視角**：直接展示 `session-start hook`、`behavior-shaping layer`、`hard gates` 等工程硬約束與底層架構。
-   在 Markdown 中無法實現這種動態展示，而 HTML 可以透過簡單的 CSS 與 JS 讓同一份文件兼顧商務端與技術端。
-
-2. **流程視覺化（Workflow Visualization）**
-   原本在 Markdown 中只是平鋪直述的階層清單，在 HTML 中可以轉化為具備編號、自訂圖示、步進導引的「互動時間軸 (Timeline)」，大幅降低人類工程師的閱讀心智負擔。
-
-3. **重點紅線與規則警示（Iron Laws）**
-   透過 HTML 樣式（如 CSS 磨砂玻璃、自訂顏色與醒目的卡片邊框），可以將關鍵的「硬性閘門（Hard Gates）」與「鐵律（Iron Laws）」（例如：*未獲設計核可前禁止任何實作*、*沒有測試不准寫 Code*）進行高視覺強度的突顯，避免重要規則被淹沒在大量文字中。
-
-4. **結構化互動儀表板（Interactive Dashboard）**
-   將 14 個 Markdown 技能定義與觸發規則（Triggers）以精美、可滾動的響應式表格展示，方便團隊成員快速檢索與定位。
-
-5. **百分之百離線可用與快速分享**
-   HTML 本地化網頁不需要啟動任何本機伺服器（如 Node/Express），直接雙擊就能在瀏覽器開啟，完美融入 FALO 無網路狀態下的離線教材備用機制，同時也非常便於在組織內部快速傳閱與交接。
+1. **動態視角切換**：可一鍵切換「一般使用者/新手」與「系統架構師/專家」視角，解決技術與商務端的資訊不對稱（如 [Superpowers 說明網頁](https://falo-taiwan.github.io/superpowers/) 的動態切換）。
+2. **流程與規則視覺化**：將原本平鋪直述的 Markdown 文字，轉換為直觀的互動時間軸 (Timeline) 與紅線警示卡片 (Red Flags)，大幅降低人類工程師的閱讀心智負擔。
+3. **按需加載與離線可用**：無需啟動伺服器，雙擊即可在瀏覽器中離線開啟，完美融入無網路狀態下的備用教學機制。
 
 ---
 

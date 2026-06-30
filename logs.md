@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 15:21:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧網頁中簡化 Superpowers 案例介紹，專注於說明本地化為 HTML 的三大核心優勢（動態視角切換、流程與規則視覺化、離線可用），重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:19:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧網頁中調整 Superpowers 技能檔存取方式，移除本機下載路徑提示，改為提供原始 Markdown 文字檔下載與 HTML 互動好讀版（於技能網頁最上方整合了官方 Repo 與 FALO 展示頁資訊），重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:11:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧網頁中置入『為什麼團隊版更省 Context / Token？』全新優化思維圖表 (context_token_optimization.png)，並上傳官方最新 superpowers 技能檔 (superpowers_skill.md) 與整合相關連結，重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:03:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧與交付規範網頁 (topic1_retrospective.html) 置入『個人 AI 與團隊 AI 的知識管理方式』全新手繪圖表 (personal_vs_team_ai_knowledge.png) 與 Superpowers HTML 本地化雙軌研究案例，並重新打包與編譯，成功同步推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
