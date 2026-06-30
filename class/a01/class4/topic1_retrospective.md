@@ -41,7 +41,7 @@ function verifyPdfPassword(url) {
 * <span style="color: #fb923c; font-weight: bold;">📝 Markdown (.md)</span>：語意結構清晰，便於 LLM 語意理解，利於 RAG 檢索，方便代碼生成與上下文控制。
 * <span style="color: #fb923c; font-weight: bold;">🌐 HTML (.html)</span>：視覺樣式豐富，具備互動效果，方便團隊成員閱讀，以及管理層與客戶直觀理解。
 
-### <span style="color: #fb923c;">🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢</span>
+### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢
 在 AI-Native 開發中，我們以知名 AI 技能庫 [Superpowers](https://github.com/obra/superpowers) 為例，展示同一個技能檔在不同表達載體上的雙軌輸出與優勢。詳細的「HTML 本地化優勢與功能展示」已收錄於我們的 [FALO 雙軌教材介紹網頁](https://falo-taiwan.github.io/superpowers/) 中。
 
 本教材包中提供以下三種檔案版本，供您對照學習其結構與轉譯效果：
@@ -49,7 +49,7 @@ function verifyPdfPassword(url) {
 * 📝 <a href="superpowers_skill.md" target="_blank">FALO 專案 Markdown 技能檔 (superpowers_skill.md)</a>：本機英文代碼版，嵌入了 CSS/HTML 互動組件。
 * 📖 <a href="superpowers_skill.html" style="color: #fb923c; font-weight: bold; text-decoration: underline;">FALO HTML 雙語互動好讀版</a>：透過編譯注入中文導讀、互動平台 Tabs 與視覺化 Timeline 的最強學習版本。
 
-### <span style="color: #fb923c;">🎨 實務視覺強化戰術：人機協作繪圖</span>
+### 🎨 實務視覺強化戰術：人機協作繪圖
 
 為了讓 HTML 網頁具備「Wow」的視覺效果，我們在撰寫 HTML 文件時常使用以下兩種戰術來繪製高質感的示意圖：
 
@@ -65,12 +65,12 @@ function verifyPdfPassword(url) {
 
 ## 📌 主題三：AI-Native 思維 {#ai-native}
 
-### <span style="color: #c084fc;">1. AI-Native 開發流程：從「人出嘴」到「AI 自動執行」</span>
+### 1. AI-Native 開發流程：從「人出嘴」到「AI 自動執行」
 在 AI-Native 的開發模式下，人類不再需要親自動手寫每一行程式碼，而是透過**一份結構化的雙軌文件**來直接指揮 AI。整個流轉路徑如下：
 
 **👤 人類（提出需求）** ➔ **📄 雙軌文件（人讀 HTML，AI 讀 MD）** ➔ **🤖 AI 引擎（理解規則與邏輯）** ➔ **💻 產生代碼（自動編寫）** ➔ **⚙️ AI Agent（自動測試執行）**
 
-### <span style="color: #c084fc;">2. 核心戰術：模仿與重構 (Mimicry & Refactoring)</span>
+### 2. 核心戰術：模仿與重構 (Mimicry & Refactoring)
 在 AI-Native 的時代，寫程式碼的門檻已經降到極低，語法與基礎實作不再是難事。**工程師與開發者真正的核心價值，已經轉移到「設計架構 (Architecture)」與「撰寫精準的規格書 (Spec)」。**
 
 為了讓 AI 產出最高品質的程式碼，我們必須掌握**「向經典學習，讓 AI 模仿重構」**的戰術：
@@ -86,28 +86,28 @@ function verifyPdfPassword(url) {
 * **🛠️ 模仿與重構 (Mimicry & Refactoring) 的執行方式**
   將我們的草稿或舊系統提供給 AI，並附上上述途徑取得的經典範本，命令 AI：「*以此範本為標準，模仿其架構來重構我的系統*」。AI 會利用強大的語意類比與映射能力，將新的業務邏輯無縫嵌入經典架構中，瞬間將代碼品質提升至資深架構師的水準。
 
-### <span style="color: #c084fc;">3. AI-Native 人機協作四部曲：高效協作的核心機制</span>
+### 3. AI-Native 人機協作四部曲：高效協作的核心機制
 在 AI-Native 的工作流中，人與 AI 的協作不再是傳統指令式的對話，而是圍繞著「文件與知識」展開的閉環流轉：
 
-* <span style="color: #c084fc; font-weight: bold;">📄 一份知識真相，多份呈現 (One Source of Truth, Multiple Presentations)</span>
+* <span style="color: #fb923c; font-weight: bold;">📄 一份知識真相，多份呈現 (One Source of Truth, Multiple Presentations)</span>
   所有的業務規格與行為約束只寫在同一個檔案中。但這個檔案會有多種呈現形式：給 AI 讀取的是結構化、語意清晰的 Markdown 全文；給人類看的是視覺精美、具備互動效果與時間軸的 HTML 網頁。
-* <span style="color: #c084fc; font-weight: bold;">👥 每個角色選擇他看得懂的版本，用他看得懂的方式回饋</span>
+* <span style="color: #fb923c; font-weight: bold;">👥 每個角色選擇他看得懂的版本，用他看得懂的方式回饋</span>
   不同角色各司其職：商務端、管理層或客戶瀏覽 HTML 視覺網頁，並用自然語言提出回饋與修正建議；工程師審查代碼與技術架構；AI 則直接載入並嚴格遵循 Markdown 規則。每個人都用自己最舒服、最有效率的載體進行溝通與回饋。
-* <span style="color: #c084fc; font-weight: bold;">🤖 AI 幫忙分析解釋 (AI-Assisted Analysis & Translation)</span>
+* <span style="color: #fb923c; font-weight: bold;">🤖 AI 幫忙分析解釋 (AI-Assisted Analysis & Translation)</span>
   在協作過程中，AI 會主動扮演「催化劑」與「編譯器」角色：自動翻譯多國語言、分析代碼邊界、檢查邏輯衝突、產出紅線警示與視覺化流程圖，幫助人類跨越技術鴻溝，快速看懂代碼或複雜規則的實質影響。
-* <span style="color: #c084fc; font-weight: bold;">👤 人類確認 (Human Verification & Control)</span>
+* <span style="color: #fb923c; font-weight: bold;">👤 人類確認 (Human Verification & Control)</span>
   不論 AI 的生成與編譯能力再強，最終的決策與把關權永遠在「人」的手中。由人類在 HTML 互動介面上核對最終效果，進行實機測試，並做出 GO / NO GO 的決策，確保專案的安全落地與品質保障。
 
-### <span style="color: #c084fc;">4. 導入 AI-Native 思維的四大顯著優勢</span>
+### 4. 導入 AI-Native 思維的四大顯著優勢
 當我們轉向以「設計架構與規格，讓 AI 模仿重構」為核心的 AI-Native 模式時，將獲得以下顯著優勢：
 
-* <span style="color: #c084fc; font-weight: bold;">🎯 規格即代碼，消除架構與實作的脫節</span>
+* <span style="color: #fb923c; font-weight: bold;">🎯 規格即代碼，消除架構與實作的脫節</span>
   在傳統開發中，規格書與實際代碼經常脫節（Out of Sync）。而在 AI-Native 模式下，**規格文件就是 AI 的程式指令**。當人類架構師更新了經典模板或規格公約後，AI 便會立即在後續對話或重構中嚴格執行，實現「規格即程式」，消滅資訊不對稱。
-* <span style="color: #c084fc; font-weight: bold;">⚡ 消除繁瑣的手工轉譯 (Specification to Code)</span>
+* <span style="color: #fb923c; font-weight: bold;">⚡ 消除繁瑣的手工轉譯 (Specification to Code)</span>
   以往工程師需要花費大量時間把設計文件或 PM 的規格「翻譯」成程式代碼。現在，人類專注於設計出高水準的規格架構，AI 則直接讀懂規格文件並自動完成手工代碼的撰寫與轉換，大幅降低人工轉譯的出錯率。
-* <span style="color: #c084fc; font-weight: bold;">🔄 極速架構實驗與自動化閉環</span>
+* <span style="color: #fb923c; font-weight: bold;">🔄 極速架構實驗與自動化閉環</span>
   有了「模仿重構」的戰術，當我們想嘗試新的系統架構時，只需替換 AI 參照的「黃金範本」即可。AI 能在幾分鐘內自動完成整個系統的代碼替換、單元測試、編譯與發布，讓架構實驗與驗收呈指數級加速。
-* <span style="color: #c084fc; font-weight: bold;">🗣️ 極低溝通成本與高度敏捷性</span>
+* <span style="color: #fb923c; font-weight: bold;">🗣️ 極低溝通成本與高度敏捷性</span>
   當業務邏輯或系統規範有變動時，無須召開繁瑣的跨部門重構會議或代碼審查會議，只需更新該單元之 Markdown 規格。AI Agent 載入後便會自動更新其行為模式，讓開發流程達到真正的敏捷（Agile）。
 
 ---
@@ -129,7 +129,7 @@ function verifyPdfPassword(url) {
 
 善用 AI 技能 (Skills) 與團隊知識管理是提升人機協作效率的關鍵，以下透過三張核心圖表進行深度解析：
 
-### <span style="color: #fb923c;">1. 能力 (Skills) 與知識 (Knowledge) 的定位差異</span>
+### 1. 能力 (Skills) 與知識 (Knowledge) 的定位差異
 
 ![個人 AI 與 團隊 AI 的知識管理方式](images/personal_vs_team_ai_knowledge.png)
 
@@ -140,7 +140,7 @@ function verifyPdfPassword(url) {
 
 ---
 
-### <span style="color: #fb923c;">2. Context 與 Token 的資源優化策略</span>
+### 2. Context 與 Token 的資源優化策略
 
 ![常駐外掛與專案資料庫的 Context 成本對照](images/context_token_optimization_old.png)
 
@@ -149,7 +149,7 @@ function verifyPdfPassword(url) {
 
 ---
 
-### <span style="color: #fb923c;">3. 哪些 Skill 值得放在「每次都自動載入」？</span>
+### 3. 哪些 Skill 值得放在「每次都自動載入」？
 
 ![哪些 Skill 值得放每次自動載入](images/context_token_optimization.png)
 
