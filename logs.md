@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 19:16:00 | 本機與線上同步 | 將 ETL 實務案例中的九、十、十一，依序更名為大型專案 A、B、C，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 19:14:00 | 本機與線上同步 | 將 FALO Web Share API 雲端 Workers 部署平台新增為 ETL 實務案例十一，描述利用邊緣計算進行拍照一鍵部署流程，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 19:11:00 | 本機與線上同步 | 將 IPAS AIAP 模擬考練習字卡（practice-swiper）新增為 ETL 實務案例一，描述 OCR 擷取題庫與自動刷題檢測流程，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 19:05:00 | 本機與線上同步 | 將「模仿與重構 (Mimicry & Refactoring)」開發心法資訊圖表示意圖嵌入至 topic1_retrospective 網頁對應小節中，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |

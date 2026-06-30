@@ -97,7 +97,7 @@
 * **研究報告入口**：
   * [🌐 開啟銀河ERP - 憑證下載助手 Hub](https://falo-taiwan.github.io/ticket-demo/) *(將於新分頁中開啟)*
 
-### 案例九：FALO NotebookLM Runtime Lab ─ 企業級知識庫整合運行網關
+### 大型專案 A：FALO NotebookLM Runtime Lab ─ 企業級知識庫整合運行網關
 * **專案精神**：針對企業內部部署知識管理（KM）與自動化同步設計的網關（Gateway）。本案例由於涉及地端文件同步與自動化指令碼，線上展示僅提供「高階架構示意圖與原型卡片」，完整功能需結合本機開發環境與 **ngrok 安全隧道技術** 穿透進行實時操作與展示。
 * **技術對比與特點**：
   * **雙版本門戶網關**：提供雙版本門戶入口，支援自動化文件同步腳本，免去手動上傳 NotebookLM 來源庫的限制；透過 ngrok 將地端自動化服務安全映射至公網。
@@ -106,7 +106,7 @@
   * [🌐 開啟 FALO NotebookLM Runtime Lab 門戶入口 (僅提供示意圖)](https://falo-taiwan.github.io/ai-notebooklm/) *(將於新分頁中開啟)*
 
 
-### 案例十：LINE 資訊過載助手 ─ 深度研究彙總報告
+### 大型專案 B：LINE 資訊過載助手 ─ 深度研究彙總報告
 * **專案精神**：解決 LINE 群組對話資訊過載痛點，透過極致 Prompt 工程與多模型並行測試，將碎片化對話自動提煉為高品質的結構化彙總與待辦清單。
 * **技術對比與特點**：
   * **六大模型實測**：基於同一套基準 Prompt，深度對比 Google DeepThink（慢思考推理）、Google DeepResearch（長篇研究）、Claude（繁體中文美感）、Grok（即時社交熱點）、Kimi（超長文本細節）與 Perplexity（智慧搜尋背景）在對話摘要上的效能表現。
@@ -114,7 +114,7 @@
 * **研究報告入口**：
   * [🌐 開啟 LINE 資訊過載助手 ─ 深度研究彙總報告](https://falo-taiwan.github.io/ai-line-help/) *(將於新分頁中開啟)*
 
-### 案例十一：FALO Web Share API ─ 雲端 Workers 拍照快易部署與 QRCode 門戶
+### 大型專案 C：FALO Web Share API ─ 雲端 Workers 拍照快易部署與 QRCode 門戶
 * **專案精神**：針對 AI 與雲端新手設計的超輕量 Web Share API 應用服務。本案例運用 **Cloudflare Workers** 進行 Serverless 邊緣計算部署，免去繁瑣的地端伺服器環境設定。協助 AI 新手小白簡單地使用 AI 服務，使用者只需透過手機拍照，即可將照片或檔案一鍵快速部署至雲端，並實時生成專屬的下載分享 QRCode，打通「實體捕捉 ➔ 邊緣負載 ➔ 雲端共享」的極簡化工作流。
 * **技術對比與特點**：
   * **Cloudflare Workers 邊緣部署**：利用 Cloudflare Workers 的極速分佈式邊緣網絡架構，實現微毫秒級的請求響應與零維護伺服器成本。
