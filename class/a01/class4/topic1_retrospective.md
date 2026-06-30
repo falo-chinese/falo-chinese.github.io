@@ -68,12 +68,9 @@ function verifyPdfPassword(url) {
 ---
 
 ### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢 {#superpowers-case}
-在 AI-Native 開發中，我們常以 [Superpowers](https://falo-taiwan.github.io/superpowers/) 專案（官方 Repo：[GitHub](https://github.com/obra/superpowers)）作為技能設計的範本。雖然其核心是基於 Markdown 定義的個人技能檔，但將其**本地化編譯為單頁 HTML 互動說明網頁**，具備了以下顯著的溝通與教學優勢：
-* **官方最新 `using-superpowers` 技能檔**：我們已將官方最新版本上傳至本教材包中，您可以直接閱讀 <a href="superpowers_skill.md" target="_blank">原始 Markdown 技能文字檔 (superpowers_skill.md)</a> 或存取 [HTML 互動好讀版](superpowers_skill.md)。
+在 AI-Native 開發中，我們常以 [Superpowers](https://falo-taiwan.github.io/superpowers/) 專案（官方 Repo：[GitHub](https://github.com/obra/superpowers)）作為技能設計的範本。該專案原本是一套基於 Markdown 定義的個人 AI 技能庫，而在團隊協作與教材推廣時，我們將其本地化編譯為單頁 HTML 互動說明網頁。
 
-1. **動態視角切換**：可一鍵切換「一般使用者/新手」與「系統架構師/專家」視角，解決技術與商務端的資訊不對稱（如 [Superpowers 說明網頁](https://falo-taiwan.github.io/superpowers/) 的動態切換）。
-2. **流程與規則視覺化**：將原本平鋪直述的 Markdown 文字，轉換為直觀的互動時間軸 (Timeline) 與紅線警示卡片 (Red Flags)，大幅降低人類工程師的閱讀心智負擔。
-3. **按需加載與離線可用**：無需啟動伺服器，雙擊即可在瀏覽器中離線開啟，完美融入無網路狀態下的備用教學機制。
+* **官方最新 `using-superpowers` 技能檔**：我們已將官方最新版本上傳至本教材包中，您可以直接閱讀 <a href="superpowers_skill.md" target="_blank">原始 Markdown 技能文字檔 (superpowers_skill.md)</a> 或存取 [HTML 互動好讀版](superpowers_skill.md)。
 
 ---
 
