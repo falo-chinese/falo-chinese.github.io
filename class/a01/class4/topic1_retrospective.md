@@ -68,12 +68,12 @@ function verifyPdfPassword(url) {
 ---
 
 ### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢 {#superpowers-case}
-在 AI-Native 開發中，我們常以 [Superpowers](https://falo-taiwan.github.io/superpowers/) 專案（官方 Repo：[GitHub](https://github.com/obra/superpowers)）作為技能設計的範本。該專案原本是一套基於 Markdown 定義的個人 AI 技能庫，而在團隊協作與教材推廣時，我們將其本地化編譯為單頁 HTML 互動說明網頁。
+在 AI-Native 開發中，我們以知名 AI 技能庫 [Superpowers](https://github.com/obra/superpowers) 為例，展示同一個技能檔在不同表達載體上的雙軌輸出與優勢。詳細的「HTML 本地化優勢與功能展示」已收錄於我們的 [FALO 雙軌教材介紹網頁](https://falo-taiwan.github.io/superpowers/) 中。
 
-我們已將該技能檔整合進本教材包中，提供以下三種版本供對照學習：
-- 🌐 <a href="https://raw.githubusercontent.com/obra/superpowers/main/skills/using-superpowers/SKILL.md" target="_blank">官方原始 Markdown 技能檔 (GitHub 英文版)</a>：最純粹的官方英文邏輯，適合直接配置進 AI Runtime。
-- 📝 <a href="superpowers_skill.md" target="_blank">FALO 專案 Markdown 技能檔 (本機英文代碼版)</a>：在英文基礎上嵌入了 CSS/HTML 互動組件，專為本地雙軌編譯優化。
-- 📖 [FALO HTML 雙語互動好讀版](superpowers_skill.md)：整合中文導讀對照、互動式平台切換 tabs 與視覺化流程管線的最強學習版本。
+本教材包中提供以下三種檔案版本，供您對照學習其結構與轉譯效果：
+* 🌐 <a href="superpowers_skill_official.md" target="_blank">官方原始 Markdown 技能檔 (superpowers_skill_official.md)</a>：最純粹的官方英文邏輯，適合配置給 AI 工具。
+* 📝 <a href="superpowers_skill.md" target="_blank">FALO 專案 Markdown 技能檔 (superpowers_skill.md)</a>：本機英文代碼版，嵌入了 CSS/HTML 互動組件。
+* 📖 [FALO HTML 雙語互動好讀版](superpowers_skill.md)：透過編譯注入中文導讀、互動平台 Tabs 與視覺化 Timeline 的最強學習版本。
 
 ---
 

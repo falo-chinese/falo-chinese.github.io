@@ -266,7 +266,7 @@ pre:has(code.language-dot) {
   <div class="header-links">
     <a href="https://github.com/obra/superpowers" target="_blank">🌐 官方 GitHub 儲存庫</a>
     <a href="https://falo-taiwan.github.io/superpowers/" target="_blank">🔗 FALO 雙軌教材介紹網頁</a>
-    <a href="https://raw.githubusercontent.com/obra/superpowers/main/skills/using-superpowers/SKILL.md" target="_blank">📄 官方原始 Markdown 技能檔 (GitHub 英文版)</a>
+    <a href="superpowers_skill_official.md" target="_blank">📄 官方原始 Markdown 技能檔 (English 版)</a>
     <a href="superpowers_skill.md" target="_blank">📝 FALO 專案 Markdown 技能檔 (本機英文代碼版)</a>
     <a href="superpowers_skill.html" target="_blank">📖 FALO HTML 雙語互動好讀版 (本頁)</a>
   </div>
