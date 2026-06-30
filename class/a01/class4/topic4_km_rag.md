@@ -8,22 +8,43 @@
 
 ## 📂 AI KM 建置範例：政府 RAG 智慧檢索與診斷系統 {#ai-km}
 
-為了解決複雜政策與補助法規的查詢痛點，我們開發了「政府 AI 與資安成熟度檢核專案」與「RAG 智慧檢索系統」。在此案例中，我們貫徹了企業級 RAG 系統的 **五大核心架構思維**：
-
-### 1. 務實主義 (Pragmatism)
-拒絕盲目追求高複雜度與昂貴的第三方框架（如 LangChain），以最直觀、高效的「純 JavaScript 向量相似度比對（Cosine Similarity）」在瀏覽器端直接運行，快速驗證核心商業價值與 MVP。
-
-### 2. 安全防禦 (Defensive Coding)
-針對企業內部可能存在「無網際網路、無外部 DNS、甚至嚴格限制 CORS」的極端內網環境，設計 `no-cors` 探針與自動降級策略（Fallback），在 API 無法連通時自動切換至離線預置數據庫。
-
-### 3. 落地經濟學 (Economics)
-深度優化 Token 消耗，前端設計「本地快取機制（LocalStorage Cache）」，避免重複查詢相同問題而產生不必要的 API 花費。同時在 UI 置入即時 Token 消耗與台幣花費監控面板，強化團隊的成本控制意識。
-
-### 4. 結構化交付 (Structured Output)
-強制要求大模型（LLM）輸出符合嚴格 JSON Schema 格式的數據，並在代碼端設計「自動修補與校對引擎」，確保輸出的診斷報告能 100% 與 ERP 的資料庫欄位無縫對接。
-
-### 5. 零運維成本 (Serverless/Static)
-採用 100% 靜態網頁架構（HTML/CSS/JS），無需部署資料庫或後端伺服器，免去高昂的維護成本與各種潛在的伺服器漏洞安全性威脅，極適合快速部署於內部儲存空間。
+<div class="card" style="margin-top: 1.5rem; border-left: 4px solid var(--accent); padding: 1.8rem; background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+    <div style="font-weight: bold; font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px;"><span style="font-size: 1.3rem;">🎯</span> 業務定位 (Business Positioning)</div>
+    <p style="margin-bottom: 1.8rem; line-height: 1.75; font-size: 0.98rem; color: var(--text-muted);">解決企業在政策對接、法規檢索與政府補助案申請時面臨的「資訊碎片化」與「合規解讀難度高」等痛點。透過輕量前端檢索與上下文快取，打造低成本的公務知識平台，作為銀河軟體內部研發與產品經理的「產品升級智庫」。</p>
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem;">
+        <div style="font-weight: bold; font-size: 1.15rem; color: var(--text-main); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 8px;"><span style="font-size: 1.3rem;">📚</span> 核心資源與實作展示 (Core Resources & Prototypes)</div>
+        <div class="resource-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 0.5rem;">
+            <!-- Group 1: 原始政府來源 -->
+            <div style="background: rgba(0, 0, 0, 0.15); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                <div style="font-weight: 800; color: var(--accent); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;"><span>🏛️</span> 政府官方釋出來源</div>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <a href="https://eii.nat.gov.tw/moeai-plus/ai-tools" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); text-decoration: none; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.2s ease; font-size: 0.9rem;" onmouseover="this.style.background='rgba(192, 132, 252, 0.08)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.05)';">
+                        <span style="font-weight: 500;">經濟部產發署 AI 工具專區</span>
+                        <span style="color: var(--accent); font-weight: bold; font-size: 0.8rem; border: 1px solid var(--accent); padding: 3px 8px; border-radius: 6px; background: rgba(192, 132, 252, 0.1); white-space: nowrap;">🌐 官方網站</span>
+                    </a>
+                    <a href="https://www.smebiz.org.tw/service-ai.php" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); text-decoration: none; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.2s ease; font-size: 0.9rem;" onmouseover="this.style.background='rgba(192, 132, 252, 0.08)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.05)';">
+                        <span style="font-weight: 500;">中小企業數位轉型入口網 (SMEBiz)</span>
+                        <span style="color: var(--accent); font-weight: bold; font-size: 0.8rem; border: 1px solid var(--accent); padding: 3px 8px; border-radius: 6px; background: rgba(192, 132, 252, 0.1); white-space: nowrap;">🌐 官方網站</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Group 2: Force 自研 RAG -->
+            <div style="background: rgba(0, 0, 0, 0.15); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease;">
+                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;"><span>⚡</span> Force 自研 RAG 實作原型</div>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <a href="tw-ai-grant-v1.html" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); text-decoration: none; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.2s ease; font-size: 0.9rem;" onmouseover="this.style.background='rgba(139, 92, 246, 0.08)'; this.style.borderColor='var(--primary)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.05)';">
+                        <span style="font-weight: 500;">政府 RAG 智慧檢索系統 V1 <span style="font-size: 0.8rem; opacity: 0.8;">(普通Vibe Coding版)</span></span>
+                        <span style="color: var(--primary); font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary); padding: 3px 8px; border-radius: 6px; background: rgba(139, 92, 246, 0.1); white-space: nowrap;">🚀 線上展示</span>
+                    </a>
+                    <a href="tw-ai-grant-v2.html" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); text-decoration: none; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.2s ease; font-size: 0.9rem;" onmouseover="this.style.background='rgba(139, 92, 246, 0.08)'; this.style.borderColor='var(--primary)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.05)';">
+                        <span style="font-weight: 500;">政府 RAG 智慧檢索系統 V2 <span style="font-size: 0.8rem; opacity: 0.8;">(AI 高手進階版)</span></span>
+                        <span style="color: var(--primary); font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary); padding: 3px 8px; border-radius: 6px; background: rgba(139, 92, 246, 0.1); white-space: nowrap;">🚀 線上展示</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 ---
 

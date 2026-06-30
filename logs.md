@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 18:45:00 | 本機與線上同步 | 將主題四 KM 建置與應用思維（topic4_km_rag）的前言與五大架構思維移除，直接替換為主題二的方向 A 原型卡片，以完美銜接實作說明，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 18:37:00 | 本機與線上同步 | 調整實戰案例展示（topic3_etl_cases）的順序為 7、6、3、2、4、8、1、5、9 並重新編號，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 18:20:00 | 本機與線上同步 | 將「AI-Native 人機協作四部曲」精美資訊圖表示意圖嵌入至 topic1_retrospective 網頁對應章節中，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 16:58:00 | 本機與線上同步 | 補齊主題三第二小節中未套用至「核心戰術：模仿與重構」三個列表項目標題的橘色（#fb923c）樣式，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
