@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 15:11:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧網頁中置入『為什麼團隊版更省 Context / Token？』全新優化思維圖表 (context_token_optimization.png)，並上傳官方最新 superpowers 技能檔 (superpowers_skill.md) 與整合相關連結，重新編譯並推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:03:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧與交付規範網頁 (topic1_retrospective.html) 置入『個人 AI 與團隊 AI 的知識管理方式』全新手繪圖表 (personal_vs_team_ai_knowledge.png) 與 Superpowers HTML 本地化雙軌研究案例，並重新打包與編譯，成功同步推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 14:37:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧與交付規範網頁 (topic1_retrospective.html) 中置入『AI App Studio 專案開發四大原則』全新手繪圖表 (ai_app_studio_four_principles.png)，並重新打包與編譯，成功同步推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-29 16:25:00 | 本機與線上同步 | 將第二張架構圖『FALO AI 架構總覽 (falo_ai_architecture_overview.png)』整合進同一網頁 (diagram_knowledge_core.html)，並重構為分頁式頁面 (系統功能流轉圖 / 四層技術架構圖)，整合圖片放大 Lightbox、模擬器與各層級說明，成功推送至雙遠端 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |

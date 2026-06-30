@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Skills | Class 04 AI App Studio 工作坊</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: radial-gradient(circle at 50% 50%, #0b071e 0%, #020108 100%);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(25, 18, 50, 0.45);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(192, 132, 252, 0.45);
+            --primary: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.15);
+            --accent: #c084fc;
+            --sidebar-bg: rgba(15, 10, 35, 0.85);
+            --sidebar-border: rgba(255, 255, 255, 0.08);
+            --toggle-bg: rgba(255, 255, 255, 0.05);
+            --toggle-border: rgba(255, 255, 255, 0.1);
+            --toggle-color: #f3f4f6;
+            --btn-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            --btn-shadow: rgba(139, 92, 246, 0.25);
+            --badge-bg: rgba(192, 132, 252, 0.12);
+            --badge-color: #d8b4fe;
+            --badge-border: rgba(192, 132, 252, 0.25);
+            --h1-gradient: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+            --code-bg: #0d091e;
+            --topic-green: #4ade80;
+            --sidebar-blue: #38bdf8;
+        }
+
+        body.theme-light {
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(99, 102, 241, 0.12);
+            --card-hover-border: rgba(99, 102, 241, 0.45);
+            --primary: #4f46e5;
+            --primary-glow: rgba(79, 70, 229, 0.1);
+            --accent: #0891b2;
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-border: rgba(99, 102, 241, 0.15);
+            --toggle-bg: rgba(0, 0, 0, 0.05);
+            --toggle-border: rgba(0, 0, 0, 0.08);
+            --toggle-color: #4f46e5;
+            --btn-bg: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --sidebar-blue: #0284c7;
+            --btn-shadow: rgba(79, 70, 229, 0.2);
+            --badge-bg: rgba(8, 145, 178, 0.08);
+            --badge-color: #0891b2;
+            --badge-border: rgba(8, 145, 178, 0.15);
+            --h1-gradient: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
+            --code-bg: #f8fafc;
+            --topic-green: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            transition: background 0.4s ease, color 0.3s ease;
+        }
+
+        body.zoom-large { font-size: 1.15rem; }
+        body.zoom-large h1 { font-size: 2.5rem; }
+        body.zoom-large h2 { font-size: 1.8rem; }
+        
+        .layout-wrapper {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            transition: max-width 0.3s ease;
+        }
+        
+        body.width-wide .layout-wrapper {
+            max-width: 1600px;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 300px;
+            flex-shrink: 0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            padding: 2.5rem 1.5rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .brand h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--sidebar-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .brand .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--sidebar-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand .sub-brand {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--sidebar-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .toc {
+            list-style: none;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .toc-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--sidebar-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+            padding-left: 0.8rem;
+        }
+
+        /* 💡 Five topics highlighted in blue and white */
+        .toc-title a.toc-link {
+            color: var(--sidebar-blue) !important;
+            font-size: 0.82rem !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+        }
+        .toc-title a.toc-link:hover {
+            color: var(--sidebar-blue) !important;
+            background: rgba(56, 189, 248, 0.05) !important;
+            padding-left: 1rem !important;
+        }
+        .toc-title a.toc-link.active {
+            color: var(--sidebar-blue) !important;
+            background: rgba(56, 189, 248, 0.08) !important;
+            border-left: 3px solid var(--sidebar-blue) !important;
+            border-radius: 8px !important;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .toc-link:hover {
+            color: var(--sidebar-blue);
+            background: rgba(56, 189, 248, 0.04);
+            padding-left: 1.2rem;
+        }
+
+        .toc-link.active {
+            color: var(--sidebar-blue);
+            background: rgba(56, 189, 248, 0.08);
+            border-left: 3px solid var(--sidebar-blue);
+            border-radius: 8px;
+            padding-left: 1.2rem;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid var(--sidebar-border);
+            padding-top: 1.5rem;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-btn {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 0.8rem;
+            background: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-btn:hover {
+            background: var(--primary-glow);
+            border-color: var(--primary);
+        }
+
+        /* Main Content Area */
+        main {
+            flex-grow: 1;
+            margin-left: 300px;
+            padding: 3.5rem 3rem;
+            max-width: 900px;
+            width: calc(100% - 300px);
+            transition: max-width 0.3s ease;
+        }
+
+        body.width-wide main {
+            max-width: 1300px;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: var(--h1-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        header .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            margin-bottom: 2.2rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--card-hover-border);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--topic-green);
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--topic-green);
+        }
+
+        h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        body.theme-light p {
+            color: #334155;
+        }
+
+        /* Code Block Container */
+        .code-container {
+            position: relative;
+            background: var(--code-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        pre {
+            padding: 1.25rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        body.theme-light .comparison-table th, 
+        body.theme-light .comparison-table td {
+            border-bottom-color: rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            color: var(--text-muted);
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        /* Floating Accessibility Toolbar */
+        .accessibility-toolbar {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(15, 10, 35, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        body.theme-light .accessibility-toolbar {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .toolbar-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .toolbar-btn:hover {
+            background: var(--primary-glow);
+            color: var(--accent);
+        }
+
+        .divider {
+            width: 1px;
+            height: 18px;
+            background: var(--card-border);
+        }
+
+        .resources-details[open] summary span:last-child {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 992px) {
+            aside {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accessibility-toolbar">
+        <button class="toolbar-btn" onclick="toggleLocalTheme()" title="切換配色">💡</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustZoom(true)" title="放大字體">A+</button>
+        <button class="toolbar-btn" onclick="adjustZoom(false)" title="縮小字體">A-</button>
+        <div class="divider"></div>
+        <button class="toolbar-btn" onclick="adjustWidth(true)" title="寬版版面">W+</button>
+        <button class="toolbar-btn" onclick="adjustWidth(false)" title="窄版版面">W-</button>
+    </div>
+
+    <div class="layout-wrapper">
+        <aside>
+            <div class="brand">
+                <div class="eyebrow">銀河 ERP 內訓</div>
+                <h2>Class 04</h2>
+                <div class="sub-brand">銀河軟體 台西分公司</div>
+            </div>
+            
+            <ul class="toc">
+                <!-- 本次課程說明 -->
+                <div class="toc-title"><a class="toc-link " href="index.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📋 本次課程說明</a></div>
+
+                <!-- 主題一：前三堂課程交流與補充 -->
+                <div class="toc-title"><a class="toc-link " href="topic1_retrospective.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">💬 1. 前三堂課程交流與補充</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic1_retrospective.html#guidelines">📌 常見提醒與交付規範</a></li>
+                    <li><a class="toc-link" href="topic1_retrospective.html#supplement">前三週重點補充與解答</a></li>
+                    <li><a class="toc-link" href="topic1_retrospective.html#diagnostic">同學專案方向交流與診斷</a></li>
+                    <li><a class="toc-link" href="topic1_retrospective.html#faq">🙋 學員提問 QA</a></li>
+                </ul>
+
+                <!-- 主題二：AI App 專案腦力激盪 -->
+                <div class="toc-title"><a class="toc-link " href="topic5_brainstorming.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🎯 2. AI App 專案腦力激盪</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic5_brainstorming.html">🎯 AI APP Studio 實作套件</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-a" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 A：AI KM 知識庫</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-b" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 B：銀河 ERP SaaS 增強</a></li>
+                    <li style="padding-left: 0.8rem;"><a class="toc-link" href="topic5_brainstorming.html#direction-c" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">👉 方向 C：SME 日常效率倍增器</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#evaluation-metrics">🗺️ AI App 關鍵注意事項</a></li>
+                    <li><a class="toc-link" href="topic5_brainstorming.html#firewall-test">🛡️ 客戶環境測試（網絡防火牆）</a></li>
+                </ul>
+
+                <!-- 主題三：ETL 實務案例分享 -->
+                <div class="toc-title"><a class="toc-link " href="topic3_etl_cases.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">⚡ 3. ETL 實務案例分享</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-e">📥 E (Extract) - 取得資料</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-t">⚡ T (Transform) - 整理 / 轉換</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#etl-l">📤 L (Load) - 輸出 / 應用</a></li>
+                    <li><a class="toc-link" href="topic3_etl_cases.html#featured-cases">🚀 核心實戰案例展示</a></li>
+                </ul>
+
+                <!-- 主題四：KM 建置與應用思維 -->
+                <div class="toc-title"><a class="toc-link " href="topic4_km_rag.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">📂 4. KM 建置與應用思維</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic4_km_rag.html#ai-km">📂 AI KM 建置範例</a></li>
+                    <li><a class="toc-link" href="topic4_km_rag.html#imitation-coding">🎯 實戰模仿開發</a></li>
+                    <li><a class="toc-link" href="topic4_km_rag.html#ai-war-room">🖥️ 企業級 AI 雙軌戰情中心</a></li>
+                    <li><a class="toc-link" href="topic4_km_rag.html#notebooklm">📓 NotebookLM 整合運用</a></li>
+                </ul>
+
+                <!-- 主題五：AI API 呼叫三大模式實戰 -->
+                <div class="toc-title"><a class="toc-link " href="topic6_ai_api.html" style="padding: 0.4rem 0.8rem; display: block; font-weight: bold; border-radius: 8px;">🛠️ 5. AI API 呼叫三大模式實戰</a></div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: none; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="topic6_ai_api.html#hardware-detection">🖥️ 互動式硬體檢測選型</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#cloud-gemini">☁️ 雲端 Gemini API 申請與呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#local-ollama">🏠 地端 Ollama 本地服務呼叫</a></li>
+                    <li><a class="toc-link" href="topic6_ai_api.html#chrome-nano">🌐 Chrome Nano 瀏覽器原生 AI</a></li>
+                </ul>
+
+                <!-- 📚 延伸精選閱讀 -->
+                <div class="toc-title">📚 延伸精選閱讀</div>
+                <ul style="list-style: none; padding-left: 1rem; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <li><a class="toc-link" href="article_ai_efficiency.html" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">📝 企業 AI 轉型思維</a></li>
+                    <li><a class="toc-link" href="article_ornith_agent.html" style="font-size: 0.85rem; padding: 0.3rem 0.6rem;">🐦 Ornith-1.0 程式模型</a></li>
+                </ul>
+
+            </ul>
+
+
+        </aside>
+
+        <main>
+            <header>
+                <span class="badge">Class 04 AI App Studio 實作藍圖套件</span>
+                <h1 style="margin-top: 0.75rem;">Using Skills</h1>
+                <div class="subtitle">從創意到 AI 產品的完整實作藍圖與工作坊套件</div>
+            </header>
+
+            <article class="card">
+                <p>---</p>
+<p>name: using-superpowers</p>
+<p>description: Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions</p>
+<p>---</p>
+<br>
+<SUBAGENT-STOP>
+If you were dispatched as a subagent to execute a specific task, skip this skill.
+</SUBAGENT-STOP>
+<br>
+<EXTREMELY-IMPORTANT>
+If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
+
+IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
+
+This is not negotiable. This is not optional. You cannot rationalize your way out of this.
+</EXTREMELY-IMPORTANT>
+<br>
+<h2>Instruction Priority</h2>
+<br>
+<p>Superpowers skills override default system prompt behavior, but <strong>user instructions always take precedence</strong>:</p>
+<br>
+<p>1. <strong>User's explicit instructions</strong> (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority</p>
+<p>2. <strong>Superpowers skills</strong> — override default system behavior where they conflict</p>
+<p>3. <strong>Default system prompt</strong> — lowest priority</p>
+<br>
+<p>If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.</p>
+<br>
+<h2>How to Access Skills</h2>
+<br>
+<p><strong>Never read skill files manually with file tools</strong> — always use your platform's skill-loading mechanism so the skill is properly activated.</p>
+<br>
+<p><strong>In Claude Code:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Skill</code> tool. When you invoke a skill, its content is loaded and presented to you — follow it directly.</p>
+<br>
+<p><strong>In Codex:</strong> Skills load natively. Follow the instructions presented when a skill activates.</p>
+<br>
+<p><strong>In Copilot CLI:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">skill</code> tool. Skills are auto-discovered from installed plugins.</p>
+<br>
+<p><strong>In Gemini CLI:</strong> Skills activate via the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">activate_skill</code> tool. Gemini loads skill metadata at session start and activates the full content on demand.</p>
+<br>
+<p><strong>In other environments:</strong> Check your platform's documentation for how skills are loaded.</p>
+<br>
+<h2>Platform Adaptation</h2>
+<br>
+<p>Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") rather than naming any one runtime's tools. For per-platform tool equivalents and instructions-file conventions, see <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/claude-code-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">claude-code-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/codex-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">codex-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/copilot-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">copilot-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/gemini-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">gemini-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/pi-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">pi-tools.md</a>, and <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/antigravity-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">antigravity-tools.md</a>. Gemini CLI users get the tool mapping loaded automatically via GEMINI.md.</p>
+<br>
+<h1>Using Skills</h1>
+<br>
+<h2>The Rule</h2>
+<br>
+<p><strong>Invoke relevant or requested skills BEFORE any response or action.</strong> Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.</p>
+<br>
+<details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ DOT 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>DOT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>digraph skill_flow {
+    "User message received" [shape=doublecircle];
+    "About to enter plan mode?" [shape=doublecircle];
+    "Already brainstormed?" [shape=diamond];
+    "Invoke brainstorming skill" [shape=box];
+    "Might any skill apply?" [shape=diamond];
+    "Invoke the skill" [shape=box];
+    "Announce: 'Using [skill] to [purpose]'" [shape=box];
+    "Has checklist?" [shape=diamond];
+    "Create a todo per item" [shape=box];
+    "Follow skill exactly" [shape=box];
+    "Respond (including clarifications)" [shape=doublecircle];
+
+    "About to enter plan mode?" -&gt; "Already brainstormed?";
+    "Already brainstormed?" -&gt; "Invoke brainstorming skill" [label="no"];
+    "Already brainstormed?" -&gt; "Might any skill apply?" [label="yes"];
+    "Invoke brainstorming skill" -&gt; "Might any skill apply?";
+
+    "User message received" -&gt; "Might any skill apply?";
+    "Might any skill apply?" -&gt; "Invoke the skill" [label="yes, even 1%"];
+    "Might any skill apply?" -&gt; "Respond (including clarifications)" [label="definitely not"];
+    "Invoke the skill" -&gt; "Announce: 'Using [skill] to [purpose]'";
+    "Announce: 'Using [skill] to [purpose]'" -&gt; "Has checklist?";
+    "Has checklist?" -&gt; "Create a todo per item" [label="yes"];
+    "Has checklist?" -&gt; "Follow skill exactly" [label="no"];
+    "Create a todo per item" -&gt; "Follow skill exactly";
+}</code></pre></div></details>
+<br>
+<h2>Red Flags</h2>
+<br>
+<p>These thoughts mean STOP—you're rationalizing:</p>
+<br>
+<table class="comparison-table"><thead><tr><th>Thought</th><th>Reality</th></tr></thead><tbody><tr><td>"This is just a simple question"</td><td>Questions are tasks. Check for skills.</td></tr><tr><td>"I need more context first"</td><td>Skill check comes BEFORE clarifying questions.</td></tr><tr><td>"Let me explore the codebase first"</td><td>Skills tell you HOW to explore. Check first.</td></tr><tr><td>"I can check git/files quickly"</td><td>Files lack conversation context. Check for skills.</td></tr><tr><td>"Let me gather information first"</td><td>Skills tell you HOW to gather information.</td></tr><tr><td>"This doesn't need a formal skill"</td><td>If a skill exists, use it.</td></tr><tr><td>"I remember this skill"</td><td>Skills evolve. Read current version.</td></tr><tr><td>"This doesn't count as a task"</td><td>Action = task. Check for skills.</td></tr><tr><td>"The skill is overkill"</td><td>Simple things become complex. Use it.</td></tr><tr><td>"I'll just do this one thing first"</td><td>Check BEFORE doing anything.</td></tr><tr><td>"This feels productive"</td><td>Undisciplined action wastes time. Skills prevent this.</td></tr><tr><td>"I know what that means"</td><td>Knowing the concept ≠ using the skill. Invoke it.</td></tr></tbody></table>
+<br>
+<h2>Skill Priority</h2>
+<br>
+<p>When multiple skills could apply, use this order:</p>
+<br>
+<p>1. <strong>Process skills first</strong> (brainstorming, systematic-debugging) - these determine HOW to approach the task</p>
+<p>2. <strong>Implementation skills second</strong> (frontend-design, mcp-builder) - these guide execution</p>
+<br>
+<p>"Let's build X" → brainstorming first, then implementation skills.</p>
+<p>"Fix this bug" → systematic-debugging first, then domain-specific skills.</p>
+<br>
+<h2>Skill Types</h2>
+<br>
+<p><strong>Rigid</strong> (TDD, systematic-debugging): Follow exactly. Don't adapt away discipline.</p>
+<br>
+<p><strong>Flexible</strong> (patterns): Adapt principles to context.</p>
+<br>
+<p>The skill itself tells you which.</p>
+<br>
+<h2>User Instructions</h2>
+<br>
+<p>Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.</p>
+<br>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        function toggleLocalTheme() {
+            document.body.classList.toggle('theme-light');
+            localStorage.setItem('class04-theme', document.body.classList.contains('theme-light') ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('class04-theme') === 'light') document.body.classList.add('theme-light');
+
+        function adjustZoom(enlarge) {
+            if (enlarge) {
+                document.body.classList.add('zoom-large');
+                localStorage.setItem('class04-zoom', 'large');
+            } else {
+                document.body.classList.remove('zoom-large');
+                localStorage.setItem('class04-zoom', 'normal');
+            }
+        }
+        if (localStorage.getItem('class04-zoom') === 'large') document.body.classList.add('zoom-large');
+
+        function adjustWidth(wide) {
+            if (wide) {
+                document.body.classList.add('width-wide');
+                localStorage.setItem('class04-width', 'wide');
+            } else {
+                document.body.classList.remove('width-wide');
+                localStorage.setItem('class04-width', 'normal');
+            }
+        }
+        if (localStorage.getItem('class04-width') === 'wide') document.body.classList.add('width-wide');
+
+        function copyCode(btn) {
+            const code = btn.parentElement.nextElementSibling.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const origText = btn.innerText;
+                btn.innerText = "已複製！";
+                setTimeout(() => btn.innerText = origText, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -51,10 +51,29 @@ function verifyPdfPassword(url) {
 * **團隊使用 (Team AI) ➔ 管理的是「知識 (Markdown + HTML)」**
   建立專案共享文件目錄（如 `README`、`PROJECT_RULE`、`WORKFLOW`），落實雙軌並行，讓 **大家使用同一份知識與規範**。
 
+#### 🪙 Context 與 Token 優化思維：為什麼「團隊版」更省 Token？
+除了定位不同外，從 **AI Token 消耗與 Context Window 資源利用**的角度來看，兩者也有顯著的運作機制差異：
+
+![為什麼團隊版更省 Context / Token](images/context_token_optimization.png)
+
+* **Skill 模式（常駐外掛 🔌）**
+  * **運作機制**：每次啟動對話時，AI 都會自動載入該 Skill 的 Markdown 全文（Always Loaded）。
+  * **優缺點**：優點是反應即時，缺點是會**固定且持續佔用** Context 空間。當 Skill 內容龐大時，會消耗大量重複的 Input Token，並擠壓可用於載入專案程式碼的 Context 空間。
+  * **最適合**：個人開發習慣、固定工作流約束、通用行為準則。
+* **Team Knowledge 模式（專案資料庫 🗄️）**
+  * **運作機制**：平時檔案安靜存放在目錄中，AI 僅在需要時才經由搜尋或讀取工具載入特定檔案（On Demand）。
+  * **優缺點**：平時不佔用啟動時的 Context。AI 只讀取當前任務所需的特定文件，使 Context 利用率最大化，顯著節省累計 Token 費用。
+  * **最適合**：團隊專案規範、複雜業務邏輯、長期累積的專案知識包。
+
 ---
 
 ### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢 {#superpowers-case}
-為了讓大家更直觀地理解雙軌文件在實務上的威力，我們以知名的 AI Coding Agent 方法論專案 [Superpowers](https://github.com/falo-taiwan/superpowers) 為例。該專案原本是一套基於 Markdown 定義的個人 AI 技能庫（如 <a href="file:///Users/force/Downloads/superpowers_skill.md">superpowers_skill.md</a>），但當轉化為團隊協作與教材時，將其**本地化編譯為單頁 HTML 互動說明網頁**（[Superpowers 說明網頁](https://falo-taiwan.github.io/superpowers/)）帶來了諸多顯著好處：
+為了讓大家更直觀地理解雙軌文件在實務上的威力，我們以知名的 AI Coding Agent 方法論專案 **Superpowers** 為例：
+* **官方 GitHub 儲存庫**：[https://github.com/obra/superpowers](https://github.com/obra/superpowers)
+* **FALO 雙軌教材介紹網頁**：[https://falo-taiwan.github.io/superpowers/](https://falo-taiwan.github.io/superpowers/)
+* **官方最新 `using-superpowers` 技能檔**：我們已將官方最新版本的 [superpowers_skill.md](superpowers_skill.md)（本機對應 <a href="file:///Users/force/Downloads/superpowers_skill.md">superpowers_skill.md</a>）上傳至本教材包中，您可以直接閱讀。
+
+該專案原本是一套基於 Markdown 定義的個人 AI 技能庫，但當轉化為團隊協作與教材時，將其**本地化編譯為單頁 HTML 互動說明網頁**帶來了諸多顯著好處：
 
 1. **動態「雙視角切換」解決資訊不對稱**
    HTML 網頁可內建互動按鈕，讓讀者在「**新手/一般使用者**」與「**專家/系統架構師**」視角間一鍵切換。
