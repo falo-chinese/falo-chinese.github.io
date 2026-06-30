@@ -75,6 +75,8 @@ function verifyPdfPassword(url) {
 
 為了讓 AI 產出最高品質的程式碼，我們必須掌握**「向經典學習，讓 AI 模仿重構」**的戰術：
 
+![核心戰術：模仿與重構](images/ai_native_mimicry_refactoring.png)
+
 * <span style="color: #fb923c; font-weight: bold;">💡 寫程式不難，定義規格與架構才重要</span>
   AI 可以一瞬間寫出上千行代碼，但如果人類給的「規格書 (Spec)」邏輯混亂、架構模糊，AI 也只會以極快的速度產出「垃圾程式碼」。人類的角色必須提升為「架構師」，專注於理清業務邊界與系統規則。
 * <span style="color: #fb923c; font-weight: bold;">📚 向經典學習 (Learn from the Classics) 的四大實踐路徑</span>
