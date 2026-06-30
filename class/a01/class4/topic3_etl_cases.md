@@ -114,3 +114,10 @@
 * **研究報告入口**：
   * [🌐 開啟 LINE 資訊過載助手 ─ 深度研究彙總報告](https://falo-taiwan.github.io/ai-line-help/) *(將於新分頁中開啟)*
 
+### 案例十一：FALO Web Share API ─ 雲端 Workers 拍照快易部署與 QRCode 門戶
+* **專案精神**：針對 AI 與雲端新手設計的超輕量 Web Share API 應用服務。本案例運用 **Cloudflare Workers** 進行 Serverless 邊緣計算部署，免去繁瑣的地端伺服器環境設定。協助 AI 新手小白簡單地使用 AI 服務，使用者只需透過手機拍照，即可將照片或檔案一鍵快速部署至雲端，並實時生成專屬的下載分享 QRCode，打通「實體捕捉 ➔ 邊緣負載 ➔ 雲端共享」的極簡化工作流。
+* **技術對比與特點**：
+  * **Cloudflare Workers 邊緣部署**：利用 Cloudflare Workers 的極速分佈式邊緣網絡架構，實現微毫秒級的請求響應與零維護伺服器成本。
+  * **拍立即存與 QRCode 閘道**：串接 Web Share API 與雲端暫存機制，實時生成高精度的 QRCode，方便同仁在不同裝置（如手機、平板與電腦）間無縫流通圖片與資料資產。
+* **研究報告入口**：
+  * [🌐 開啟 FALO Web Share API 雲端 Workers 部署平台](https://falo-web-share-api.force-chinese.workers.dev/) *(將於新分頁中開啟)*
