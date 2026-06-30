@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 16:03:00 | 本機與線上同步 | 還原四大原則原始圖檔，重構主題五為「怎麼善用 Agent Skills」並完整收錄與解說三張核心技能/知識庫對照圖表，同步更新 TOC 側邊欄，重新編譯並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 16:01:00 | 本機與線上同步 | 還原四大原則原始圖檔，重構主題五為「怎麼善用 Agent Skills」並完整收錄與解說三張核心技能/知識庫對照圖表，同步更新 TOC 側邊欄，重新編譯並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:56:00 | 本機與線上同步 | 將 Chapter 1 回顧頁重構為五個主題區塊，完全契合四大原則與 Skill 載入順序圖，並同步修改編譯器的側邊欄選單（TOC）使其擁有對應的 5 個選單項目，重新編譯並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 15:46:00 | 本機與線上同步 | 更新 Chapter 1 回顧頁中的第三張圖，替換為精美的「哪些 Skill 值得放每次自動載入」關係對照與 AI Context 載入順序圖，重新編譯並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
