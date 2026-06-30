@@ -561,10 +561,194 @@
 <p>description: Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions</p>
 <p>---</p>
 <br>
+<style>
+/* Custom CSS to show the advantages of HTML version */
+
+/* 1. Hide the raw dot graph code block */
+pre:has(code.language-dot) {
+    display: none !important;
+}
+
+/* 2. Style the Red Flags Table */
+.superpowers-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    margin: 1.5rem 0;
+}
+.superpowers-container thead {
+    display: none; /* Hide header for card-like feel */
+}
+.superpowers-container tr {
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.superpowers-container tr:hover {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.15);
+}
+.superpowers-container td {
+    padding: 6px 0;
+    border: none !important;
+}
+.superpowers-container td:first-child {
+    color: #f87171;
+    font-weight: bold;
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 25px;
+}
+.superpowers-container td:first-child::before {
+    content: "🚩";
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+.superpowers-container td:last-child {
+    color: #34d399;
+    font-size: 0.95rem;
+    padding-left: 25px;
+    position: relative;
+}
+.superpowers-container td:last-child::before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+/* 3. Style the Interactive Platform Tabs */
+.tool-tabs-container {
+    margin: 2rem 0;
+    background: rgba(25, 18, 50, 0.3);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+.tab-inputs {
+    display: none;
+}
+.tab-labels {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+.tab-label {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    color: var(--text-muted);
+}
+.tab-label:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+}
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+#tab1:checked ~ .tab-labels label[for="tab1"],
+#tab2:checked ~ .tab-labels label[for="tab2"],
+#tab3:checked ~ .tab-labels label[for="tab3"],
+#tab4:checked ~ .tab-labels label[for="tab4"] {
+    background: var(--btn-bg);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 15px var(--btn-shadow);
+}
+#tab1:checked ~ .tab-contents #content1,
+#tab2:checked ~ .tab-contents #content2,
+#tab3:checked ~ .tab-contents #content3,
+#tab4:checked ~ .tab-contents #content4 {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Styled Flow Diagram (Pipeline) */
+.flow-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 2rem 0;
+}
+.flow-step-card {
+    display: flex;
+    align-items: center;
+    background: rgba(25, 18, 50, 0.25);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 15px;
+    gap: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.flow-step-card:hover {
+    border-color: var(--card-hover-border);
+    transform: translateX(5px);
+}
+.flow-step-num {
+    width: 35px;
+    height: 35px;
+    background: var(--btn-bg);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px var(--btn-shadow);
+}
+.flow-step-desc {
+    flex-grow: 1;
+}
+.flow-step-desc strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+.flow-step-desc p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+</style>
+<br>
+<div class="superpowers-container">
+
+<div class="card" style="border-left: 4px solid var(--accent); background: rgba(192, 132, 252, 0.03); padding: 1.5rem; margin: 1.5rem 0;">
+<strong style="color: var(--accent); display: block; margin-bottom: 0.5rem;">💡 NOTE / 說明</strong>
+<p style="margin: 0; font-size: 0.95rem;">📚 <strong>Superpowers Skill 官方規範與導覽說明</strong></p></div>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">* 🌐 <strong>官方 GitHub 儲存庫</strong>：<a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">https://github.com/obra/superpowers</a></blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">* 🔗 <strong>FALO 雙軌教材介紹網頁</strong>：<a href="https://falo-taiwan.github.io/superpowers/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">https://falo-taiwan.github.io/superpowers/</a></blockquote>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;">* 📄 <strong>原始 Markdown 技能文字檔</strong>：<a href="superpowers_skill.md" target="_blank">superpowers_skill.md</a></blockquote>
+>
+<blockquote style="border-left: 4px solid var(--card-border); padding-left: 1rem; color: var(--text-muted); margin: 1.2rem 0; font-style: italic;"><strong>說明</strong>：本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">using-superpowers</code> 核心技能檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例對照。</blockquote>
+
 <SUBAGENT-STOP>
 If you were dispatched as a subagent to execute a specific task, skip this skill.
 </SUBAGENT-STOP>
-<br>
+
 <EXTREMELY-IMPORTANT>
 If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke the skill.
 
@@ -572,41 +756,114 @@ IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
 
 This is not negotiable. This is not optional. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
-<br>
+
 <h2>Instruction Priority</h2>
-<br>
-<p>Superpowers skills override default system prompt behavior, but <strong>user instructions always take precedence</strong>:</p>
-<br>
-<p>1. <strong>User's explicit instructions</strong> (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority</p>
-<p>2. <strong>Superpowers skills</strong> — override default system behavior where they conflict</p>
-<p>3. <strong>Default system prompt</strong> — lowest priority</p>
-<br>
-<p>If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.</p>
-<br>
+
+Superpowers skills override default system prompt behavior, but <strong>user instructions always take precedence</strong>:
+
+1. <strong>User's explicit instructions</strong> (CLAUDE.md, GEMINI.md, AGENTS.md, direct requests) — highest priority
+2. <strong>Superpowers skills</strong> — override default system behavior where they conflict
+3. <strong>Default system prompt</strong> — lowest priority
+
+If CLAUDE.md, GEMINI.md, or AGENTS.md says "don't use TDD" and a skill says "always use TDD," follow the user's instructions. The user is in control.
+
 <h2>How to Access Skills</h2>
-<br>
-<p><strong>Never read skill files manually with file tools</strong> — always use your platform's skill-loading mechanism so the skill is properly activated.</p>
-<br>
-<p><strong>In Claude Code:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Skill</code> tool. When you invoke a skill, its content is loaded and presented to you — follow it directly.</p>
-<br>
-<p><strong>In Codex:</strong> Skills load natively. Follow the instructions presented when a skill activates.</p>
-<br>
-<p><strong>In Copilot CLI:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">skill</code> tool. Skills are auto-discovered from installed plugins.</p>
-<br>
-<p><strong>In Gemini CLI:</strong> Skills activate via the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">activate_skill</code> tool. Gemini loads skill metadata at session start and activates the full content on demand.</p>
-<br>
-<p><strong>In other environments:</strong> Check your platform's documentation for how skills are loaded.</p>
-<br>
+
+<strong>Never read skill files manually with file tools</strong> — always use your platform's skill-loading mechanism so the skill is properly activated.
+
+<ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-muted);">
+<li style="margin-bottom: 8px;"><strong>In Claude Code:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">Skill</code> tool. When you invoke a skill, its content is loaded and presented to you — follow it directly.</li>
+<li style="margin-bottom: 8px;"><strong>In Codex:</strong> Skills load natively. Follow the instructions presented when a skill activates.</li>
+<li style="margin-bottom: 8px;"><strong>In Copilot CLI:</strong> Use the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">skill</code> tool. Skills are auto-discovered from installed plugins.</li>
+<li style="margin-bottom: 8px;"><strong>In Gemini CLI:</strong> Skills activate via the <code style="font-family: 'Fira Code', monospace; background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--accent); font-size: 0.9em;">activate_skill</code> tool. Gemini loads skill metadata at session start and activates the full content on demand.</li>
+<li style="margin-bottom: 8px;"><strong>In other environments:</strong> Check your platform's documentation for how skills are loaded.</li>
+</ul>
+
 <h2>Platform Adaptation</h2>
-<br>
-<p>Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") rather than naming any one runtime's tools. For per-platform tool equivalents and instructions-file conventions, see <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/claude-code-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">claude-code-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/codex-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">codex-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/copilot-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">copilot-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/gemini-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">gemini-tools.md</a>, <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/pi-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">pi-tools.md</a>, and <a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/antigravity-tools.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: underline;">antigravity-tools.md</a>. Gemini CLI users get the tool mapping loaded automatically via GEMINI.md.</p>
-<br>
+
+Skills speak in actions ("dispatch a subagent", "create a todo", "read a file") rather than naming any one runtime's tools. For per-platform tool equivalents and instructions-file conventions, see the interactive tabs below:
+
+<div class="tool-tabs-container">
+  <input type="radio" id="tab1" name="platform-tabs" class="tab-inputs" checked>
+  <input type="radio" id="tab2" name="platform-tabs" class="tab-inputs">
+  <input type="radio" id="tab3" name="platform-tabs" class="tab-inputs">
+  <input type="radio" id="tab4" name="platform-tabs" class="tab-inputs">
+
+  <div class="tab-labels">
+    <label for="tab1" class="tab-label">Claude Code</label>
+    <label for="tab2" class="tab-label">Gemini CLI</label>
+    <label for="tab3" class="tab-label">Copilot CLI</label>
+    <label for="tab4" class="tab-label">Antigravity (AGY)</label>
+  </div>
+
+  <div class="tab-contents">
+    <div id="content1" class="tab-content">
+      <p><strong>Claude Code 整合方案</strong>：</p>
+      <p>使用 <code>Skill</code> 工具載入與調用。請參閱官方詳細說明：<a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/claude-code-tools.md" target="_blank">claude-code-tools.md</a> 規範。</p>
+    </div>
+    <div id="content2" class="tab-content">
+      <p><strong>Gemini CLI 整合方案</strong>：</p>
+      <p>技能對應表會隨 <code>GEMINI.md</code> 自動載入。請參閱官方詳細說明：<a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/gemini-tools.md" target="_blank">gemini-tools.md</a> 規範。</p>
+    </div>
+    <div id="content3" class="tab-content">
+      <p><strong>Copilot CLI 整合方案</strong>：</p>
+      <p>使用 <code>skill</code> 指令來載入。請參閱官方詳細說明：<a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/copilot-tools.md" target="_blank">copilot-tools.md</a> 規範。</p>
+    </div>
+    <div id="content4" class="tab-content">
+      <p><strong>Antigravity (AGY) 整合方案</strong>：</p>
+      <p>原生支援並相容 Markdown-defined skills 載入。請參閱詳細說明：<a href="https://github.com/obra/superpowers/blob/main/skills/using-superpowers/references/antigravity-tools.md" target="_blank">antigravity-tools.md</a> 規範。</p>
+    </div>
+  </div>
+</div>
+
 <h1>Using Skills</h1>
-<br>
+
 <h2>The Rule</h2>
-<br>
-<p><strong>Invoke relevant or requested skills BEFORE any response or action.</strong> Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.</p>
-<br>
+
+<strong>Invoke relevant or requested skills BEFORE any response or action.</strong> Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.
+
+<h3>🔄 技能執行流轉圖 (Skill Execution Flow)</h3>
+
+下列為 Markdown 原生定義之 Flowchart，在 HTML 中我們將其轉譯為直觀的時間軸管線：
+
+<div class="flow-pipeline">
+  <div class="flow-step-card">
+    <div class="flow-step-num">1</div>
+    <div class="flow-step-desc">
+      <strong>User Message Received (新任務/提問)</strong>
+      <p>AI 助理接收到使用者傳送的訊息，啟動分析流程。</p>
+    </div>
+  </div>
+  <div class="flow-step-card">
+    <div class="flow-step-num">2</div>
+    <div class="flow-step-desc">
+      <strong>Might any skill apply? (技能匹配檢測)</strong>
+      <p>AI 進入流程思維：這件事是否有對應的 Skill？哪怕只有 1% 可能性，也必須先載入檢測！</p>
+    </div>
+  </div>
+  <div class="flow-step-card">
+    <div class="flow-step-num">3</div>
+    <div class="flow-step-desc">
+      <strong>Announce Skill Usage (主動宣告使用技能)</strong>
+      <p>AI 主動對使用者宣告："Using [skill] to [purpose]"，表示已進入該技能的 SOP 約束中。</p>
+    </div>
+  </div>
+  <div class="flow-step-card">
+    <div class="flow-step-num">4</div>
+    <div class="flow-step-desc">
+      <strong>Has Checklist? (檢查清單載入)</strong>
+      <p>若技能中包含 checklist 任務清單，則自動在 Agent 工作區中為每一項建立 TODO 任務，並逐一嚴格執行與驗證。</p>
+    </div>
+  </div>
+  <div class="flow-step-card">
+    <div class="flow-step-num">5</div>
+    <div class="flow-step-desc">
+      <strong>Respond / Action (最終回應與產出)</strong>
+      <p>執行完畢並取得本輪驗證證據後，AI 才對使用者進行回應或合併代碼。</p>
+    </div>
+  </div>
+</div>
+
 <details class="code-details" style="border: 1px solid var(--card-border); border-radius: 12px; margin: 1.5rem 0; background: var(--code-bg); overflow: hidden;"><summary style="padding: 0.75rem 1.25rem; background: rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; color: var(--accent); user-select: none; font-size: 0.9rem;">📦 點此展開 ➔ DOT 實戰代碼</summary><div class="code-container" style="border-top: 1px solid rgba(255,255,255,0.05); margin: 0; border-radius: 0; border: none;"><div class="code-header"><span>DOT</span><button class="btn-copy" onclick="copyCode(this)">複製代碼</button></div><pre style="padding: 1rem 1.25rem;"><code>digraph skill_flow {
     "User message received" [shape=doublecircle];
     "About to enter plan mode?" [shape=doublecircle];
@@ -634,34 +891,36 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
     "Has checklist?" -&gt; "Follow skill exactly" [label="no"];
     "Create a todo per item" -&gt; "Follow skill exactly";
 }</code></pre></div></details>
-<br>
+
 <h2>Red Flags</h2>
-<br>
-<p>These thoughts mean STOP—you're rationalizing:</p>
-<br>
+
+These thoughts mean STOP—you're rationalizing:
+
 <table class="comparison-table"><thead><tr><th>Thought</th><th>Reality</th></tr></thead><tbody><tr><td>"This is just a simple question"</td><td>Questions are tasks. Check for skills.</td></tr><tr><td>"I need more context first"</td><td>Skill check comes BEFORE clarifying questions.</td></tr><tr><td>"Let me explore the codebase first"</td><td>Skills tell you HOW to explore. Check first.</td></tr><tr><td>"I can check git/files quickly"</td><td>Files lack conversation context. Check for skills.</td></tr><tr><td>"Let me gather information first"</td><td>Skills tell you HOW to gather information.</td></tr><tr><td>"This doesn't need a formal skill"</td><td>If a skill exists, use it.</td></tr><tr><td>"I remember this skill"</td><td>Skills evolve. Read current version.</td></tr><tr><td>"This doesn't count as a task"</td><td>Action = task. Check for skills.</td></tr><tr><td>"The skill is overkill"</td><td>Simple things become complex. Use it.</td></tr><tr><td>"I'll just do this one thing first"</td><td>Check BEFORE doing anything.</td></tr><tr><td>"This feels productive"</td><td>Undisciplined action wastes time. Skills prevent this.</td></tr><tr><td>"I know what that means"</td><td>Knowing the concept ≠ using the skill. Invoke it.</td></tr></tbody></table>
-<br>
+
 <h2>Skill Priority</h2>
-<br>
-<p>When multiple skills could apply, use this order:</p>
-<br>
-<p>1. <strong>Process skills first</strong> (brainstorming, systematic-debugging) - these determine HOW to approach the task</p>
-<p>2. <strong>Implementation skills second</strong> (frontend-design, mcp-builder) - these guide execution</p>
-<br>
-<p>"Let's build X" → brainstorming first, then implementation skills.</p>
-<p>"Fix this bug" → systematic-debugging first, then domain-specific skills.</p>
-<br>
+
+When multiple skills could apply, use this order:
+
+1. <strong>Process skills first</strong> (brainstorming, systematic-debugging) - these determine HOW to approach the task
+2. <strong>Implementation skills second</strong> (frontend-design, mcp-builder) - these guide execution
+
+"Let's build X" → brainstorming first, then implementation skills.
+"Fix this bug" → systematic-debugging first, then domain-specific skills.
+
 <h2>Skill Types</h2>
-<br>
-<p><strong>Rigid</strong> (TDD, systematic-debugging): Follow exactly. Don't adapt away discipline.</p>
-<br>
-<p><strong>Flexible</strong> (patterns): Adapt principles to context.</p>
-<br>
-<p>The skill itself tells you which.</p>
-<br>
+
+<strong>Rigid</strong> (TDD, systematic-debugging): Follow exactly. Don't adapt away discipline.
+
+<strong>Flexible</strong> (patterns): Adapt principles to context.
+
+The skill itself tells you which.
+
 <h2>User Instructions</h2>
-<br>
-<p>Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.</p>
+
+Instructions say WHAT, not HOW. "Add X" or "Fix Y" doesn't mean skip workflows.
+
+</div>
 <br>
             </article>
         </main>

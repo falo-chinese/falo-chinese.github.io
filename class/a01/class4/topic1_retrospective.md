@@ -47,7 +47,7 @@ function verifyPdfPassword(url) {
 ![個人 AI 與 團隊 AI 的知識管理方式](images/personal_vs_team_ai_knowledge.png)
 
 * **個人使用 (Personal AI) ➔ 管理的是「能力 (Skill)」**
-  透過 `Skill.md` 定義 AI 助理的行為準則與工具調用流程，注入 AI 執行階段 (AI Runtime)，讓 **AI 自己變強**（例如本機下載的 <a href="file:///Users/force/Downloads/superpowers_skill.md">superpowers_skill.md</a> 技能規範）。
+  透過 `Skill.md` 定義 AI 助理的行為準則與工具調用流程，注入 AI 執行階段 (AI Runtime)，讓 **AI 自己變強**（例如本教材包提供的 <a href="superpowers_skill.md" target="_blank">原始技能檔 (Markdown)</a> 與 [HTML 互動好讀版](superpowers_skill.md)）。
 * **團隊使用 (Team AI) ➔ 管理的是「知識 (Markdown + HTML)」**
   建立專案共享文件目錄（如 `README`、`PROJECT_RULE`、`WORKFLOW`），落實雙軌並行，讓 **大家使用同一份知識與規範**。
 
@@ -71,7 +71,7 @@ function verifyPdfPassword(url) {
 為了讓大家更直觀地理解雙軌文件在實務上的威力，我們以知名的 AI Coding Agent 方法論專案 **Superpowers** 為例：
 * **官方 GitHub 儲存庫**：[https://github.com/obra/superpowers](https://github.com/obra/superpowers)
 * **FALO 雙軌教材介紹網頁**：[https://falo-taiwan.github.io/superpowers/](https://falo-taiwan.github.io/superpowers/)
-* **官方最新 `using-superpowers` 技能檔**：我們已將官方最新版本的 [superpowers_skill.md](superpowers_skill.md)（本機對應 <a href="file:///Users/force/Downloads/superpowers_skill.md">superpowers_skill.md</a>）上傳至本教材包中，您可以直接閱讀。
+* **官方最新 `using-superpowers` 技能檔**：我們已將官方最新版本上傳至本教材包中，您可以直接閱讀 <a href="superpowers_skill.md" target="_blank">原始 Markdown 技能文字檔 (superpowers_skill.md)</a> 或存取 [HTML 互動好讀版](superpowers_skill.md)。
 
 該專案原本是一套基於 Markdown 定義的個人 AI 技能庫，但當轉化為團隊協作與教材時，將其**本地化編譯為單頁 HTML 互動說明網頁**帶來了諸多顯著好處：
 
