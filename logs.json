@@ -1,5 +1,25 @@
 [
   {
+    "timestamp": "2026-06-30T22:37:11+08:00",
+    "action_type": "synced",
+    "description": "在商業型整合專案中，新增專案 G (FALO 工廠設備 HMI 巡檢 AI 模擬器) 介紹、運行介面圖與參考連結，重新編譯打包並推播。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic7_real_cases.md",
+      "force-taiwan/class/a01/class4/topic7_real_cases.html",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.md",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.html",
+      "class/a01/class4/backup/20260630_223711_class04_project.zip",
+      "class/a01/class4/backup/20260630_223711_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-30T22:15:53+08:00",
     "action_type": "synced",
     "description": "在商業型整合專案中，為專案 E 補上雙軌翻譯與智能摘要服務門戶的參考網頁連結，重新編譯打包並推播。",
