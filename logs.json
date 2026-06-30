@@ -1,5 +1,19 @@
 [
   {
+    "timestamp": "2026-07-01T06:40:00+08:00",
+    "action_type": "synced",
+    "description": "在商業型整合專案中，新增專案 H (簡報影格自動分析與擷取系統 - Video Slide Extractor) 介紹、網頁模擬展示版與學生版原始碼 ZIP 包下載連結，並同步更新 HTML 與 Markdown。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "class/a01/class4/topic8_commercial_projects.md",
+      "class/a01/class4/topic8_commercial_projects.html",
+      "class/a01/class4/video_to_ppt_basic.zip",
+      "demo/video-to-ppt/",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-30T22:37:11+08:00",
     "action_type": "synced",
     "description": "在商業型整合專案中，新增專案 G (FALO 工廠設備 HMI 巡檢 AI 模擬器) 介紹、運行介面圖與參考連結，重新編譯打包並推播。",
