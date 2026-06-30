@@ -174,16 +174,96 @@ pre:has(code.language-dot) {
     font-size: 0.9rem;
     color: var(--text-muted);
 }
+
+/* 5. Custom Header Card */
+.superpowers-header-card {
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.superpowers-header-card h3 {
+    margin-top: 0 !important;
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 8px;
+}
+.header-metadata {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+.header-metadata span {
+    display: inline-flex;
+    align-items: center;
+}
+.header-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+.header-links a {
+    color: var(--sidebar-blue) !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+.header-links a:hover {
+    color: var(--accent) !important;
+    transform: translateX(3px);
+}
+.header-explanation {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid var(--accent);
+    padding: 10px 15px;
+    border-radius: 0 8px 8px 0;
+}
+.header-explanation p {
+    margin: 0 !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.header-explanation p:first-child {
+    font-weight: bold;
+    margin-bottom: 4px !important;
+    color: var(--text-main);
+}
 </style>
 
 <div class="superpowers-container">
 
-> [!NOTE] 📚 **Superpowers Skill 官方規範與導覽說明**
-> * 🌐 **官方 GitHub 儲存庫**：[https://github.com/obra/superpowers](https://github.com/obra/superpowers)
-> * 🔗 **FALO 雙軌教材介紹網頁**：[https://falo-taiwan.github.io/superpowers/](https://falo-taiwan.github.io/superpowers/)
-> * 📄 **原始 Markdown 技能文字檔**：<a href="superpowers_skill.md" target="_blank">superpowers_skill.md</a>
->
-> **說明**：本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 `using-superpowers` 核心技能檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例對照。
+<div class="superpowers-header-card">
+  <h3>📚 Superpowers Skill 官方規範與導覽說明</h3>
+  
+  <div class="header-metadata">
+    <span>⏱️ <strong>最新版本更新時間：</strong>2026-06-30 15:26 (v5.0.7 Official Latest)</span>
+  </div>
+  
+  <div class="header-links">
+    <a href="https://github.com/obra/superpowers" target="_blank">🌐 官方 GitHub 儲存庫</a>
+    <a href="https://falo-taiwan.github.io/superpowers/" target="_blank">🔗 FALO 雙軌教材介紹網頁</a>
+    <a href="superpowers_skill.md" target="_blank">📄 原始 Markdown 技能文字檔 (superpowers_skill.md)</a>
+  </div>
+  
+  <div class="header-explanation">
+    <p>💡 重要說明：</p>
+    <p>本檔為 AI 寫程式工具（如 Claude Code / Antigravity / Cursor 等）之 <code>using-superpowers</code> 核心技能規則檔。它被用來塑造 AI 的工程紀律，規範其在開始 any 動作前必須進行技能檢查。此處上傳作為教材實例與雙軌對照，讓大家理解如何透過本地 HTML 對原有的 Markdown 技能包進行視覺與互動增強。</p>
+  </div>
+</div>
 
 <SUBAGENT-STOP>
 If you were dispatched as a subagent to execute a specific task, skip this skill.
