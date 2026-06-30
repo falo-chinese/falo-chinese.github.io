@@ -41,6 +41,39 @@ function verifyPdfPassword(url) {
 * **Markdown (.md)**：語意結構清晰，便於 LLM 進行 RAG 檢索、代碼生成與上下文控制。
 * **HTML (.html)**：具備豐富的視覺樣式與互動效果，方便團隊成員、管理層以及客戶直觀理解。
 
+#### 💡 個人 AI（能力管理）與 團隊 AI（知識管理）的不同定位
+我們在知識管理與流程規範上，應區分「個人 AI」與「團隊 AI」的用途（皆使用 Markdown 作為基礎，但用途與路徑不同）：
+
+![個人 AI 與 團隊 AI 的知識管理方式](images/personal_vs_team_ai_knowledge.png)
+
+* **個人使用 (Personal AI) ➔ 管理的是「能力 (Skill)」**
+  透過 `Skill.md` 定義 AI 助理的行為準則與工具調用流程，注入 AI 執行階段 (AI Runtime)，讓 **AI 自己變強**（例如本機下載的 <a href="file:///Users/force/Downloads/superpowers_skill.md">superpowers_skill.md</a> 技能規範）。
+* **團隊使用 (Team AI) ➔ 管理的是「知識 (Markdown + HTML)」**
+  建立專案共享文件目錄（如 `README`、`PROJECT_RULE`、`WORKFLOW`），落實雙軌並行，讓 **大家使用同一份知識與規範**。
+
+---
+
+### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢 {#superpowers-case}
+為了讓大家更直觀地理解雙軌文件在實務上的威力，我們以知名的 AI Coding Agent 方法論專案 [Superpowers](https://github.com/falo-taiwan/superpowers) 為例。該專案原本是一套基於 Markdown 定義的個人 AI 技能庫（如 <a href="file:///Users/force/Downloads/superpowers_skill.md">superpowers_skill.md</a>），但當轉化為團隊協作與教材時，將其**本地化編譯為單頁 HTML 互動說明網頁**（[Superpowers 說明網頁](https://falo-taiwan.github.io/superpowers/)）帶來了諸多顯著好處：
+
+1. **動態「雙視角切換」解決資訊不對稱**
+   HTML 網頁可內建互動按鈕，讓讀者在「**新手/一般使用者**」與「**專家/系統架構師**」視角間一鍵切換。
+   * **新手視角**：專注於易懂的比喻與直觀 timeline，引導理解「AI 不要亂衝，照著 SOP 做」的世界。
+   * **專家視角**：直接展示 `session-start hook`、`behavior-shaping layer`、`hard gates` 等工程硬約束與底層架構。
+   在 Markdown 中無法實現這種動態展示，而 HTML 可以透過簡單的 CSS 與 JS 讓同一份文件兼顧商務端與技術端。
+
+2. **流程視覺化（Workflow Visualization）**
+   原本在 Markdown 中只是平鋪直述的階層清單，在 HTML 中可以轉化為具備編號、自訂圖示、步進導引的「互動時間軸 (Timeline)」，大幅降低人類工程師的閱讀心智負擔。
+
+3. **重點紅線與規則警示（Iron Laws）**
+   透過 HTML 樣式（如 CSS 磨砂玻璃、自訂顏色與醒目的卡片邊框），可以將關鍵的「硬性閘門（Hard Gates）」與「鐵律（Iron Laws）」（例如：*未獲設計核可前禁止任何實作*、*沒有測試不准寫 Code*）進行高視覺強度的突顯，避免重要規則被淹沒在大量文字中。
+
+4. **結構化互動儀表板（Interactive Dashboard）**
+   將 14 個 Markdown 技能定義與觸發規則（Triggers）以精美、可滾動的響應式表格展示，方便團隊成員快速檢索與定位。
+
+5. **百分之百離線可用與快速分享**
+   HTML 本地化網頁不需要啟動任何本機伺服器（如 Node/Express），直接雙擊就能在瀏覽器開啟，完美融入 FALO 無網路狀態下的離線教材備用機制，同時也非常便於在組織內部快速傳閱與交接。
+
 ---
 
 ## 🛠️ 同學專案方向交流與診斷 {#diagnostic}
