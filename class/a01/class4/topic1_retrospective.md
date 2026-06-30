@@ -15,84 +15,90 @@ function verifyPdfPassword(url) {
 }
 </script>
 
-本主題旨在對前三週的學習重點進行深度沉澱與補充，並針對同仁在實務開發中遇到的盲點進行診斷與解答。
+本單元旨在對前三週的學習重點進行深度沉澱與補充，並以 AI App Studio 的核心原則為基礎，規範專案開發、雙軌文件、AI 理解與指標評估。
 
 ![AI App Studio 專案開發四大原則](images/ai_app_studio_four_principles.png)
 
 ---
 
-## 📌 常見提醒與交付規範 (台灣時間 UTC+8) {#guidelines}
+## 📌 主題一：常見提醒與交付規範 (台灣時間 UTC+8) {#guidelines}
+
 > [!IMPORTANT]
 > 本課程與專案之所有宣告、作業交付截止日期等時間，皆**統一宣告並以台灣時間 (UTC+8) 為唯一準則**。
 
-* **雙軌標準規範 (md + html)**: 所有提問集、作業及大綱，必須同時提交 **Markdown (.md)** 檔（供 AI/LLM 結構理解）與 **HTML (.html)** 網頁檔（供人類閱讀），落實雙軌並行標準。
-* **壓縮包命名習慣 (ZIP 檔案)**: 凡提交程式碼或專案資源壓縮包時，請遵循 **「[時間戳記]_[重要更新事項].zip」** 命名規範（例如：`20260622_class04_project.zip`）。
+* **時間統一標準**：所有宣告、作業交付截止日期等時間，皆以台灣時間 (UTC+8) 為唯一準則。
+* **雙軌標準規範 (md + html)**：所有提問集、作業及大綱，必須同時提交 **Markdown (.md)** 檔與 **HTML (.html)** 網頁檔，落實人機雙軌並行。
+  * **Markdown 檔**：供 AI / LLM 結構理解，利於上下文控制與代碼生成。
+  * **HTML 網頁檔**：供人類清晰閱讀，方便直觀展示與簡報。
+* **壓縮包命名習慣 (ZIP 檔案)**：凡提交程式碼或專案資源壓縮包時，請遵循 **「[時間戳記]_[重要更新事項].zip」** 命名規範（例如：`20260630_class04_project.zip`）。
 
 ---
 
-## 💬 前三週重點補充與問題解答 {#supplement}
-### 1. 人機協作模式 (HITL - Human in the Loop)
-在複雜的企業流程（如 ERP 自動入帳、智慧對帳）中，AI 無法達到 100% 的精準度。因此，必須建立合理的人機協作機制：
-* **AI 負責 90% 的繁重工作**：包括非結構化憑證的 OCR 辨識、初步分類、欄位清洗與比對。
-* **人類負責 10% 的高風險決策**：當 AI 信心指數（Confidence Score）低於閾值（例如 85%），或是稽核引擎觸發異常警示時，系統自動將任務分流至人工審核界面，確保數據品質。
+## 📌 主題二：雙軌文件策略 (md + html) {#double-track}
 
-### 2. 雙軌文件策略
-在 AI-Native 的開發模式下，文件不只是給人看的，更是給 AI 助理（如 Antigravity）讀取的關鍵上下文：
-* **Markdown (.md)**：語意結構清晰，便於 LLM 進行 RAG 檢索、代碼生成與上下文控制。
-* **HTML (.html)**：具備豐富的視覺樣式與互動效果，方便團隊成員、管理層以及客戶直觀理解。
+在 AI-Native 開發模式下，文件兼顧人機雙軌並行，達成「一份內容，AI 讀得懂，人也看得懂」：
 
-#### 💡 個人 AI（能力管理）與 團隊 AI（知識管理）的不同定位
-我們在知識管理與流程規範上，應區分「個人 AI」與「團隊 AI」的用途（皆使用 Markdown 作為基礎，但用途與路徑不同）：
+* **Markdown (.md)**：語意結構清晰，便於 LLM 語意理解，利於 RAG 檢索，方便代碼生成與上下文控制。
+* **HTML (.html)**：視覺樣式豐富，具備互動效果，方便團隊成員閱讀，以及管理層與客戶直觀理解。
 
-![個人 AI 與 團隊 AI 的知識管理方式](images/personal_vs_team_ai_knowledge.png)
-
-* **個人使用 (Personal AI) ➔ 管理的是「能力 (Skill)」**
-  透過 `Skill.md` 定義 AI 助理的行為準則與工具調用流程，注入 AI 執行階段 (AI Runtime)，讓 **AI 自己變強**（例如本教材包提供的 <a href="superpowers_skill.md" target="_blank">原始技能檔 (Markdown)</a> 與 [HTML 互動好讀版](superpowers_skill.md)）。
-* **團隊使用 (Team AI) ➔ 管理的是「知識 (Markdown + HTML)」**
-  建立專案共享文件目錄（如 `README`、`PROJECT_RULE`、`WORKFLOW`），落實雙軌並行，讓 **大家使用同一份知識與規範**。
-
-#### 🪙 Context 與 Token 優化思維：為什麼「團隊版」更省 Token？
-除了定位不同外，從 **AI Token 消耗與 Context Window 資源利用**的角度來看，兩者也有顯著的運作機制差異：
-
-![為什麼團隊版更省 Context / Token](images/context_token_optimization.png)
-
-* **Skill 模式（常駐外掛 🔌）**
-  * **運作機制**：每次啟動對話時，AI 都會自動載入該 Skill 的 Markdown 全文（Always Loaded）。
-  * **優缺點**：優點是反應即時，缺點是會**固定且持續佔用** Context 空間。當 Skill 內容龐大時，會消耗大量重複的 Input Token，並擠壓可用於載入專案程式碼的 Context 空間。
-  * **最適合**：個人開發習慣、固定工作流約束、通用行為準則。
-* **Team Knowledge 模式（專案資料庫 🗄️）**
-  * **運作機制**：平時檔案安靜存放在目錄中，AI 僅在需要時才經由搜尋或讀取工具載入特定檔案（On Demand）。
-  * **優缺點**：平時不佔用啟動時的 Context。AI 只讀取當前任務所需的特定文件，使 Context 利用率最大化，顯著節省累計 Token 費用。
-  * **最適合**：團隊專案規範、複雜業務邏輯、長期累積的專案知識包。
-
----
-
-### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢 {#superpowers-case}
+### 🚀 案例研究：Superpowers 的 HTML 本地化與雙軌優勢
 在 AI-Native 開發中，我們以知名 AI 技能庫 [Superpowers](https://github.com/obra/superpowers) 為例，展示同一個技能檔在不同表達載體上的雙軌輸出與優勢。詳細的「HTML 本地化優勢與功能展示」已收錄於我們的 [FALO 雙軌教材介紹網頁](https://falo-taiwan.github.io/superpowers/) 中。
 
 本教材包中提供以下三種檔案版本，供您對照學習其結構與轉譯效果：
 * 🌐 <a href="superpowers_skill_official.md" target="_blank">官方原始 Markdown 技能檔 (superpowers_skill_official.md)</a>：最純粹的官方英文邏輯，適合配置給 AI 工具。
 * 📝 <a href="superpowers_skill.md" target="_blank">FALO 專案 Markdown 技能檔 (superpowers_skill.md)</a>：本機英文代碼版，嵌入了 CSS/HTML 互動組件。
-* 📖 [FALO HTML 雙語互動好讀版](superpowers_skill.md)：透過編譯注入中文導讀、互動平台 Tabs 與視覺化 Timeline 的最強學習版本。
+* 📖 [FALO HTML 雙語互動好讀版](superpowers_skill.html)：透過編譯注入中文導讀、互動平台 Tabs 與視覺化 Timeline 的最強學習版本。
 
 ---
 
-## 🛠️ 同學專案方向交流與診斷 {#diagnostic}
-現場開放式的交流與診斷環節。學員可分享各自的專案構想或工作痛點，由講師現場診斷並給予可行性建議，協助同仁順利完成謝總交代的作業與功課。
+## 📌 主題三：AI-Native 思維 {#ai-native}
 
-### 診斷核心指標
-1. **痛點真實性**：該流程是否每日重複、耗費高昂人工工時？
-2. **AI 必要性**：是否必須使用 LLM 語意理解，還是傳統的 Rule-based / Regex 就能解決？
-3. **資料可得性**：是否有足夠且合規的樣本數據供 AI 學習與測試？
-4. **落地經濟性**：Token 消耗與運行成本是否可控？
+* **AI-Native 開發工作流**：
+  $$\text{人類（提出需求）} \longrightarrow \text{HTML（人類閱讀理解內容）} \longrightarrow \text{AI（AI 理解語意處理）} \longrightarrow \text{Code（代碼自動生成）} \longrightarrow \text{AI Agent（執行任務）}$$
+* **核心理念**：同一份知識與需求描述，既能讓人類清晰閱讀，又能讓 AI 自動理解語意，進而產生程式碼或執行行動，實現 AI-Native 的自動化開發流程。
 
 ---
 
-## 🙋 學員課前提問與解答 (FAQ) {#faq}
+## 📌 主題四：專案評估 (診斷核心指標) {#project-evaluation}
 
-#### Q: 如果有想討論的專案構想，需要提前準備什麼嗎？
-A: 建議提前整理出：
-1. **目前的人工作業流程與痛點**（例如：每週需花費 4 小時手動比對 ERP 報表與電子發票）。
-2. **期望達成的自動化效果**（例如：系統能自動收信、下載發票、辨識金額並與 ERP 沖帳，異常時通知會計）。
+在啟動 AI 專案或導入工具前，必須通過以下四項核心指標的 GO / NO GO 診斷評估：
 
-哪怕只有文字大綱或螢幕截圖，只要提前傳給講師，便能方便講師事先準備相關案例，讓課程診斷更貼近您的需求！ *[標籤: 專案診斷, 課前準備]*
+1. ❤️ **痛點真實性**：該業務流程是否為每日重複、耗費高昂人工工時的痛點？
+2. 🧠 **AI 必要性**：是否必須使用 LLM 進行語意理解與複雜決策？還是傳統的 Rule-based (規則/公式) 或 Regex (正規表示式) 就能解決？
+3. 📁 **資料可得性**：專案是否有足夠且合規的真實樣本數據，以供 AI 學習、對照與測試？
+4. 💰 **落地經濟性**：Token 的消耗、API 呼叫與運行維護成本，在商業上是否可控且具備投資報酬率？
+
+綜合評估後，確認專案是否值得投入（GO / NO GO）。
+
+---
+
+## 📌 主題五：個人與團隊 AI 載入順序 {#ai-loading}
+
+從 AI Token 消耗與 Context Window 資源利用的角度來看，載入 Context 需要區分通用公約（Skill）與專案知識包（On Demand）：
+
+![哪些 Skill 值得放每次自動載入](images/context_token_optimization.png)
+
+### 1. 哪些 Skill 值得放在「每次都自動載入」？
+* **原則**：放「每次對話都應該遵守或常用的能力」。
+* **公約型 Skill (Global Convention)**：每次對話都要遵守的通用規則與行為準則。
+  * *包含*：語言與格式公約、資訊安全公約、程式開發公約、時間與單位公約、工作流程公約、協作與溝通公約、檔案與命名公約、品質與驗收公約。
+* **技能型 Skill (Capability / Tool)**：AI 能夠立即執行的常用能力與工具。
+  * *包含*：數據分析、資料處理、報表產出、研究與調查、程式開發、文件撰寫、翻譯與摘要、創意與策略。
+  * *特點*：高頻使用、快速啟動、能力可重複利用 ➔ 非常適合作為 Skill 常駐載入。
+
+### 2. 不建議放在 Skill（改放團隊知識包 / 專案資料）
+* 專案背景 (`ai_app_readme.md`)、業務流程 (`WORKFLOW.md`)、規格文件 (`REFERENCE.md`)、驗收標準 (`CHECKLIST.md`)、大量真實案例數據。
+
+### 3. 放 Skill 的核心原則
+1. **每次對話都會用到** ➔ 放 Skill
+2. **所有專案都應該遵守** ➔ 放 Skill
+3. **能立即提升效率的能力** ➔ 放 Skill
+4. **內容穩定、很少變動** ➔ 放 Skill
+5. **知識量不大、精簡為主** ➔ 放 Skill
+
+### 4. AI Context 載入順序
+1. **Skill（每次自動載入）** - Global Convention / Capabilities
+2. **專案知識包（按需載入）** - README / REFERENCE / ...
+3. **當前任務與對話內容** - Working Context
+
+> **好的 Skill 設計 = 固定公約 + 常用能力，讓 AI 每次對話都在最佳狀態！**
