@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 18:59:00 | 本機與線上同步 | 移除主題四中重複的「企業級落地藍圖」區塊；升級主題四與主題六中所有 Prompt 複製按鈕為雙軌防錯（Clipboard API + Fallback Textarea）高相容版本，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 18:45:00 | 本機與線上同步 | 將主題四 KM 建置與應用思維（topic4_km_rag）的前言與五大架構思維移除，直接替換為主題二的方向 A 原型卡片，以完美銜接實作說明，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 18:37:00 | 本機與線上同步 | 調整實戰案例展示（topic3_etl_cases）的順序為 7、6、3、2、4、8、1、5、9 並重新編號，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 18:20:00 | 本機與線上同步 | 將「AI-Native 人機協作四部曲」精美資訊圖表示意圖嵌入至 topic1_retrospective 網頁對應章節中，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
