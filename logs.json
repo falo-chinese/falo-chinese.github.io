@@ -1,5 +1,21 @@
 [
   {
+    "timestamp": "2026-06-30T16:01:12+08:00",
+    "action_type": "synced",
+    "description": "還原四大原則原始圖檔，重構主題五為「怎麼善用 Agent Skills」並完整收錄與解說三張核心技能/知識庫對照圖表，同步更新 TOC 側邊欄，重新編譯並推播。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/images/ai_app_studio_four_principles.png",
+      "force-taiwan/class/a01/class4/images/context_token_optimization_old.png",
+      "force-taiwan/class/a01/class4/topic1_retrospective.md",
+      "force-taiwan/class/a01/class4/topic1_retrospective.html",
+      "class/a01/class4/20260630_class04_project.zip",
+      "class/a01/class4/20260630_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-30T15:56:08+08:00",
     "action_type": "synced",
     "description": "將 Chapter 1 回顧頁重構為五個主題區塊，完全契合四大原則與 Skill 載入順序圖，並同步修改編譯器的側邊欄選單（TOC）使其擁有對應的 5 個選單項目，重新編譯並推播。",

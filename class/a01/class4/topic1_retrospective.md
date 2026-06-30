@@ -72,33 +72,41 @@ function verifyPdfPassword(url) {
 
 ---
 
-## 📌 主題五：個人與團隊 AI 載入順序 {#ai-loading}
+## 📌 主題五：怎麼善用 Agent Skills {#agent-skills}
 
-從 AI Token 消耗與 Context Window 資源利用的角度來看，載入 Context 需要區分通用公約（Skill）與專案知識包（On Demand）：
+善用 AI 技能 (Skills) 與團隊知識管理是提升人機協作效率的關鍵，以下透過三張核心圖表進行深度解析：
+
+### 1. 能力 (Skills) 與知識 (Knowledge) 的定位差異
+
+![個人 AI 與 團隊 AI 的知識管理方式](images/personal_vs_team_ai_knowledge.png)
+
+* **個人使用 (Personal AI) ➔ 管理「能力 (Skill)」**
+  透過 `Skill.md` 定義 AI 助理的行為準則與工具調用流程，注入 AI 執行階段 (AI Runtime)，讓 **AI 自己變強**。
+* **團隊使用 (Team AI) ➔ 管理「知識 (Markdown + HTML)」**
+  建立專案共享文件目錄（如 `README`、`PROJECT_RULE`、`WORKFLOW`），落實雙軌並行，讓 **大家使用同一份知識與規範**。
+
+---
+
+### 2. Context 與 Token 的資源優化策略
+
+![常駐外掛與專案資料庫的 Context 成本對照](images/context_token_optimization_old.png)
+
+* **Skill 模式（常駐外掛 🔌）**：每次啟動對話時，AI 都會自動載入該 Skill 的 Markdown 全文（Always Loaded）。雖然反應即時，但會固定且持續佔用 Context 空間，並消耗重複的 Input Token。
+* **Team Knowledge 模式（專案資料庫 🗄️）**：平時檔案安靜存放在目錄中，AI 僅在需要時才經由搜尋或讀取工具載入特定檔案（On Demand）。不佔用啟動時的 Context，使資源利用率最大化。
+
+---
+
+### 3. 哪些 Skill 值得放在「每次都自動載入」？
 
 ![哪些 Skill 值得放每次自動載入](images/context_token_optimization.png)
 
-### 1. 哪些 Skill 值得放在「每次都自動載入」？
 * **原則**：放「每次對話都應該遵守或常用的能力」。
-* **公約型 Skill (Global Convention)**：每次對話都要遵守的通用規則與行為準則。
+* **公約型 Skill (Global Convention)**：每次都要遵守的通用規則與行為準則。
   * *包含*：語言與格式公約、資訊安全公約、程式開發公約、時間與單位公約、工作流程公約、協作與溝通公約、檔案與命名公約、品質與驗收公約。
 * **技能型 Skill (Capability / Tool)**：AI 能夠立即執行的常用能力與工具。
   * *包含*：數據分析、資料處理、報表產出、研究與調查、程式開發、文件撰寫、翻譯與摘要、創意與策略。
-  * *特點*：高頻使用、快速啟動、能力可重複利用 ➔ 非常適合作為 Skill 常駐載入。
-
-### 2. 不建議放在 Skill（改放團隊知識包 / 專案資料）
-* 專案背景 (`ai_app_readme.md`)、業務流程 (`WORKFLOW.md`)、規格文件 (`REFERENCE.md`)、驗收標準 (`CHECKLIST.md`)、大量真實案例數據。
-
-### 3. 放 Skill 的核心原則
-1. **每次對話都會用到** ➔ 放 Skill
-2. **所有專案都應該遵守** ➔ 放 Skill
-3. **能立即提升效率的能力** ➔ 放 Skill
-4. **內容穩定、很少變動** ➔ 放 Skill
-5. **知識量不大、精簡為主** ➔ 放 Skill
-
-### 4. AI Context 載入順序
-1. **Skill（每次自動載入）** - Global Convention / Capabilities
-2. **專案知識包（按需載入）** - README / REFERENCE / ...
-3. **當前任務與對話內容** - Working Context
+* **不建議放在 Skill（改放團隊知識包）**：專案背景 (`ai_app_readme.md`)、業務流程 (`WORKFLOW.md`)、規格文件 (`REFERENCE.md`)、驗收標準 (`CHECKLIST.md`)、大量真實案例數據。
+* **AI Context 載入順序**：
+  $$\text{1. Skill（每次自動載入）} \longrightarrow \text{2. 專案知識包（按需載入）} \longrightarrow \text{3. 當前對話任務（Working Context）}$$
 
 > **好的 Skill 設計 = 固定公約 + 常用能力，讓 AI 每次對話都在最佳狀態！**
