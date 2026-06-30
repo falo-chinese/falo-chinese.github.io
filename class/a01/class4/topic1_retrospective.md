@@ -17,6 +17,8 @@ function verifyPdfPassword(url) {
 
 本主題旨在對前三週的學習重點進行深度沉澱與補充，並針對同仁在實務開發中遇到的盲點進行診斷與解答。
 
+![AI App Studio 專案開發四大原則](images/ai_app_studio_four_principles.png)
+
 ---
 
 ## 📌 常見提醒與交付規範 (台灣時間 UTC+8) {#guidelines}

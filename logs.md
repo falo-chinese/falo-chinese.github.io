@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-30 14:37:00 | 本機與線上同步 | 在 Chapter 1 課前課後回顧與交付規範網頁 (topic1_retrospective.html) 中置入『AI App Studio 專案開發四大原則』全新手繪圖表 (ai_app_studio_four_principles.png)，並重新打包與編譯，成功同步推送至 falo-chinese 開發儲存庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-29 16:25:00 | 本機與線上同步 | 將第二張架構圖『FALO AI 架構總覽 (falo_ai_architecture_overview.png)』整合進同一網頁 (diagram_knowledge_core.html)，並重構為分頁式頁面 (系統功能流轉圖 / 四層技術架構圖)，整合圖片放大 Lightbox、模擬器與各層級說明，成功推送至雙遠端 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-29 16:14:00 | 本機與線上同步 | 建立獨立的『萬佛朝宗：企業統一 AI 知識核心架構圖』互動式網頁 (diagram_knowledge_core.html)，內置圖片放大 Lightbox 與知識流轉模擬器 (模擬 Email/LINE/Telegram 的 ETL 與 Agent 處理流向)，目前主結構維持不變，並成功打包與同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-29 14:57:00 | 本機與線上同步 | 建立兩個獨立的精美文章網頁：企業 AI 導入效率省思篇（article_ai_efficiency.html，內置成熟度自我檢測器與導入三部曲）與開源程式小模型新星 Ornith-1.0 介紹篇（article_ornith_agent.html，內置模型家族、SVG基準圖與 Self-Scaffolding 流程圖），並更新首頁延伸精選閱讀連結與側邊選單，成功編譯同步推送至雙鏡像 Git 倉庫。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |

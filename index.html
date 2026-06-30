@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <!-- WATERMARK: Falo x Force Cheng 2026/6/30 -->
+  <meta name="author" content="Falo x Force Cheng">
+  <meta name="copyright" content="Falo x Force Cheng 2026/6/30">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>福爾摩沙智慧生活 - AI 內訓課程門戶</title>
+  <meta name="description" content="銀河 ERP 企業 AI 數位轉型內訓課程與邊緣運算平台整合門戶。">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070e1b;
+      --card-bg: rgba(15, 23, 42, 0.6);
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.12) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 45px;
+    }
+
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    @media (min-width: 600px) {
+      .portal-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .email-card-wrapper {
+        grid-column: span 2;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      text-decoration: none;
+      color: inherit;
+      text-align: left;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .card-action {
+      font-size: 0.9rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap 0.2s;
+    }
+
+    .card:hover .card-action {
+      gap: 10px;
+      color: var(--accent-cyan);
+    }
+
+    footer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 25px;
+      width: 100%;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <div class="logo">Formosa AI Life</div>
+      <div class="subtitle">銀河 ERP 企業 AI 數位轉型與實戰技術教材入口</div>
+    </header>
+
+    <div class="portal-grid">
+      
+      <!-- Class 03 -->
+      <a href="/class/a01/class3/" class="card">
+        <div>
+          <div class="card-meta">Class 03</div>
+          <h2 class="card-title">📚 教材開發革命手冊</h2>
+          <p class="card-desc">探索 AI Agent 協同開發與觀念教材，涵蓋 OCR 協作、Chrome 內建 Gemini 核心與 NotebookLM 實戰。</p>
+        </div>
+        <div class="card-action">進入課程首頁 <span>→</span></div>
+      </a>
+
+      <!-- Class 04 -->
+      <a href="/class/a01/class4/" class="card">
+        <div>
+          <div class="card-meta">Class 04</div>
+          <h2 class="card-title">⚙️ RAG 知識庫與實戰</h2>
+          <p class="card-desc">專注於企業級 RAG 知識庫建置、API 呼叫三大模式，以及多模型雙通道級聯路由設計實戰。</p>
+        </div>
+        <div class="card-action">進入課程首頁 <span>→</span></div>
+      </a>
+
+      <!-- Email Platform -->
+      <a href="/email_platform/" class="card email-card-wrapper">
+        <div>
+          <div class="card-meta">Platform</div>
+          <h2 class="card-title">📧 邊緣端 AI 郵件平台</h2>
+          <p class="card-desc">結合 Cloudflare Email Routing、R2 附件儲存與 Llama 3.1 邊緣運算，打造無伺服器雙向翻譯與 AI 指令接收中心。</p>
+        </div>
+        <div class="card-action">查看平台設計手冊 <span>→</span></div>
+      </a>
+
+    </div>
+
+    <footer>
+      Falo Quick Scan & Web Share | Falo x Force Cheng © 2026 保留所有權利
+    </footer>
+
+  </div>
+
+</body>
+</html>
