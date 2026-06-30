@@ -1,5 +1,25 @@
 [
   {
+    "timestamp": "2026-06-30T19:59:58+08:00",
+    "action_type": "synced",
+    "description": "將戰情中心元件解構移入 ETL 章節作為 Load 實踐，將核心實戰案例與商業整合專案獨立為第 6、7 章節網頁並以黃綠色高亮，且將所有壓縮檔統一收納至 backup/ 資料夾下，重新編譯打包並推播。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic7_real_cases.md",
+      "force-taiwan/class/a01/class4/topic7_real_cases.html",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.md",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.html",
+      "class/a01/class4/backup/20260630_class04_project.zip",
+      "class/a01/class4/backup/20260630_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-06-30T19:57:32+08:00",
     "action_type": "synced",
     "description": "將戰情中心元件解構移入 ETL 章節作為 Load 實踐，將核心實戰案例與商業整合專案獨立為第 6、7 章節網頁並以黃綠色高亮，且將所有壓縮檔統一收納至 backup/ 資料夾下，重新編譯打包並推播。",
