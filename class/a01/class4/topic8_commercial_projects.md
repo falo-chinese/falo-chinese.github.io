@@ -57,6 +57,8 @@
   ![FALO 雙軌 AI 翻譯與智能摘要雙模式處理流程圖](images/chatgpt_image_20260630_213604.png)
   
   ![Email 2.0 從通訊工具進化成 AI Event Gateway 架構與價值分析圖](images/chatgpt_image_20260630_213818.png)
+* **研究報告入口**：
+  * [🌐 開啟 FALO Email 雙軌 AI 翻譯與智能摘要服務門戶](https://falo-taiwan.github.io/email_platform/dual_track_translation_summary.html) *(將於新分頁中開啟)*
 
 
 ### 商業型整合專案 F：資安與 AI 雙贏的下一代企業級架構 ─ Cloudflare 邊緣平台與合規通道設計
