@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="FALO AI - Enterprise AI Platform for Knowledge, Workflow & Integration.">
+    <title>FALO AI - Simple Outside. Powerful Inside.</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --bg-color: #020408;
+            --card-bg: rgba(10, 15, 30, 0.5);
+            --card-border: rgba(255, 255, 255, 0.04);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --accent-cyan: #06b6d4;
+            --accent-indigo: #6366f1;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+        }
+
+        body {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 40%),
+                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 40%),
+                radial-gradient(at 50% 100%, rgba(139, 92, 246, 0.06) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            line-height: 1.7;
+            padding-top: 80px; /* Spacer for fixed header */
+        }
+
+        /* Fixed Navigation Bar (RWD & Mobile Friendly) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(2, 4, 8, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            z-index: 1002;
+        }
+
+        .navbar-brand i {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Desktop Menu (Hidden on mobile) */
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .navbar-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .navbar-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo));
+            transition: width 0.3s ease;
+        }
+
+        .navbar-item.active a {
+            color: #fff;
+        }
+
+        .navbar-item.active a::after {
+            width: 100%;
+        }
+
+        .navbar-item a:hover {
+            color: #fff;
+        }
+
+        .navbar-item a:hover::after {
+            width: 100%;
+        }
+
+        .btn-docs {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 1.2rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-docs a {
+            color: #fff !important;
+            text-decoration: none;
+        }
+
+        .btn-docs:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: #fff;
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            font-size: 1.75rem;
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile Overlay Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: rgba(4, 6, 12, 0.95);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            padding: 7rem 2.5rem 3rem 2.5rem;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu-overlay.active {
+            right: 0;
+        }
+
+        .mobile-menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mobile-menu-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu-item.active a {
+            color: #fff;
+            border-left: 3px solid var(--accent-cyan);
+            padding-left: 1rem;
+        }
+
+        .mobile-menu-overlay .btn-docs {
+            margin-top: auto;
+            text-align: center;
+            padding: 0.75rem 0;
+        }
+
+        /* Dim Background Overlay when Mobile menu active */
+        .backdrop-dim {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+        }
+
+        .backdrop-dim.active {
+            display: block;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            min-height: calc(100vh - 160px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 5 Distinct Sections with CSS Fade-in Switch */
+        .page-section {
+            display: none;
+            opacity: 0;
+            width: 100%;
+            padding: 3rem 0;
+        }
+
+        @keyframes sectionFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-section.active {
+            display: block;
+            animation: sectionFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Hero block style */
+        #hero {
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 0.4rem 1.25rem;
+            border-radius: 9999px;
+            color: #a5b4fc;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        .hero-zh-title {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-slogan-zh {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-concept {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-concept .txt-zh {
+            font-size: 1.25rem;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-concept .txt-en {
+            font-size: 1.08rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Section headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .section-header .zh-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Section 1: Architecture Diagram */
+        .diagram-wrapper {
+            background: rgba(10, 15, 30, 0.2);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(99, 102, 241, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .diagram-wrapper:hover {
+            border-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .diagram-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .diagram-desc {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .diagram-desc p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .diagram-desc .txt-zh {
+            color: var(--text-primary);
+            font-weight: 300;
+        }
+
+        .diagram-desc .txt-en {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.98rem;
+        }
+
+        /* Section 2: Scenarios Grid (Responsive) */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .scenario-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.25);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            background: rgba(10, 15, 30, 0.65);
+        }
+
+        .scenario-icon {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(6, 182, 212, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .scenario-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scenario-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .scenario-desc-zh {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 0.1rem;
+        }
+
+        .scenario-desc-en {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Section 3: Cases Grid (Responsive) */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .case-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.25);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background: rgba(10, 15, 30, 0.65);
+        }
+
+        .case-title {
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        .case-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section 4: Contact */
+        .contact-container {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            color: #fff;
+            text-decoration: none;
+            padding: 0.9rem 2.2rem; /* Enhanced tap target */
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .slogan-footer {
+            margin-top: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .slogan-en {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+        }
+
+        .slogan-zh {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+        }
+
+        /* Footer (Relative on mobile, fixed bottom on desktop) */
+        .footer {
+            width: 100%;
+            background: rgba(2, 4, 8, 0.6);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            z-index: 999;
+        }
+
+        .footer-links {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive styling & Mobile-First Media Queries */
+        @media (min-width: 993px) {
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+            }
+            body {
+                padding-bottom: 80px; /* Spacer for fixed bottom footer */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0 2rem;
+            }
+            .footer {
+                margin-top: 4rem;
+                position: relative;
+                background: transparent;
+                border-top: 1px solid rgba(255,255,255,0.05);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                height: 70px;
+                padding: 0 1.5rem;
+            }
+            body {
+                padding-top: 70px;
+            }
+            .navbar-menu {
+                display: none; /* Hide desktop nav items */
+            }
+            .menu-toggle {
+                display: flex; /* Show mobile menu button */
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+                line-height: 1.3;
+            }
+            .hero-zh-title {
+                font-size: 1.05rem;
+                margin-bottom: 1.5rem;
+            }
+            .hero-slogan {
+                font-size: 1.25rem;
+            }
+            .hero-slogan-zh {
+                font-size: 0.85rem;
+                margin-bottom: 2rem;
+            }
+            .hero-concept .txt-zh {
+                font-size: 1.08rem;
+                line-height: 1.6;
+            }
+            .hero-concept .txt-en {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            
+            /* Section mobile adjustments */
+            .page-section {
+                padding: 2.5rem 0;
+                overflow-y: auto; /* Allow scroll if content is taller than viewport */
+            }
+            .section-header {
+                margin-bottom: 2rem;
+            }
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+            .section-header .zh-subtitle {
+                font-size: 0.88rem;
+            }
+            
+            /* Mobile scrollable diagram to view large image easily */
+            .diagram-wrapper {
+                padding: 0.75rem;
+                border-radius: 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .diagram-wrapper img {
+                min-width: 550px; /* Force image size for legible text on scroll */
+                border-radius: 8px;
+            }
+            
+            /* Single column layouts on mobile */
+            .scenario-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .scenario-card {
+                padding: 1.25rem 1.5rem;
+            }
+            
+            .cases-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .case-card {
+                padding: 1.5rem;
+            }
+            
+            .slogan-en {
+                font-size: 1.05rem;
+            }
+            .slogan-zh {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Transparent Glass Sticky Navigation -->
+    <nav class="navbar">
+        <a href="#hero" class="navbar-brand" onclick="switchSection(event, 'hero')">
+            <i class="bi bi-hexagon-fill"></i> FALO
+        </a>
+        <ul class="navbar-menu">
+            <li class="navbar-item active" id="nav-hero"><a href="#hero" onclick="switchSection(event, 'hero')">Home</a></li>
+            <li class="navbar-item" id="nav-architecture"><a href="#architecture" onclick="switchSection(event, 'architecture')">Architecture</a></li>
+            <li class="navbar-item" id="nav-scenarios"><a href="#scenarios" onclick="switchSection(event, 'scenarios')">Scenarios</a></li>
+            <li class="navbar-item" id="nav-cases"><a href="#cases" onclick="switchSection(event, 'cases')">Cases</a></li>
+            <li class="navbar-item" id="nav-contact"><a href="#contact" onclick="switchSection(event, 'contact')">Contact</a></li>
+            <li class="navbar-item btn-docs"><a href="#developer">Docs</a></li>
+        </ul>
+        
+        <!-- Hamburger Menu Button for Mobile -->
+        <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+            <i class="bi bi-list" id="toggle-icon"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="backdrop-dim" id="menu-backdrop" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item active" id="mob-nav-hero"><a href="#hero" onclick="switchSection(event, 'hero')">Home</a></li>
+            <li class="mobile-menu-item" id="mob-nav-architecture"><a href="#architecture" onclick="switchSection(event, 'architecture')">Architecture</a></li>
+            <li class="mobile-menu-item" id="mob-nav-scenarios"><a href="#scenarios" onclick="switchSection(event, 'scenarios')">Scenarios</a></li>
+            <li class="mobile-menu-item" id="mob-nav-cases"><a href="#cases" onclick="switchSection(event, 'cases')">Cases</a></li>
+            <li class="mobile-menu-item" id="mob-nav-contact"><a href="#contact" onclick="switchSection(event, 'contact')">Contact</a></li>
+        </ul>
+        <div class="btn-docs"><a href="#developer" onclick="toggleMobileMenu()">Docs</a></div>
+    </div>
+
+    <div class="container">
+        <!-- Section ①: Hero (我們是誰) -->
+        <section class="page-section active" id="hero">
+            <div class="hero-badge"><i class="bi bi-shield-check"></i> Enterprise AI Platform</div>
+            <h1>Enterprise AI Platform for Knowledge, Workflow & Integration.</h1>
+            <div class="hero-zh-title">企業級 AI 平台：聚焦知識、工作流與系統整合。</div>
+            
+            <div class="hero-slogan">Simple Outside. Powerful Inside.</div>
+            <div class="hero-slogan-zh">極簡外在。強大內在。</div>
+            
+            <div class="hero-concept">
+                <div class="txt-zh">讓 AI 不只是回答問題，而是真正累積企業知識。</div>
+                <div class="txt-en">Make AI more than answering questions—build true enterprise knowledge.</div>
+            </div>
+        </section>
+
+        <!-- Section ②: Architecture (六大能力圖) -->
+        <section class="page-section" id="architecture">
+            <div class="section-header">
+                <h2>Architecture</h2>
+                <div class="zh-subtitle">六大能力 / Core Capabilities</div>
+            </div>
+
+            <div class="diagram-wrapper">
+                <img src="tianxun_spec_flowchart.png" alt="FALO AI Architecture 六大核心構面圖">
+            </div>
+
+            <div class="diagram-desc">
+                <p class="txt-zh">FALO 將 AI 建立在一套可持續成長的企業架構之上。我們相信，AI 的價值不在於消耗更多 Token，而在於透過良好的架構設計，將每一次對話、每一次流程、每一次決策，逐步轉化為可重複利用的企業知識與智慧資產。</p>
+                <p class="txt-en">FALO builds AI upon a sustainable enterprise architecture. We believe the value of AI lies not in consuming more tokens, but in a well-designed architecture that systematically turns every interaction, workflow, and decision into scalable organizational intelligence and lasting assets.</p>
+            </div>
+        </section>
+
+        <!-- Section ③: Scenarios (應用情境) -->
+        <section class="page-section" id="scenarios">
+            <div class="section-header">
+                <h2>Scenarios</h2>
+                <div class="zh-subtitle">應用情境 / Application Scenarios</div>
+            </div>
+
+            <div class="scenario-grid">
+                <a href="#scenario-ocr" class="scenario-card" onclick="event.preventDefault()">
+                    <div class="scenario-icon"><i class="bi bi-file-earmark-text"></i></div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">AI OCR</span>
+                        <span class="scenario-desc-zh">單據與訂單智慧擷取</span>
+                        <span class="scenario-desc-en">Document & Order Extraction</span>
+                    </div>
+                </a>
+                <a href="#scenario-km" class="scenario-card" onclick="event.preventDefault()">
+                    <div class="scenario-icon"><i class="bi bi-search"></i></div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">AI KM</span>
+                        <span class="scenario-desc-zh">低成本公務知識檢索</span>
+                        <span class="scenario-desc-en">Knowledge Retrieval</span>
+                    </div>
+                </a>
+                <a href="#scenario-email" class="scenario-card" onclick="event.preventDefault()">
+                    <div class="scenario-icon"><i class="bi bi-envelope-paper"></i></div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">Email AI</span>
+                        <span class="scenario-desc-zh">郵件 2.0 自動化工作流</span>
+                        <span class="scenario-desc-en">Automated Workflows</span>
+                    </div>
+                </a>
+                <a href="#scenario-erp" class="scenario-card" onclick="event.preventDefault()">
+                    <div class="scenario-icon"><i class="bi bi-database-gear"></i></div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">ERP AI</span>
+                        <span class="scenario-desc-zh">進銷存與排程智慧增強</span>
+                        <span class="scenario-desc-en">Inventory & Scheduling</span>
+                    </div>
+                </a>
+                <a href="#scenario-pm" class="scenario-card" onclick="event.preventDefault()">
+                    <div class="scenario-icon"><i class="bi bi-briefcase"></i></div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">AI PM</span>
+                        <span class="scenario-desc-zh">專案決策與待辦自動追蹤</span>
+                        <span class="scenario-desc-en">Decisions & Task Tracking</span>
+                    </div>
+                </a>
+                <a href="#scenario-audit" class="scenario-card" onclick="event.preventDefault()">
+                    <div class="scenario-icon"><i class="bi bi-shield-lock"></i></div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">AI Audit</span>
+                        <span class="scenario-desc-zh">高權限操作與資安智慧審計</span>
+                        <span class="scenario-desc-en">Privilege & Security Auditing</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section ④: Cases (成功案例) -->
+        <section class="page-section" id="cases">
+            <div class="section-header">
+                <h2>Cases</h2>
+                <div class="zh-subtitle">成功案例 / Success Stories</div>
+            </div>
+
+            <div class="cases-grid">
+                <a href="#case-manufacturing" class="case-card" onclick="event.preventDefault()">
+                    <div class="case-title">製造</div>
+                    <div class="case-subtitle">Manufacturing</div>
+                </a>
+                <a href="#case-erp" class="case-card" onclick="event.preventDefault()">
+                    <div class="case-title">ERP</div>
+                    <div class="case-subtitle">Integration</div>
+                </a>
+                <a href="#case-education" class="case-card" onclick="event.preventDefault()">
+                    <div class="case-title">教育</div>
+                    <div class="case-subtitle">Education</div>
+                </a>
+                <a href="#case-consulting" class="case-card" onclick="event.preventDefault()">
+                    <div class="case-title">顧問</div>
+                    <div class="case-subtitle">Consulting</div>
+                </a>
+                <a href="#case-sme" class="case-card" onclick="event.preventDefault()">
+                    <div class="case-title">SME</div>
+                    <div class="case-subtitle">Small Business</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section ⑤: Contact (聯絡我們) -->
+        <section class="page-section" id="contact">
+            <div class="contact-container">
+                <a href="mailto:info@falo.ai" class="btn-contact">
+                    <i class="bi bi-envelope"></i> Get In Touch / 與我們聯絡
+                </a>
+                <div class="slogan-footer">
+                    <div class="slogan-en">Build Knowledge. Orchestrate AI. Create Lasting Value.</div>
+                    <div class="slogan-zh">建立知識。編排 AI。創造持久價值。</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fixed Footer for Desktop / Normal for Mobile -->
+    <footer class="footer">
+        <p>Falo x Force Cheng 2026/7/1</p>
+        <div class="footer-links">
+            <a href="#developer">Developer</a>
+            <a href="#tech">Tech</a>
+            <a href="#docs">Docs</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Control -->
+    <script>
+        // Toggle mobile drawer menu
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-menu');
+            const backdrop = document.getElementById('menu-backdrop');
+            const icon = document.getElementById('toggle-icon');
+            
+            const isActive = drawer.classList.contains('active');
+            
+            if (isActive) {
+                drawer.classList.remove('active');
+                backdrop.classList.remove('active');
+                icon.className = 'bi bi-list';
+            } else {
+                drawer.classList.add('active');
+                backdrop.classList.add('active');
+                icon.className = 'bi bi-x';
+            }
+        }
+
+        // Core Section Switching Logic
+        function switchSection(event, sectionId) {
+            // Prevent anchor scroll jump
+            event.preventDefault();
+            
+            // Auto close mobile drawer if open
+            const drawer = document.getElementById('mobile-menu');
+            if (drawer.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+            
+            const sections = document.querySelectorAll('.page-section');
+            const navItems = document.querySelectorAll('.navbar-item');
+            const mobNavItems = document.querySelectorAll('.mobile-menu-item');
+            
+            // Deactivate all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Deactivate all navbar items
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            mobNavItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Activate target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Activate corresponding navbar link
+            const targetNavItem = document.getElementById('nav-' + sectionId);
+            if (targetNavItem) {
+                targetNavItem.classList.add('active');
+            }
+            const targetMobNavItem = document.getElementById('mob-nav-' + sectionId);
+            if (targetMobNavItem) {
+                targetMobNavItem.classList.add('active');
+            }
+            
+            // Update browser history hash without jumping
+            history.pushState(null, null, '#' + sectionId);
+            
+            // Smoothly scroll window to top in case content is taller
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Handle browser history back/forward (Popstate)
+        window.addEventListener('popstate', function() {
+            let hash = window.location.hash.substring(1);
+            if (!hash) hash = 'hero';
+            
+            const sections = document.querySelectorAll('.page-section');
+            const navItems = document.querySelectorAll('.navbar-item');
+            const mobNavItems = document.querySelectorAll('.mobile-menu-item');
+            
+            sections.forEach(s => s.classList.remove('active'));
+            navItems.forEach(item => item.classList.remove('active'));
+            mobNavItems.forEach(item => item.classList.remove('active'));
+            
+            const targetSec = document.getElementById(hash);
+            const targetNav = document.getElementById('nav-' + hash);
+            const targetMobNav = document.getElementById('mob-nav-' + hash);
+            
+            if (targetSec) targetSec.classList.add('active');
+            if (targetNav) targetNav.classList.add('active');
+            if (targetMobNav) targetMobNav.classList.add('active');
+        });
+        
+        // Handle direct url hash load on page refresh
+        window.addEventListener('DOMContentLoaded', (event) => {
+            let hash = window.location.hash.substring(1);
+            if (hash && ['hero', 'architecture', 'scenarios', 'cases', 'contact'].includes(hash)) {
+                // Trigger fake event
+                switchSection({ preventDefault: () => {} }, hash);
+            }
+        });
+    </script>
+</body>
+</html>
