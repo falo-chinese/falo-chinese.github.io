@@ -530,7 +530,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Section 5: PoC Priority List (5 Cards) */
+        /* Section 5: PoC List (5 Cards) */
         .poc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -585,6 +585,128 @@
             font-size: 0.88rem;
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        /* Component Bundling Section Style */
+        .poc-strategy-box {
+            margin-top: 3.5rem;
+            background: rgba(99, 102, 241, 0.03);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: inset 0 0 30px rgba(99, 102, 241, 0.02);
+            text-align: left;
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+
+        .strategy-header i {
+            font-size: 2rem;
+            color: var(--accent-purple);
+        }
+
+        .strategy-header h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .strategy-header span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .bundle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .bundle-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .bundle-column h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bundle-item {
+            background: rgba(10, 15, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .bundle-item:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            background: rgba(10, 15, 30, 0.6);
+        }
+
+        .bundle-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .bundle-title span {
+            font-size: 0.72rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .badge-finance { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+        .badge-operation { background: rgba(234, 179, 8, 0.15); color: #fef08a; }
+        .badge-hr { background: rgba(139, 92, 246, 0.15); color: #c084fc; }
+        .badge-security { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; }
+        .badge-safety { background: rgba(244, 63, 94, 0.15); color: #fda4af; }
+
+        .bundle-flow {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            background: rgba(2, 4, 8, 0.4);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            width: fit-content;
+        }
+
+        .bundle-flow i {
+            color: var(--text-muted);
+        }
+
+        .bundle-flow small {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-left: 0.1rem;
+        }
+
+        .bundle-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
 
         /* Section 6: Explorer Links */
@@ -843,6 +965,14 @@
             .slogan-zh {
                 font-size: 0.8rem;
             }
+            .bundle-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .poc-strategy-box {
+                padding: 1.25rem;
+                margin-top: 2rem;
+            }
         }
     </style>
 </head>
@@ -1007,7 +1137,7 @@
             </div>
         </section>
 
-        <!-- Section ⑤: PoC List (5 Cards) -->
+        <!-- Section ⑤: PoC List & Bundling Strategy -->
         <section class="page-section" id="poc">
             <div class="section-header">
                 <h2>PoC Priority List</h2>
@@ -1042,7 +1172,7 @@
                         <span class="poc-subtitle">發票與單據識別 / Invoice & Voucher OCR</span>
                     </div>
                     <div class="poc-desc">
-                        針對發票、收據、出貨單等財務憑證進行智慧擷取（E 智能擷取），自動提取金額、統編、品名等結構化財務欄位，以利後續報帳、勾稽與會計核對。
+                        針對發票、收據、出貨單等財務憑證進行智慧擷取（E 智能擷取），自動提取金額、統編、品名等結構化欄位，以利後續報帳、勾稽與會計核對。
                     </div>
                 </div>
                 <div class="poc-card">
@@ -1063,6 +1193,89 @@
                     </div>
                     <div class="poc-desc">
                         將口述錄音（E 語音擷取）經由 AI 聽寫，並動態套用預設的「提示詞樣板」進行精準排版與重組，自動生成高質量的專業郵件、報告與宣傳文案。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component Bundling Strategy Block -->
+            <div class="poc-strategy-box">
+                <div class="strategy-header">
+                    <i class="bi bi-puzzle-fill"></i>
+                    <div>
+                        <h3>Component Bundling Strategy</h3>
+                        <span>「多選幾」能力元件拼裝戰術建議 (AI Component Bundling)</span>
+                    </div>
+                </div>
+                
+                <div class="bundle-grid">
+                    <!-- Mainstream Bundles -->
+                    <div class="bundle-column">
+                        <h4><i class="bi bi-layers-half" style="color: var(--accent-cyan);"></i> 224 大數據對標組合 (Mainstream Bundles)</h4>
+                        
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 A：財務智慧自動化包 <span class="badge-finance">財務部</span></div>
+                            <div class="bundle-flow">
+                                <span>會計憑證 OCR <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>寫入 ERP <small>(L)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>Email 警報 <small>(Workflow)</small></span>
+                            </div>
+                            <p class="bundle-desc">辨識發票與單據，自動登錄 ERP 傳票，若金額不符自動通知廠商。超越市場上純 OCR 的工具硬傷。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 B：外勤現場語音日報包 <span class="badge-operation">現場端</span></div>
+                            <div class="bundle-flow">
+                                <span>LINE Bot <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>提示詞工廠 <small>(T)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>自動派工 <small>(Workflow)</small></span>
+                            </div>
+                            <p class="bundle-desc">外勤或廠區主管對 LINE 說話即可完成日報填寫，AI 解析後自動生成 ERP 工單，省去小螢幕打字的麻煩。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 C：HR 智慧履歷快速建檔包 <span class="badge-hr">人資部</span></div>
+                            <div class="bundle-flow">
+                                <span>HR OCR <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>AI KM 比對 <small>(T)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>系統落載 <small>(L)</small></span>
+                            </div>
+                            <p class="bundle-desc">拍照履歷或名片，自動辨識並比對公司現有職缺適配度，直接落載至 HR 資料庫完成建檔。</p>
+                        </div>
+                    </div>
+
+                    <!-- Mission Critical Bundles -->
+                    <div class="bundle-column">
+                        <h4><i class="bi bi-shield-fill-check" style="color: var(--accent-emerald);"></i> 核心命脈藍海組合 (Non-224 Critical Bundles)</h4>
+                        
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 D：軍規去識別化安全知識庫 <span class="badge-security">安全合規</span></div>
+                            <div class="bundle-flow">
+                                <span>AI KM <small>(T)</small></span>
+                                <i class="bi bi-plus-lg"></i>
+                                <span>資安智慧審計 <small>(Gov)</small></span>
+                                <i class="bi bi-plus-lg"></i>
+                                <span>地端私有隔離</span>
+                            </div>
+                            <p class="bundle-desc">專為金融與高科技設計，AI 檢索時自動對敏感字去識別化遮蔽，支持實體斷網隔離部署，解決公有雲安全硬傷。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 E：智慧工安視訊警報包 <span class="badge-safety">安全防範</span></div>
+                            <div class="bundle-flow">
+                                <span>影像辨識 <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>Agent 決策 <small>(T)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>LINE 警報 <small>(Workflow)</small></span>
+                            </div>
+                            <p class="bundle-desc">監控現場異常行為（如未戴安全帽），AI 智慧判定後自動截圖並用 LINE 警報推送給組長，系統中立案追蹤。</p>
+                        </div>
                     </div>
                 </div>
             </div>
