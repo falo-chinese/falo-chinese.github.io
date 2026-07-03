@@ -530,7 +530,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Section 5: PoC List (5 Cards) */
+        /* Section 5: PoC List (6 Cards) */
         .poc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1042,7 +1042,7 @@
             </div>
 
             <div class="diagram-desc">
-                <p class="txt-zh">FALO 將 AI 建立在一套可持續成長 of 企業架構之上。我們相信，AI 的價值不在於消耗更多 Token，而在於透過良好的架構設計，將每一次對話、每一次流程、每一次決策，逐步轉化為可重複利用的企業知識與智慧資產。</p>
+                <p class="txt-zh">FALO 將 AI 建立在一套可持續成長的企業架構之上。我們相信，AI 的價值不在於消耗更多 Token，而在於透過良好的架構設計，將每一次對話、每一次流程、每一次決策，逐步轉化為可重複利用的企業知識與智慧資產。</p>
                 <p class="txt-en">FALO builds AI upon a sustainable enterprise architecture. We believe the value of AI lies not in consuming more tokens, but in a well-designed architecture that systematically turns every interaction, workflow, and decision into scalable organizational intelligence and lasting assets.</p>
             </div>
         </section>
@@ -1195,6 +1195,16 @@
                         將口述錄音（E 語音擷取）經由 AI 聽寫，並動態套用預設的「提示詞樣板」進行精準排版與重組，自動生成高質量的專業郵件、報告與宣傳文案。
                     </div>
                 </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 06</div>
+                    <div class="poc-title-container">
+                        <h3>AI 共用 Email 服務</h3>
+                        <span class="poc-subtitle">接管公共信箱 / Shared AI Corporate Email</span>
+                    </div>
+                    <div class="poc-desc">
+                        透過 Cloudflare Email Router 接管公共信箱，員工離職免擔心客戶對話流失。AI 自動結合 KM 進行回信擬稿，並在回信被人工修正發出後，無感反哺更新 KM 知識庫。
+                    </div>
+                </div>
             </div>
 
             <!-- Component Bundling Strategy Block -->
@@ -1275,6 +1285,18 @@
                                 <span>LINE 警報 <small>(Workflow)</small></span>
                             </div>
                             <p class="bundle-desc">監控現場異常行為（如未戴安全帽），AI 智慧判定後自動截圖並用 LINE 警報推送給組長，系統中立案追蹤。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 F：Email Router 內網穿透 AI 橋接器 <span class="badge-security">內網安全</span></div>
+                            <div class="bundle-flow">
+                                <span>Email / HTML <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>Cloudflare Tunnel <small>(Gov)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>內網主機 <small>(L)</small></span>
+                            </div>
+                            <p class="bundle-desc">客戶在外部填寫 HTML 表單或發送 Email，透過 Cloudflare Email Router 與安全隧道 (Tunnel) 穿透防護牆，直接調用企業內網主機之 AI/KM 服務。</p>
                         </div>
                     </div>
                 </div>
