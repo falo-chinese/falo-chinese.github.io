@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="FALO AI - Market Matrix Explorer for B2B AI Tools.">
-    <title>FALO AI - 市場雙軌戰情討論看板 (Market Matrix Explorer)</title>
+    <title>FALO AI - 市場雙軌戰情討論看板 v1.01 (Market Matrix Explorer)</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -619,7 +619,7 @@
 <body>
     <header>
         <div class="brand-info">
-            <h1><i class="bi bi-hexagon-fill"></i> FALO AI - Market Matrix Explorer</h1>
+            <h1><i class="bi bi-hexagon-fill"></i> FALO AI - Market Matrix Explorer <span style="font-size:0.8rem; background:var(--accent-indigo); padding:0.2rem 0.6rem; border-radius:6px; margin-left:0.5rem; vertical-align:middle; font-weight:700; letter-spacing:1px; display:inline-block; border:1px solid rgba(255,255,255,0.15);">v1.01</span></h1>
             <p>市場工具雙軌戰情討論看板：對標與拆解 224 個 AI 補助方案，看清「主流通用」與「冷門重要」</p>
         </div>
         <div class="badge-bilingual">Bilingual / RWD / Single-File SPA</div>
@@ -719,7 +719,7 @@
             <div class="panel-title"><i class="bi bi-chat-left-text-fill"></i> 夥伴討論隨記看板</div>
             
             <div class="control-group">
-                <label>擬定 PoC 購物車 (PoC Checklist)</label>
+                <label>擬定 PoC 開發購物車 (PoC Checklist)</label>
                 <ul class="poc-cart-list" id="poc-list-container">
                     <li class="poc-cart-item" style="color: var(--text-muted); justify-content: center;">
                         <span>尚未加入任何 PoC 元件</span>
@@ -839,25 +839,14 @@
         function filterTools() {
             const sliderVal = parseInt(document.getElementById('spectrum-slider').value);
             
-            // Define threshold to split mainstream vs critical
-            // Left (0) leans heavily to mainstream; Right (100) leans heavily to critical
-            // Let's dynamic threshold based on slider.
-            // Under classified logic: E & T tend to be Mainstream; L & Governance tend to be Critical.
-            // Workflow & Agent are transitional.
-            
             const mainstreamList = [];
             const criticalList = [];
             
             rawToolsData.forEach(t => {
-                // Capability filter check
                 if (selectedCapability !== 'All' && !t.falo_categories.includes(selectedCapability)) {
                     return;
                 }
                 
-                // Content Analysis Logic:
-                // Mainstream: Extract, Transform, or Unclassified (since many unclassified are simple general SaaS)
-                // Critical: Load, Governance
-                // Neutral (Workflow, Agent): split based on slider value
                 let isMainstream = true;
                 
                 const hasCritical = t.falo_categories.includes('Load') || t.falo_categories.includes('Governance');
@@ -869,10 +858,8 @@
                 } else if (hasMainstream && !hasCritical) {
                     isMainstream = true;
                 } else if (hasNeutral) {
-                    // Split neutral based on slider value
                     isMainstream = (sliderVal < 50);
                 } else {
-                    // Mixed
                     isMainstream = (sliderVal < 60);
                 }
                 
@@ -907,7 +894,6 @@
             const priceText = t.price_amount > 0 ? 'NT$ ' + t.price_amount.toLocaleString() : '價格依授權商議';
             const hoverClass = type === 'mainstream' ? 'mainstream-hover' : 'critical-hover';
             
-            // Build capability tag html
             const tagsHtml = t.falo_categories.map(c => {
                 let tagClass = 'tag-extract';
                 if (c === 'Transform') tagClass = 'tag-transform';
@@ -918,7 +904,6 @@
                 return `<span class="tool-tag ${tagClass}">${c}</span>`;
             }).join('');
 
-            // FALO strategic matching point points
             let strategyText = "";
             if (t.falo_categories.includes('Transform')) {
                 strategyText = "主流通用競爭激烈。FALO 的做法是以 LINE 極簡介面(Simple Outside)包裝此通用功能，提供極低教育門檻。";
@@ -958,12 +943,10 @@
         function filterByCapability(cap) {
             selectedCapability = cap;
             
-            // Remove active classes
             document.querySelectorAll('.cap-filter-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Set active class
             if (cap === 'All') {
                 document.getElementById('btn-all').classList.add('active');
             } else {
@@ -975,12 +958,11 @@
 
         // Add tool to PoC Cart
         function addToolToPoc(id, name) {
-            if (pocCart.some(item => item.id === id)) return; // No duplicates
+            if (pocCart.some(item => item.id === id)) return;
             
             pocCart.push({ id: id, name: name });
             updatePocCartUI();
             
-            // Append text to discussion notepad automatically
             const textarea = document.getElementById('discussion-note');
             let currentVal = textarea.value;
             if (!currentVal.includes("### 擬定 PoC 開發項目")) {
