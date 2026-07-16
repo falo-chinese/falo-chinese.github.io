@@ -28,13 +28,15 @@
 * **研究報告入口**：
   * [🌐 開啟 FALO OCR Workbench 智慧開源 OCR 工作台](https://falo-chinese.github.io/ai-ocr-demo/) *(將於新分頁中開啟)*
 
-### 案例四：口語化政府資料 AI 爬蟲助手 (Chrome 外掛)
-* **專案精神**：作為 Vibe Coding 與 AI 輔助開發的教學案例，展示如何快速開發出 Chrome 瀏覽器外掛，讓使用者透過口語化指令（如「抓取台積電今年五月資料」）來驅動複雜的政府網站資料採集。
-* **技術對比與特點**：
-  * **人機協作與防禦（HITL）**：將口語任務轉化為「可確認、可修正、可輸出」的視覺化人機協作（Human-in-the-Loop）工作流，提供資料欄位校對與執行前二次確認，避免 AI 自主運行的失控風險。
-  * **極速 Vibe Coding 實踐**：示範如何在無傳統爬蟲開發背景下，利用大模型快速生成 Chrome 外掛程式碼，打通「網頁 DOM 解析 ➔ 口語語意提取 ➔ ETL 結構化欄位清洗」的完整端到端資料採集管線。
-* **研究報告入口**：
-  * [🌐 開啟口語化政府資料 AI 爬蟲助手](https://falo-taiwan.github.io/skyline-class/class2/demo/ai-parser-demo1/index.html) *(將於新分頁中開啟)*
+### 案例四：雙軌 AI 驅動的公開資料採集助理 (Chrome 外掛)
+* **專案精神**：作為 Vibe Coding 與 AI 輔助開發的教學案例，展示如何快速開發出 Chrome 瀏覽器側邊欄外掛，讓使用者透過口語化指令來驅動複雜的政府網站資料採集。
+* **雙軌 AI 的運用與特點**：
+  * **端雲協同（雲端 Gemini ✕ <span style="color: #4ade80; font-weight: bold;">地端 Chrome built-in AI (Gemini Nano)</span>）**：首創雙軌 AI 架構。日常及高隱私任務可優先調用瀏覽器內置的 **<span style="color: #4ade80; font-weight: bold;">Chrome built-in AI (Gemini Nano)</span>** 進行零延遲、零成本 Graves 級本地語意預處理；面對複雜的多維度查詢時，則無縫調用雲端 Gemini API 進行精確規劃，兼顧隱私與強大推論能力。
+  * **人機協作與安全防禦（HITL ✕ <span style="color: #38bdf8; font-weight: bold;">Computer Use</span>）**：導入 **<span style="color: #38bdf8; font-weight: bold;">Computer Use (電腦使用代理)</span>** 的人機協作思維，將口語任務轉化為「可確認、可修正、可輸出」的視覺化工作流。透過 AI 狀態顏色提示（AI 解析呈淡綠、手動覆寫呈淡金），確保執行前二次確認，避免 AI 自主運行的失控風險。
+  * **極速 Vibe Coding 實踐**：示範在無傳統爬蟲背景下，利用大模型快速生成 Chrome 外掛代碼，打通「網頁 DOM 解析 ➔ 雙軌 AI 語意提取 ➔ ETL 結構化清洗」的完整端到端採集管線。
+* **研究報告與資源下載入口**：
+  * [🌐 開啟雙軌 AI 公開資料採集助理](https://falo-taiwan.github.io/skyline-class/class2/demo/ai-parser-demo1/index.html) *(將於新分頁中開啟)*
+
 
 ### 案例五：影片內容分析之成本與效能對抗
 * **專案精神**：針對多模態影片分析設計的成本與效能對抗指南，深度對比「原生影片直投大模型」與「自適應抽樣故事板拼圖（Storyboard Grid）」兩種架構，協助企業在影片 OCR 與場景理解中極致降低 Token 成本。
