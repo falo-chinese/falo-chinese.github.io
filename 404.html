@@ -294,6 +294,15 @@ Notes:
     async function routeShortlink() {
       const parts = path.split("/").filter(Boolean);
 
+      // Handle redirect for demo/video-to-ppt/ to video-to-ppt-demo/
+      if (parts[0] === "demo" && parts[1] === "video-to-ppt") {
+        const remaining = parts.slice(2).join("/");
+        const target = "/video-to-ppt-demo/" + (remaining ? remaining : "");
+        showState("Redirecting...", "Redirecting to the simulator...", "Target: " + target);
+        redirectToTarget(target);
+        return;
+      }
+
       if (parts[0] !== "go") {
         showState(
           "404 Not Found",

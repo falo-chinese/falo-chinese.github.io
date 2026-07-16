@@ -89,3 +89,14 @@
 * **運行系統與巡檢介面圖**：
   
   ![FALO 工廠設備 HMI 巡檢 AI 模擬器運行介面示意圖](images/chatgpt_image_20260630_223234.png)
+
+
+### 商業型整合專案 H：簡報影格自動分析與擷取系統 ─ 影片投影片高效去重與影像處理強化管線 (Video Slide Extractor)
+* **專案精神**：為解決線上教學、演講或會議錄影繁瑣且低效的複習痛點，本專案提供了一套完全不耗費任何雲端 AI API 費用、純靠本機 OpenCV 電腦視覺演算法驅動的高效簡報擷取系統。系統具備 7 階段圖像變化分析管線（畫面變化偵測、雙階段穩定判定、SSIM 相似度過濾、dHash 漢明距離去重與 Laplacian 清晰度檢測），能在極短時間內將長篇影片降噪提煉為高清晰度的投影片。同時採用「Human-in-the-Loop（人機協同）」的雙向拉桿滑塊（Split Slider）交互機制，讓使用者自主對比銳化、直方圖均衡化與文檔二值化效果，並輸出最終的 PDF/HTML 精美報表。
+* **技術對比與特點**：
+  - **7 階段極速本機 CV 管線**：將影格縮小至低解析度以毫秒級效率處理，計算相鄰影格 MAE 變化，波峰處進行穩定判定與 SSIM 相似度交叉檢索，最終利用 dHash 計算漢明距離，極致過濾重複與轉場模糊畫面。
+  - **OpenCV 影像與文字強化**：內置文字邊緣銳化 (Unsharp Masking)、對比度限制自適應直方圖均衡 (CLAHE)、雙邊濾波去噪 (Bilateral Filter) 與局部自適應閾值二值化 (Adaptive Thresholding) 等四大文檔處理技術，徹底解決文字發糊。
+  - **Chrome Side Panel 協作擴充外掛**：支援以 Chrome Side Panel 規範實作的側邊欄擴充外掛，將 `slides.json` 匯入，在 YouTube 播放器旁開啟側邊欄提供一鍵 Seek 跳轉與高清 Canvas 擷取，提供「輸出圖 + PDF」的自動封裝下載流程。
+* **研究報告與展示入口**：
+  - [🌐 開啟 Video Slide Extractor 網頁模擬展示版](https://falo-taiwan.github.io/demo/video-to-ppt/) *(將於新分頁中開啟)*
+  - [📥 下載學生版程式碼 (video_to_ppt_basic.zip)](video_to_ppt_basic.zip) *(將包含 Python Flask 後台服務與 Chrome 外掛原始碼)*
