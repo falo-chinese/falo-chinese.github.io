@@ -1,14 +1,40 @@
 [
   {
-    "timestamp": "2026-07-01T06:40:00+08:00",
+    "timestamp": "2026-07-16T22:42:36+08:00",
     "action_type": "synced",
-    "description": "在商業型整合專案中，新增專案 H (簡報影格自動分析與擷取系統 - Video Slide Extractor) 介紹、網頁模擬展示版與學生版原始碼 ZIP 包下載連結，並同步更新 HTML 與 Markdown。",
+    "description": "將遺失的學生實戰資源包 tw_ai_grant_student_resource_pack_20260625_232807.zip 同步至 falo-chinese 與 falo-taiwan 網頁。",
     "operator": "AI (Antigravity)",
     "files_affected": [
-      "class/a01/class4/topic8_commercial_projects.md",
-      "class/a01/class4/topic8_commercial_projects.html",
-      "class/a01/class4/video_to_ppt_basic.zip",
-      "demo/video-to-ppt/",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic7_real_cases.md",
+      "force-taiwan/class/a01/class4/topic7_real_cases.html",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.md",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.html",
+      "class/a01/class4/backup/20260716_224236_class04_project.zip",
+      "class/a01/class4/backup/20260716_224236_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
+    "timestamp": "2026-07-16T22:40:31+08:00",
+    "action_type": "synced",
+    "description": "將遺失的學生實戰資源包 tw_ai_grant_student_resource_pack_20260625_232807.zip 同步至 falo-chinese 與 falo-taiwan 網頁。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic7_real_cases.md",
+      "force-taiwan/class/a01/class4/topic7_real_cases.html",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.md",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.html",
+      "class/a01/class4/backup/20260716_224031_class04_project.zip",
+      "class/a01/class4/backup/20260716_224031_class04_fully_offline_version_backup.zip",
       "logs.md",
       "logs.json"
     ]

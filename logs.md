@@ -8,7 +8,8 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
-| 2026-07-01 06:40:00 | 本機與線上同步 | 在商業型整合專案中，新增專案 H (簡報影格自動分析與擷取系統 - Video Slide Extractor) 介紹、網頁模擬展示版與學生版原始碼 ZIP 包下載連結，並同步更新 HTML 與 Markdown。 | AI (Antigravity) | `topic8_commercial_projects.md` (及 html), `logs.md`, `logs.json` |
+| 2026-07-16 22:42:00 | 本機與線上同步 | 將遺失的學生實戰資源包 tw_ai_grant_student_resource_pack_20260625_232807.zip 同步至 falo-chinese 與 falo-taiwan 網頁。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
+| 2026-07-16 22:40:00 | 本機與線上同步 | 將遺失的學生實戰資源包 tw_ai_grant_student_resource_pack_20260625_232807.zip 同步至 falo-chinese 與 falo-taiwan 網頁。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 22:37:00 | 本機與線上同步 | 在商業型整合專案中，新增專案 G (FALO 工廠設備 HMI 巡檢 AI 模擬器) 介紹、運行介面圖與參考連結，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 22:15:00 | 本機與線上同步 | 在商業型整合專案中，為專案 E 補上雙軌翻譯與智能摘要服務門戶的參考網頁連結，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-06-30 22:03:00 | 本機與線上同步 | 在商業型整合專案中，為專案 E 補上雙軌翻譯與智能摘要服務門戶的參考網頁連結，重新編譯打包並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
