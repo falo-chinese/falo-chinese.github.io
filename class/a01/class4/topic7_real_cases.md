@@ -7,8 +7,9 @@
 * **技術對比與特點**：
   * **OCR 題目抓取與自動判斷**：展示如何透過 OCR 自動擷取螢幕畫面或字卡題目與選項，送入多模態 LLM（如 Gemini Flash）進行語意分析、邏輯推理與自動作答。
   * **答題與效能檢測管線**：打通「截圖 ➔ OCR 辨識 ➔ 答題 ➔ 推論效能與成本對帳」之自動化端到端 ETL 工作流，並精確檢測大批刷題時的 API 延遲與答題精準度。
-* **研究報告入口**：
+* **研究報告與資源下載入口**：
   * [🌐 開啟 IPAS AIAP 模擬考練習字卡](https://falo-taiwan.github.io/ipas-aiap/practice-swiper.html) *(將於新分頁中開啟)*
+  * [📥 下載 IPAS AIAP 實戰學習資源包 (ipas_aiap_learning_kit.zip)](backup/ipas_aiap_learning_kit.zip) *(內含實戰模擬考刷題字卡主程式與題庫資源)*
 
 ### 案例二：FALO Prompt Manager ─ 企業級提示詞資產管理平台
 * **專案精神**：針對企業與 AI 教育訓練設計的本機優先 PWA 提示詞資產管理平台，整合變數動態替換、多模型裝盤教學（Model-Dish）與工作流 Prompt 卡片，解決企業內部提示詞資產混亂、難以複用與培訓銜接的痛點。
