@@ -1,5 +1,25 @@
 [
   {
+    "timestamp": "2026-07-16T23:39:25+08:00",
+    "action_type": "synced",
+    "description": "在案例二（FALO Prompt Manager）下方新增實戰學習資源包 falo_prompt_manager_learning_pack.zip 下載連結，重新編譯並推播。",
+    "operator": "AI (Antigravity)",
+    "files_affected": [
+      "force-taiwan/class/a01/class4/topic3_etl_cases.md",
+      "force-taiwan/class/a01/class4/topic3_etl_cases.html",
+      "force-taiwan/class/a01/class4/topic4_km_rag.md",
+      "force-taiwan/class/a01/class4/topic4_km_rag.html",
+      "force-taiwan/class/a01/class4/topic7_real_cases.md",
+      "force-taiwan/class/a01/class4/topic7_real_cases.html",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.md",
+      "force-taiwan/class/a01/class4/topic8_commercial_projects.html",
+      "class/a01/class4/backup/20260716_233925_class04_project.zip",
+      "class/a01/class4/backup/20260716_233925_class04_fully_offline_version_backup.zip",
+      "logs.md",
+      "logs.json"
+    ]
+  },
+  {
     "timestamp": "2026-07-16T23:18:10+08:00",
     "action_type": "synced",
     "description": "在案例一（IPAS AIAP 模擬考練習字卡）下方新增實戰學習資源包 ipas_aiap_learning_kit.zip 下載連結，重新編譯並推播。",

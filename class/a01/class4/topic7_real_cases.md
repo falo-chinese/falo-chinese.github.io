@@ -16,8 +16,9 @@
 * **技術對比與特點**：
   * **動態變數與工作流卡片**：支援雙欄「編輯對照工作台」與即時變數渲染預覽，能將複雜的 AI 任務拆解為時間序列的「工作流 Prompt 卡片（Workflow Strip）」，指導同仁依序執行；支援離線 PWA、語音輸入與高精度 OCR 輔助輸入。
   * **多主題教學與 JSON Connect**：專門針對大型課堂設計「教學大字體主題」與「模型裝盤」示範，支援拖拽式 CSV/JSON 模板批量導入與導出，實現跨團隊提示詞資產無縫同步與 JSON 結構化對接。
-* **研究報告入口**：
+* **研究報告與資源下載入口**：
   * [🌐 開啟 FALO Prompt Manager 企業級提示詞資產管理平台](https://falo-taiwan.github.io/prompt-demo/) *(將於新分頁中開啟)*
+  * [📥 下載 FALO Prompt Manager 實戰學習資源包 (falo_prompt_manager_learning_pack.zip)](backup/falo_prompt_manager_learning_pack.zip) *(內含提示詞管理工作台主程式與教學範本)*
 
 ### 案例三：FALO OCR Workbench ─ 智慧開源 OCR 工作台
 * **專案精神**：針對企業與開發者設計的 PWA 智慧開源 OCR 工作台，整合雲端雙模型與瀏覽器原生 AI，打通「圖片上傳 ➔ 智慧 Prompt 模板 ➔ 雙軌比對 ➔ 實時 Token 對帳」的極致資料清洗與轉化 ETL 端到端實踐。

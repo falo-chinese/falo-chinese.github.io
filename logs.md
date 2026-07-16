@@ -8,6 +8,7 @@
 
 | 時間戳記 | 操作類別 | 描述 | 操作者 | 影響檔案 |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-07-16 23:39:00 | 本機與線上同步 | 在案例二（FALO Prompt Manager）下方新增實戰學習資源包 falo_prompt_manager_learning_pack.zip 下載連結，重新編譯並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-07-16 23:18:00 | 本機與線上同步 | 在案例一（IPAS AIAP 模擬考練習字卡）下方新增實戰學習資源包 ipas_aiap_learning_kit.zip 下載連結，重新編譯並推播。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-07-16 22:42:00 | 本機與線上同步 | 將遺失的學生實戰資源包 tw_ai_grant_student_resource_pack_20260625_232807.zip 同步至 falo-chinese 與 falo-taiwan 網頁。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
 | 2026-07-16 22:40:00 | 本機與線上同步 | 將遺失的學生實戰資源包 tw_ai_grant_student_resource_pack_20260625_232807.zip 同步至 falo-chinese 與 falo-taiwan 網頁。 | AI (Antigravity) | `index.md` (及 html), `logs.md`, `logs.json` |
