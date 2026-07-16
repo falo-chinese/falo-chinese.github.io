@@ -23,6 +23,7 @@
             --accent-indigo: #6366f1;
             --accent-purple: #8b5cf6;
             --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
             --font-family: 'Outfit', 'Noto Sans TC', sans-serif;
         }
 
@@ -48,10 +49,10 @@
             color: var(--text-primary);
             font-family: var(--font-family);
             line-height: 1.7;
-            padding-top: 80px; /* Spacer for fixed header */
+            padding-top: 80px;
         }
 
-        /* Fixed Navigation Bar (RWD & Mobile Friendly) */
+        /* Fixed Navigation Bar */
         .navbar {
             position: fixed;
             top: 0;
@@ -87,11 +88,11 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Desktop Menu (Hidden on mobile) */
+        /* Desktop Menu */
         .navbar-menu {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2.2rem;
             align-items: center;
         }
 
@@ -154,7 +155,7 @@
             border-color: #fff;
         }
 
-        /* Mobile Menu Toggle Button */
+        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             font-size: 1.75rem;
@@ -169,7 +170,7 @@
             justify-content: center;
         }
 
-        /* Mobile Overlay Menu */
+        /* Mobile Drawer Overlay */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -196,13 +197,13 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.75rem;
         }
 
         .mobile-menu-item a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 500;
             letter-spacing: 1px;
             display: block;
@@ -221,7 +222,6 @@
             padding: 0.75rem 0;
         }
 
-        /* Dim Background Overlay when Mobile menu active */
         .backdrop-dim {
             position: fixed;
             top: 0;
@@ -249,7 +249,7 @@
             justify-content: center;
         }
 
-        /* 5 Distinct Sections with CSS Fade-in Switch */
+        /* Distinct Sections with CSS Fade-in Switch */
         .page-section {
             display: none;
             opacity: 0;
@@ -375,7 +375,7 @@
             letter-spacing: 1px;
         }
 
-        /* Section 1: Architecture Diagram */
+        /* Section 2: Architecture Diagram */
         .diagram-wrapper {
             background: rgba(10, 15, 30, 0.2);
             border: 1px solid var(--card-border);
@@ -386,7 +386,6 @@
                 0 25px 50px -12px rgba(0, 0, 0, 0.5),
                 0 0 40px rgba(99, 102, 241, 0.03);
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .diagram-wrapper:hover {
@@ -426,7 +425,7 @@
             font-size: 0.98rem;
         }
 
-        /* Section 2: Scenarios Grid (Responsive) */
+        /* Section 3: Scenarios Grid */
         .scenario-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -491,7 +490,7 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        /* Section 3: Cases Grid (Responsive) */
+        /* Section 4: Cases Grid */
         .cases-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -531,7 +530,255 @@
             letter-spacing: 0.5px;
         }
 
-        /* Section 4: Contact */
+        /* Section 5: PoC List (9 Cards) */
+        .poc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .poc-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .poc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-indigo));
+        }
+
+        .poc-num {
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .poc-title-container h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        .poc-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .poc-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Component Bundling Section Style */
+        .poc-strategy-box {
+            margin-top: 3.5rem;
+            background: rgba(99, 102, 241, 0.03);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: inset 0 0 30px rgba(99, 102, 241, 0.02);
+            text-align: left;
+        }
+
+        .strategy-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+
+        .strategy-header i {
+            font-size: 2rem;
+            color: var(--accent-purple);
+        }
+
+        .strategy-header h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .strategy-header span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .bundle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .bundle-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .bundle-column h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bundle-item {
+            background: rgba(10, 15, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .bundle-item:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            background: rgba(10, 15, 30, 0.6);
+        }
+
+        .bundle-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .bundle-title span {
+            font-size: 0.72rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .badge-finance { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+        .badge-operation { background: rgba(234, 179, 8, 0.15); color: #fef08a; }
+        .badge-hr { background: rgba(139, 92, 246, 0.15); color: #c084fc; }
+        .badge-security { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; }
+        .badge-safety { background: rgba(244, 63, 94, 0.15); color: #fda4af; }
+
+        .bundle-flow {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            background: rgba(2, 4, 8, 0.4);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            width: fit-content;
+        }
+
+        .bundle-flow i {
+            color: var(--text-muted);
+        }
+
+        .bundle-flow small {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-left: 0.1rem;
+        }
+
+        .bundle-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Section 6: Explorer Links */
+        .explorer-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .explorer-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .explorer-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .explorer-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-explorer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 9999px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-explorer-v102 {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
+        }
+
+        .btn-explorer-v102:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-explorer-v101 {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+        }
+
+        .btn-explorer-v101:hover {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Section 7: Contact */
         .contact-container {
             text-align: center;
             padding: 1rem 0;
@@ -544,7 +791,7 @@
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
             color: #fff;
             text-decoration: none;
-            padding: 0.9rem 2.2rem; /* Enhanced tap target */
+            padding: 0.9rem 2.2rem;
             border-radius: 9999px;
             font-weight: 600;
             font-size: 1rem;
@@ -583,7 +830,7 @@
             letter-spacing: 4px;
         }
 
-        /* Footer (Relative on mobile, fixed bottom on desktop) */
+        /* Footer */
         .footer {
             width: 100%;
             background: rgba(2, 4, 8, 0.6);
@@ -614,7 +861,7 @@
             color: var(--text-secondary);
         }
 
-        /* Responsive styling & Mobile-First Media Queries */
+        /* Responsive styling */
         @media (min-width: 993px) {
             .footer {
                 position: fixed;
@@ -622,7 +869,7 @@
                 left: 0;
             }
             body {
-                padding-bottom: 80px; /* Spacer for fixed bottom footer */
+                padding-bottom: 80px;
             }
         }
 
@@ -647,10 +894,10 @@
                 padding-top: 70px;
             }
             .navbar-menu {
-                display: none; /* Hide desktop nav items */
+                display: none;
             }
             .menu-toggle {
-                display: flex; /* Show mobile menu button */
+                display: flex;
             }
             .hero h1 {
                 font-size: 2.1rem;
@@ -675,11 +922,9 @@
                 font-size: 0.9rem;
                 line-height: 1.6;
             }
-            
-            /* Section mobile adjustments */
             .page-section {
                 padding: 2.5rem 0;
-                overflow-y: auto; /* Allow scroll if content is taller than viewport */
+                overflow-y: auto;
             }
             .section-header {
                 margin-bottom: 2rem;
@@ -690,8 +935,6 @@
             .section-header .zh-subtitle {
                 font-size: 0.88rem;
             }
-            
-            /* Mobile scrollable diagram to view large image easily */
             .diagram-wrapper {
                 padding: 0.75rem;
                 border-radius: 16px;
@@ -699,19 +942,16 @@
                 -webkit-overflow-scrolling: touch;
             }
             .diagram-wrapper img {
-                min-width: 550px; /* Force image size for legible text on scroll */
+                min-width: 550px;
                 border-radius: 8px;
             }
-            
-            /* Single column layouts on mobile */
-            .scenario-grid {
+            .scenario-grid, .poc-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            .scenario-card {
+            .scenario-card, .poc-card {
                 padding: 1.25rem 1.5rem;
             }
-            
             .cases-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -719,12 +959,19 @@
             .case-card {
                 padding: 1.5rem;
             }
-            
             .slogan-en {
                 font-size: 1.05rem;
             }
             .slogan-zh {
                 font-size: 0.8rem;
+            }
+            .bundle-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .poc-strategy-box {
+                padding: 1.25rem;
+                margin-top: 2rem;
             }
         }
     </style>
@@ -740,11 +987,13 @@
             <li class="navbar-item" id="nav-architecture"><a href="#architecture" onclick="switchSection(event, 'architecture')">Architecture</a></li>
             <li class="navbar-item" id="nav-scenarios"><a href="#scenarios" onclick="switchSection(event, 'scenarios')">Scenarios</a></li>
             <li class="navbar-item" id="nav-cases"><a href="#cases" onclick="switchSection(event, 'cases')">Cases</a></li>
+            <li class="navbar-item" id="nav-poc"><a href="#poc" onclick="switchSection(event, 'poc')">PoC</a></li>
+            <li class="navbar-item" id="nav-explorer"><a href="#explorer" onclick="switchSection(event, 'explorer')">Explorer</a></li>
             <li class="navbar-item" id="nav-contact"><a href="#contact" onclick="switchSection(event, 'contact')">Contact</a></li>
             <li class="navbar-item btn-docs"><a href="#developer">Docs</a></li>
         </ul>
         
-        <!-- Hamburger Menu Button for Mobile -->
+        <!-- Hamburger Menu Button -->
         <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
             <i class="bi bi-list" id="toggle-icon"></i>
         </button>
@@ -758,6 +1007,8 @@
             <li class="mobile-menu-item" id="mob-nav-architecture"><a href="#architecture" onclick="switchSection(event, 'architecture')">Architecture</a></li>
             <li class="mobile-menu-item" id="mob-nav-scenarios"><a href="#scenarios" onclick="switchSection(event, 'scenarios')">Scenarios</a></li>
             <li class="mobile-menu-item" id="mob-nav-cases"><a href="#cases" onclick="switchSection(event, 'cases')">Cases</a></li>
+            <li class="mobile-menu-item" id="mob-nav-poc"><a href="#poc" onclick="switchSection(event, 'poc')">PoC</a></li>
+            <li class="mobile-menu-item" id="mob-nav-explorer"><a href="#explorer" onclick="switchSection(event, 'explorer')">Explorer</a></li>
             <li class="mobile-menu-item" id="mob-nav-contact"><a href="#contact" onclick="switchSection(event, 'contact')">Contact</a></li>
         </ul>
         <div class="btn-docs"><a href="#developer" onclick="toggleMobileMenu()">Docs</a></div>
@@ -768,7 +1019,7 @@
         <section class="page-section active" id="hero">
             <div class="hero-badge"><i class="bi bi-shield-check"></i> Enterprise AI Platform</div>
             <h1>Enterprise AI Platform for Knowledge, Workflow & Integration.</h1>
-            <div class="hero-zh-title">企業級 AI 平台：聚焦知識、工作流與系統整合。</div>
+            <div class="hero-zh-title">企業級 AI 平台：聚焦知識與工作流。</div>
             
             <div class="hero-slogan">Simple Outside. Powerful Inside.</div>
             <div class="hero-slogan-zh">極簡外在。強大內在。</div>
@@ -886,7 +1137,226 @@
             </div>
         </section>
 
-        <!-- Section ⑤: Contact (聯絡我們) -->
+        <!-- Section ⑤: PoC List & Bundling Strategy -->
+        <section class="page-section" id="poc">
+            <div class="section-header">
+                <h2>PoC Priority List</h2>
+                <div class="zh-subtitle">優先開發清單 / Proof of Concept Focus</div>
+            </div>
+
+            <div class="poc-grid">
+                <div class="poc-card">
+                    <div class="poc-num">POC 01</div>
+                    <div class="poc-title-container">
+                        <h3>LINE Bot</h3>
+                        <span class="poc-subtitle">行動端 AI 入口 / Mobile AI Portal</span>
+                    </div>
+                    <div class="poc-desc">
+                        作為輕 AI 最直覺的「極簡外在」入口。主管與現場員工免下載 App，直接在 LINE 對話框進行語音日報填報、照片拍照上傳與智慧 KM 問答。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 02</div>
+                    <div class="poc-title-container">
+                        <h3>AI 網頁生成</h3>
+                        <span class="poc-subtitle">Quick Scan & Web / Web Page Generator</span>
+                    </div>
+                    <div class="poc-desc">
+                        手機拍照實物，AI 自動辨識並產生高品質行銷文案與網頁套版。系統預設託管於 Cloudflare 公用儲存空間；亦可依客戶安全需求部署至其指定的 GAS (Google 雲端帳號空間)，實現數據主權私有化。確認無誤後一鍵發布，自動產生 2 個 QR Code。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 03</div>
+                    <div class="poc-title-container">
+                        <h3>會計憑證 OCR</h3>
+                        <span class="poc-subtitle">發票與單據識別 / Invoice & Voucher OCR</span>
+                    </div>
+                    <div class="poc-desc">
+                        針對發票、收據、出貨單等財務憑證進行智慧擷取（E 智能擷取），自動提取金額、統編、品名等結構化欄位，以利後續報帳、勾稽與會計核對。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 04</div>
+                    <div class="poc-title-container">
+                        <h3>HR 人員快速建檔</h3>
+                        <span class="poc-subtitle">名片與履歷識別 / HR Card & Resume OCR</span>
+                    </div>
+                    <div class="poc-desc">
+                        針對名片、履歷表等人員檔案進行拍照識別（E 智能擷取），自動解析姓名、電話、聯絡資訊與學經歷，並自動落載（L）至後端人員資料庫中，極速完成建檔。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 05</div>
+                    <div class="poc-title-container">
+                        <h3>語音與提示詞工廠</h3>
+                        <span class="poc-subtitle">口述生成高品質內容 / Voice & Prompt Factory</span>
+                    </div>
+                    <div class="poc-desc">
+                        將口述錄音（E 語音擷取）經由 AI 聽寫，並動態套用預設的「提示詞樣板」進行精準排版與重組，自動生成高質量的專業郵件、報告與宣傳文案。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 06</div>
+                    <div class="poc-title-container">
+                        <h3>AI 共用 Email 服務</h3>
+                        <span class="poc-subtitle">接管公共信箱 / Shared AI Corporate Email</span>
+                    </div>
+                    <div class="poc-desc">
+                        透過 Cloudflare Email Router 接管公共信箱，員工離職免擔心客戶對話流失。AI 自動結合 KM 進行回信擬稿，並在回信被人工修正發出後，無感反哺更新 KM 知識庫。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 07</div>
+                    <div class="poc-title-container">
+                        <h3>AI 內網橋接器</h3>
+                        <span class="poc-subtitle">Email / HTML-Form Bridge</span>
+                    </div>
+                    <div class="poc-desc">
+                        客戶發送 Email 或提交網頁表單，即可跨網域安全觸發企業內網主機之 AI/KM 服務進行回信與落載。透過出站加密隧道技術，解決傳統內部主機無法直接對外聯動的痛點。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 08</div>
+                    <div class="poc-title-container">
+                        <h3>文件與合約即時審核分類</h3>
+                        <span class="poc-subtitle">合約審核與風險鑑別 / Contract & Doc Audit</span>
+                    </div>
+                    <div class="poc-desc">
+                        針對合約、公文或法務文件進行上傳或即時掃描。AI 自動識別機敏資訊並進行分類歸檔，同時比對企業標準條款，即時篩選出高風險條文並發出預警。
+                    </div>
+                </div>
+                <div class="poc-card">
+                    <div class="poc-num">POC 09</div>
+                    <div class="poc-title-container">
+                        <h3>多模態資產 & SOP 智慧檢索</h3>
+                        <span class="poc-subtitle">照片/語音/文字快速查詢 / Multimodal Asset & SOP Retrieval</span>
+                    </div>
+                    <div class="poc-desc">
+                        手機拍照機器/設備或口述使用者輔助說明，AI 即時聯動內部 ERP 數據，在企業知識庫中跨模態快速檢索出對應的標準作業程序 (SOP)、故障排除步驟與零件庫存狀況，提升現場防錯與維護效率。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component Bundling Strategy Block -->
+            <div class="poc-strategy-box">
+                <div class="strategy-header">
+                    <i class="bi bi-puzzle-fill"></i>
+                    <div>
+                        <h3>Component Bundling Strategy</h3>
+                        <span>「多選幾」能力元件拼裝戰術建議 (AI Component Bundling)</span>
+                    </div>
+                </div>
+                
+                <div class="bundle-grid">
+                    <!-- Mainstream Bundles -->
+                    <div class="bundle-column">
+                        <h4><i class="bi bi-layers-half" style="color: var(--accent-cyan);"></i> 224 大數據對標組合 (Mainstream Bundles)</h4>
+                        
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 A：財務智慧自動化包 <span class="badge-finance">財務部</span></div>
+                            <div class="bundle-flow">
+                                <span>會計憑證 OCR <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>寫入 ERP <small>(L)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>Email 警報 <small>(Workflow)</small></span>
+                            </div>
+                            <p class="bundle-desc">辨識發票與單據，自動登錄 ERP 傳票，若金額不符自動通知廠商。超越市場上純 OCR 的工具硬傷。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 B：外勤現場語音日報包 <span class="badge-operation">現場端</span></div>
+                            <div class="bundle-flow">
+                                <span>LINE Bot <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>提示詞工廠 <small>(T)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>自動派工 <small>(Workflow)</small></span>
+                            </div>
+                            <p class="bundle-desc">外勤或廠區主管對 LINE 說話即可完成日報填寫，AI 解析後自動生成 ERP 工單，省去小螢幕打字的麻煩。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 C：HR 智慧履歷快速建檔包 <span class="badge-hr">人資部</span></div>
+                            <div class="bundle-flow">
+                                <span>HR OCR <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>AI KM 比對 <small>(T)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>系統落載 <small>(L)</small></span>
+                            </div>
+                            <p class="bundle-desc">拍照履歷或名片，自動辨識並比對公司現有職缺適配度，直接落載至 HR 資料庫完成建檔。</p>
+                        </div>
+                    </div>
+
+                    <!-- Mission Critical Bundles -->
+                    <div class="bundle-column">
+                        <h4><i class="bi bi-shield-fill-check" style="color: var(--accent-emerald);"></i> 核心命脈藍海組合 (Non-224 Critical Bundles)</h4>
+                        
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 D：軍規去識別化安全知識庫 <span class="badge-security">安全合規</span></div>
+                            <div class="bundle-flow">
+                                <span>AI KM <small>(T)</small></span>
+                                <i class="bi bi-plus-lg"></i>
+                                <span>資安智慧審計 <small>(Gov)</small></span>
+                                <i class="bi bi-plus-lg"></i>
+                                <span>地端私有隔離</span>
+                            </div>
+                            <p class="bundle-desc">專為金融與高科技設計，AI 檢索時自動對敏感字去識別化遮蔽，支持實體斷網隔離部署，解決公有雲安全硬傷。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 E：智慧工安視訊警報包 <span class="badge-safety">安全防範</span></div>
+                            <div class="bundle-flow">
+                                <span>影像辨識 <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>Agent 決策 <small>(T)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>LINE 警報 <small>(Workflow)</small></span>
+                            </div>
+                            <p class="bundle-desc">監控現場異常行為（如未戴安全帽），AI 智慧判定後自動截圖並用 LINE 警報推送給組長，系統中立案追蹤。</p>
+                        </div>
+
+                        <div class="bundle-item">
+                            <div class="bundle-title">組合 F：Email Router 內網穿透 AI 橋接器 <span class="badge-security">內網安全</span></div>
+                            <div class="bundle-flow">
+                                <span>Email / HTML <small>(E)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>Cloudflare Tunnel <small>(Gov)</small></span>
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span>內網主機 <small>(L)</small></span>
+                            </div>
+                            <p class="bundle-desc">客戶在外部填寫 HTML 表單或發送 Email，透過 Cloudflare Email Router 與安全隧道 (Tunnel) 穿透防護牆，直接調用企業內網主機之 AI/KM 服務。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section ⑥: Explorer (市場討論看板連結) -->
+        <section class="page-section" id="explorer">
+            <div class="section-header">
+                <h2>Market Explorer</h2>
+                <div class="zh-subtitle">市場工具雙軌戰情討論看板 / Tool Analysis Board</div>
+            </div>
+
+            <div class="explorer-card">
+                <div class="explorer-icon"><i class="bi bi-compass"></i></div>
+                <p>
+                    我與夥伴團隊針對市場上 224 個 AI 補助方案，進行了 FALO 六大能力的對標特徵分類。提供「主流通用」與「冷門重要」的雙軌光譜拉桿，以利沙盤推演與產品定位討論。
+                </p>
+                <div class="explorer-actions">
+                    <a href="https://falo-chinese.github.io/falo-web/tianxun_ai_tools_analysis.html" target="_blank" class="btn-explorer btn-explorer-v102">
+                        <i class="bi bi-lightning-charge"></i> 開啟 v1.02 (戰略對策版)
+                    </a>
+                    <a href="https://falo-chinese.github.io/falo-web/tianxun_ai_tools_analysis_v1.01.html" target="_blank" class="btn-explorer btn-explorer-v101">
+                        <i class="bi bi-box"></i> 開啟 v1.01 (純淨分析版)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section ⑦: Contact (聯絡我們) -->
         <section class="page-section" id="contact">
             <div class="contact-container">
                 <a href="mailto:info@falo.ai" class="btn-contact">
@@ -900,7 +1370,7 @@
         </section>
     </div>
 
-    <!-- Fixed Footer for Desktop / Normal for Mobile -->
+    <!-- Fixed Footer -->
     <footer class="footer">
         <p>Falo x Force Cheng 2026/7/1</p>
         <div class="footer-links">
@@ -912,7 +1382,6 @@
 
     <!-- Interactive Navigation Control -->
     <script>
-        // Toggle mobile drawer menu
         function toggleMobileMenu() {
             const drawer = document.getElementById('mobile-menu');
             const backdrop = document.getElementById('menu-backdrop');
@@ -931,12 +1400,9 @@
             }
         }
 
-        // Core Section Switching Logic
         function switchSection(event, sectionId) {
-            // Prevent anchor scroll jump
             event.preventDefault();
             
-            // Auto close mobile drawer if open
             const drawer = document.getElementById('mobile-menu');
             if (drawer.classList.contains('active')) {
                 toggleMobileMenu();
@@ -946,12 +1412,9 @@
             const navItems = document.querySelectorAll('.navbar-item');
             const mobNavItems = document.querySelectorAll('.mobile-menu-item');
             
-            // Deactivate all sections
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            
-            // Deactivate all navbar items
             navItems.forEach(item => {
                 item.classList.remove('active');
             });
@@ -959,13 +1422,11 @@
                 item.classList.remove('active');
             });
             
-            // Activate target section
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
             }
             
-            // Activate corresponding navbar link
             const targetNavItem = document.getElementById('nav-' + sectionId);
             if (targetNavItem) {
                 targetNavItem.classList.add('active');
@@ -975,14 +1436,10 @@
                 targetMobNavItem.classList.add('active');
             }
             
-            // Update browser history hash without jumping
             history.pushState(null, null, '#' + sectionId);
-            
-            // Smoothly scroll window to top in case content is taller
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // Handle browser history back/forward (Popstate)
         window.addEventListener('popstate', function() {
             let hash = window.location.hash.substring(1);
             if (!hash) hash = 'hero';
@@ -1004,11 +1461,9 @@
             if (targetMobNav) targetMobNav.classList.add('active');
         });
         
-        // Handle direct url hash load on page refresh
         window.addEventListener('DOMContentLoaded', (event) => {
             let hash = window.location.hash.substring(1);
-            if (hash && ['hero', 'architecture', 'scenarios', 'cases', 'contact'].includes(hash)) {
-                // Trigger fake event
+            if (hash && ['hero', 'architecture', 'scenarios', 'cases', 'poc', 'explorer', 'contact'].includes(hash)) {
                 switchSection({ preventDefault: () => {} }, hash);
             }
         });
